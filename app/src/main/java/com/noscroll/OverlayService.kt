@@ -24,6 +24,8 @@ class OverlayService : Service() {
         private const val NOTIF_ID = 1
         const val ACTION_STOP = "com.noscroll.STOP_OVERLAY"
         const val ACTION_HIDE = "com.noscroll.HIDE_OVERLAY"
+        const val ACTION_FREEZE = "com.noscroll.FREEZE_OVERLAY"
+        const val ACTION_UNFREEZE = "com.noscroll.UNFREEZE_OVERLAY"
     }
 
     override fun onCreate() {
@@ -37,6 +39,14 @@ class OverlayService : Service() {
         if (intent == null) return START_STICKY // restarted by system after kill — wait for next real command
         if (intent.action == ACTION_HIDE) {
             removeOverlayView()
+            return START_STICKY
+        }
+        if (intent.action == ACTION_FREEZE) {
+            setTouchable(false)
+            return START_STICKY
+        }
+        if (intent.action == ACTION_UNFREEZE) {
+            setTouchable(true)
             return START_STICKY
         }
         if (intent.action == ACTION_STOP) {
@@ -82,6 +92,17 @@ class OverlayService : Service() {
 
         windowManager?.addView(view, params)
         overlayView = view
+    }
+
+    private fun setTouchable(enabled: Boolean) {
+        val view = overlayView ?: return
+        val params = view.layoutParams as? WindowManager.LayoutParams ?: return
+        params.flags = if (enabled) {
+            params.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
+        } else {
+            params.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        }
+        try { windowManager?.updateViewLayout(view, params) } catch (_: Exception) {}
     }
 
     private fun removeOverlayView() {

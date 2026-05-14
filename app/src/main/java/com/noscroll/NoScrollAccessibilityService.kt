@@ -12,12 +12,16 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
     private val handler = Handler(Looper.getMainLooper())
     private var pendingUpdate: Runnable? = null
+    private var pendingConfirm: Runnable? = null
     private var lastRect = Rect()
 
     companion object {
         private const val INSTAGRAM_PKG = "com.instagram.android"
         private const val INSTAGRAM_LITE_PKG = "com.instagram.lite"
         private const val DEBOUNCE_MS = 600L
+        // After a foreign-package event the overlay is frozen (non-touchable) immediately.
+        // We wait this long before checking whether Instagram is still the active window.
+        private const val CONFIRM_MS = 500L
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -25,18 +29,63 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
         val pkg = event.packageName?.toString() ?: return
 
-        // Ignore our own overlay window events and bare system events — these fire
-        // when WindowManager.addView is called and must not trigger stopOverlay.
-        if (pkg == packageName || pkg == "android") return
+        // Bare system events — ignore entirely.
+        if (pkg == "android") return
 
-        if (pkg != INSTAGRAM_PKG && pkg != INSTAGRAM_LITE_PKG) {
-            stopOverlay()
+        // Our package: only stop overlay when an actual Activity comes to foreground.
+        // WindowManager.addView() also fires with our package but className won't end with "Activity".
+        if (pkg == packageName) {
+            if (event.className?.toString()?.endsWith("Activity") == true) {
+                cancelPendingConfirm()
+                pendingUpdate?.let { handler.removeCallbacks(it) }
+                stopOverlay()
+            }
             return
         }
 
-        pendingUpdate?.let { handler.removeCallbacks(it) }
-        pendingUpdate = Runnable { findAndShowOverlay() }
-        handler.postDelayed(pendingUpdate!!, DEBOUNCE_MS)
+        if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
+            // Instagram visible — cancel any freeze/confirm cycle and schedule overlay update.
+            cancelPendingConfirm()
+            pendingUpdate?.let { handler.removeCallbacks(it) }
+            pendingUpdate = Runnable { findAndShowOverlay() }
+            handler.postDelayed(pendingUpdate!!, DEBOUNCE_MS)
+        } else {
+            // Foreign package (WebView, notification shade, in-app browser, other app, etc.).
+            // Freeze immediately so the overlay cannot intercept touches in the foreign app,
+            // then confirm after a delay whether Instagram is still the active window.
+            pendingUpdate?.let { handler.removeCallbacks(it) }
+            cancelPendingConfirm()
+            freezeOverlay()
+            pendingConfirm = Runnable { confirmOrStop() }
+            handler.postDelayed(pendingConfirm!!, CONFIRM_MS)
+        }
+    }
+
+    private fun cancelPendingConfirm() {
+        pendingConfirm?.let { handler.removeCallbacks(it) }
+        pendingConfirm = null
+    }
+
+    private fun freezeOverlay() {
+        startService(Intent(this, OverlayService::class.java).apply {
+            action = OverlayService.ACTION_FREEZE
+        })
+    }
+
+    private fun confirmOrStop() {
+        pendingConfirm = null
+        val root = rootInActiveWindow
+        val activePkg = root?.packageName?.toString()
+        root?.recycle()
+        if (activePkg == INSTAGRAM_PKG || activePkg == INSTAGRAM_LITE_PKG) {
+            // Still in Instagram — unfreeze overlay and refresh its position.
+            startService(Intent(this, OverlayService::class.java).apply {
+                action = OverlayService.ACTION_UNFREEZE
+            })
+            findAndShowOverlay()
+        } else {
+            stopOverlay()
+        }
     }
 
     private fun findAndShowOverlay() {
@@ -67,7 +116,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    // BFS on the accessibility tree; returns node caller must recycle, or null.
     private fun findReelsNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
@@ -85,7 +133,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         return null
     }
 
-    // Fallback: locate the bottom nav bar and pick its center child.
     private fun findBottomNavCenter(root: AccessibilityNodeInfo, outRect: Rect) {
         val screenHeight = resources.displayMetrics.heightPixels
         val screenWidth = resources.displayMetrics.widthPixels
@@ -121,15 +168,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         navBar.recycle()
     }
 
-    private fun hideOverlay() {
-        lastRect.setEmpty()
-        startService(
-            Intent(this, OverlayService::class.java).apply {
-                action = OverlayService.ACTION_HIDE
-            }
-        )
-    }
-
     private fun stopOverlay() {
         lastRect.setEmpty()
         pendingUpdate?.let { handler.removeCallbacks(it) }
@@ -140,10 +178,14 @@ class NoScrollAccessibilityService : AccessibilityService() {
         )
     }
 
-    override fun onInterrupt() = stopOverlay()
+    override fun onInterrupt() {
+        cancelPendingConfirm()
+        stopOverlay()
+    }
 
     override fun onDestroy() {
         super.onDestroy()
+        cancelPendingConfirm()
         stopOverlay()
     }
 }
