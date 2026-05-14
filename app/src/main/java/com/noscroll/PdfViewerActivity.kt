@@ -10,23 +10,38 @@ import android.os.ParcelFileDescriptor
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.button.MaterialButton
+import com.noscroll.data.BookMetadataEntity
+import com.noscroll.metadata.BookMetadataRepository
+import com.noscroll.metadata.EditMetadataDialog
+import com.noscroll.metadata.MetadataLookupPrefs
+import com.noscroll.quote.QuoteCardPreviewActivity
+import kotlinx.coroutines.launch
+import java.io.File
 
 class PdfViewerActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var changeFab: FloatingActionButton
     private lateinit var gotoPageFab: FloatingActionButton
+    private lateinit var makeQuoteFab: FloatingActionButton
     private lateinit var pageSeekbar: VerticalSeekBar
+    private lateinit var metadataText: TextView
+    private lateinit var metadataLookupButton: MaterialButton
 
     private var pdfRenderer: PdfRenderer? = null
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
+    private var currentUri: Uri? = null
+    private var currentMetadata: BookMetadataEntity? = null
     private var currentPage = 0
     private var totalPages = 0
 
@@ -41,11 +56,15 @@ class PdfViewerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_viewer)
+        cleanupQuoteCache()
 
         recyclerView  = findViewById(R.id.pdf_recycler)
         changeFab     = findViewById(R.id.change_pdf_fab)
         gotoPageFab   = findViewById(R.id.goto_page_fab)
+        makeQuoteFab  = findViewById(R.id.make_quote_fab)
         pageSeekbar   = findViewById(R.id.page_seekbar)
+        metadataText  = findViewById(R.id.book_metadata_text)
+        metadataLookupButton = findViewById(R.id.metadata_lookup_btn)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         PagerSnapHelper().attachToRecyclerView(recyclerView)
@@ -76,6 +95,17 @@ class PdfViewerActivity : AppCompatActivity() {
 
         changeFab.setOnClickListener { launchLibrary() }
         gotoPageFab.setOnClickListener { showGotoPageDialog() }
+        makeQuoteFab.setOnClickListener { showManualQuoteDialog() }
+        metadataText.setOnLongClickListener {
+            currentUri?.let { uri ->
+                EditMetadataDialog.show(this, uri, currentMetadata) { metadata ->
+                    currentMetadata = metadata
+                    renderMetadata(metadata)
+                }
+            }
+            true
+        }
+        metadataLookupButton.setOnClickListener { confirmOnlineLookup() }
 
         val savedUri = PdfStorage.getSelectedUri(this)
         if (savedUri != null) {
@@ -124,6 +154,9 @@ class PdfViewerActivity : AppCompatActivity() {
     private fun openPdf(uri: Uri, startPage: Int) {
         closeCurrentPdf()
         try {
+            currentUri = uri
+            metadataText.text = "..."
+            metadataLookupButton.visibility = View.GONE
             parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
                 ?: run { handleBadUri(); return }
             pdfRenderer = PdfRenderer(parcelFileDescriptor!!)
@@ -139,9 +172,68 @@ class PdfViewerActivity : AppCompatActivity() {
                 (recyclerView.layoutManager as LinearLayoutManager)
                     .scrollToPositionWithOffset(safePage, 0)
             }
+            loadMetadata(uri)
         } catch (e: Exception) {
             handleBadUri()
         }
+    }
+
+    private fun loadMetadata(uri: Uri, allowOnlineOnce: Boolean = false) {
+        lifecycleScope.launch {
+            val metadata = BookMetadataRepository.resolve(this@PdfViewerActivity, uri, allowOnlineOnce)
+            currentMetadata = metadata
+            renderMetadata(metadata)
+        }
+    }
+
+    private fun renderMetadata(metadata: BookMetadataEntity) {
+        metadataText.text = "${metadata.title} - ${metadata.author}"
+        metadataLookupButton.visibility =
+            if (metadata.source == "manual" && !MetadataLookupPrefs.isOnlineLookupEnabled(this)) View.VISIBLE else View.GONE
+    }
+
+    private fun confirmOnlineLookup() {
+        val uri = currentUri ?: return
+        AlertDialog.Builder(this)
+            .setTitle("Look up book info online?")
+            .setMessage("This runs OCR on the first page and sends a short title-like snippet to Google Books. It is optional.")
+            .setPositiveButton("Allow once") { _, _ ->
+                metadataLookupButton.visibility = View.GONE
+                loadMetadata(uri, allowOnlineOnce = true)
+            }
+            .setNeutralButton("Always allow") { _, _ ->
+                MetadataLookupPrefs.setOnlineLookupEnabled(this, true)
+                metadataLookupButton.visibility = View.GONE
+                loadMetadata(uri)
+            }
+            .setNegativeButton("No thanks") { _, _ ->
+                metadataLookupButton.visibility = View.GONE
+            }
+            .show()
+    }
+
+    private fun showManualQuoteDialog() {
+        val uri = currentUri ?: return
+        val input = EditText(this).apply {
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+            minLines = 4
+            hint = "Quote text"
+        }
+        AlertDialog.Builder(this)
+            .setTitle("Make quote card")
+            .setView(input)
+            .setPositiveButton("Preview") { _, _ ->
+                val quote = input.text.toString().trim()
+                if (quote.isBlank()) return@setPositiveButton
+                startActivity(
+                    Intent(this, QuoteCardPreviewActivity::class.java)
+                        .putExtra(QuoteCardPreviewActivity.EXTRA_QUOTE_TEXT, quote)
+                        .putExtra(QuoteCardPreviewActivity.EXTRA_BOOK_URI, uri.toString())
+                        .putExtra(QuoteCardPreviewActivity.EXTRA_PAGE_NUMBER, currentPage)
+                )
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     private fun handleBadUri() {
@@ -156,8 +248,17 @@ class PdfViewerActivity : AppCompatActivity() {
         pdfRenderer = null
         parcelFileDescriptor?.close()
         parcelFileDescriptor = null
+        currentUri = null
+        currentMetadata = null
         totalPages = 0
         pageSeekbar.visibility = View.INVISIBLE
+    }
+
+    private fun cleanupQuoteCache() {
+        val cutoff = System.currentTimeMillis() - 24L * 60L * 60L * 1000L
+        File(cacheDir, "quote_cards").listFiles()?.forEach { file ->
+            if (file.lastModified() < cutoff) file.delete()
+        }
     }
 
     override fun onPause() {

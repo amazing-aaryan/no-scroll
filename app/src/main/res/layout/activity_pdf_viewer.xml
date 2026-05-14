@@ -11,6 +11,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:id="@+id/metadata_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        android:background="#CC000000"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/book_metadata_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="..."
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/metadata_lookup_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="@string/metadata_lookup"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+    </LinearLayout>
+
     <com.noscroll.VerticalSeekBar
         android:id="@+id/page_seekbar"
         android:layout_width="36dp"
@@ -28,6 +60,17 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_goto_page"
         android:contentDescription="@string/goto_page"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/make_quote_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_check_circle"
+        android:contentDescription="@string/make_quote"
         app:backgroundTint="@color/colorPrimary"
         app:tint="@color/white" />
 

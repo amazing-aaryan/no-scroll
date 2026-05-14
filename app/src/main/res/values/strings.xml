@@ -15,4 +15,12 @@
     <string name="add_pdf">Add PDF</string>
     <string name="delete_pdf">Delete PDF</string>
     <string name="pdf_library">PDF Library</string>
+    <string name="quote_preview">Quote card preview</string>
+    <string name="edit">Edit</string>
+    <string name="share">Share</string>
+    <string name="instagram_stories">Instagram Stories</string>
+    <string name="instagram_feed">Instagram Feed</string>
+    <string name="share_via">Share via...</string>
+    <string name="metadata_lookup">Look up book info online</string>
+    <string name="make_quote">Make quote card</string>
 </resources>

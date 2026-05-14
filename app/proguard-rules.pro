@@ -1,1 +1,2 @@
-# No ProGuard rules needed for debug builds
+-keep class * extends androidx.room.RoomDatabase
+-dontwarn com.shockwave.**

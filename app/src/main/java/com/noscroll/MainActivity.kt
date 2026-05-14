@@ -3,11 +3,13 @@ package com.noscroll
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        cleanupQuoteCache()
         route(intent)
     }
 
@@ -36,6 +38,13 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, PdfLibraryActivity::class.java))
                 }
             }
+        }
+    }
+
+    private fun cleanupQuoteCache() {
+        val cutoff = System.currentTimeMillis() - 24L * 60L * 60L * 1000L
+        File(cacheDir, "quote_cards").listFiles()?.forEach { file ->
+            if (file.lastModified() < cutoff) file.delete()
         }
     }
 }
