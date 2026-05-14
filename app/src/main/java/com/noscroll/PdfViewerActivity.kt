@@ -143,10 +143,14 @@ class PdfViewerActivity : AppCompatActivity() {
             val screenWidth = resources.displayMetrics.widthPixels
             recyclerView.adapter = PdfPageAdapter(pdfRenderer!!, screenWidth)
             val safePage = startPage.coerceIn(0, totalPages - 1)
-            recyclerView.scrollToPosition(safePage)
             pageSeekbar.max = (totalPages - 1).coerceAtLeast(1)
             pageSeekbar.progress = safePage
             pageSeekbar.visibility = View.VISIBLE
+            // Defer scroll until RecyclerView has finished layout, otherwise it silently no-ops.
+            recyclerView.post {
+                (recyclerView.layoutManager as LinearLayoutManager)
+                    .scrollToPositionWithOffset(safePage, 0)
+            }
         } catch (e: Exception) {
             handleBadUri()
         }
@@ -166,6 +170,11 @@ class PdfViewerActivity : AppCompatActivity() {
         parcelFileDescriptor = null
         totalPages = 0
         pageSeekbar.visibility = View.INVISIBLE
+    }
+
+    override fun onPause() {
+        super.onPause()
+        PdfStorage.savePage(this, currentPage)
     }
 
     override fun onDestroy() {
