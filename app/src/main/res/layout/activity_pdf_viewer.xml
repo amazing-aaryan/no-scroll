@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <SeekBar
+    <com.noscroll.VerticalSeekBar
         android:id="@+id/page_seekbar"
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:rotation="270"
-        android:alpha="0.6"
+        android:layout_width="36dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="96dp"
         android:visibility="invisible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

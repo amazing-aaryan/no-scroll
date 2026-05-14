@@ -10,7 +10,6 @@ import android.os.ParcelFileDescriptor
 import android.text.InputType
 import android.view.View
 import android.widget.EditText
-import android.widget.SeekBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -24,13 +23,12 @@ class PdfViewerActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var changeFab: FloatingActionButton
     private lateinit var gotoPageFab: FloatingActionButton
-    private lateinit var pageSeekbar: SeekBar
+    private lateinit var pageSeekbar: VerticalSeekBar
 
     private var pdfRenderer: PdfRenderer? = null
     private var parcelFileDescriptor: ParcelFileDescriptor? = null
     private var currentPage = 0
     private var totalPages = 0
-    private var seekbarTracking = false
 
     private val pickPdf = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri ?: return@registerForActivityResult
@@ -44,37 +42,33 @@ class PdfViewerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_viewer)
 
-        recyclerView = findViewById(R.id.pdf_recycler)
-        changeFab = findViewById(R.id.change_pdf_fab)
-        gotoPageFab = findViewById(R.id.goto_page_fab)
-        pageSeekbar = findViewById(R.id.page_seekbar)
+        recyclerView  = findViewById(R.id.pdf_recycler)
+        changeFab     = findViewById(R.id.change_pdf_fab)
+        gotoPageFab   = findViewById(R.id.goto_page_fab)
+        pageSeekbar   = findViewById(R.id.page_seekbar)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         PagerSnapHelper().attachToRecyclerView(recyclerView)
 
-        // Translate seekbar to right edge after layout (rotation 270° makes width→height, height→width)
-        pageSeekbar.post {
-            val screenWidth = resources.displayMetrics.widthPixels
-            pageSeekbar.translationX = screenWidth / 2f - pageSeekbar.height / 2f
-        }
-
-        pageSeekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                if (fromUser) recyclerView.scrollToPosition(progress)
+        pageSeekbar.onProgressChanged = { progress, fromUser ->
+            if (fromUser) {
+                recyclerView.scrollToPosition(progress)
+                currentPage = progress
             }
-            override fun onStartTrackingTouch(seekBar: SeekBar) { seekbarTracking = true }
-            override fun onStopTrackingTouch(seekBar: SeekBar) { seekbarTracking = false }
-        })
+        }
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(rv: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    val lm = rv.layoutManager as LinearLayoutManager
+                    val lm   = rv.layoutManager as LinearLayoutManager
                     val page = lm.findFirstCompletelyVisibleItemPosition()
                     if (page >= 0) {
                         currentPage = page
                         PdfStorage.savePage(this@PdfViewerActivity, page)
-                        if (!seekbarTracking) pageSeekbar.progress = page
+                        if (!pageSeekbar.isDragging) {
+                            pageSeekbar.progress = page
+                            pageSeekbar.showAndFade()
+                        }
                     }
                 }
             }
@@ -101,10 +95,12 @@ class PdfViewerActivity : AppCompatActivity() {
             .setTitle("Go to page")
             .setView(input)
             .setPositiveButton("Go") { _, _ ->
-                val entered = input.text.toString().toIntOrNull() ?: return@setPositiveButton
+                val entered  = input.text.toString().toIntOrNull() ?: return@setPositiveButton
                 val safePage = (entered - 1).coerceIn(0, totalPages - 1)
-                recyclerView.scrollToPosition(safePage)
+                (recyclerView.layoutManager as LinearLayoutManager)
+                    .scrollToPositionWithOffset(safePage, 0)
                 pageSeekbar.progress = safePage
+                pageSeekbar.showAndFade()
                 currentPage = safePage
                 PdfStorage.savePage(this, safePage)
             }
@@ -125,28 +121,20 @@ class PdfViewerActivity : AppCompatActivity() {
         startActivity(Intent(this, PdfLibraryActivity::class.java))
     }
 
-    private fun launchPicker() {
-        try {
-            pickPdf.launch(arrayOf("application/pdf"))
-        } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this, "No file manager found", Toast.LENGTH_SHORT).show()
-        }
-    }
-
     private fun openPdf(uri: Uri, startPage: Int) {
         closeCurrentPdf()
         try {
             parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
                 ?: run { handleBadUri(); return }
             pdfRenderer = PdfRenderer(parcelFileDescriptor!!)
-            totalPages = pdfRenderer!!.pageCount
+            totalPages  = pdfRenderer!!.pageCount
             val screenWidth = resources.displayMetrics.widthPixels
             recyclerView.adapter = PdfPageAdapter(pdfRenderer!!, screenWidth)
             val safePage = startPage.coerceIn(0, totalPages - 1)
-            pageSeekbar.max = (totalPages - 1).coerceAtLeast(1)
+            pageSeekbar.max      = (totalPages - 1).coerceAtLeast(1)
             pageSeekbar.progress = safePage
             pageSeekbar.visibility = View.VISIBLE
-            // Defer scroll until RecyclerView has finished layout, otherwise it silently no-ops.
+            pageSeekbar.showAndFade()
             recyclerView.post {
                 (recyclerView.layoutManager as LinearLayoutManager)
                     .scrollToPositionWithOffset(safePage, 0)
