@@ -22,7 +22,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val CONFIRM_MS = 500L
         // Content-change events fire very frequently inside Instagram (scroll, animation, etc.).
         // Debounce heavily so we only re-evaluate the nav bar a short time after things settle.
-        private const val CONTENT_DEBOUNCE_MS = 800L
+        private const val CONTENT_DEBOUNCE_MS = 100L
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
