@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NoScroll</string>
+    <string name="setup_title">Setup NoScroll</string>
+    <string name="accessibility_description">NoScroll watches for Instagram to show a book icon over the Reels tab button.</string>
+    <string name="overlay_step_title">Step 1: Display Over Other Apps</string>
+    <string name="overlay_step_desc">Lets NoScroll draw the book icon on top of Instagram.</string>
+    <string name="overlay_btn">Grant Permission</string>
+    <string name="accessibility_step_title">Step 2: Accessibility Service</string>
+    <string name="accessibility_step_desc">Lets NoScroll detect when Instagram is open and find the Reels button.</string>
+    <string name="accessibility_btn">Enable Service</string>
+    <string name="done_btn">Done</string>
+    <string name="change_pdf">Change PDF</string>
+    <string name="goto_page">Go to page</string>
+    <string name="add_pdf">Add PDF</string>
+    <string name="delete_pdf">Delete PDF</string>
+    <string name="pdf_library">PDF Library</string>
+</resources>

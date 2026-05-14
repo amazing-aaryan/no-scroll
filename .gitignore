@@ -1,0 +1,29 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+.gradle/
+build/
+app/build/
+
+# Gradle files
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Log files
+*.log
