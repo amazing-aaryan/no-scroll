@@ -3,6 +3,7 @@ package com.noscroll
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.view.LayoutInflater
+import java.util.Locale
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,15 @@ class PdfLibraryAdapter(
     companion object {
         private const val TYPE_BOOK = 0
         private const val TYPE_ADD = 1
+
+        fun prettifyName(raw: String): String = raw
+            .removeSuffix(".pdf")
+            .removeSuffix(".PDF")
+            .replace(Regex("[_\\-]+"), " ")
+            .trim()
+            .split(" ")
+            .filter { it.isNotEmpty() }
+            .joinToString(" ") { word -> word.replaceFirstChar { it.uppercaseChar() } }
     }
 
     fun submitList(newItems: List<PdfEntry>, selected: String?) {
@@ -71,15 +81,11 @@ class PdfLibraryAdapter(
 
         fun bind(entry: PdfEntry) {
             val isSelected = entry.uri == selectedUri
-            binding.pdfTitle.text = entry.displayName
+            binding.pdfTitle.text = prettifyName(entry.displayName)
             binding.checkmark.visibility = if (isSelected) View.VISIBLE else View.GONE
             binding.root.strokeColor =
                 if (isSelected) binding.root.context.getColor(R.color.colorAccent)
                 else Color.TRANSPARENT
-            binding.root.setCardBackgroundColor(
-                if (isSelected) binding.root.context.getColor(R.color.colorPrimary)
-                else binding.root.context.getColor(R.color.card_bg)
-            )
             binding.root.setOnClickListener { onSelect(entry) }
             binding.deleteBtn.setOnClickListener { onDelete(entry) }
 

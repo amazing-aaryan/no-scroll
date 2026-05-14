@@ -83,7 +83,7 @@ class PdfLibraryActivity : AppCompatActivity() {
     }
 
     private fun resolveDisplayName(uri: Uri): String {
-        return try {
+        val raw = try {
             contentResolver.query(uri, null, null, null, null)?.use { cursor ->
                 val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
                 cursor.moveToFirst()
@@ -92,5 +92,6 @@ class PdfLibraryActivity : AppCompatActivity() {
         } catch (e: Exception) {
             "Unknown PDF"
         }
+        return PdfLibraryAdapter.prettifyName(raw)
     }
 }

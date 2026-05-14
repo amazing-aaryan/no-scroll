@@ -8,6 +8,7 @@
     android:layout_marginVertical="8dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/card_bg"
     app:strokeWidth="3dp"
     app:strokeColor="@android:color/transparent">
 
@@ -47,13 +48,12 @@
         <!-- Selected checkmark top-right -->
         <ImageView
             android:id="@+id/checkmark"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_margin="8dp"
-            android:src="@android:drawable/checkbox_on_background"
-            android:tint="@color/colorAccent"
+            android:src="@drawable/ic_check_circle"
             android:visibility="gone"
             android:contentDescription="@null" />
 
