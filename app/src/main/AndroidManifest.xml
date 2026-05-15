@@ -34,7 +34,8 @@
             android:exported="false"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoScroll.PdfViewer" />
 
         <activity
             android:name=".PdfLibraryActivity"
@@ -45,7 +46,8 @@
         <activity
             android:name=".quote.QuoteCardPreviewActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoScroll.PdfViewer" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

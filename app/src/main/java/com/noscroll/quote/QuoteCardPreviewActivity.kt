@@ -1,6 +1,6 @@
 package com.noscroll.quote
 
-import android.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -124,7 +124,7 @@ class QuoteCardPreviewActivity : AppCompatActivity() {
             addView(titleInput)
             addView(pageInput)
         }
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle("Edit quote card")
             .setView(container)
             .setPositiveButton("Apply") { _, _ ->

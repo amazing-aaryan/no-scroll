@@ -1,10 +1,10 @@
 package com.noscroll.metadata
 
-import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import android.widget.EditText
 import android.widget.LinearLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.noscroll.data.BookMetadataEntity
 import kotlinx.coroutines.launch
 
@@ -33,7 +33,7 @@ object EditMetadataDialog {
             addView(authorInput)
         }
 
-        AlertDialog.Builder(context)
+        MaterialAlertDialogBuilder(context)
             .setTitle("Edit book info")
             .setView(container)
             .setPositiveButton("Save") { _, _ ->
