@@ -413,10 +413,25 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
                 .setTitle("Highlights")
                 .setItems(labels) { _, which ->
                     val highlight = highlights[which]
-                    currentPage = highlight.pageIndex
-                    pdfFragment.scrollToPage(highlight.pageIndex)
-                    PdfStorage.savePage(this@PdfViewerActivity, highlight.pageIndex)
-                    showHighlightActions(highlight)
+                    MaterialAlertDialogBuilder(this@PdfViewerActivity)
+                        .setItems(arrayOf("Go to page", "Share quote", "Delete")) { _, action ->
+                            when (action) {
+                                0 -> {
+                                    currentPage = highlight.pageIndex
+                                    pdfFragment.scrollToPage(highlight.pageIndex)
+                                    PdfStorage.savePage(this@PdfViewerActivity, highlight.pageIndex)
+                                }
+                                1 -> openQuotePreview(highlight.quoteText, highlight.pageIndex)
+                                2 -> lifecycleScope.launch {
+                                    withContext(Dispatchers.IO) {
+                                        HighlightRepository.delete(this@PdfViewerActivity, highlight.id)
+                                    }
+                                    reloadHighlights()
+                                    showHighlightsDialog()
+                                }
+                            }
+                        }
+                        .show()
                 }
                 .show()
         }
