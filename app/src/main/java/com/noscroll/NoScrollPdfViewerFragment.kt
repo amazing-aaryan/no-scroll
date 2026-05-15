@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.SparseArray
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import androidx.pdf.ExperimentalPdfApi
 import androidx.pdf.PdfDocument
 import androidx.pdf.PdfRect
@@ -61,6 +62,9 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     override fun onPdfViewCreated(pdfView: PdfView) {
         super.onPdfViewCreated(pdfView)
         currentPdfView = pdfView
+        disableScrollbars(pdfView)
+        pdfView.post { disableScrollbars(pdfView.rootView) }
+        pdfView.postDelayed({ disableScrollbars(pdfView.rootView) }, 400)
         pendingToolboxVisible?.let { visible ->
             try { isToolboxVisible = visible } catch (_: Exception) {}
             pendingToolboxVisible = null
@@ -178,6 +182,17 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
                 (activity as? Host)?.onPdfPointTapped(page, pdfX, pdfY)
                 return
             }
+        }
+    }
+
+    private fun disableScrollbars(view: View?) {
+        view ?: return
+        view.isVerticalScrollBarEnabled = false
+        view.isHorizontalScrollBarEnabled = false
+        view.isScrollbarFadingEnabled = false
+        view.scrollBarSize = 0
+        if (view is ViewGroup) {
+            for (i in 0 until view.childCount) disableScrollbars(view.getChildAt(i))
         }
     }
 

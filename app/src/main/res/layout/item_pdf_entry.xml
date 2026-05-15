@@ -43,6 +43,17 @@
                 android:maxLines="2"
                 android:ellipsize="end" />
 
+            <TextView
+                android:id="@+id/pdf_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#99C9A84C"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:visibility="gone" />
+
         </LinearLayout>
 
         <!-- Selected checkmark top-right -->

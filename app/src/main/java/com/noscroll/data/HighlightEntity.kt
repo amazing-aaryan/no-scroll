@@ -15,6 +15,8 @@ data class HighlightEntity(
     val startCharIndex: Int,
     val endCharIndex: Int,
     val quoteText: String,
+    val selectionBoundsJson: String = "",
     val colorArgb: Int,
-    val createdAtMillis: Long = System.currentTimeMillis()
+    val createdAtMillis: Long = System.currentTimeMillis(),
+    val updatedAtMillis: Long = System.currentTimeMillis()
 )

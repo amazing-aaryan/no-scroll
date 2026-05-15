@@ -2,6 +2,7 @@ package com.noscroll
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,11 @@ object PdfThumbnailCache {
                     ?: return@withContext null
                 val renderer = PdfRenderer(pfd)
                 val page = renderer.openPage(0)
-                val bitmap = Bitmap.createBitmap(page.width, page.height, Bitmap.Config.ARGB_8888)
+                val targetWidth = 360
+                val scale = targetWidth.toFloat() / page.width.toFloat()
+                val targetHeight = (page.height * scale).toInt().coerceAtLeast(1)
+                val bitmap = Bitmap.createBitmap(targetWidth, targetHeight, Bitmap.Config.ARGB_8888)
+                bitmap.eraseColor(Color.WHITE)
                 page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
                 page.close()
                 renderer.close()

@@ -8,7 +8,7 @@ object MetadataLookupPrefs {
 
     fun isOnlineLookupEnabled(context: Context): Boolean =
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            .getBoolean(KEY_ONLINE_LOOKUP, false)
+            .getBoolean(KEY_ONLINE_LOOKUP, true)
 
     fun setOnlineLookupEnabled(context: Context, enabled: Boolean) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

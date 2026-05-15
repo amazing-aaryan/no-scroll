@@ -16,4 +16,7 @@ object HighlightRepository {
 
     suspend fun delete(context: Context, id: Long) =
         AnnotationDatabase.getInstance(context).highlightDao().deleteById(id)
+
+    suspend fun updateColor(context: Context, id: Long, color: Int) =
+        AnnotationDatabase.getInstance(context).highlightDao().updateColor(id, color)
 }

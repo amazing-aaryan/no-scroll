@@ -8,6 +8,7 @@ import android.app.Service
 import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.IBinder
+import android.provider.Settings
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +54,10 @@ class OverlayService : Service() {
             removeOverlayView()
             @Suppress("DEPRECATION")
             stopForeground(true)
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        if (!Settings.canDrawOverlays(this)) {
             stopSelf()
             return START_NOT_STICKY
         }

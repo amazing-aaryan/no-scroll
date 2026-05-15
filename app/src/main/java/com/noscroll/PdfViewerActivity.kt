@@ -12,10 +12,12 @@ import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.text.InputType
 import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -31,6 +33,8 @@ import androidx.pdf.PdfRect
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.noscroll.data.BookMetadataEntity
+import com.noscroll.data.BookmarkEntity
+import com.noscroll.data.AnnotationDatabase
 import com.noscroll.data.HighlightEntity
 import com.noscroll.metadata.BookMetadataRepository
 import com.noscroll.metadata.CoverPageOcr
@@ -41,6 +45,7 @@ import com.noscroll.quote.QuoteCardPreviewActivity
 import com.noscroll.quote.QuoteCardSpec
 import com.noscroll.quote.ShareBottomSheet
 import com.noscroll.repository.AnnotationRepository
+import com.noscroll.repository.BookRepository
 import com.noscroll.repository.HighlightRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -52,7 +57,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private lateinit var changeFab: FloatingActionButton
     private lateinit var gotoPageFab: FloatingActionButton
     private lateinit var makeQuoteFab: FloatingActionButton
-    private lateinit var pageSeekbar: VerticalSeekBar
     private lateinit var metadataBar: View
     private lateinit var metadataText: TextView
     private lateinit var metadataLookupButton: MaterialButton
@@ -60,6 +64,8 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private lateinit var zenExitHandle: FloatingActionButton
     private lateinit var overflowMenuBtn: ImageButton
     private lateinit var readerBottomBar: View
+    private lateinit var progressSilhouette: View
+    private lateinit var progressThumb: View
     private lateinit var blurTopBar: BlurView
     private lateinit var blurBottomBar: BlurView
     private lateinit var blurPill: BlurView
@@ -78,12 +84,12 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pdf_viewer)
+        applyReaderSystemBarContrast()
         cleanupQuoteCache()
 
         changeFab = findViewById(R.id.change_pdf_fab)
         gotoPageFab = findViewById(R.id.goto_page_fab)
         makeQuoteFab = findViewById(R.id.make_quote_fab)
-        pageSeekbar = findViewById(R.id.page_seekbar)
         metadataBar = findViewById(R.id.metadata_bar)
         metadataText = findViewById(R.id.book_metadata_text)
         metadataLookupButton = findViewById(R.id.metadata_lookup_btn)
@@ -91,6 +97,8 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         zenExitHandle = findViewById(R.id.zen_exit_handle)
         overflowMenuBtn = findViewById(R.id.overflow_menu_btn)
         readerBottomBar = findViewById(R.id.reader_bottom_bar)
+        progressSilhouette = findViewById(R.id.reader_progress_silhouette)
+        progressThumb = findViewById(R.id.reader_progress_thumb)
         blurTopBar = findViewById(R.id.blur_top_bar)
         blurBottomBar = findViewById(R.id.blur_bottom_bar)
         blurPill = selectionRail as BlurView
@@ -144,11 +152,14 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     private fun setupControls() {
-        pageSeekbar.onProgressChanged = { progress, fromUser ->
-            if (fromUser) {
-                currentPage = progress
-                pdfFragment.scrollToPage(progress)
-                PdfStorage.savePage(this, progress)
+        progressSilhouette.visibility = View.GONE
+        progressSilhouette.setOnTouchListener { _, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE, MotionEvent.ACTION_UP -> {
+                    seekToProgressPosition(event.y)
+                    true
+                }
+                else -> false
             }
         }
 
@@ -190,13 +201,12 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             currentDocument = null
             currentSelection = null
             selectionRail.visibility = View.GONE
-            metadataText.text = "Identifying book..."
+            metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
             metadataLookupButton.visibility = View.GONE
             pdfFragment.load(uri)
             if (startPage > 0) {
                 pdfFragment.scrollToPage(startPage)
             }
-            loadMetadata(uri, allowOnlineOnce = false)
         } catch (_: Exception) {
             handleBadUri()
         }
@@ -205,12 +215,16 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     override fun onPdfLoaded(document: PdfDocument) {
         currentDocument = document
         totalPages = document.pageCount
-        pageSeekbar.max = (totalPages - 1).coerceAtLeast(1)
-        pageSeekbar.progress = currentPage.coerceIn(0, (totalPages - 1).coerceAtLeast(0))
-        pageSeekbar.visibility = if (zenModeEnabled) View.INVISIBLE else View.VISIBLE
-        pdfFragment.scrollToPage(pageSeekbar.progress)
-        loadMetadata(document.uri, allowOnlineOnce = false)
+        progressSilhouette.visibility = if (zenModeEnabled) View.GONE else View.VISIBLE
+        updateProgressSilhouette()
+        pdfFragment.scrollToPage(currentPage)
+        loadMetadata(document.uri, allowOnlineOnce = true)
         reloadHighlights()
+        currentUri?.let { uri ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), currentPage, totalPages)
+            }
+        }
     }
 
     override fun onPdfLoadError(error: Throwable) {
@@ -220,15 +234,17 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     override fun onPdfViewportChanged(firstVisiblePage: Int) {
         currentPage = firstVisiblePage.coerceAtLeast(0)
         PdfStorage.savePage(this, currentPage)
-        if (!pageSeekbar.isDragging) {
-            pageSeekbar.progress = currentPage.coerceIn(0, pageSeekbar.max)
-            if (!zenModeEnabled) pageSeekbar.showAndFade()
+        currentUri?.let { uri ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), currentPage, totalPages)
+            }
         }
+        updateProgressSilhouette()
     }
 
     override fun onPdfTextSelectionChanged(selection: ReaderSelection?) {
         currentSelection = selection
-        selectionRail.visibility = if (selection == null) View.GONE else View.VISIBLE
+        selectionRail.visibility = if (selection != null) View.VISIBLE else View.GONE
     }
 
     override fun onPdfSelectionAction(action: SelectionAction) {
@@ -333,9 +349,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             minLines = 3
             hint = "Note"
         }
+        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        container.addView(input)
         MaterialAlertDialogBuilder(this)
             .setTitle(quoteText.take(48))
-            .setView(input)
+            .setView(container)
             .setPositiveButton("Save") { _, _ ->
                 lifecycleScope.launch(Dispatchers.IO) {
                     AnnotationRepository.upsert(this@PdfViewerActivity, input.text.toString(), highlightId)
@@ -439,11 +457,12 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun showHighlightActions(highlight: HighlightEntity) {
         MaterialAlertDialogBuilder(this)
-            .setItems(arrayOf("Edit note", "Share quote", "Delete")) { _, which ->
+            .setItems(arrayOf("Change colour", "Edit note", "Share quote", "Delete")) { _, which ->
                 when (which) {
-                    0 -> showAnnotationDialog(highlight.id, highlight.quoteText)
-                    1 -> openQuotePreview(highlight.quoteText, highlight.pageIndex)
-                    2 -> lifecycleScope.launch {
+                    0 -> recolourHighlight(highlight)
+                    1 -> showAnnotationDialog(highlight.id, highlight.quoteText)
+                    2 -> openQuotePreview(highlight.quoteText, highlight.pageIndex)
+                    3 -> lifecycleScope.launch {
                         withContext(Dispatchers.IO) {
                             HighlightRepository.delete(this@PdfViewerActivity, highlight.id)
                         }
@@ -451,6 +470,51 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
                     }
                 }
             }
+            .show()
+    }
+
+    private fun recolourHighlight(highlight: HighlightEntity) {
+        val colors = listOf(
+            0x80FFE566.toInt(),
+            0x8066CC77.toInt(),
+            0x80FF88CC.toInt(),
+            0x804FC3F7.toInt()
+        )
+        val dm = resources.displayMetrics
+        val circleSize = (52 * dm.density).toInt()
+        val margin = (12 * dm.density).toInt()
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER
+            setPadding(margin, margin * 2, margin, margin * 2)
+        }
+        var dialog: AlertDialog? = null
+        colors.forEach { color ->
+            val displayColor = (color and 0x00FFFFFF) or (0xCC shl 24)
+            row.addView(View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(circleSize, circleSize).also {
+                    it.marginStart = margin
+                    it.marginEnd = margin
+                }
+                background = GradientDrawable().apply {
+                    shape = GradientDrawable.OVAL
+                    setColor(displayColor)
+                }
+                setOnClickListener {
+                    dialog?.dismiss()
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
+                            HighlightRepository.updateColor(this@PdfViewerActivity, highlight.id, color)
+                        }
+                        reloadHighlights()
+                    }
+                }
+            })
+        }
+        dialog = MaterialAlertDialogBuilder(this)
+            .setTitle("Change colour")
+            .setView(row)
+            .setNegativeButton("Cancel", null)
             .show()
     }
 
@@ -532,9 +596,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             minLines = 5
             setText(selection.text)
         }
+        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        container.addView(input)
         MaterialAlertDialogBuilder(this)
             .setTitle("OCR page ${selection.pageIndex + 1}")
-            .setView(input)
+            .setView(container)
             .setPositiveButton("Quote") { _, _ ->
                 val text = input.text.toString().trim()
                 if (text.isNotBlank()) openQuotePreview(text, selection.pageIndex)
@@ -602,8 +668,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     private fun renderMetadata(metadata: BookMetadataEntity) {
-        val review = if (metadata.confidence in 0.01f..0.49f) "  Review" else ""
-        metadataText.text = "${metadata.title} - ${metadata.author}$review"
+        metadataText.text = "${metadata.title} — ${metadata.author}"
         metadataLookupButton.visibility =
             if (metadata.source == "manual" && !MetadataLookupPrefs.isOnlineLookupEnabled(this)) View.VISIBLE else View.GONE
     }
@@ -633,15 +698,15 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             inputType = InputType.TYPE_CLASS_NUMBER
             hint = "1 - $totalPages"
         }
+        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        container.addView(input)
         MaterialAlertDialogBuilder(this)
             .setTitle("Go to page")
-            .setView(input)
+            .setView(container)
             .setPositiveButton("Go") { _, _ ->
                 val entered = input.text.toString().toIntOrNull() ?: return@setPositiveButton
                 val safePage = (entered - 1).coerceIn(0, (totalPages - 1).coerceAtLeast(0))
                 currentPage = safePage
-                pageSeekbar.progress = safePage
-                pageSeekbar.showAndFade()
                 pdfFragment.scrollToPage(safePage)
                 PdfStorage.savePage(this, safePage)
             }
@@ -656,9 +721,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             minLines = 4
             hint = "Quote text"
         }
+        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        container.addView(input)
         MaterialAlertDialogBuilder(this)
             .setTitle("Make quote card")
-            .setView(input)
+            .setView(container)
             .setPositiveButton("Preview") { _, _ ->
                 val quote = input.text.toString().trim()
                 if (quote.isBlank()) return@setPositiveButton
@@ -678,28 +745,128 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         if (persist) getPreferences(MODE_PRIVATE).edit().putBoolean(KEY_ZEN_MODE, enabled).apply()
         metadataBar.visibility = if (enabled) View.GONE else View.VISIBLE
         readerBottomBar.visibility = if (enabled) View.GONE else View.VISIBLE
-        pageSeekbar.visibility = if (enabled) View.INVISIBLE else View.VISIBLE
+        progressSilhouette.visibility = if (enabled) View.GONE else View.VISIBLE
         zenExitHandle.visibility = if (enabled) View.VISIBLE else View.GONE
         supportActionBar?.let { if (enabled) it.hide() else it.show() }
         pdfFragment.setZenToolboxVisible(!enabled)
         setSystemBarsHidden(enabled)
     }
 
+    private fun updateProgressSilhouette() {
+        if (totalPages <= 1 || zenModeEnabled) {
+            progressSilhouette.visibility = View.GONE
+            return
+        }
+        progressSilhouette.visibility = View.VISIBLE
+        progressSilhouette.post {
+            val trackHeight = progressSilhouette.height
+            if (trackHeight <= 0) return@post
+            val thumbHeight = ((trackHeight / totalPages.toFloat()) * 3f)
+                .toInt()
+                .coerceIn(dp(36), dp(76))
+            val maxTop = (trackHeight - thumbHeight).coerceAtLeast(0)
+            val ratio = currentPage.toFloat() / (totalPages - 1).coerceAtLeast(1).toFloat()
+            val top = (maxTop * ratio).toInt()
+            val params = progressThumb.layoutParams as FrameLayout.LayoutParams
+            params.height = thumbHeight
+            params.topMargin = top
+            progressThumb.layoutParams = params
+        }
+    }
+
+    private fun seekToProgressPosition(y: Float) {
+        if (totalPages <= 1) return
+        val trackHeight = progressSilhouette.height
+        if (trackHeight <= 0) return
+        val thumbHeight = progressThumb.height.takeIf { it > 0 } ?: dp(56)
+        val maxTop = (trackHeight - thumbHeight).coerceAtLeast(1)
+        val top = (y - thumbHeight / 2f).coerceIn(0f, maxTop.toFloat())
+        val ratio = top / maxTop.toFloat()
+        val page = (ratio * (totalPages - 1)).toInt().coerceIn(0, totalPages - 1)
+        currentPage = page
+        pdfFragment.scrollToPage(page)
+        PdfStorage.savePage(this, page)
+        currentUri?.let { uri ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), page, totalPages)
+            }
+        }
+        updateProgressSilhouette()
+    }
+
+    private fun dp(value: Int): Int =
+        (value * resources.displayMetrics.density).toInt()
+
     private fun showOverflowMenu() {
         val items = arrayOf(
             getString(R.string.highlights),
+            getString(R.string.ocr_page),
             getString(R.string.export_highlights),
+            "Delete page highlight",
+            "Toggle bookmark",
             if (zenModeEnabled) getString(R.string.exit_zen_mode) else getString(R.string.zen_mode)
         )
         MaterialAlertDialogBuilder(this)
             .setItems(items) { _, which ->
                 when (which) {
                     0 -> showHighlightsDialog()
-                    1 -> exportHighlights()
-                    2 -> setZenMode(!zenModeEnabled)
+                    1 -> ocrCurrentPage()
+                    2 -> exportHighlights()
+                    3 -> deleteCurrentPageHighlight()
+                    4 -> toggleBookmark()
+                    5 -> setZenMode(!zenModeEnabled)
                 }
             }
             .show()
+    }
+
+    private fun deleteCurrentPageHighlight() {
+        val uri = currentUri ?: return
+        lifecycleScope.launch {
+            val pageHighlights = withContext(Dispatchers.IO) {
+                HighlightRepository.getForPage(this@PdfViewerActivity, uri.toString(), currentPage)
+            }
+            if (pageHighlights.isEmpty()) {
+                Toast.makeText(this@PdfViewerActivity, "No highlights on this page", Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+            val labels = pageHighlights.map { it.quoteText.take(80) }.toTypedArray()
+            MaterialAlertDialogBuilder(this@PdfViewerActivity)
+                .setTitle("Delete highlight")
+                .setItems(labels) { _, which ->
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
+                            HighlightRepository.delete(this@PdfViewerActivity, pageHighlights[which].id)
+                        }
+                        reloadHighlights()
+                        Toast.makeText(this@PdfViewerActivity, "Highlight deleted", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+    }
+
+    private fun toggleBookmark() {
+        val uri = currentUri ?: return
+        lifecycleScope.launch {
+            val added = withContext(Dispatchers.IO) {
+                val dao = AnnotationDatabase.getInstance(this@PdfViewerActivity).bookmarkDao()
+                val existing = dao.get(uri.toString(), currentPage)
+                if (existing == null) {
+                    dao.insert(BookmarkEntity(bookUri = uri.toString(), pageIndex = currentPage))
+                    true
+                } else {
+                    dao.delete(uri.toString(), currentPage)
+                    false
+                }
+            }
+            Toast.makeText(
+                this@PdfViewerActivity,
+                if (added) "Bookmark saved" else "Bookmark removed",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun setSystemBarsHidden(hidden: Boolean) {
@@ -709,6 +876,25 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
                 WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         } else {
             window.insetsController?.show(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            applyReaderSystemBarContrast()
+        }
+    }
+
+    private fun applyReaderSystemBarContrast() {
+        window.statusBarColor = Color.parseColor("#171615")
+        window.navigationBarColor = Color.parseColor("#171615")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.setSystemBarsAppearance(
+                0,
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS or
+                    WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility =
+                window.decorView.systemUiVisibility and
+                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv() and
+                    View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
         }
     }
 

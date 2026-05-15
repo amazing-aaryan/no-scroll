@@ -27,7 +27,8 @@
         <activity
             android:name=".SetupActivity"
             android:exported="false"
-            android:label="@string/setup_title" />
+            android:label="@string/setup_title"
+            android:theme="@style/Theme.NoScroll.NoActionBar" />
 
         <activity
             android:name=".PdfViewerActivity"
@@ -41,13 +42,21 @@
             android:name=".PdfLibraryActivity"
             android:exported="false"
             android:label="@string/pdf_library"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoScroll.NoActionBar" />
+
+        <activity
+            android:name=".NotebookActivity"
+            android:exported="false"
+            android:label="Notebook"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.NoScroll.NoActionBar" />
 
         <activity
             android:name=".quote.QuoteCardPreviewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.NoScroll.PdfViewer" />
+            android:theme="@style/Theme.NoScroll.NoActionBar" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

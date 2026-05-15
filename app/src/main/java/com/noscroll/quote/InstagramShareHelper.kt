@@ -49,13 +49,33 @@ object InstagramShareHelper {
         }
     }
 
-    fun shareGeneric(activity: Activity, bitmap: Bitmap) {
+    fun shareToDirect(activity: Activity, bitmap: Bitmap) {
+        val uri = saveBitmapToCache(activity, bitmap)
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "image/jpeg"
+            setPackage("com.instagram.android")
+            putExtra(Intent.EXTRA_STREAM, uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        try {
+            activity.startActivity(intent)
+        } catch (_: ActivityNotFoundException) {
+            shareGeneric(activity, bitmap)
+        }
+    }
+
+    fun shareMessages(activity: Activity, bitmap: Bitmap, text: String) {
+        shareGeneric(activity, bitmap, text.ifBlank { null }, "Share with Messages")
+    }
+
+    fun shareGeneric(activity: Activity, bitmap: Bitmap, text: String? = null, title: String = "Share quote") {
         val uri = saveBitmapToCache(activity, bitmap)
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "image/jpeg"
             putExtra(Intent.EXTRA_STREAM, uri)
+            text?.let { putExtra(Intent.EXTRA_TEXT, it) }
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        activity.startActivity(Intent.createChooser(intent, "Share quote"))
+        activity.startActivity(Intent.createChooser(intent, title))
     }
 }

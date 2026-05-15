@@ -20,6 +20,20 @@
         android:text="@string/instagram_feed" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_direct_btn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instagram_direct" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_messages_btn"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/messages" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share_generic_btn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"

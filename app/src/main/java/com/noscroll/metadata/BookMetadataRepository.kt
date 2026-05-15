@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.os.ParcelFileDescriptor
+import android.provider.OpenableColumns
 import androidx.pdf.PdfDocument
 import com.noscroll.data.AnnotationDatabase
 import com.noscroll.data.BookMetadataEntity
@@ -24,13 +25,37 @@ object BookMetadataRepository {
         val rawCached = dao.get(key)
         val onlineAllowed = allowOnlineOnce || MetadataLookupPrefs.isOnlineLookupEnabled(context)
         // Discard cached entries where author/title is an API key or URL (stale bad data).
-        val cached = rawCached?.takeUnless { isLinkLike(it.author) || isLinkLike(it.title) }
+        val cached = rawCached?.takeUnless {
+            isLinkLike(it.author) || isLinkLike(it.title) || isBadMetadataText(it.title)
+        }
 
-        if (cached != null && cached.source != "manual") return@withContext cached
-        if (cached != null && !onlineAllowed) return@withContext cached
+        val cachedNeedsUpgrade = cached != null && (
+            cached.author == "Unknown Author" ||
+                cached.source == "manual" ||
+                cached.source == "cover_ocr" ||
+                cached.confidence < 0.7f
+            )
+        if (cached != null && onlineAllowed && cached.author == "Unknown Author") {
+            lookupAuthorByTitle(key, cached.title)?.let { enriched ->
+                return@withContext save(
+                    dao,
+                    cached.copy(
+                        title = cleanBookTitle(enriched.title).ifBlank { cleanBookTitle(cached.title) },
+                        author = enriched.author,
+                        isbn13 = cached.isbn13 ?: enriched.isbn13,
+                        isbn10 = cached.isbn10 ?: enriched.isbn10,
+                        source = "${cached.source}+cached_title_author",
+                        confidence = (cached.confidence + 0.28f).coerceAtMost(0.9f),
+                        coverUrl = cached.coverUrl ?: enriched.coverUrl,
+                        lastLookupAtMillis = System.currentTimeMillis()
+                    )
+                )
+            }
+        }
+        if (cached != null && (!onlineAllowed || !cachedNeedsUpgrade)) return@withContext cached
 
         val embedded = PdfEmbeddedMetadata.extract(context, uri)
-        val embeddedTitle = embedded?.title?.takeIf { it.isNotBlank() }
+        val embeddedTitle = embedded?.title?.takeIf { it.isNotBlank() && !isBadMetadataText(it) }
         val embeddedAuthor = embedded?.author?.takeIf { it.isNotBlank() }
         if (!embeddedTitle.isNullOrBlank() && !embeddedAuthor.isNullOrBlank() && !onlineAllowed) {
             return@withContext save(
@@ -46,7 +71,14 @@ object BookMetadataRepository {
         }
 
         val firstPagesText = document?.let { extractFirstPagesText(it) }.orEmpty()
-        val isbn = findIsbn(firstPagesText)
+        val coverOcrText = if (onlineAllowed || firstPagesText.isBlank()) extractCoverOcrText(context, uri) else ""
+        val availableText = firstPagesText.ifBlank { coverOcrText }
+        if (!onlineAllowed && embeddedTitle.isNullOrBlank()) {
+            inferOfflineMetadata(key, availableText)?.let { entity ->
+                return@withContext save(dao, entity)
+            }
+        }
+        val isbn = findIsbn(availableText)
         if (onlineAllowed && isbn != null) {
             lookupByIsbn(key, isbn)?.let { entity ->
                 return@withContext save(dao, entity)
@@ -54,8 +86,8 @@ object BookMetadataRepository {
         }
 
         if (onlineAllowed) {
-            val query = buildOnlineQuery(context, uri, embeddedTitle, embeddedAuthor, firstPagesText)
-            lookupByQuery(key, query)?.let { entity ->
+            val query = buildOnlineQuery(context, uri, embeddedTitle, embeddedAuthor, firstPagesText, coverOcrText)
+            lookupByQuery(key, query, availableText)?.let { entity ->
                 return@withContext save(dao, entity)
             }
         }
@@ -65,7 +97,7 @@ object BookMetadataRepository {
                 dao = dao,
                 entity = BookMetadataEntity(
                     bookUri = key,
-                    title = embeddedTitle ?: fallbackTitle(uri),
+                    title = embeddedTitle ?: fallbackTitle(context, uri),
                     author = embeddedAuthor ?: "Unknown Author",
                     source = "embedded_title_author",
                     confidence = 0.55f
@@ -75,7 +107,7 @@ object BookMetadataRepository {
 
         val entity = cached ?: BookMetadataEntity(
             bookUri = key,
-            title = fallbackTitle(uri),
+            title = fallbackTitle(context, uri),
             author = "Unknown Author",
             source = "manual",
             confidence = 0.2f
@@ -88,7 +120,7 @@ object BookMetadataRepository {
         withContext(Dispatchers.IO) {
             val entity = BookMetadataEntity(
                 bookUri = uri.toString(),
-                title = title.trim().ifBlank { fallbackTitle(uri) },
+                title = title.trim().ifBlank { fallbackTitle(context, uri) },
                 author = author.trim().ifBlank { "Unknown Author" },
                 source = "manual",
                 confidence = 1f
@@ -101,68 +133,161 @@ object BookMetadataRepository {
         dao: com.noscroll.data.BookMetadataDao,
         entity: BookMetadataEntity
     ): BookMetadataEntity {
-        dao.upsert(entity)
-        return entity
+        val normalized = applyKnownMetadata(entity.copy(title = cleanBookTitle(entity.title)))
+        dao.upsert(normalized)
+        return normalized
     }
 
     private fun lookupByIsbn(bookUri: String, isbn: String): BookMetadataEntity? {
-        OpenLibraryClient.lookupIsbn(isbn)?.let { result ->
-            return BookMetadataEntity(
+        val candidates = listOfNotNull(
+            OpenLibraryClient.lookupIsbn(isbn)?.toEntity(bookUri, "isbn_open_library", 0.92f),
+            GoogleBooksClient.search("isbn:$isbn")?.toEntity(
                 bookUri = bookUri,
-                title = result.title,
-                author = result.author,
-                isbn13 = result.isbn13,
-                isbn10 = result.isbn10,
-                source = "isbn_open_library",
-                confidence = 0.92f,
-                coverUrl = result.coverUrl,
-                lastLookupAtMillis = System.currentTimeMillis()
-            )
-        }
-        GoogleBooksClient.search("isbn:$isbn")?.let { result ->
-            return BookMetadataEntity(
-                bookUri = bookUri,
-                title = result.title,
-                author = result.author,
-                isbn13 = result.isbn13 ?: isbn.takeIf { it.length == 13 },
-                isbn10 = result.isbn10 ?: isbn.takeIf { it.length == 10 },
                 source = "isbn_google_books",
                 confidence = 0.9f,
-                coverUrl = result.coverUrl,
-                lastLookupAtMillis = System.currentTimeMillis()
+                fallbackIsbn = isbn
             )
-        }
-        return null
+        )
+        return chooseBestCandidate(candidates)
     }
 
-    private fun lookupByQuery(bookUri: String, query: String): BookMetadataEntity? {
-        GoogleBooksClient.search(query)?.let { result ->
-            return BookMetadataEntity(
-                bookUri = bookUri,
-                title = result.title,
-                author = result.author,
-                isbn13 = result.isbn13,
-                isbn10 = result.isbn10,
-                source = "google_books",
-                confidence = 0.48f,
-                coverUrl = result.coverUrl,
+    private fun lookupByQuery(bookUri: String, query: String, ocrText: String): BookMetadataEntity? {
+        val candidates = listOfNotNull(
+            GoogleBooksClient.search(query)?.toEntity(bookUri, "google_books", 0.48f),
+            OpenLibraryClient.search(query)?.toEntity(bookUri, "open_library", 0.45f)
+        )
+        val best = chooseBestCandidate(candidates) ?: return null
+        if (best.author != "Unknown Author") return best
+
+        lookupAuthorByTitle(bookUri, best.title)?.let { enriched ->
+            return best.copy(
+                title = cleanBookTitle(enriched.title).ifBlank { cleanBookTitle(best.title) },
+                author = enriched.author,
+                isbn13 = best.isbn13 ?: enriched.isbn13,
+                isbn10 = best.isbn10 ?: enriched.isbn10,
+                source = "${best.source}+title_author",
+                confidence = (best.confidence + 0.22f).coerceAtMost(0.82f),
+                coverUrl = best.coverUrl ?: enriched.coverUrl,
                 lastLookupAtMillis = System.currentTimeMillis()
             )
         }
-        OpenLibraryClient.search(query)?.let { result ->
-            return BookMetadataEntity(
-                bookUri = bookUri,
-                title = result.title,
-                author = result.author,
-                isbn13 = result.isbn13,
-                isbn10 = result.isbn10,
-                source = "open_library",
-                confidence = 0.45f,
-                coverUrl = result.coverUrl,
+        extractAuthorFromOcr(ocrText, best.title)?.let { ocrAuthor ->
+            return best.copy(
+                title = cleanBookTitle(best.title),
+                author = ocrAuthor,
+                source = "${best.source}+cover_author",
+                confidence = (best.confidence + 0.16f).coerceAtMost(0.74f),
                 lastLookupAtMillis = System.currentTimeMillis()
             )
         }
-        return null
+        return best
+    }
+
+    private fun lookupAuthorByTitle(bookUri: String, title: String): BookMetadataEntity? {
+        val cleanTitle = cleanBookTitle(title)
+        val titleQuery = "\"$cleanTitle\""
+        val candidates = listOfNotNull(
+            GoogleBooksClient.search("intitle:$cleanTitle")?.toEntity(bookUri, "google_books_title", 0.7f),
+            GoogleBooksClient.search(titleQuery)?.toEntity(bookUri, "google_books_exact", 0.64f),
+            OpenLibraryClient.search(titleQuery)?.toEntity(bookUri, "open_library_title", 0.66f),
+            OpenLibraryClient.search(cleanTitle)?.toEntity(bookUri, "open_library_plain_title", 0.58f)
+        ).filter { it.author != "Unknown Author" && titlesMatch(cleanTitle, it.title) }
+        return chooseBestCandidate(candidates)
+    }
+
+    private fun chooseBestCandidate(candidates: List<BookMetadataEntity>): BookMetadataEntity? =
+        candidates.maxWithOrNull(
+            compareBy<BookMetadataEntity> { if (it.author != "Unknown Author") 1 else 0 }
+                .thenBy { it.confidence }
+                .thenBy { if (it.coverUrl.isNullOrBlank()) 0 else 1 }
+        )
+
+    private fun GoogleBooksResult.toEntity(
+        bookUri: String,
+        source: String,
+        confidence: Float,
+        fallbackIsbn: String? = null
+    ): BookMetadataEntity =
+        BookMetadataEntity(
+            bookUri = bookUri,
+            title = cleanBookTitle(title),
+            author = author,
+            isbn13 = isbn13 ?: fallbackIsbn?.takeIf { it.length == 13 },
+            isbn10 = isbn10 ?: fallbackIsbn?.takeIf { it.length == 10 },
+            source = source,
+            confidence = if (author == "Unknown Author") confidence - 0.12f else confidence,
+            coverUrl = coverUrl,
+            lastLookupAtMillis = System.currentTimeMillis()
+        )
+
+    private fun OpenLibraryResult.toEntity(
+        bookUri: String,
+        source: String,
+        confidence: Float
+    ): BookMetadataEntity =
+        BookMetadataEntity(
+            bookUri = bookUri,
+            title = cleanBookTitle(title),
+            author = author,
+            isbn13 = isbn13,
+            isbn10 = isbn10,
+            source = source,
+            confidence = if (author == "Unknown Author") confidence - 0.12f else confidence,
+            coverUrl = coverUrl,
+            lastLookupAtMillis = System.currentTimeMillis()
+        )
+
+    private fun titlesMatch(expected: String, actual: String): Boolean {
+        val left = normalizeTitle(expected).split(" ").filter { it.length > 2 }.toSet()
+        val right = normalizeTitle(actual).split(" ").filter { it.length > 2 }.toSet()
+        if (left.isEmpty() || right.isEmpty()) return false
+        val smaller = if (left.size <= right.size) left else right
+        val larger  = if (left.size <= right.size) right else left
+        return smaller.count { it in larger }.toFloat() / smaller.size >= 0.5f
+    }
+
+    private fun normalizeTitle(title: String): String =
+        cleanBookTitle(title).lowercase()
+            .replace(Regex("[^a-z0-9]+"), " ")
+            .replace(Regex("\\b(temp|pdf|ebook|edition)\\b"), " ")
+            .trim()
+
+    private fun cleanBookTitle(title: String): String =
+        title
+            .replace(Regex("\\s+temp$", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("\\s+pdf$", RegexOption.IGNORE_CASE), "")
+            .trim()
+
+    private fun applyKnownMetadata(entity: BookMetadataEntity): BookMetadataEntity = entity
+
+    private fun inferOfflineMetadata(bookUri: String, text: String): BookMetadataEntity? {
+        val lines = titleLikeLines(text)
+            .filterNot { it.equals("about the author", ignoreCase = true) }
+            .filterNot { it.startsWith("copyright", ignoreCase = true) }
+        val title = lines.firstOrNull { line ->
+            val words = line.split(Regex("\\s+")).filter { it.isNotBlank() }
+            words.size in 2..5 &&
+                !line.contains(",") &&
+                !line.startsWith("an ", ignoreCase = true) &&
+                !line.startsWith("a ", ignoreCase = true) &&
+                !line.contains(".com", ignoreCase = true) &&
+                !isLikelyPersonName(line)
+        }?.takeUnless { isBadMetadataText(it) }
+            ?: lines.firstOrNull()?.takeUnless { isBadMetadataText(it) }
+            ?: return null
+        val author = lines.drop(1).firstOrNull { line ->
+            line.length in 3..60 &&
+                !line.any { it.isDigit() } &&
+                !line.contains(".com", ignoreCase = true) &&
+                isLikelyPersonName(line)
+        } ?: "Unknown Author"
+        return BookMetadataEntity(
+            bookUri = bookUri,
+            title = title,
+            author = author,
+            source = "cover_ocr",
+            confidence = if (author == "Unknown Author") 0.35f else 0.5f
+        )
     }
 
     private suspend fun extractFirstPagesText(document: PdfDocument): String {
@@ -186,12 +311,27 @@ object BookMetadataRepository {
             .firstOrNull { it.length == 10 || it.length == 13 }
     }
 
-    private fun fallbackTitle(uri: Uri): String {
-        val raw = uri.lastPathSegment
+    private fun fallbackTitle(context: Context, uri: Uri): String {
+        val displayName = try {
+            context.contentResolver.query(uri, null, null, null, null)?.use { cursor ->
+                val nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                if (cursor.moveToFirst() && nameIndex >= 0) cursor.getString(nameIndex) else null
+            }
+        } catch (_: Exception) {
+            null
+        }
+        val raw = displayName ?: uri.lastPathSegment
             ?.substringAfterLast('/')
             ?.substringBeforeLast('.', missingDelimiterValue = uri.lastPathSegment ?: "Untitled")
             ?: "Untitled"
-        return Uri.decode(raw).replace('_', ' ').ifBlank { "Untitled" }
+        val decoded = Uri.decode(raw)
+            .substringBefore('?')
+            .substringBeforeLast('.', missingDelimiterValue = Uri.decode(raw).substringBefore('?'))
+            .replace('_', ' ')
+            .trim()
+        return decoded.takeUnless { it.contains(";") || it.contains("=") || it.length > 80 }
+            ?.ifBlank { null }
+            ?: "Untitled PDF"
     }
 
     private suspend fun buildOnlineQuery(
@@ -199,25 +339,42 @@ object BookMetadataRepository {
         uri: Uri,
         embeddedTitle: String?,
         embeddedAuthor: String?,
-        firstPagesText: String
+        firstPagesText: String,
+        coverOcrText: String
     ): String {
-        val filename = fallbackTitle(uri)
-        val ocrText = if (firstPagesText.isBlank()) {
-            renderCoverPage(context, uri)?.let { bitmap ->
-                try {
-                    CoverPageOcr.extractText(bitmap)
-                } finally {
-                    bitmap.recycle()
-                }
-            }.orEmpty()
-        } else {
-            ""
-        }
-        val coverSignal = titleLikeLines(firstPagesText.ifBlank { ocrText }).joinToString(" ").take(150)
+        val filename = fallbackTitle(context, uri)
+        val coverSignal = titleLikeLines(firstPagesText.ifBlank { coverOcrText }).joinToString(" ").take(150)
         return listOf(embeddedTitle, embeddedAuthor, filename, coverSignal)
             .filter { !it.isNullOrBlank() }
             .joinToString(" ")
             .take(180)
+    }
+
+    private suspend fun extractCoverOcrText(context: Context, uri: Uri): String =
+        renderCoverPage(context, uri)?.let { bitmap ->
+            try {
+                CoverPageOcr.extractText(bitmap)
+            } finally {
+                bitmap.recycle()
+            }
+        }.orEmpty()
+
+    private fun extractAuthorFromOcr(text: String, title: String): String? {
+        val titleTokens = normalizeTitle(title).split(" ").filter { it.isNotBlank() }.toSet()
+        return text.lines()
+            .map { it.trim().removePrefix("by ").removePrefix("By ") }
+            .filter { it.length in 3..60 }
+            .filterNot { line ->
+                val normalized = normalizeTitle(line)
+                normalized.isBlank() ||
+                    normalized.split(" ").any { it in titleTokens } ||
+                    normalized.contains("author") ||
+                    normalized.contains("copyright") ||
+                    normalized.contains("edition") ||
+                    normalized.contains("new york times") ||
+                    line.any { it.isDigit() }
+            }
+            .firstOrNull { isLikelyPersonName(it) }
     }
 
     private fun renderCoverPage(context: Context, uri: Uri): Bitmap? {
@@ -245,6 +402,21 @@ object BookMetadataRepository {
 
     private fun isLinkLike(s: String): Boolean =
         s.startsWith("/") || s.startsWith("http", ignoreCase = true)
+
+    private fun isBadMetadataText(s: String): Boolean =
+        s.isBlank() ||
+            s.contains(";") ||
+            s.contains("=") ||
+            s.length > 80 ||
+            s.endsWith(" temp", ignoreCase = true)
+
+    private fun isLikelyPersonName(line: String): Boolean {
+        val words = line.split(Regex("\\s+")).filter { it.isNotBlank() }
+        return words.size in 2..4 && words.all { word ->
+            word.firstOrNull()?.isUpperCase() == true &&
+                word.drop(1).all { it.isLowerCase() || it == '.' || it == '-' || it == '\'' }
+        }
+    }
 
     private fun titleLikeLines(text: String): List<String> =
         text.lines()

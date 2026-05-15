@@ -5,7 +5,7 @@
     android:id="@+id/coordinator_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="#171615">
 
     <!-- Full-screen PDF content -->
     <FrameLayout
@@ -213,15 +213,31 @@
         app:fabSize="mini"
         app:tint="#C0F5F0E8" />
 
-    <!-- Page progress seekbar (right edge) -->
-    <com.noscroll.VerticalSeekBar
-        android:id="@+id/page_seekbar"
+    <FrameLayout
+        android:id="@+id/reader_progress_silhouette"
         android:layout_width="28dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="80dp"
-        android:visibility="invisible" />
+        android:layout_height="360dp"
+        android:layout_gravity="end|center_vertical"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="104dp"
+        android:alpha="0.85"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/reader_progress_track"
+            android:layout_width="6dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_progress_track" />
+
+        <View
+            android:id="@+id/reader_progress_thumb"
+            android:layout_width="12dp"
+            android:layout_height="56dp"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@drawable/bg_progress_thumb" />
+    </FrameLayout>
 
     <!-- ═══ Bottom bar: frosted glass + Library | Go to page | Make quote ═══ -->
     <FrameLayout
@@ -293,7 +309,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/make_quote"
-                android:src="@drawable/ic_check_circle"
+                android:src="@drawable/ic_goto_page"
                 app:backgroundTint="@color/colorAccent"
                 app:elevation="4dp"
                 app:fabSize="mini"

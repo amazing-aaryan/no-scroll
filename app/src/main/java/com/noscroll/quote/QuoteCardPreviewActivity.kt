@@ -1,84 +1,127 @@
 package com.noscroll.quote
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.text.InputType
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
-import com.noscroll.R
 import com.noscroll.data.AnnotationDatabase
+import com.noscroll.data.QuoteCardEntity
+import com.noscroll.metadata.BookMetadataRepository
+import com.noscroll.ui.NoScrollTheme
+import com.noscroll.ui.PaperColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class QuoteCardPreviewActivity : AppCompatActivity() {
-    private lateinit var preview: ImageView
-    private lateinit var chipGroup: ChipGroup
-    private var spec: QuoteCardSpec? = null
-    private var currentBitmap: Bitmap? = null
+    private var spec by mutableStateOf<QuoteCardSpec?>(null)
+    private var currentBitmap by mutableStateOf<Bitmap?>(null)
+    private var bookUri: String = ""
+    private var pageIndex: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quote_card_preview)
-        preview = findViewById(R.id.quote_preview)
-        chipGroup = findViewById(R.id.theme_chips)
-
-        findViewById<MaterialButton>(R.id.edit_quote_btn).setOnClickListener { showEditDialog() }
-        findViewById<MaterialButton>(R.id.share_quote_btn).setOnClickListener {
-            currentBitmap?.let { bitmap ->
-                ShareBottomSheet.newInstance(bitmap).show(supportFragmentManager, "share")
-            }
-        }
-
-        setupThemeChips()
-        loadSpec()
-    }
-
-    private fun setupThemeChips() {
-        QuoteCardTheme.values().forEach { theme ->
-            val chip = Chip(this).apply {
-                text = theme.name
-                isCheckable = true
-                id = theme.ordinal + 1
-                setOnClickListener {
-                    spec = spec?.copy(theme = theme)
-                    render()
+        setContent {
+            NoScrollTheme {
+                Column(
+                    Modifier
+                        .fillMaxSize()
+                        .background(PaperColors.Paper)
+                        .padding(18.dp),
+                    verticalArrangement = Arrangement.SpaceBetween
+                ) {
+                    currentBitmap?.let { bitmap ->
+                        Image(
+                            bitmap = bitmap.asImageBitmap(),
+                            contentDescription = "Quote card preview",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .aspectRatio(4f / 5f)
+                                .padding(top = 24.dp),
+                            contentScale = ContentScale.Fit
+                        )
+                    }
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        QuoteCardTheme.values().forEach { theme ->
+                            OutlinedButton(
+                                onClick = {
+                                    spec = spec?.copy(theme = theme)
+                                    render()
+                                },
+                                modifier = Modifier.weight(1f)
+                            ) { Text(theme.name.lowercase().replaceFirstChar { it.uppercase() }) }
+                        }
+                    }
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        TextButton(onClick = { finish() }) { Text("Close") }
+                        Button(
+                            onClick = { saveCurrentQuote() },
+                            colors = ButtonDefaults.buttonColors(containerColor = PaperColors.Sage),
+                            modifier = Modifier.weight(1f)
+                        ) { Text("Save") }
+                        Button(
+                            onClick = { shareCurrentQuote() },
+                            colors = ButtonDefaults.buttonColors(containerColor = PaperColors.Ink),
+                            modifier = Modifier.weight(1f)
+                        ) { Text("Share") }
+                    }
                 }
             }
-            chipGroup.addView(chip)
-            if (theme == QuoteCardTheme.DARK) chip.isChecked = true
         }
+        loadSpec()
     }
 
     private fun loadSpec() {
         val quote = intent.getStringExtra(EXTRA_QUOTE_TEXT).orEmpty()
-        val uriString = intent.getStringExtra(EXTRA_BOOK_URI).orEmpty()
-        val page = intent.getIntExtra(EXTRA_PAGE_NUMBER, 0)
+        bookUri = intent.getStringExtra(EXTRA_BOOK_URI).orEmpty()
+        pageIndex = intent.getIntExtra(EXTRA_PAGE_NUMBER, 0)
         lifecycleScope.launch {
             val metadata = withContext(Dispatchers.IO) {
-                AnnotationDatabase.getInstance(this@QuoteCardPreviewActivity)
-                    .bookMetadataDao()
-                    .get(uriString)
+                BookMetadataRepository.resolve(
+                    context = this@QuoteCardPreviewActivity,
+                    uri = Uri.parse(bookUri),
+                    document = null,
+                    allowOnlineOnce = true
+                )
             }
-            val title = metadata?.title ?: Uri.parse(uriString).lastPathSegment.orEmpty()
-            val author = metadata?.author ?: "Unknown Author"
+            val title = metadata.title.takeUnless { isBadBookTitle(it) } ?: "Untitled"
+            val author = metadata.author.takeUnless { it == "Unknown Author" }.orEmpty()
             spec = QuoteCardSpec(
                 quoteText = quote,
                 bookTitle = title.ifBlank { "Untitled" },
-                author = author,
-                pageNumber = page + 1
+                author = author.ifBlank { "Unknown Author" },
+                pageNumber = pageIndex + 1,
+                theme = QuoteCardTheme.PAPER
             )
             render()
         }
     }
+
+    private fun isBadBookTitle(title: String): Boolean =
+        title.isBlank() || title.contains(";") || title.contains("=") || title.endsWith(" temp", ignoreCase = true)
 
     private fun render() {
         val nextSpec = spec ?: return
@@ -87,57 +130,30 @@ class QuoteCardPreviewActivity : AppCompatActivity() {
                 QuoteCardBitmapBuilder.build(nextSpec)
             }
             currentBitmap = bitmap
-            preview.setImageBitmap(bitmap)
         }
     }
 
-    private fun showEditDialog() {
+    private fun saveCurrentQuote(onSaved: (() -> Unit)? = null) {
         val current = spec ?: return
-        val quoteInput = EditText(this).apply {
-            hint = "Quote"
-            setText(current.quoteText)
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 3
-        }
-        val authorInput = EditText(this).apply {
-            hint = "Author"
-            setText(current.author)
-            setSingleLine(true)
-        }
-        val titleInput = EditText(this).apply {
-            hint = "Title"
-            setText(current.bookTitle)
-            setSingleLine(true)
-        }
-        val pageInput = EditText(this).apply {
-            hint = "Page"
-            setText(current.pageNumber.toString())
-            inputType = InputType.TYPE_CLASS_NUMBER
-            setSingleLine(true)
-        }
-        val container = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            val pad = (24 * resources.displayMetrics.density).toInt()
-            setPadding(pad, 0, pad, 0)
-            addView(quoteInput)
-            addView(authorInput)
-            addView(titleInput)
-            addView(pageInput)
-        }
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Edit quote card")
-            .setView(container)
-            .setPositiveButton("Apply") { _, _ ->
-                spec = current.copy(
-                    quoteText = quoteInput.text.toString(),
-                    author = authorInput.text.toString().ifBlank { "Unknown Author" },
-                    bookTitle = titleInput.text.toString().ifBlank { "Untitled" },
-                    pageNumber = pageInput.text.toString().toIntOrNull() ?: current.pageNumber
+        lifecycleScope.launch(Dispatchers.IO) {
+            AnnotationDatabase.getInstance(this@QuoteCardPreviewActivity).quoteCardDao().upsert(
+                QuoteCardEntity(
+                    bookUri = bookUri,
+                    highlightId = null,
+                    quoteText = current.quoteText,
+                    pageIndex = pageIndex,
+                    themeName = current.theme.name
                 )
-                render()
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
+            )
+            withContext(Dispatchers.Main) { onSaved?.invoke() }
+        }
+    }
+
+    private fun shareCurrentQuote() {
+        val bitmap = currentBitmap ?: return
+        saveCurrentQuote {
+            ShareBottomSheet.newInstance(bitmap).show(supportFragmentManager, "share")
+        }
     }
 
     companion object {

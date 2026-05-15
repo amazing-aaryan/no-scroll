@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.NoScroll" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.NoScroll" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowBackground">#F7F3EA</item>
     </style>
 
-    <style name="Theme.NoScroll.NoActionBar" parent="Theme.NoScroll">
+    <style name="Theme.NoScroll.NoActionBar" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">#F7F3EA</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <!-- Material3 base required by androidx.pdf PdfViewerFragment (ToolBoxView uses M3 FAB attributes) -->
     <style name="Theme.NoScroll.PdfViewer" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorOnSecondary">@color/black</item>
-        <item name="colorSurface">@color/surface</item>
-        <item name="colorOnSurface">@color/white</item>
-        <item name="colorOutline">@color/on_surface_secondary</item>
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:statusBarColor">@color/black</item>
-        <item name="android:navigationBarColor">@color/black</item>
-        <!-- M3 dialogs use colorSurface — already dark, so MaterialAlertDialogBuilder looks glassy -->
-        <item name="materialAlertDialogTheme">@style/Dialog.Glass</item>
+        <item name="colorSurface">#FBF8F0</item>
+        <item name="colorOnSurface">#171615</item>
+        <item name="colorOutline">#DDD5C8</item>
+        <item name="android:windowBackground">#F7F3EA</item>
+        <item name="android:statusBarColor">#F7F3EA</item>
+        <item name="android:navigationBarColor">#F7F3EA</item>
+        <item name="materialAlertDialogTheme">@style/Dialog.Paper</item>
     </style>
 
-    <style name="Dialog.Glass" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <item name="colorSurface">#F2111826</item>
-        <item name="colorOnSurface">#F5F0E8</item>
-        <item name="android:textColorPrimary">#F5F0E8</item>
-        <item name="android:textColorSecondary">#B0C4B89A</item>
+    <style name="Dialog.Paper" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">#FBF8F0</item>
+        <item name="colorOnSurface">#171615</item>
+        <item name="android:textColorPrimary">#171615</item>
+        <item name="android:textColorSecondary">#66615A</item>
     </style>
 </resources>

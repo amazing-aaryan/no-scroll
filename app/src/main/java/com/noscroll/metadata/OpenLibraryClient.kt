@@ -74,22 +74,27 @@ object OpenLibraryClient {
         return try {
             val encoded = URLEncoder.encode(clean, "UTF-8")
             val request = Request.Builder()
-                .url("https://openlibrary.org/search.json?q=$encoded&limit=1")
+                .url("https://openlibrary.org/search.json?q=$encoded&limit=5")
                 .build()
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) return null
                 val body = response.body?.string() ?: return null
-                val doc = JSONObject(body).optJSONArray("docs")?.optJSONObject(0) ?: return null
-                val title = doc.optString("title").trim()
-                if (title.isBlank()) return null
-                val author = doc.optJSONArray("author_name")?.optString(0)?.trim().orEmpty()
-                val isbn = doc.optJSONArray("isbn")
-                OpenLibraryResult(
-                    title = title,
-                    author = author.ifBlank { "Unknown Author" },
-                    isbn13 = firstIsbn(isbn, 13),
-                    isbn10 = firstIsbn(isbn, 10)
-                )
+                val docs = JSONObject(body).optJSONArray("docs") ?: return null
+                val candidates = mutableListOf<OpenLibraryResult>()
+                for (index in 0 until docs.length()) {
+                    val doc = docs.optJSONObject(index) ?: continue
+                    val title = doc.optString("title").trim()
+                    if (title.isBlank()) continue
+                    val author = doc.optJSONArray("author_name")?.optString(0)?.trim().orEmpty()
+                    val isbn = doc.optJSONArray("isbn")
+                    candidates += OpenLibraryResult(
+                        title = title,
+                        author = author.ifBlank { "Unknown Author" },
+                        isbn13 = firstIsbn(isbn, 13),
+                        isbn10 = firstIsbn(isbn, 10)
+                    )
+                }
+                candidates.maxByOrNull { score(query, it.title, it.author) }
             }
         } catch (_: Exception) {
             null
@@ -103,5 +108,15 @@ object OpenLibraryClient {
             if (candidate.length == length) return candidate
         }
         return null
+    }
+
+    private fun score(query: String, title: String, author: String): Int {
+        val haystack = "$title $author".lowercase()
+        val tokenScore = query.lowercase()
+            .split(Regex("[^a-z0-9]+"))
+            .filter { it.length > 2 }
+            .distinct()
+            .fold(0) { score, token -> score + if (haystack.contains(token)) 2 else 0 }
+        return tokenScore + if (author != "Unknown Author") 1 else 0
     }
 }

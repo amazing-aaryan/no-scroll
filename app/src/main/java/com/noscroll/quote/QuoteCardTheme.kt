@@ -8,8 +8,8 @@ enum class QuoteCardTheme(
     val text: Int,
     val attribution: Int
 ) {
-    DARK(Color.rgb(26, 26, 46), Color.rgb(22, 33, 62), Color.WHITE, Color.rgb(170, 170, 170)),
-    LIGHT(Color.rgb(250, 250, 250), Color.rgb(240, 240, 240), Color.rgb(26, 26, 26), Color.rgb(102, 102, 102)),
-    SEPIA(Color.rgb(245, 230, 200), Color.rgb(237, 217, 163), Color.rgb(62, 39, 35), Color.rgb(141, 110, 99)),
-    BLAZE(Color.rgb(255, 107, 53), Color.rgb(192, 57, 43), Color.WHITE, Color.rgb(255, 215, 204))
+    PAPER(Color.rgb(251, 248, 240), Color.rgb(247, 243, 234), Color.rgb(23, 22, 21), Color.rgb(102, 97, 90)),
+    INK(Color.rgb(23, 22, 21), Color.rgb(49, 46, 42), Color.rgb(251, 248, 240), Color.rgb(221, 213, 200)),
+    SAGE(Color.rgb(119, 132, 111), Color.rgb(91, 105, 84), Color.rgb(251, 248, 240), Color.rgb(221, 213, 200)),
+    NIGHT(Color.rgb(29, 31, 35), Color.rgb(16, 17, 19), Color.WHITE, Color.rgb(190, 186, 178))
 }

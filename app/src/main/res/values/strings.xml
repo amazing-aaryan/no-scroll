@@ -20,7 +20,18 @@
     <string name="share">Share</string>
     <string name="instagram_stories">Instagram Stories</string>
     <string name="instagram_feed">Instagram Feed</string>
+    <string name="instagram_direct">Instagram Direct</string>
+    <string name="messages">Messages</string>
     <string name="share_via">Share via...</string>
     <string name="metadata_lookup">Look up book info online</string>
     <string name="make_quote">Make quote card</string>
+    <string name="highlight">Highlight</string>
+    <string name="annotate">Annotate</string>
+    <string name="quote">Quote</string>
+    <string name="highlights">Highlights</string>
+    <string name="zen_mode">Zen mode</string>
+    <string name="exit_zen_mode">Exit zen mode</string>
+    <string name="no_selectable_text">No selectable text in this PDF</string>
+    <string name="ocr_page">OCR page</string>
+    <string name="export_highlights">Export</string>
 </resources>
