@@ -27,9 +27,14 @@ object BookMetadataRepository {
 
         if (cached?.source == "manual") return@withContext cached
         if (cached?.source == "vision_ai") return@withContext cached
+        // Return good cached result; re-run pipeline if author is unknown
         if (cached != null && cached.author != "Unknown Author" &&
             !isLinkLike(cached.author) && !isLinkLike(cached.title)
         ) return@withContext cached
+        // Delete stale bad row so upsert below writes a fresh result
+        if (cached != null && cached.author == "Unknown Author" && allowOnlineOnce) {
+            dao.delete(key)
+        }
 
         // Groq Vision — send cover image to LLaMA 3.2 Vision, best accuracy
         if (allowOnlineOnce) {

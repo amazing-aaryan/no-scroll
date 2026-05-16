@@ -50,16 +50,15 @@ import java.io.File
 
 class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
-    private lateinit var changeFab: FloatingActionButton
-    private lateinit var gotoPageFab: FloatingActionButton
-    private lateinit var makeQuoteFab: FloatingActionButton
     private lateinit var metadataBar: View
     private lateinit var metadataText: TextView
     private lateinit var metadataLookupButton: MaterialButton
-    private lateinit var selectionRail: View
     private lateinit var zenExitHandle: FloatingActionButton
-    private lateinit var overflowMenuBtn: ImageButton
-    private lateinit var readerBottomBar: View
+    private lateinit var libraryBtn: ImageButton
+    private lateinit var zenBtn: ImageButton
+    private lateinit var highlightsNavBtn: ImageButton
+    private lateinit var gotoPageNavBtn: ImageButton
+    private lateinit var shareNavBtn: ImageButton
 
     private lateinit var pdfFragment: NoScrollPdfViewerFragment
 
@@ -78,16 +77,15 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         applyReaderSystemBarContrast()
         cleanupQuoteCache()
 
-        changeFab = findViewById(R.id.change_pdf_fab)
-        gotoPageFab = findViewById(R.id.goto_page_fab)
-        makeQuoteFab = findViewById(R.id.make_quote_fab)
         metadataBar = findViewById(R.id.metadata_bar)
         metadataText = findViewById(R.id.book_metadata_text)
         metadataLookupButton = findViewById(R.id.metadata_lookup_btn)
-        selectionRail = findViewById(R.id.selection_action_rail)
         zenExitHandle = findViewById(R.id.zen_exit_handle)
-        overflowMenuBtn = findViewById(R.id.overflow_menu_btn)
-        readerBottomBar = findViewById(R.id.reader_bottom_bar)
+        libraryBtn = findViewById(R.id.library_btn)
+        zenBtn = findViewById(R.id.zen_btn)
+        highlightsNavBtn = findViewById(R.id.highlights_nav_btn)
+        gotoPageNavBtn = findViewById(R.id.goto_page_nav_btn)
+        shareNavBtn = findViewById(R.id.share_nav_btn)
 
         pdfFragment = supportFragmentManager.findFragmentByTag(PDF_FRAGMENT_TAG) as? NoScrollPdfViewerFragment
             ?: NoScrollPdfViewerFragment().also { fragment ->
@@ -109,10 +107,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     private fun setupControls() {
-        changeFab.setOnClickListener { launchLibrary() }
-        gotoPageFab.setOnClickListener { showGotoPageDialog() }
-        makeQuoteFab.setOnClickListener { showManualQuoteDialog() }
-        overflowMenuBtn.setOnClickListener { showOverflowMenu() }
+        libraryBtn.setOnClickListener { launchLibrary() }
+        zenBtn.setOnClickListener { setZenMode(!zenModeEnabled) }
+        highlightsNavBtn.setOnClickListener { showHighlightsDialog() }
+        gotoPageNavBtn.setOnClickListener { showGotoPageDialog() }
+        shareNavBtn.setOnClickListener { shareCurrentPage() }
         zenExitHandle.setOnClickListener { setZenMode(false) }
         metadataLookupButton.setOnClickListener { confirmOnlineLookup() }
 
@@ -125,19 +124,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             }
             true
         }
-
-        findViewById<MaterialButton>(R.id.action_highlight).setOnClickListener {
-            handleSelectionAction(SelectionAction.HIGHLIGHT)
-        }
-        findViewById<MaterialButton>(R.id.action_annotate).setOnClickListener {
-            handleSelectionAction(SelectionAction.ANNOTATE)
-        }
-        findViewById<MaterialButton>(R.id.action_quote).setOnClickListener {
-            handleSelectionAction(SelectionAction.QUOTE)
-        }
-        findViewById<MaterialButton>(R.id.action_share).setOnClickListener {
-            handleSelectionAction(SelectionAction.SHARE)
-        }
         setZenMode(zenModeEnabled, persist = false)
     }
 
@@ -146,7 +132,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             currentUri = uri
             currentDocument = null
             currentSelection = null
-            selectionRail.visibility = View.GONE
             metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
             metadataLookupButton.visibility = View.GONE
             pdfFragment.load(uri)
@@ -187,7 +172,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     override fun onPdfTextSelectionChanged(selection: ReaderSelection?) {
         currentSelection = selection
-        selectionRail.visibility = if (selection != null) View.VISIBLE else View.GONE
     }
 
     override fun onPdfSelectionAction(action: SelectionAction) {
@@ -352,9 +336,18 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         }
     }
 
+    private fun shareCurrentPage() {
+        val metadata = currentMetadata ?: return
+        startActivity(Intent.createChooser(
+            Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "${metadata.title} — ${metadata.author}")
+            }, "Share"
+        ))
+    }
+
     private fun clearSelection() {
         currentSelection = null
-        selectionRail.visibility = View.GONE
         pdfFragment.clearSelection()
         if (zenModeEnabled) setZenMode(true, persist = false)
     }
@@ -459,63 +452,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             .setView(row)
             .setNegativeButton("Cancel", null)
             .show()
-    }
-
-    private fun exportHighlights() {
-        val uri = currentUri ?: return
-        lifecycleScope.launch {
-            val highlights = withContext(Dispatchers.IO) {
-                HighlightRepository.getForBook(this@PdfViewerActivity, uri.toString())
-            }
-            if (highlights.isEmpty()) {
-                Toast.makeText(this@PdfViewerActivity, "No highlights to export", Toast.LENGTH_SHORT).show()
-                return@launch
-            }
-            val metadata = currentMetadata
-            val title = metadata?.let { "${it.title} - ${it.author}" } ?: "NoScroll highlights"
-            val nativeAvailable = PdfHighlightExporter.canWriteNativeHighlights()
-            val options = if (nativeAvailable) {
-                arrayOf("Annotated PDF", "Highlights text")
-            } else {
-                arrayOf("Highlights text")
-            }
-            MaterialAlertDialogBuilder(this@PdfViewerActivity)
-                .setTitle("Export highlights")
-                .setItems(options) { _, which ->
-                    lifecycleScope.launch {
-                        try {
-                            if (nativeAvailable && which == 0) {
-                                val exportUri = withContext(Dispatchers.IO) {
-                                    PdfHighlightExporter.exportAnnotatedPdf(this@PdfViewerActivity, uri, highlights)
-                                }
-                                PdfHighlightExporter.shareUri(
-                                    this@PdfViewerActivity,
-                                    exportUri,
-                                    "application/pdf",
-                                    "Export annotated PDF"
-                                )
-                            } else {
-                                val exportUri = withContext(Dispatchers.IO) {
-                                    PdfHighlightExporter.exportHighlightsText(this@PdfViewerActivity, title, highlights)
-                                }
-                                PdfHighlightExporter.shareUri(
-                                    this@PdfViewerActivity,
-                                    exportUri,
-                                    "text/plain",
-                                    "Export highlights"
-                                )
-                            }
-                        } catch (e: Exception) {
-                            Toast.makeText(
-                                this@PdfViewerActivity,
-                                "Could not export highlights: ${e.message ?: "unknown error"}",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-                }
-                .show()
-        }
     }
 
     private fun ocrCurrentPage() {
@@ -657,37 +593,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             .show()
     }
 
-    private fun showManualQuoteDialog() {
-        val uri = currentUri ?: return
-        val input = EditText(this).apply {
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 4
-            hint = "Quote text"
-        }
-        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
-        container.addView(input)
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Make quote card")
-            .setView(container)
-            .setPositiveButton("Preview") { _, _ ->
-                val quote = input.text.toString().trim()
-                if (quote.isBlank()) return@setPositiveButton
-                startActivity(
-                    Intent(this, QuoteCardPreviewActivity::class.java)
-                        .putExtra(QuoteCardPreviewActivity.EXTRA_QUOTE_TEXT, quote)
-                        .putExtra(QuoteCardPreviewActivity.EXTRA_BOOK_URI, uri.toString())
-                        .putExtra(QuoteCardPreviewActivity.EXTRA_PAGE_NUMBER, currentPage)
-                )
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
     private fun setZenMode(enabled: Boolean, persist: Boolean = true) {
         zenModeEnabled = enabled
         if (persist) getPreferences(MODE_PRIVATE).edit().putBoolean(KEY_ZEN_MODE, enabled).apply()
         metadataBar.visibility = if (enabled) View.GONE else View.VISIBLE
-        readerBottomBar.visibility = if (enabled) View.GONE else View.VISIBLE
         zenExitHandle.visibility = if (enabled) View.VISIBLE else View.GONE
         supportActionBar?.let { if (enabled) it.hide() else it.show() }
         pdfFragment.setZenToolboxVisible(!enabled)
@@ -696,78 +605,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun dp(value: Int): Int =
         (value * resources.displayMetrics.density).toInt()
-
-    private fun showOverflowMenu() {
-        val items = arrayOf(
-            getString(R.string.highlights),
-            getString(R.string.ocr_page),
-            getString(R.string.export_highlights),
-            "Delete page highlight",
-            "Toggle bookmark",
-            if (zenModeEnabled) getString(R.string.exit_zen_mode) else getString(R.string.zen_mode)
-        )
-        MaterialAlertDialogBuilder(this)
-            .setItems(items) { _, which ->
-                when (which) {
-                    0 -> showHighlightsDialog()
-                    1 -> ocrCurrentPage()
-                    2 -> exportHighlights()
-                    3 -> deleteCurrentPageHighlight()
-                    4 -> toggleBookmark()
-                    5 -> setZenMode(!zenModeEnabled)
-                }
-            }
-            .show()
-    }
-
-    private fun deleteCurrentPageHighlight() {
-        val uri = currentUri ?: return
-        lifecycleScope.launch {
-            val pageHighlights = withContext(Dispatchers.IO) {
-                HighlightRepository.getForPage(this@PdfViewerActivity, uri.toString(), currentPage)
-            }
-            if (pageHighlights.isEmpty()) {
-                Toast.makeText(this@PdfViewerActivity, "No highlights on this page", Toast.LENGTH_SHORT).show()
-                return@launch
-            }
-            val labels = pageHighlights.map { it.quoteText.take(80) }.toTypedArray()
-            MaterialAlertDialogBuilder(this@PdfViewerActivity)
-                .setTitle("Delete highlight")
-                .setItems(labels) { _, which ->
-                    lifecycleScope.launch {
-                        withContext(Dispatchers.IO) {
-                            HighlightRepository.delete(this@PdfViewerActivity, pageHighlights[which].id)
-                        }
-                        reloadHighlights()
-                        Toast.makeText(this@PdfViewerActivity, "Highlight deleted", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
-        }
-    }
-
-    private fun toggleBookmark() {
-        val uri = currentUri ?: return
-        lifecycleScope.launch {
-            val added = withContext(Dispatchers.IO) {
-                val dao = AnnotationDatabase.getInstance(this@PdfViewerActivity).bookmarkDao()
-                val existing = dao.get(uri.toString(), currentPage)
-                if (existing == null) {
-                    dao.insert(BookmarkEntity(bookUri = uri.toString(), pageIndex = currentPage))
-                    true
-                } else {
-                    dao.delete(uri.toString(), currentPage)
-                    false
-                }
-            }
-            Toast.makeText(
-                this@PdfViewerActivity,
-                if (added) "Bookmark saved" else "Bookmark removed",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
 
     private fun setSystemBarsHidden(hidden: Boolean) {
         if (hidden) {

@@ -2,6 +2,7 @@ package com.noscroll.metadata
 
 import android.graphics.Bitmap
 import android.util.Base64
+import android.util.Log
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -33,10 +34,16 @@ object GroqVisionClient {
             .build()
         return try {
             client.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) return null
+                if (!response.isSuccessful) {
+                    Log.e("GroqVision", "HTTP ${response.code}: ${response.message}")
+                    return null
+                }
                 parseResponse(response.body?.string() ?: return null)
             }
-        } catch (_: Exception) { null }
+        } catch (e: Exception) {
+            Log.e("GroqVision", "Network error: ${e.message}")
+            null
+        }
     }
 
     private fun bitmapToBase64(bitmap: Bitmap): String? = try {

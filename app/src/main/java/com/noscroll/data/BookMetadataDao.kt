@@ -16,4 +16,7 @@ interface BookMetadataDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(entity: BookMetadataEntity)
+
+    @Query("DELETE FROM book_metadata WHERE bookUri = :uri")
+    suspend fun delete(uri: String)
 }

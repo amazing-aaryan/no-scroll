@@ -33,10 +33,8 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
             else -> {
-                setContentView(R.layout.activity_main)
-                findViewById<com.google.android.material.button.MaterialButton>(R.id.open_library_btn).setOnClickListener {
-                    startActivity(Intent(this, PdfLibraryActivity::class.java))
-                }
+                startActivity(Intent(this, PdfLibraryActivity::class.java))
+                finish()
             }
         }
     }

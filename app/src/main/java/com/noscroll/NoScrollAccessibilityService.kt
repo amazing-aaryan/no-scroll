@@ -144,13 +144,26 @@ class NoScrollAccessibilityService : AccessibilityService() {
     }
 
     private fun findReelsNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
+        val screenHeight = resources.displayMetrics.heightPixels
+        val screenWidth = resources.displayMetrics.widthPixels
+        val navThreshold = (screenHeight * 0.80).toInt()
+        val maxTabWidth = screenWidth / 3
+
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
 
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
             val desc = node.contentDescription?.toString() ?: ""
-            if (desc.contains("reels", ignoreCase = true)) {
+            val nodeRect = Rect()
+            node.getBoundsInScreen(nodeRect)
+
+            val descMatch = desc.equals("Reels", ignoreCase = true) ||
+                desc.equals("Reels tab", ignoreCase = true)
+            val inNavBar = nodeRect.top >= navThreshold
+            val narrowEnough = nodeRect.width() in 1..maxTabWidth
+
+            if (descMatch && inNavBar && narrowEnough && node.isClickable) {
                 queue.forEach { it.recycle() }
                 return node
             }
@@ -188,9 +201,20 @@ class NoScrollAccessibilityService : AccessibilityService() {
         navBar ?: return
         val childCount = navBar.childCount
         if (childCount > 0) {
-            val center = navBar.getChild(childCount / 2)
-            center?.getBoundsInScreen(outRect)
-            center?.recycle()
+            // Prefer the child with "Reels" description; fall back to center child
+            var target: AccessibilityNodeInfo? = null
+            for (i in 0 until childCount) {
+                val child = navBar.getChild(i) ?: continue
+                val desc = child.contentDescription?.toString() ?: ""
+                if (desc.contains("reels", ignoreCase = true)) {
+                    target = child
+                    break
+                }
+                child.recycle()
+            }
+            if (target == null) target = navBar.getChild(childCount / 2)
+            target?.getBoundsInScreen(outRect)
+            target?.recycle()
         }
         navBar.recycle()
     }
