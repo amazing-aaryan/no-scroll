@@ -1,84 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#171615">
 
-    <!-- Full-screen PDF content -->
-    <FrameLayout
-        android:id="@+id/pdf_fragment_container"
+    <!-- Stacked: top bar | PDF | bottom bar -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <!-- ═══ Top bar: frosted glass + title + overflow ═══ -->
-    <FrameLayout
-        android:id="@+id/metadata_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top">
-
-        <!-- Blur layer — fills the bar, blurs PDF content behind it -->
-        <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blur_top_bar"
+        <!-- Top bar: solid, 44dp -->
+        <FrameLayout
+            android:id="@+id/metadata_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent" />
+            android:layout_height="44dp"
+            android:background="#1B1917">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="4dp">
+                <TextView
+                    android:id="@+id/book_metadata_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="..."
+                    android:textColor="#D0F5F0E8"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.01" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/metadata_lookup_btn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="@string/metadata_lookup"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
+                <ImageButton
+                    android:id="@+id/overflow_menu_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="More options"
+                    android:src="@drawable/ic_more_vert"
+                    android:tint="#D0FFFFFF"
+                    android:padding="10dp" />
+            </LinearLayout>
+        </FrameLayout>
 
-        <!-- Content row -->
+        <!-- PDF renderer fills the space between bars -->
+        <FrameLayout
+            android:id="@+id/pdf_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Bottom bar: solid, 52dp -->
         <LinearLayout
+            android:id="@+id/reader_bottom_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:layout_height="52dp"
+            android:background="#1B1917"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="16dp"
-            android:paddingEnd="4dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-
-            <TextView
-                android:id="@+id/book_metadata_text"
+            android:orientation="horizontal">
+            <Space
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="..."
-                android:textColor="#D0F5F0E8"
-                android:textSize="13sp"
-                android:letterSpacing="0.01" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/metadata_lookup_btn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/change_pdf_fab"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:text="@string/metadata_lookup"
-                android:textColor="@color/colorAccent"
-                android:textSize="11sp"
-                android:visibility="gone" />
-
-            <ImageButton
-                android:id="@+id/overflow_menu_btn"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="More options"
-                android:src="@drawable/ic_more_vert"
-                android:tint="#D0FFFFFF" />
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/change_pdf"
+                android:src="@drawable/ic_book"
+                app:backgroundTint="#1B1917"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                app:tint="#80FFFFFF" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/goto_page_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/goto_page"
+                android:src="@drawable/ic_goto_page"
+                app:backgroundTint="#1B1917"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                app:tint="#80FFFFFF" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/make_quote_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/make_quote"
+                android:src="@drawable/ic_check_circle"
+                app:backgroundTint="@color/colorAccent"
+                app:elevation="0dp"
+                app:fabSize="mini"
+                app:tint="@color/black" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
-    <!-- Hidden action buttons — Kotlin IDs still compile, triggered from overflow -->
+    <!-- Hidden action IDs — zero-size, Kotlin references only -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:visibility="gone">
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/highlights_btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -86,7 +134,6 @@
             android:layout_height="36dp"
             android:text="@string/highlights"
             android:textColor="@color/white" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ocr_page_btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -94,7 +141,6 @@
             android:layout_height="36dp"
             android:text="@string/ocr_page"
             android:textColor="@color/white" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/export_highlights_btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -102,7 +148,6 @@
             android:layout_height="36dp"
             android:text="@string/export_highlights"
             android:textColor="@color/white" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/zen_mode_btn"
             style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -112,27 +157,24 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <!-- ═══ Floating glass pill — shown when text is selected ═══ -->
-    <eightbitlab.com.blurview.BlurView
+    <!-- Selection pill: floats above bottom bar when text is selected -->
+    <FrameLayout
         android:id="@+id/selection_action_rail"
         android:layout_width="wrap_content"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/bg_selection_pill"
         android:clipToOutline="true"
         android:elevation="16dp"
         android:visibility="gone">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="4dp"
             android:paddingEnd="4dp">
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/action_highlight"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -144,12 +186,10 @@
                 android:text="@string/highlight"
                 android:textColor="@color/colorAccent"
                 android:textSize="13sp" />
-
             <View
                 android:layout_width="1dp"
                 android:layout_height="22dp"
-                android:background="#2AFFFFFF" />
-
+                android:background="#35FFFFFF" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/action_annotate"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -161,12 +201,10 @@
                 android:text="@string/annotate"
                 android:textColor="#D0F5F0E8"
                 android:textSize="13sp" />
-
             <View
                 android:layout_width="1dp"
                 android:layout_height="22dp"
-                android:background="#2AFFFFFF" />
-
+                android:background="#35FFFFFF" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/action_quote"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -178,12 +216,10 @@
                 android:text="@string/quote"
                 android:textColor="#D0F5F0E8"
                 android:textSize="13sp" />
-
             <View
                 android:layout_width="1dp"
                 android:layout_height="22dp"
-                android:background="#2AFFFFFF" />
-
+                android:background="#35FFFFFF" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/action_share"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -196,16 +232,16 @@
                 android:textColor="#D0F5F0E8"
                 android:textSize="13sp" />
         </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
+    </FrameLayout>
 
-    <!-- Zen exit FAB (top-right, shown only in zen mode) — intentionally subtle -->
+    <!-- Zen exit handle (top-right corner, zen mode only) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/zen_exit_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="16dp"
-        android:alpha="0.30"
+        android:alpha="0.35"
         android:contentDescription="@string/exit_zen_mode"
         android:src="@drawable/ic_check_circle"
         android:visibility="gone"
@@ -213,113 +249,4 @@
         app:fabSize="mini"
         app:tint="#C0F5F0E8" />
 
-    <FrameLayout
-        android:id="@+id/reader_progress_silhouette"
-        android:layout_width="28dp"
-        android:layout_height="360dp"
-        android:layout_gravity="end|center_vertical"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="104dp"
-        android:alpha="0.85"
-        android:visibility="gone">
-
-        <View
-            android:id="@+id/reader_progress_track"
-            android:layout_width="6dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_progress_track" />
-
-        <View
-            android:id="@+id/reader_progress_thumb"
-            android:layout_width="12dp"
-            android:layout_height="56dp"
-            android:layout_gravity="top|center_horizontal"
-            android:background="@drawable/bg_progress_thumb" />
-    </FrameLayout>
-
-    <!-- ═══ Bottom bar: frosted glass + Library | Go to page | Make quote ═══ -->
-    <FrameLayout
-        android:id="@+id/reader_bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_gravity="bottom">
-
-        <!-- Blur layer -->
-        <eightbitlab.com.blurview.BlurView
-            android:id="@+id/blur_bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent" />
-
-        <!-- Top separator line -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#20FFFFFF" />
-
-        <!-- FAB row -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/change_pdf_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/change_pdf"
-                android:src="@drawable/ic_book"
-                app:backgroundTint="#18FFFFFF"
-                app:elevation="0dp"
-                app:fabSize="mini"
-                app:tint="#C0FFFFFF" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/goto_page_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/goto_page"
-                android:src="@drawable/ic_goto_page"
-                app:backgroundTint="#18FFFFFF"
-                app:elevation="0dp"
-                app:fabSize="mini"
-                app:tint="#C0FFFFFF" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/make_quote_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/make_quote"
-                android:src="@drawable/ic_goto_page"
-                app:backgroundTint="@color/colorAccent"
-                app:elevation="4dp"
-                app:fabSize="mini"
-                app:tint="@color/black" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </FrameLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

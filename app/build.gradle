@@ -16,6 +16,11 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        def localProps = new Properties()
+        def localPropsFile = rootProject.file('local.properties')
+        if (localPropsFile.exists()) localProps.load(localPropsFile.newDataInputStream())
+        buildConfigField "String", "GROQ_API_KEY", "\"${localProps.getProperty('GROQ_API_KEY', '')}\""
     }
 
     buildTypes {
@@ -43,6 +48,7 @@ android {
 
     buildFeatures {
         compose true
+        buildConfig true
     }
 }
 

@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.text.InputType
 import android.view.Gravity
-import android.view.MotionEvent
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
@@ -24,9 +23,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.appcompat.app.AppCompatActivity
-import eightbitlab.com.blurview.BlurView
-import eightbitlab.com.blurview.RenderEffectBlur
-import eightbitlab.com.blurview.RenderScriptBlur
 import androidx.lifecycle.lifecycleScope
 import androidx.pdf.PdfDocument
 import androidx.pdf.PdfRect
@@ -64,11 +60,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private lateinit var zenExitHandle: FloatingActionButton
     private lateinit var overflowMenuBtn: ImageButton
     private lateinit var readerBottomBar: View
-    private lateinit var progressSilhouette: View
-    private lateinit var progressThumb: View
-    private lateinit var blurTopBar: BlurView
-    private lateinit var blurBottomBar: BlurView
-    private lateinit var blurPill: BlurView
 
     private lateinit var pdfFragment: NoScrollPdfViewerFragment
 
@@ -97,12 +88,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         zenExitHandle = findViewById(R.id.zen_exit_handle)
         overflowMenuBtn = findViewById(R.id.overflow_menu_btn)
         readerBottomBar = findViewById(R.id.reader_bottom_bar)
-        progressSilhouette = findViewById(R.id.reader_progress_silhouette)
-        progressThumb = findViewById(R.id.reader_progress_thumb)
-        blurTopBar = findViewById(R.id.blur_top_bar)
-        blurBottomBar = findViewById(R.id.blur_bottom_bar)
-        blurPill = selectionRail as BlurView
-        setupBlurViews()
 
         pdfFragment = supportFragmentManager.findFragmentByTag(PDF_FRAGMENT_TAG) as? NoScrollPdfViewerFragment
             ?: NoScrollPdfViewerFragment().also { fragment ->
@@ -123,46 +108,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         }
     }
 
-    @Suppress("DEPRECATION")
-    private fun setupBlurViews() {
-        val rootView = window.decorView as android.view.ViewGroup
-        val darkNavyOverlay = Color.parseColor("#B0000810")
-        val pillOverlay = Color.parseColor("#90101520")
-
-        fun makeAlgo() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            RenderEffectBlur()
-        } else {
-            RenderScriptBlur(this)
-        }
-
-        blurTopBar.setupWith(rootView, makeAlgo())
-            .setBlurRadius(22f)
-            .setOverlayColor(darkNavyOverlay)
-            .setBlurAutoUpdate(true)
-
-        blurBottomBar.setupWith(rootView, makeAlgo())
-            .setBlurRadius(22f)
-            .setOverlayColor(darkNavyOverlay)
-            .setBlurAutoUpdate(true)
-
-        blurPill.setupWith(rootView, makeAlgo())
-            .setBlurRadius(18f)
-            .setOverlayColor(pillOverlay)
-            .setBlurAutoUpdate(true)
-    }
-
     private fun setupControls() {
-        progressSilhouette.visibility = View.GONE
-        progressSilhouette.setOnTouchListener { _, event ->
-            when (event.actionMasked) {
-                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE, MotionEvent.ACTION_UP -> {
-                    seekToProgressPosition(event.y)
-                    true
-                }
-                else -> false
-            }
-        }
-
         changeFab.setOnClickListener { launchLibrary() }
         gotoPageFab.setOnClickListener { showGotoPageDialog() }
         makeQuoteFab.setOnClickListener { showManualQuoteDialog() }
@@ -215,8 +161,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     override fun onPdfLoaded(document: PdfDocument) {
         currentDocument = document
         totalPages = document.pageCount
-        progressSilhouette.visibility = if (zenModeEnabled) View.GONE else View.VISIBLE
-        updateProgressSilhouette()
         pdfFragment.scrollToPage(currentPage)
         loadMetadata(document.uri, allowOnlineOnce = true)
         reloadHighlights()
@@ -239,7 +183,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
                 BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), currentPage, totalPages)
             }
         }
-        updateProgressSilhouette()
     }
 
     override fun onPdfTextSelectionChanged(selection: ReaderSelection?) {
@@ -745,53 +688,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         if (persist) getPreferences(MODE_PRIVATE).edit().putBoolean(KEY_ZEN_MODE, enabled).apply()
         metadataBar.visibility = if (enabled) View.GONE else View.VISIBLE
         readerBottomBar.visibility = if (enabled) View.GONE else View.VISIBLE
-        progressSilhouette.visibility = if (enabled) View.GONE else View.VISIBLE
         zenExitHandle.visibility = if (enabled) View.VISIBLE else View.GONE
         supportActionBar?.let { if (enabled) it.hide() else it.show() }
         pdfFragment.setZenToolboxVisible(!enabled)
         setSystemBarsHidden(enabled)
-    }
-
-    private fun updateProgressSilhouette() {
-        if (totalPages <= 1 || zenModeEnabled) {
-            progressSilhouette.visibility = View.GONE
-            return
-        }
-        progressSilhouette.visibility = View.VISIBLE
-        progressSilhouette.post {
-            val trackHeight = progressSilhouette.height
-            if (trackHeight <= 0) return@post
-            val thumbHeight = ((trackHeight / totalPages.toFloat()) * 3f)
-                .toInt()
-                .coerceIn(dp(36), dp(76))
-            val maxTop = (trackHeight - thumbHeight).coerceAtLeast(0)
-            val ratio = currentPage.toFloat() / (totalPages - 1).coerceAtLeast(1).toFloat()
-            val top = (maxTop * ratio).toInt()
-            val params = progressThumb.layoutParams as FrameLayout.LayoutParams
-            params.height = thumbHeight
-            params.topMargin = top
-            progressThumb.layoutParams = params
-        }
-    }
-
-    private fun seekToProgressPosition(y: Float) {
-        if (totalPages <= 1) return
-        val trackHeight = progressSilhouette.height
-        if (trackHeight <= 0) return
-        val thumbHeight = progressThumb.height.takeIf { it > 0 } ?: dp(56)
-        val maxTop = (trackHeight - thumbHeight).coerceAtLeast(1)
-        val top = (y - thumbHeight / 2f).coerceIn(0f, maxTop.toFloat())
-        val ratio = top / maxTop.toFloat()
-        val page = (ratio * (totalPages - 1)).toInt().coerceIn(0, totalPages - 1)
-        currentPage = page
-        pdfFragment.scrollToPage(page)
-        PdfStorage.savePage(this, page)
-        currentUri?.let { uri ->
-            lifecycleScope.launch(Dispatchers.IO) {
-                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), page, totalPages)
-            }
-        }
-        updateProgressSilhouette()
     }
 
     private fun dp(value: Int): Int =
@@ -881,8 +781,8 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     private fun applyReaderSystemBarContrast() {
-        window.statusBarColor = Color.parseColor("#171615")
-        window.navigationBarColor = Color.parseColor("#171615")
+        window.statusBarColor = Color.parseColor("#1B1917")
+        window.navigationBarColor = Color.parseColor("#1B1917")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.setSystemBarsAppearance(
                 0,

@@ -26,16 +26,41 @@ object BookMetadataRepository {
         val cached = dao.get(key)
 
         if (cached?.source == "manual") return@withContext cached
+        if (cached?.source == "vision_ai") return@withContext cached
         if (cached != null && cached.author != "Unknown Author" &&
             !isLinkLike(cached.author) && !isLinkLike(cached.title)
         ) return@withContext cached
+
+        // Groq Vision — send cover image to LLaMA 3.2 Vision, best accuracy
+        if (allowOnlineOnce) {
+            val coverBitmap = renderCoverPage(context, uri)
+            if (coverBitmap != null) {
+                try {
+                    val groq = GroqVisionClient.identify(coverBitmap)
+                    if (groq != null && groq.title.isNotBlank()) {
+                        val entity = BookMetadataEntity(
+                            bookUri = key,
+                            title = groq.title,
+                            author = groq.author,
+                            source = "vision_ai",
+                            confidence = 0.95f
+                        )
+                        dao.upsert(entity)
+                        return@withContext entity
+                    }
+                } finally {
+                    coverBitmap.recycle()
+                }
+            }
+        }
 
         val ocrText = extractCoverOcrText(context, uri)
         val fallback = fallbackTitle(context, uri)
         var entity = extractFromCoverOcr(key, ocrText, fallback)
 
-        if (allowOnlineOnce && entity.author == "Unknown Author" &&
-            entity.title != "Untitled PDF" && !isLinkLike(entity.title)
+        if (allowOnlineOnce &&
+            entity.title != "Untitled PDF" && !isLinkLike(entity.title) &&
+            (entity.author == "Unknown Author" || entity.confidence < 0.75f)
         ) {
             entity = networkEnrich(entity) ?: entity
         }
@@ -153,23 +178,36 @@ object BookMetadataRepository {
     private fun networkEnrich(entity: BookMetadataEntity): BookMetadataEntity? {
         val queryTitle = entity.title.takeIf { !isLinkLike(it) && it != "Untitled PDF" } ?: return null
 
-        val google = try { GoogleBooksClient.search("intitle:\"$queryTitle\"") } catch (_: Exception) { null }
-        if (google != null && google.author != "Unknown Author") {
+        // 1. Exact intitle: match — highest precision
+        val googleExact = try { GoogleBooksClient.search("intitle:\"$queryTitle\"") } catch (_: Exception) { null }
+        if (googleExact != null && googleExact.author != "Unknown Author") {
             return entity.copy(
-                title = if (entity.title == "Untitled PDF") google.title else entity.title,
-                author = google.author,
+                title = if (entity.title == "Untitled PDF") googleExact.title else entity.title,
+                author = googleExact.author,
                 source = "network",
                 confidence = 0.85f
             )
         }
 
+        // 2. Broader Google Books query — catches titles with slight OCR noise
+        val googleBroad = try { GoogleBooksClient.search(queryTitle) } catch (_: Exception) { null }
+        if (googleBroad != null && googleBroad.author != "Unknown Author") {
+            return entity.copy(
+                title = googleBroad.title,
+                author = googleBroad.author,
+                source = "network",
+                confidence = 0.80f
+            )
+        }
+
+        // 3. Open Library fallback
         val ol = try { OpenLibraryClient.search(queryTitle) } catch (_: Exception) { null }
         if (ol != null && ol.author != "Unknown Author") {
             return entity.copy(
                 title = if (entity.title == "Untitled PDF") ol.title else entity.title,
                 author = ol.author,
                 source = "network",
-                confidence = 0.8f
+                confidence = 0.80f
             )
         }
 
