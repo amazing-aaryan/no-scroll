@@ -145,8 +145,19 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     }
 
     fun setSavedHighlights(coloredBounds: List<Pair<PdfRect, Int>>) {
-        highlights = coloredBounds.map { (rect, color) -> Highlight(rect, color) }
+        highlights = coloredBounds.map { (rect, color) ->
+            val c = migrateColor(color)
+            Highlight(rect, (c and 0x00FFFFFF) or (0xCC shl 24))
+        }
         currentPdfView?.setHighlights(highlights)
+    }
+
+    private fun migrateColor(color: Int): Int = when (color) {
+        0x80FFE566.toInt(), 0x80FFF176.toInt() -> 0x80FFF59D.toInt()
+        0x8066CC77.toInt(), 0x80AED581.toInt() -> 0x80DCEDC8.toInt()
+        0x80FF88CC.toInt(), 0x80F48FB1.toInt() -> 0x80F8BBD0.toInt()
+        0x804FC3F7.toInt(), 0x8090CAF9.toInt() -> 0x80BBDEFB.toInt()
+        else -> color
     }
 
     fun setZenToolboxVisible(visible: Boolean) {

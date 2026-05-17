@@ -2,6 +2,8 @@ package com.noscroll
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.Color
 import android.graphics.Rect
 import android.os.Handler
 import android.os.Looper
@@ -110,25 +112,36 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    // Checks whether the Reels button is actually on screen.
-    // Shows the overlay if found, hides it (without stopping the service) if not.
     private fun findAndUpdateOverlay() {
         val root = rootInActiveWindow ?: return
         try {
-            val rect = Rect()
-            val reelsNode = findReelsNode(root)
-            if (reelsNode != null) {
-                reelsNode.getBoundsInScreen(rect)
-                reelsNode.recycle()
-            } else {
-                findBottomNavCenter(root, rect)
-            }
-
-            if (rect.isEmpty) {
-                // Nav bar not visible — hide overlay but keep service alive for fast re-show.
+            val navBar = findNavBarNode(root)
+            if (navBar == null) {
                 hideOverlay()
                 return
             }
+
+            val navBarRect = Rect()
+            navBar.getBoundsInScreen(navBarRect)
+
+            val reelsNode = findReelsInNavBar(navBar, navBarRect)
+            navBar.recycle()
+
+            if (reelsNode == null) {
+                hideOverlay()
+                return
+            }
+
+            val rect = Rect()
+            reelsNode.getBoundsInScreen(rect)
+            reelsNode.recycle()
+
+            if (rect.isEmpty) {
+                hideOverlay()
+                return
+            }
+
+            val bgColor = detectBgColor()
 
             startService(
                 Intent(this, OverlayService::class.java).apply {
@@ -136,6 +149,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
                     putExtra("y", rect.top)
                     putExtra("w", rect.width())
                     putExtra("h", rect.height())
+                    putExtra("bgColor", bgColor)
                 }
             )
         } finally {
@@ -143,27 +157,23 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    private fun findReelsNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
+    private fun findNavBarNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
         val screenHeight = resources.displayMetrics.heightPixels
         val screenWidth = resources.displayMetrics.widthPixels
-        val navThreshold = (screenHeight * 0.80).toInt()
-        val maxTabWidth = screenWidth / 3
+        val navThreshold = (screenHeight * 0.88).toInt()
 
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
 
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
-            val desc = node.contentDescription?.toString() ?: ""
             val nodeRect = Rect()
             node.getBoundsInScreen(nodeRect)
 
-            val descMatch = desc.equals("Reels", ignoreCase = true) ||
-                desc.equals("Reels tab", ignoreCase = true)
-            val inNavBar = nodeRect.top >= navThreshold
-            val narrowEnough = nodeRect.width() in 1..maxTabWidth
-
-            if (descMatch && inNavBar && narrowEnough && node.isClickable) {
+            if (nodeRect.top >= navThreshold &&
+                nodeRect.width() >= screenWidth * 0.80f &&
+                node.childCount in 4..6
+            ) {
                 queue.forEach { it.recycle() }
                 return node
             }
@@ -173,50 +183,54 @@ class NoScrollAccessibilityService : AccessibilityService() {
         return null
     }
 
-    private fun findBottomNavCenter(root: AccessibilityNodeInfo, outRect: Rect) {
-        val screenHeight = resources.displayMetrics.heightPixels
-        val screenWidth = resources.displayMetrics.widthPixels
-        val navThreshold = (screenHeight * 0.82).toInt()
+    private fun findReelsInNavBar(navBar: AccessibilityNodeInfo, navBarRect: Rect): AccessibilityNodeInfo? {
+        var bestNode: AccessibilityNodeInfo? = null
+        var bestScore = 1
 
-        val queue = ArrayDeque<AccessibilityNodeInfo>()
-        for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
-
-        var navBar: AccessibilityNodeInfo? = null
-        outer@ while (queue.isNotEmpty()) {
-            val node = queue.removeFirst()
-            val nodeRect = Rect()
-            node.getBoundsInScreen(nodeRect)
-            if (nodeRect.top >= navThreshold &&
-                nodeRect.width() >= screenWidth * 0.8f &&
-                node.childCount in 4..6
-            ) {
-                queue.forEach { it.recycle() }
-                navBar = node
-                break@outer
-            }
-            for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
-            node.recycle()
-        }
-
-        navBar ?: return
-        val childCount = navBar.childCount
-        if (childCount > 0) {
-            // Prefer the child with "Reels" description; fall back to center child
-            var target: AccessibilityNodeInfo? = null
-            for (i in 0 until childCount) {
-                val child = navBar.getChild(i) ?: continue
-                val desc = child.contentDescription?.toString() ?: ""
-                if (desc.contains("reels", ignoreCase = true)) {
-                    target = child
-                    break
-                }
+        for (i in 0 until navBar.childCount) {
+            val child = navBar.getChild(i) ?: continue
+            val score = scoreReelsChild(child, navBarRect)
+            if (score > bestScore) {
+                bestNode?.recycle()
+                bestNode = child
+                bestScore = score
+            } else {
                 child.recycle()
             }
-            if (target == null) target = navBar.getChild(childCount / 2)
-            target?.getBoundsInScreen(outRect)
-            target?.recycle()
         }
-        navBar.recycle()
+        return bestNode
+    }
+
+    private fun scoreReelsChild(child: AccessibilityNodeInfo, navBarRect: Rect): Int {
+        var score = 0
+        val resId = child.viewIdResourceName?.lowercase() ?: ""
+        val desc = child.contentDescription?.toString() ?: ""
+
+        if (resId.contains("reels") || resId.contains("clips")) score += 3
+        when {
+            desc.equals("Reels", ignoreCase = true) || desc.equals("Reels tab", ignoreCase = true) -> score += 2
+            desc.contains("reels", ignoreCase = true) -> score += 1
+        }
+        if (child.isClickable) score += 1
+
+        val childRect = Rect()
+        child.getBoundsInScreen(childRect)
+        val navBarWidth = navBarRect.width().toFloat()
+        if (navBarWidth > 0f) {
+            val childCenter = childRect.centerX() - navBarRect.left
+            val edgeZone = navBarWidth * 0.20f
+            if (childCenter < edgeZone || childCenter > navBarWidth - edgeZone) score -= 2
+        }
+
+        return score
+    }
+
+    private fun detectBgColor(): Int {
+        val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return if (nightMode == Configuration.UI_MODE_NIGHT_YES)
+            Color.argb(220, 0, 0, 0)
+        else
+            Color.argb(220, 255, 255, 255)
     }
 
     private fun hideOverlay() {

@@ -19,55 +19,62 @@ object BookMetadataRepository {
         context: Context,
         uri: Uri,
         document: PdfDocument? = null,
-        allowOnlineOnce: Boolean = false
+        allowOnlineOnce: Boolean = false,
+        coverBitmap: Bitmap? = null,
+        forceOnline: Boolean = false
     ): BookMetadataEntity = withContext(Dispatchers.IO) {
         val key = uri.toString()
         val dao = AnnotationDatabase.getInstance(context).bookMetadataDao()
         val cached = dao.get(key)
 
-        if (cached?.source == "manual") return@withContext cached
-        if (cached?.source == "vision_ai") return@withContext cached
-        // Return good cached result; re-run pipeline if author is unknown
-        if (cached != null && cached.author != "Unknown Author" &&
+        android.util.Log.d("NoScrollMeta", "resolve: cached=${cached?.source} allowOnline=$allowOnlineOnce force=$forceOnline")
+        if (!forceOnline && cached?.source == "manual") return@withContext cached
+        if (!forceOnline && cached != null && cached.author != "Unknown Author" &&
             !isLinkLike(cached.author) && !isLinkLike(cached.title)
-        ) return@withContext cached
-        // Delete stale bad row so upsert below writes a fresh result
-        if (cached != null && cached.author == "Unknown Author" && allowOnlineOnce) {
+        ) {
+            android.util.Log.d("NoScrollMeta", "returning good cache: title='${cached.title}' author='${cached.author}'")
+            return@withContext cached
+        }
+        if (cached != null && (forceOnline || cached.author == "Unknown Author")) {
             dao.delete(key)
         }
 
-        // Groq Vision — send cover image to LLaMA 3.2 Vision, best accuracy
-        if (allowOnlineOnce) {
-            val coverBitmap = renderCoverPage(context, uri)
-            if (coverBitmap != null) {
-                try {
-                    val groq = GroqVisionClient.identify(coverBitmap)
-                    if (groq != null && groq.title.isNotBlank()) {
-                        val entity = BookMetadataEntity(
-                            bookUri = key,
-                            title = groq.title,
-                            author = groq.author,
-                            source = "vision_ai",
-                            confidence = 0.95f
-                        )
-                        dao.upsert(entity)
-                        return@withContext entity
-                    }
-                } finally {
-                    coverBitmap.recycle()
-                }
+        // 1. Block-level cover OCR
+        val blocks: List<CoverBlock> = if (coverBitmap != null) {
+            try {
+                val b = CoverPageOcr.recognizeBlocks(coverBitmap)
+                android.util.Log.d("NoScrollMeta", "recognizeBlocks(bitmap): ${b.size} blocks: ${b.take(5).map { "'${it.text.take(40)}' area=${it.area}" }}")
+                b
+            } catch (e: Exception) {
+                android.util.Log.e("NoScrollMeta", "recognizeBlocks FAILED: ${e.message}")
+                emptyList()
             }
+        } else {
+            android.util.Log.d("NoScrollMeta", "no coverBitmap — rendering internally")
+            renderCoverPage(context, uri)?.let { bmp ->
+                try {
+                    val b = CoverPageOcr.recognizeBlocks(bmp)
+                    android.util.Log.d("NoScrollMeta", "recognizeBlocks(internal): ${b.size} blocks")
+                    b
+                } finally { bmp.recycle() }
+            } ?: emptyList()
         }
 
-        val ocrText = extractCoverOcrText(context, uri)
         val fallback = fallbackTitle(context, uri)
-        var entity = extractFromCoverOcr(key, ocrText, fallback)
+        var entity = extractFromBlocks(key, blocks, fallback)
+        android.util.Log.d("NoScrollMeta", "extractFromBlocks: title='${entity.title}' author='${entity.author}' conf=${entity.confidence}")
 
-        if (allowOnlineOnce &&
+        // 2. Network enrich via Google Books / Open Library
+        if ((allowOnlineOnce || forceOnline) &&
             entity.title != "Untitled PDF" && !isLinkLike(entity.title) &&
             (entity.author == "Unknown Author" || entity.confidence < 0.75f)
         ) {
-            entity = networkEnrich(entity) ?: entity
+            android.util.Log.d("NoScrollMeta", "networkEnrich: querying '${entity.title}'")
+            val enriched = networkEnrich(entity)
+            android.util.Log.d("NoScrollMeta", "networkEnrich result: ${if (enriched != null) "author='${enriched.author}'" else "null"}")
+            entity = enriched ?: entity
+        } else {
+            android.util.Log.d("NoScrollMeta", "networkEnrich skipped: allowOnline=$allowOnlineOnce author='${entity.author}' conf=${entity.confidence}")
         }
 
         dao.upsert(entity)
@@ -87,62 +94,63 @@ object BookMetadataRepository {
             entity
         }
 
-    private fun extractFromCoverOcr(bookUri: String, ocrText: String, fallbackStr: String): BookMetadataEntity {
-        val lines = ocrText.lines()
-            .map { it.trim() }
-            .filter { line ->
-                line.length in 2..80 &&
-                line.any { it.isLetter() } &&
-                !line.contains('©') &&
-                !line.contains("ISBN", ignoreCase = true) &&
-                !line.contains("www.", ignoreCase = true) &&
-                !line.startsWith("http", ignoreCase = true) &&
-                !line.contains('@') &&
-                !line.contains("copyright", ignoreCase = true) &&
-                !line.contains("published", ignoreCase = true) &&
-                !line.contains("all rights", ignoreCase = true)
-            }
-
-        if (lines.isEmpty()) return BookMetadataEntity(
+    // Title = largest prominent block that is NOT a person name.
+    // Author = explicit "by X" match or largest block that IS a person name.
+    private fun extractFromBlocks(bookUri: String, blocks: List<CoverBlock>, fallbackStr: String): BookMetadataEntity {
+        if (blocks.isEmpty()) return BookMetadataEntity(
             bookUri = bookUri, title = fallbackStr, author = "Unknown Author",
             source = "cover_ocr", confidence = 0.2f
         )
 
-        // Explicit "by / edited by / written by" pattern
-        val byPattern = Regex("""^(?:by|edited by|written by)\s+(.+)""", RegexOption.IGNORE_CASE)
-        var explicitAuthor: String? = null
-        var byIdx = -1
-        for ((i, line) in lines.withIndex()) {
-            val m = byPattern.matchEntire(line) ?: continue
-            val candidate = m.groupValues[1].trim()
-            if (candidate.length in 2..60 && candidate.none { it.isDigit() }) {
-                explicitAuthor = candidate
-                byIdx = i
-                break
-            }
+        val cleaned = blocks.filter { block ->
+            !isPublisherNoise(block.text) &&
+            !isBadText(block.text) &&
+            block.text.any { it.isLetter() } &&
+            !block.text.contains("ISBN", ignoreCase = true) &&
+            !block.text.contains("www.", ignoreCase = true) &&
+            !block.text.startsWith("http", ignoreCase = true) &&
+            !block.text.contains('@') &&
+            !block.text.contains('©')
         }
 
-        // Title: first substantive line — not the by-line, not publisher noise,
-        // not a person name, reasonable word count
-        val titleLine = lines
-            .filterIndexed { i, _ -> i != byIdx }
-            .firstOrNull { line ->
-                val words = line.split(Regex("\\s+")).filter { it.isNotBlank() }
-                words.size in 1..8 &&
-                !isLikelyPersonName(line) &&
-                !isPublisherNoise(line) &&
-                !isBadText(line)
-            } ?: lines.firstOrNull()
+        if (cleaned.isEmpty()) return BookMetadataEntity(
+            bookUri = bookUri, title = fallbackStr, author = "Unknown Author",
+            source = "cover_ocr", confidence = 0.2f
+        )
 
-        val title = titleLine?.let { cleanTitle(it) }
-            ?.takeIf { !isBadText(it) }
-            ?: fallbackStr
+        // Explicit "by X" / "edited by X" takes priority as author signal
+        val byPattern = Regex("""^(?:by|edited by|written by)\s+(.+)""", RegexOption.IGNORE_CASE)
+        val explicitAuthor = cleaned
+            .flatMap { it.text.split(Regex("""\s{2,}""")) }
+            .map { it.trim() }
+            .firstNotNullOfOrNull { segment ->
+                byPattern.matchEntire(segment)?.groupValues?.getOrNull(1)?.trim()
+                    ?.takeIf { it.length in 2..60 && it.none { c -> c.isDigit() } }
+            }
 
-        // Author: explicit "by X" match, then first person-like name that is not the title line
-        val author = explicitAuthor
-            ?: lines.filter { it != titleLine }
-                .firstOrNull { line -> isLikelyPersonName(line) && !isPublisherNoise(line) }
-            ?: "Unknown Author"
+        // Title = merge all large short non-person-name blocks (handles split covers like "ATOMIC" + "HABITS")
+        val nonPersonBlocks = cleaned.filter { block ->
+            val words = block.text.split(Regex("\\s+")).filter { it.isNotBlank() }
+            words.size in 1..10 && !isLikelyPersonName(block.text) && !isBadText(block.text)
+        }
+        val largestArea = nonPersonBlocks.maxOfOrNull { it.area } ?: 0
+        val titleThreshold = largestArea * 0.6
+        val titleComponents = nonPersonBlocks
+            .filter { it.area >= titleThreshold }
+            .filter { block -> block.text.split(Regex("\\s+")).filter { it.isNotBlank() }.size <= 4 }
+            .sortedBy { it.centerYFraction }
+        val title = if (titleComponents.isNotEmpty()) {
+            cleanTitle(titleComponents.joinToString(" ") { toTitleCase(it.text) })
+        } else {
+            nonPersonBlocks.firstOrNull()?.let { cleanTitle(toTitleCase(it.text)) } ?: fallbackStr
+        }
+
+        // Author = explicit match or largest person-name block (excluding title components)
+        val titleTexts = titleComponents.map { it.text }.toSet()
+        val authorBlock = if (explicitAuthor == null) {
+            cleaned.filter { it.text !in titleTexts }.firstOrNull { isLikelyPersonName(it.text) }
+        } else null
+        val author = explicitAuthor ?: authorBlock?.text ?: "Unknown Author"
 
         return BookMetadataEntity(
             bookUri = bookUri,
@@ -153,48 +161,19 @@ object BookMetadataRepository {
         )
     }
 
-    private fun isPublisherNoise(line: String): Boolean {
-        val lower = line.lowercase()
-        return lower.contains("publisher") || lower.contains("publishing") ||
-            lower.contains(" press") || lower.contains("bestseller") ||
-            lower.contains("new york times") || lower.contains("international") ||
-            lower.contains("award") || lower.contains("national book") ||
-            lower.contains("magazine") || lower.contains("review") ||
-            lower.contains("foreword") || lower.contains("preface")
-    }
-
-    private fun isLikelyPersonName(line: String): Boolean {
-        val words = line.split(Regex("\\s+")).filter { it.isNotBlank() }
-        return words.size in 2..4 && words.all { word ->
-            word.firstOrNull()?.isUpperCase() == true &&
-                word.drop(1).all { it.isLowerCase() || it == '.' || it == '-' || it == '\'' }
-        }
-    }
-
-    private fun cleanTitle(title: String): String =
-        title.replace(Regex("\\s+temp$", RegexOption.IGNORE_CASE), "")
-            .replace(Regex("\\s+pdf$", RegexOption.IGNORE_CASE), "")
-            .trim()
-
-    private fun isBadText(s: String): Boolean =
-        s.isBlank() || s.contains(';') || s.contains('=') || s.length > 80 ||
-            s.endsWith(" temp", ignoreCase = true)
-
     private fun networkEnrich(entity: BookMetadataEntity): BookMetadataEntity? {
         val queryTitle = entity.title.takeIf { !isLinkLike(it) && it != "Untitled PDF" } ?: return null
 
-        // 1. Exact intitle: match — highest precision
         val googleExact = try { GoogleBooksClient.search("intitle:\"$queryTitle\"") } catch (_: Exception) { null }
         if (googleExact != null && googleExact.author != "Unknown Author") {
             return entity.copy(
-                title = if (entity.title == "Untitled PDF") googleExact.title else entity.title,
+                title = googleExact.title,
                 author = googleExact.author,
                 source = "network",
                 confidence = 0.85f
             )
         }
 
-        // 2. Broader Google Books query — catches titles with slight OCR noise
         val googleBroad = try { GoogleBooksClient.search(queryTitle) } catch (_: Exception) { null }
         if (googleBroad != null && googleBroad.author != "Unknown Author") {
             return entity.copy(
@@ -205,11 +184,10 @@ object BookMetadataRepository {
             )
         }
 
-        // 3. Open Library fallback
         val ol = try { OpenLibraryClient.search(queryTitle) } catch (_: Exception) { null }
         if (ol != null && ol.author != "Unknown Author") {
             return entity.copy(
-                title = if (entity.title == "Untitled PDF") ol.title else entity.title,
+                title = ol.title,
                 author = ol.author,
                 source = "network",
                 confidence = 0.80f
@@ -219,13 +197,42 @@ object BookMetadataRepository {
         return null
     }
 
+    private fun isPublisherNoise(text: String): Boolean {
+        val lower = text.lowercase()
+        return lower.contains("publisher") || lower.contains("publishing") ||
+            lower.contains(" press") || lower.contains("bestseller") ||
+            lower.contains("new york times") || lower.contains("international") ||
+            lower.contains("award") || lower.contains("national book") ||
+            lower.contains("magazine") || lower.contains("review") ||
+            lower.contains("foreword") || lower.contains("preface") ||
+            lower.contains("copyright") || lower.contains("all rights") ||
+            lower.contains("published")
+    }
+
+    private fun isLikelyPersonName(text: String): Boolean {
+        val words = text.split(Regex("\\s+")).filter { it.isNotBlank() }
+        return words.size in 2..4 && words.all { word ->
+            word.firstOrNull()?.isUpperCase() == true &&
+                word.drop(1).all { it.isLowerCase() || it == '.' || it == '-' || it == '\'' }
+        }
+    }
+
+    private fun toTitleCase(text: String): String =
+        text.split(Regex("\\s+")).joinToString(" ") { word ->
+            word.lowercase().replaceFirstChar { it.uppercase() }
+        }
+
+    private fun cleanTitle(title: String): String =
+        title.replace(Regex("\\s+temp$", RegexOption.IGNORE_CASE), "")
+            .replace(Regex("\\s+pdf$", RegexOption.IGNORE_CASE), "")
+            .trim()
+
+    private fun isBadText(s: String): Boolean =
+        s.isBlank() || s.contains(';') || s.contains('=') || s.length > 120 ||
+            s.endsWith(" temp", ignoreCase = true)
+
     private fun isLinkLike(s: String): Boolean =
         s.startsWith("/") || s.startsWith("http", ignoreCase = true)
-
-    private suspend fun extractCoverOcrText(context: Context, uri: Uri): String =
-        renderCoverPage(context, uri)?.let { bitmap ->
-            try { CoverPageOcr.extractText(bitmap) } finally { bitmap.recycle() }
-        }.orEmpty()
 
     private fun renderCoverPage(context: Context, uri: Uri): Bitmap? {
         var pfd: ParcelFileDescriptor? = null
@@ -237,9 +244,9 @@ object BookMetadataRepository {
                 val width = 1080
                 val scale = width.toFloat() / page.width
                 val height = (page.height * scale).toInt().coerceAtLeast(1)
-                Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bitmap ->
-                    bitmap.eraseColor(Color.WHITE)
-                    page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
+                    bmp.eraseColor(Color.WHITE)
+                    page.render(bmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
                 }
             }
         } catch (_: Exception) {

@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.IBinder
 import android.provider.Settings
@@ -65,17 +66,19 @@ class OverlayService : Service() {
         val y = intent.getIntExtra("y", 0)
         val w = intent.getIntExtra("w", 120)
         val h = intent.getIntExtra("h", 120)
-        updateOverlay(x, y, w, h)
+        val bgColor = intent.getIntExtra("bgColor", Color.BLACK)
+        updateOverlay(x, y, w, h, bgColor)
         return START_STICKY
     }
 
-    private fun updateOverlay(x: Int, y: Int, w: Int, h: Int) {
+    private fun updateOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int = Color.BLACK) {
         val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) return
         removeOverlayView()
 
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_book, null)
+        view.setBackgroundColor(bgColor)
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,

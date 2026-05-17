@@ -26,8 +26,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.pdf.PdfDocument
 import androidx.pdf.PdfRect
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.noscroll.data.BookMetadataEntity
 import com.noscroll.data.BookmarkEntity
 import com.noscroll.data.AnnotationDatabase
@@ -52,8 +50,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private lateinit var metadataBar: View
     private lateinit var metadataText: TextView
-    private lateinit var metadataLookupButton: MaterialButton
-    private lateinit var zenExitHandle: FloatingActionButton
     private lateinit var libraryBtn: ImageButton
     private lateinit var zenBtn: ImageButton
     private lateinit var highlightsNavBtn: ImageButton
@@ -79,8 +75,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
         metadataBar = findViewById(R.id.metadata_bar)
         metadataText = findViewById(R.id.book_metadata_text)
-        metadataLookupButton = findViewById(R.id.metadata_lookup_btn)
-        zenExitHandle = findViewById(R.id.zen_exit_handle)
         libraryBtn = findViewById(R.id.library_btn)
         zenBtn = findViewById(R.id.zen_btn)
         highlightsNavBtn = findViewById(R.id.highlights_nav_btn)
@@ -112,8 +106,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         highlightsNavBtn.setOnClickListener { showHighlightsDialog() }
         gotoPageNavBtn.setOnClickListener { showGotoPageDialog() }
         shareNavBtn.setOnClickListener { shareCurrentPage() }
-        zenExitHandle.setOnClickListener { setZenMode(false) }
-        metadataLookupButton.setOnClickListener { confirmOnlineLookup() }
 
         metadataText.setOnLongClickListener {
             currentUri?.let { uri ->
@@ -133,7 +125,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             currentDocument = null
             currentSelection = null
             metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
-            metadataLookupButton.visibility = View.GONE
             pdfFragment.load(uri)
             if (startPage > 0) {
                 pdfFragment.scrollToPage(startPage)
@@ -209,10 +200,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun showHighlightColorPicker(selection: ReaderSelection, openNote: Boolean) {
         val colors = listOf(
-            0x80FFE566.toInt(),
-            0x8066CC77.toInt(),
-            0x80FF88CC.toInt(),
-            0x804FC3F7.toInt()
+            0x80FFF59D.toInt(),
+            0x80DCEDC8.toInt(),
+            0x80F8BBD0.toInt(),
+            0x80BBDEFB.toInt()
         )
         val dm = resources.displayMetrics
         val circleSize = (52 * dm.density).toInt()
@@ -411,10 +402,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun recolourHighlight(highlight: HighlightEntity) {
         val colors = listOf(
-            0x80FFE566.toInt(),
-            0x8066CC77.toInt(),
-            0x80FF88CC.toInt(),
-            0x804FC3F7.toInt()
+            0x80FFF59D.toInt(),
+            0x80DCEDC8.toInt(),
+            0x80F8BBD0.toInt(),
+            0x80BBDEFB.toInt()
         )
         val dm = resources.displayMetrics
         val circleSize = (52 * dm.density).toInt()
@@ -538,38 +529,56 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         }
     }
 
-    private fun loadMetadata(uri: Uri, allowOnlineOnce: Boolean = false) {
+    private fun loadMetadata(uri: Uri, allowOnlineOnce: Boolean = false, forceOnline: Boolean = false) {
+        android.util.Log.d("NoScrollMeta", "loadMetadata called: allowOnlineOnce=$allowOnlineOnce forceOnline=$forceOnline")
         lifecycleScope.launch {
-            val metadata = BookMetadataRepository.resolve(this@PdfViewerActivity, uri, currentDocument, allowOnlineOnce)
+            val coverBitmap = if (allowOnlineOnce || forceOnline) {
+                withContext(Dispatchers.IO) {
+                    kotlinx.coroutines.delay(400)
+                    val bmp = renderCoverBitmap(uri)
+                    android.util.Log.d("NoScrollMeta", "renderCoverBitmap: ${if (bmp != null) "${bmp.width}x${bmp.height}" else "NULL"}")
+                    bmp
+                }
+            } else null
+            val metadata = BookMetadataRepository.resolve(
+                this@PdfViewerActivity, uri, currentDocument,
+                allowOnlineOnce = allowOnlineOnce,
+                coverBitmap = coverBitmap,
+                forceOnline = forceOnline
+            )
+            coverBitmap?.recycle()
+            android.util.Log.d("NoScrollMeta", "resolve result: title='${metadata.title}' author='${metadata.author}' source='${metadata.source}'")
             currentMetadata = metadata
             renderMetadata(metadata)
         }
     }
 
-    private fun renderMetadata(metadata: BookMetadataEntity) {
-        metadataText.text = "${metadata.title} — ${metadata.author}"
-        metadataLookupButton.visibility =
-            if (metadata.source == "manual" && !MetadataLookupPrefs.isOnlineLookupEnabled(this)) View.VISIBLE else View.GONE
+    private fun renderCoverBitmap(uri: Uri): Bitmap? {
+        var pfd: ParcelFileDescriptor? = null
+        var renderer: PdfRenderer? = null
+        return try {
+            pfd = contentResolver.openFileDescriptor(uri, "r") ?: return null
+            renderer = PdfRenderer(pfd)
+            renderer.openPage(0).use { page ->
+                val width = 1080
+                val scale = width.toFloat() / page.width
+                val height = (page.height * scale).toInt().coerceAtLeast(1)
+                Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
+                    bmp.eraseColor(Color.WHITE)
+                    page.render(bmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("NoScrollMeta", "renderCoverBitmap FAILED: ${e.javaClass.simpleName}: ${e.message}")
+            null
+        } finally {
+            renderer?.close()
+            pfd?.close()
+        }
     }
 
-    private fun confirmOnlineLookup() {
-        val uri = currentUri ?: return
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Look up book info online?")
-            .setMessage("This may send an ISBN, filename tokens, or a short cover-page OCR snippet to book lookup services. It is optional.")
-            .setPositiveButton("Allow once") { _, _ ->
-                metadataLookupButton.visibility = View.GONE
-                loadMetadata(uri, allowOnlineOnce = true)
-            }
-            .setNeutralButton("Always allow") { _, _ ->
-                MetadataLookupPrefs.setOnlineLookupEnabled(this, true)
-                metadataLookupButton.visibility = View.GONE
-                loadMetadata(uri)
-            }
-            .setNegativeButton("No thanks") { _, _ ->
-                metadataLookupButton.visibility = View.GONE
-            }
-            .show()
+    private fun renderMetadata(metadata: BookMetadataEntity) {
+        metadataText.text = "${metadata.title} — ${metadata.author}"
     }
 
     private fun showGotoPageDialog() {
@@ -597,7 +606,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         zenModeEnabled = enabled
         if (persist) getPreferences(MODE_PRIVATE).edit().putBoolean(KEY_ZEN_MODE, enabled).apply()
         metadataBar.visibility = if (enabled) View.GONE else View.VISIBLE
-        zenExitHandle.visibility = if (enabled) View.VISIBLE else View.GONE
         supportActionBar?.let { if (enabled) it.hide() else it.show() }
         pdfFragment.setZenToolboxVisible(!enabled)
         setSystemBarsHidden(enabled)

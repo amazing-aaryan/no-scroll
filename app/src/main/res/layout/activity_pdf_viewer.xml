@@ -49,15 +49,6 @@
                     android:paddingStart="8dp"
                     android:paddingEnd="4dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/metadata_lookup_btn"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:text="@string/metadata_lookup"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="11sp"
-                    android:visibility="gone" />
 
                 <ImageButton
                     android:id="@+id/zen_btn"
@@ -111,19 +102,5 @@
 
     </LinearLayout>
 
-    <!-- Zen exit handle: visible only in zen mode -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/zen_exit_handle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="16dp"
-        android:alpha="0.55"
-        android:contentDescription="@string/exit_zen_mode"
-        android:src="@drawable/ic_check_circle"
-        android:visibility="gone"
-        app:backgroundTint="#80101015"
-        app:fabSize="mini"
-        app:tint="#C0F5F0E8" />
 
 </FrameLayout>
