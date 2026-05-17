@@ -55,7 +55,7 @@
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/zen_mode"
-                    android:src="@drawable/ic_check_circle"
+                    android:src="@drawable/ic_lotus"
                     android:tint="#90FFFFFF"
                     android:padding="12dp" />
 
@@ -72,8 +72,8 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- PDF renderer fills remaining space -->
-        <FrameLayout
+        <!-- PDF renderer fills remaining space; PageTurnInterceptor intercepts horizontal swipes -->
+        <com.noscroll.PageTurnInterceptor
             android:id="@+id/pdf_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
