@@ -71,7 +71,6 @@ object PdfStorage {
     fun setSelected(context: Context, uri: String) {
         prefs(context).edit().putString(KEY_SELECTED_URI, uri).apply()
         saveUri(context, Uri.parse(uri))
-        savePage(context, 0)
     }
 
     fun getSelectedUri(context: Context): Uri? =

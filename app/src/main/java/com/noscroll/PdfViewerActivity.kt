@@ -15,6 +15,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.widget.PopupMenu
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageButton
@@ -52,9 +53,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private lateinit var metadataText: TextView
     private lateinit var libraryBtn: ImageButton
     private lateinit var zenBtn: ImageButton
-    private lateinit var highlightsNavBtn: ImageButton
-    private lateinit var gotoPageNavBtn: ImageButton
-    private lateinit var shareNavBtn: ImageButton
+    private lateinit var overflowNavBtn: ImageButton
 
     private lateinit var pdfFragment: NoScrollPdfViewerFragment
 
@@ -77,9 +76,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         metadataText = findViewById(R.id.book_metadata_text)
         libraryBtn = findViewById(R.id.library_btn)
         zenBtn = findViewById(R.id.zen_btn)
-        highlightsNavBtn = findViewById(R.id.highlights_nav_btn)
-        gotoPageNavBtn = findViewById(R.id.goto_page_nav_btn)
-        shareNavBtn = findViewById(R.id.share_nav_btn)
+        overflowNavBtn = findViewById(R.id.overflow_nav_btn)
 
         pdfFragment = supportFragmentManager.findFragmentByTag(PDF_FRAGMENT_TAG) as? NoScrollPdfViewerFragment
             ?: NoScrollPdfViewerFragment().also { fragment ->
@@ -103,9 +100,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private fun setupControls() {
         libraryBtn.setOnClickListener { launchLibrary() }
         zenBtn.setOnClickListener { setZenMode(!zenModeEnabled) }
-        highlightsNavBtn.setOnClickListener { showHighlightsDialog() }
-        gotoPageNavBtn.setOnClickListener { showGotoPageDialog() }
-        shareNavBtn.setOnClickListener { shareCurrentPage() }
+        overflowNavBtn.setOnClickListener { showOverflowMenu() }
 
         metadataText.setOnLongClickListener {
             currentUri?.let { uri ->
@@ -341,6 +336,22 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         currentSelection = null
         pdfFragment.clearSelection()
         if (zenModeEnabled) setZenMode(true, persist = false)
+    }
+
+    private fun showOverflowMenu() {
+        val popup = PopupMenu(this, overflowNavBtn)
+        popup.menu.add(0, 0, 0, "Highlights")
+        popup.menu.add(0, 1, 1, "Go to page")
+        popup.menu.add(0, 2, 2, "Share")
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                0 -> showHighlightsDialog()
+                1 -> showGotoPageDialog()
+                2 -> shareCurrentPage()
+            }
+            true
+        }
+        popup.show()
     }
 
     private fun showHighlightsDialog() {

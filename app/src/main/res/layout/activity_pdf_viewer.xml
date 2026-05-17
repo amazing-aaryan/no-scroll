@@ -11,11 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Slim top nav bar -->
+        <!-- Top nav bar -->
         <FrameLayout
             android:id="@+id/metadata_bar"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:background="#1B1917">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -27,13 +27,13 @@
 
                 <ImageButton
                     android:id="@+id/library_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="My Library"
                     android:src="@drawable/ic_book"
-                    android:tint="#80FFFFFF"
-                    android:padding="10dp" />
+                    android:tint="#90FFFFFF"
+                    android:padding="12dp" />
 
                 <TextView
                     android:id="@+id/book_metadata_text"
@@ -47,48 +47,27 @@
                     android:textSize="13sp"
                     android:fontFamily="sans-serif-light"
                     android:paddingStart="8dp"
-                    android:paddingEnd="4dp" />
-
+                    android:paddingEnd="8dp" />
 
                 <ImageButton
                     android:id="@+id/zen_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/zen_mode"
                     android:src="@drawable/ic_check_circle"
-                    android:tint="#80FFFFFF"
-                    android:padding="10dp" />
+                    android:tint="#90FFFFFF"
+                    android:padding="12dp" />
 
                 <ImageButton
-                    android:id="@+id/highlights_nav_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/overflow_nav_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/highlights"
-                    android:src="@drawable/ic_book"
-                    android:tint="#A0FFFFFF"
-                    android:padding="10dp" />
-
-                <ImageButton
-                    android:id="@+id/goto_page_nav_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/goto_page"
-                    android:src="@drawable/ic_goto_page"
-                    android:tint="#A0FFFFFF"
-                    android:padding="10dp" />
-
-                <ImageButton
-                    android:id="@+id/share_nav_btn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/share"
-                    android:src="@drawable/ic_share"
-                    android:tint="#A0FFFFFF"
-                    android:padding="10dp" />
+                    android:contentDescription="More options"
+                    android:src="@drawable/ic_more_vert"
+                    android:tint="#90FFFFFF"
+                    android:padding="12dp" />
 
             </LinearLayout>
         </FrameLayout>

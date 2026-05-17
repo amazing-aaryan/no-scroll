@@ -73,6 +73,8 @@ object BookRepository {
             dao.upsert(current.copy(lastOpenedAtMillis = System.currentTimeMillis()))
         }
         PdfStorage.setSelected(context, uri)
+        val page = current?.lastPageIndex ?: 0
+        PdfStorage.savePage(context, page)
     }
 
     suspend fun updateProgress(context: Context, uri: String, pageIndex: Int, pageCount: Int) {
