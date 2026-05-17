@@ -30,7 +30,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val DEBOUNCE_MS = 600L
         private const val CONFIRM_MS = 500L
         private const val CONTENT_DEBOUNCE_MS = 100L
-        private const val COLOR_CACHE_MS = 3_000L
+        private const val COLOR_CACHE_MS = 1_000L
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -137,7 +137,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val now = System.currentTimeMillis()
         if (Build.VERSION.SDK_INT >= 30 && now - lastColorSampleMs > COLOR_CACHE_MS) {
             lastColorSampleMs = now
-            val sampleX = if (rect.left >= 32) rect.left - 16 else rect.right + 16
+            // Far-left edge at nav bar height — always nav bar background, never an icon
+            val sampleX = 2
             val sampleY = rect.top + rect.height() / 2
             sampleScreenColor(sampleX, sampleY) { color ->
                 if (color != cachedBgColor) {

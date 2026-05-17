@@ -71,14 +71,25 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
+    private fun applyIconTint(view: View?, bgColor: Int) {
+        val imageView = view?.findViewById<android.widget.ImageView>(R.id.book_icon) ?: return
+        val luminance = (0.299 * Color.red(bgColor) + 0.587 * Color.green(bgColor) + 0.114 * Color.blue(bgColor)) / 255.0
+        imageView.setColorFilter(if (luminance > 0.5) Color.BLACK else Color.WHITE)
+    }
+
     private fun updateOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int = Color.BLACK) {
         val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
-            existing.width == w && existing.height == h) return
+            existing.width == w && existing.height == h) {
+            overlayView?.setBackgroundColor(bgColor)
+            applyIconTint(overlayView, bgColor)
+            return
+        }
         removeOverlayView()
 
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_book, null)
         view.setBackgroundColor(bgColor)
+        applyIconTint(view, bgColor)
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
