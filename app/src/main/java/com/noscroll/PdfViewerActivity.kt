@@ -200,10 +200,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun showHighlightColorPicker(selection: ReaderSelection, openNote: Boolean) {
         val colors = listOf(
-            0x80FFF59D.toInt(),
-            0x80DCEDC8.toInt(),
-            0x80F8BBD0.toInt(),
-            0x80BBDEFB.toInt()
+            0x80FFEE77.toInt(),
+            0x80AAFFD6.toInt(),
+            0x80FFB3CC.toInt(),
+            0x8099CCFF.toInt()
         )
         val dm = resources.displayMetrics
         val circleSize = (52 * dm.density).toInt()
@@ -402,10 +402,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun recolourHighlight(highlight: HighlightEntity) {
         val colors = listOf(
-            0x80FFF59D.toInt(),
-            0x80DCEDC8.toInt(),
-            0x80F8BBD0.toInt(),
-            0x80BBDEFB.toInt()
+            0x80FFEE77.toInt(),
+            0x80AAFFD6.toInt(),
+            0x80FFB3CC.toInt(),
+            0x8099CCFF.toInt()
         )
         val dm = resources.displayMetrics
         val circleSize = (52 * dm.density).toInt()
