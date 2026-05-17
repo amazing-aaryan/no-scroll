@@ -153,14 +153,16 @@ class NoScrollAccessibilityService : AccessibilityService() {
         takeScreenshot(Display.DEFAULT_DISPLAY, mainExecutor,
             object : AccessibilityService.TakeScreenshotCallback {
                 override fun onSuccess(result: AccessibilityService.ScreenshotResult) {
-                    val hw: Bitmap = result.bitmap
-                    val soft = hw.copy(Bitmap.Config.ARGB_8888, false)
-                    hw.recycle()
-                    val color = soft.getPixel(
+                    val buffer = result.hardwareBuffer
+                    val hw = Bitmap.wrapHardwareBuffer(buffer, result.colorSpace)
+                    buffer.close()
+                    val soft = hw?.copy(Bitmap.Config.ARGB_8888, false)
+                    hw?.recycle()
+                    val color = soft?.getPixel(
                         x.coerceIn(0, soft.width - 1),
                         y.coerceIn(0, soft.height - 1)
-                    )
-                    soft.recycle()
+                    ) ?: cachedBgColor
+                    soft?.recycle()
                     onColor(color)
                 }
                 override fun onFailure(errorCode: Int) { /* keep cached */ }
