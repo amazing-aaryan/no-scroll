@@ -72,13 +72,22 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- ViewPager2: one page at a time, native horizontal swipe -->
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pdf_fragment_container"
+        <!-- FrameLayout wraps RecyclerView so flip-animation overlay can be added on top -->
+        <FrameLayout
+            android:id="@+id/pdf_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#171615" />
+            android:background="#171615">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pdf_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#171615"
+                android:overScrollMode="never" />
+
+        </FrameLayout>
 
     </LinearLayout>
 
