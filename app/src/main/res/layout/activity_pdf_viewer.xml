@@ -55,7 +55,7 @@
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/zen_mode"
-                    android:src="@drawable/ic_lotus"
+                    android:src="@drawable/ic_yin_yang"
                     android:tint="#90FFFFFF"
                     android:padding="12dp" />
 
@@ -72,12 +72,13 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- PDF renderer fills remaining space; PageTurnInterceptor intercepts horizontal swipes -->
-        <com.noscroll.PageTurnInterceptor
+        <!-- ViewPager2: one page at a time, native horizontal swipe -->
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pdf_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="#171615" />
 
     </LinearLayout>
 
