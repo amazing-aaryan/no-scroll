@@ -18,6 +18,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -74,7 +75,7 @@ class PdfViewerActivity : AppCompatActivity() {
             ): Boolean {
                 if (isFlipAnimating) return false
                 e1 ?: return false
-                if (abs(velocityX) > abs(velocityY) * 1.3f && abs(velocityX) > MIN_FLIP_VELOCITY) {
+                if (abs(velocityX) > abs(velocityY) * 1.1f && abs(velocityX) > MIN_FLIP_VELOCITY) {
                     val direction = if (velocityX < 0) 1 else -1
                     val targetPage = currentPage + direction
                     if (targetPage in 0 until totalPages) {
@@ -198,21 +199,25 @@ class PdfViewerActivity : AppCompatActivity() {
 
         val uri = currentUri ?: run { isFlipAnimating = false; return }
         val fromPage = currentPage
-        val screenWidth = resources.displayMetrics.widthPixels
+        val w = resources.displayMetrics.widthPixels
 
         lifecycleScope.launch {
-            val exitBmp  = renderPageBitmap(uri, fromPage, screenWidth)
-            val enterBmp = renderPageBitmap(uri, safe, screenWidth)
+            val exitBmp = renderPageBitmap(uri, fromPage, w)
+            val enterBmp = renderPageBitmap(uri, safe, w)
 
             if (exitBmp == null || enterBmp == null) {
-                exitBmp?.recycle()
-                enterBmp?.recycle()
-                isFlipAnimating = false
-                return@launch
+                exitBmp?.recycle(); enterBmp?.recycle()
+                isFlipAnimating = false; return@launch
             }
 
             val cw = pdfContainer.width.toFloat().coerceAtLeast(1f)
             val ch = pdfContainer.height.toFloat().coerceAtLeast(1f)
+            val camDist = resources.displayMetrics.density * 16000f
+
+            val exitPivotX    = if (direction > 0) cw  else 0f
+            val exitEndRot    = if (direction > 0) -90f else 90f
+            val enterPivotX   = if (direction > 0) 0f  else cw
+            val enterStartRot = if (direction > 0) 90f  else -90f
 
             val overlay = FrameLayout(this@PdfViewerActivity).apply {
                 setBackgroundColor(Color.parseColor("#171615"))
@@ -225,18 +230,18 @@ class PdfViewerActivity : AppCompatActivity() {
             val exitView = ImageView(this@PdfViewerActivity).apply {
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 setImageBitmap(exitBmp)
-                cameraDistance = cw * 10f
-                pivotX = if (direction > 0) cw else 0f
+                cameraDistance = camDist
+                pivotX = exitPivotX
                 pivotY = ch / 2f
             }
             val enterView = ImageView(this@PdfViewerActivity).apply {
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 setImageBitmap(enterBmp)
-                cameraDistance = cw * 10f
-                pivotX = if (direction > 0) 0f else cw
+                cameraDistance = camDist
+                pivotX = enterPivotX
                 pivotY = ch / 2f
-                rotationY = if (direction > 0) 70f else -70f
-                alpha = 0.6f
+                rotationY = enterStartRot
+                alpha = 0f
             }
 
             overlay.addView(enterView, matchAll)
@@ -244,20 +249,23 @@ class PdfViewerActivity : AppCompatActivity() {
             pdfContainer.addView(overlay, matchAll)
             pdfRecyclerView.suppressLayout(true)
 
-            val exitRot   = ObjectAnimator.ofFloat(exitView,  "rotationY", 0f, if (direction > 0) -70f else 70f)
-            val exitAlpha = ObjectAnimator.ofFloat(exitView,  "alpha",     1f, 0.2f)
-            val enterRot  = ObjectAnimator.ofFloat(enterView, "rotationY", if (direction > 0) 70f else -70f, 0f)
-            val enterAlpha = ObjectAnimator.ofFloat(enterView, "alpha",    0.6f, 1f)
+            val HALF = 200L
+            val exitRot = ObjectAnimator.ofFloat(exitView, "rotationY", 0f, exitEndRot).also {
+                it.duration = HALF; it.interpolator = AccelerateInterpolator()
+            }
+            val enterAlpha = ObjectAnimator.ofFloat(enterView, "alpha", 0f, 1f).also {
+                it.duration = 10; it.startDelay = HALF - 10
+            }
+            val enterRot = ObjectAnimator.ofFloat(enterView, "rotationY", enterStartRot, 0f).also {
+                it.duration = HALF; it.interpolator = DecelerateInterpolator(); it.startDelay = HALF
+            }
 
             AnimatorSet().apply {
-                playTogether(exitRot, exitAlpha, enterRot, enterAlpha)
-                duration = 380
-                interpolator = DecelerateInterpolator(1.5f)
+                playTogether(exitRot, enterAlpha, enterRot)
                 addListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
                         pdfContainer.removeView(overlay)
-                        exitBmp.recycle()
-                        enterBmp.recycle()
+                        exitBmp.recycle(); enterBmp.recycle()
                         pdfRecyclerView.suppressLayout(false)
                         (pdfRecyclerView.layoutManager as? LinearLayoutManager)
                             ?.scrollToPositionWithOffset(safe, 0)
@@ -607,7 +615,7 @@ class PdfViewerActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_ZEN_MODE = "zen_mode_enabled"
-        private const val MIN_FLIP_VELOCITY = 600f
+        private const val MIN_FLIP_VELOCITY = 400f
     }
 }
 
