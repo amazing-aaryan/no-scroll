@@ -18,7 +18,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
-import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -30,6 +29,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.noscroll.data.BookMetadataEntity
@@ -63,7 +63,7 @@ class PdfViewerActivity : AppCompatActivity() {
     private var currentPage = 0
     private var totalPages = 0
     private var zenModeEnabled = false
-    private var isFlipAnimating = false
+    private var isSliding = false
 
     private val swipeDetector by lazy {
         GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
@@ -73,13 +73,16 @@ class PdfViewerActivity : AppCompatActivity() {
                 velocityX: Float,
                 velocityY: Float
             ): Boolean {
-                if (isFlipAnimating) return false
+                if (isSliding) return false
                 e1 ?: return false
-                if (abs(velocityX) > abs(velocityY) * 1.1f && abs(velocityX) > MIN_FLIP_VELOCITY) {
-                    val direction = if (velocityX < 0) 1 else -1
-                    val targetPage = currentPage + direction
+                val dx = abs(e2.x - e1.x)
+                val dy = abs(e2.y - e1.y)
+                val isHorizontal = dx > dy && (abs(velocityX) > MIN_FLIP_VELOCITY || dx > dp(56).toFloat())
+                if (isHorizontal) {
+                    val dir = if (velocityX < 0) 1 else -1
+                    val targetPage = currentPage + dir
                     if (targetPage in 0 until totalPages) {
-                        flipToPage(targetPage, direction)
+                        goToPage(targetPage, dir)
                         return true
                     }
                 }
@@ -95,6 +98,7 @@ class PdfViewerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_pdf_viewer)
         applyReaderSystemBarContrast()
         cleanupQuoteCache()
@@ -108,14 +112,34 @@ class PdfViewerActivity : AppCompatActivity() {
         pdfRecyclerView = findViewById(R.id.pdf_recycler_view)
 
         pdfRecyclerView.layoutManager = LinearLayoutManager(this)
+        PagerSnapHelper().attachToRecyclerView(pdfRecyclerView)
+        // Intercept horizontal touches so RecyclerView doesn't also scroll vertically.
+        pdfRecyclerView.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
+            private var startX = 0f
+            private var startY = 0f
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                when (e.action) {
+                    MotionEvent.ACTION_DOWN -> { startX = e.x; startY = e.y }
+                    MotionEvent.ACTION_MOVE -> {
+                        val dx = abs(e.x - startX)
+                        val dy = abs(e.y - startY)
+                        if (dx > dy && dx > dp(8)) return true
+                    }
+                }
+                return false
+            }
+        })
         pdfRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState != RecyclerView.SCROLL_STATE_IDLE) return
                 val lm = recyclerView.layoutManager as? LinearLayoutManager ?: return
-                val first = lm.findFirstVisibleItemPosition()
-                if (first != RecyclerView.NO_POSITION && first != currentPage) {
-                    currentPage = first
-                    PdfStorage.savePage(this@PdfViewerActivity, first)
-                    updateProgressAsync(first)
+                val pos = lm.findFirstCompletelyVisibleItemPosition()
+                    .takeIf { it != RecyclerView.NO_POSITION }
+                    ?: lm.findFirstVisibleItemPosition()
+                if (pos != RecyclerView.NO_POSITION && pos != currentPage) {
+                    currentPage = pos
+                    PdfStorage.savePage(this@PdfViewerActivity, pos)
+                    updateProgressAsync(pos)
                 }
             }
         })
@@ -182,97 +206,77 @@ class PdfViewerActivity : AppCompatActivity() {
         pdfParcelFd = null
     }
 
-    // ── Flip animation ─────────────────────────────────────────────────────────
-    //
-    // Renders exit and enter bitmaps via a dedicated PdfRenderer (avoids races
-    // with PdfPageAdapter's own renderer), overlays two ImageViews on pdfContainer,
-    // and spins them with rotationY from opposite sides so they meet in the middle.
-    //
-    // direction = +1 → next page (swipe left):  exit pivots right edge, enter pivots left
-    // direction = -1 → prev page (swipe right): exit pivots left edge,  enter pivots right
+    // ── Page navigation ────────────────────────────────────────────────────────
 
-    private fun flipToPage(targetPage: Int, direction: Int) {
-        if (isFlipAnimating) return
+    private fun goToPage(targetPage: Int, direction: Int) {
         val safe = targetPage.coerceIn(0, (totalPages - 1).coerceAtLeast(0))
-        if (safe == currentPage) return
-        isFlipAnimating = true
+        if (safe == currentPage || isSliding) return
+        isSliding = true
 
-        val uri = currentUri ?: run { isFlipAnimating = false; return }
+        val uri = currentUri ?: run { isSliding = false; return }
         val fromPage = currentPage
-        val w = resources.displayMetrics.widthPixels
+        val cw = pdfContainer.width.toFloat().coerceAtLeast(1f)
+        val ch = pdfContainer.height.toFloat().coerceAtLeast(1f)
 
         lifecycleScope.launch {
-            val exitBmp = renderPageBitmap(uri, fromPage, w)
-            val enterBmp = renderPageBitmap(uri, safe, w)
+            val exitBmp  = renderPageBitmap(uri, fromPage, cw.toInt(), ch.toInt())
+            val enterBmp = renderPageBitmap(uri, safe,     cw.toInt(), ch.toInt())
 
             if (exitBmp == null || enterBmp == null) {
                 exitBmp?.recycle(); enterBmp?.recycle()
-                isFlipAnimating = false; return@launch
+                isSliding = false
+                pdfRecyclerView.smoothScrollToPosition(safe)
+                return@launch
             }
 
-            val cw = pdfContainer.width.toFloat().coerceAtLeast(1f)
-            val ch = pdfContainer.height.toFloat().coerceAtLeast(1f)
-            val camDist = resources.displayMetrics.density * 16000f
+            val offscreen = if (direction > 0) cw else -cw
 
-            val exitPivotX    = if (direction > 0) cw  else 0f
-            val exitEndRot    = if (direction > 0) -90f else 90f
-            val enterPivotX   = if (direction > 0) 0f  else cw
-            val enterStartRot = if (direction > 0) 90f  else -90f
-
+            val matchAll = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT
+            )
             val overlay = FrameLayout(this@PdfViewerActivity).apply {
                 setBackgroundColor(Color.parseColor("#171615"))
             }
-            val matchAll = FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.MATCH_PARENT
-            )
 
             val exitView = ImageView(this@PdfViewerActivity).apply {
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 setImageBitmap(exitBmp)
-                cameraDistance = camDist
-                pivotX = exitPivotX
-                pivotY = ch / 2f
             }
             val enterView = ImageView(this@PdfViewerActivity).apply {
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 setImageBitmap(enterBmp)
-                cameraDistance = camDist
-                pivotX = enterPivotX
-                pivotY = ch / 2f
-                rotationY = enterStartRot
-                alpha = 0f
+                translationX = offscreen
             }
 
+            overlay.addView(exitView,  matchAll)
             overlay.addView(enterView, matchAll)
-            overlay.addView(exitView, matchAll)
             pdfContainer.addView(overlay, matchAll)
             pdfRecyclerView.suppressLayout(true)
 
-            val HALF = 200L
-            val exitRot = ObjectAnimator.ofFloat(exitView, "rotationY", 0f, exitEndRot).also {
-                it.duration = HALF; it.interpolator = AccelerateInterpolator()
+            val interp = DecelerateInterpolator()
+            val exitAnim  = ObjectAnimator.ofFloat(exitView,  "translationX", 0f, -offscreen).apply {
+                duration = 300L; interpolator = interp
             }
-            val enterAlpha = ObjectAnimator.ofFloat(enterView, "alpha", 0f, 1f).also {
-                it.duration = 10; it.startDelay = HALF - 10
-            }
-            val enterRot = ObjectAnimator.ofFloat(enterView, "rotationY", enterStartRot, 0f).also {
-                it.duration = HALF; it.interpolator = DecelerateInterpolator(); it.startDelay = HALF
+            val enterAnim = ObjectAnimator.ofFloat(enterView, "translationX", offscreen, 0f).apply {
+                duration = 300L; interpolator = interp
             }
 
             AnimatorSet().apply {
-                playTogether(exitRot, enterAlpha, enterRot)
+                playTogether(exitAnim, enterAnim)
                 addListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
-                        pdfContainer.removeView(overlay)
-                        exitBmp.recycle(); enterBmp.recycle()
-                        pdfRecyclerView.suppressLayout(false)
                         (pdfRecyclerView.layoutManager as? LinearLayoutManager)
                             ?.scrollToPositionWithOffset(safe, 0)
-                        currentPage = safe
-                        PdfStorage.savePage(this@PdfViewerActivity, safe)
-                        updateProgressAsync(safe)
-                        isFlipAnimating = false
+                        pdfRecyclerView.suppressLayout(false)
+                        pdfRecyclerView.post {
+                            pdfContainer.removeView(overlay)
+                            exitBmp.recycle()
+                            enterBmp.recycle()
+                            currentPage = safe
+                            PdfStorage.savePage(this@PdfViewerActivity, safe)
+                            updateProgressAsync(safe)
+                            isSliding = false
+                        }
                     }
                 })
                 start()
@@ -280,7 +284,7 @@ class PdfViewerActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun renderPageBitmap(uri: Uri, pageIndex: Int, width: Int): Bitmap? =
+    private suspend fun renderPageBitmap(uri: Uri, pageIndex: Int, containerWidth: Int, containerHeight: Int): Bitmap? =
         withContext(Dispatchers.IO) {
             var pfd: ParcelFileDescriptor? = null
             var renderer: PdfRenderer? = null
@@ -289,16 +293,14 @@ class PdfViewerActivity : AppCompatActivity() {
                 renderer = PdfRenderer(pfd)
                 val safe = pageIndex.coerceIn(0, renderer.pageCount - 1)
                 renderer.openPage(safe).use { page ->
-                    val scale = width.toFloat() / page.width.coerceAtLeast(1)
-                    val height = (page.height * scale).toInt().coerceAtLeast(1)
-                    Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
-                        bmp.eraseColor(Color.parseColor("#171615"))
-                        page.render(bmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-                    }
+                    val scale = containerWidth.toFloat() / page.width.coerceAtLeast(1)
+                    val pageH = (page.height * scale).toInt().coerceAtLeast(1)
+                    val pageBmp = Bitmap.createBitmap(containerWidth, pageH, Bitmap.Config.ARGB_8888)
+                    pageBmp.eraseColor(Color.WHITE)
+                    page.render(pageBmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+                    pageBmp
                 }
-            } catch (_: Exception) {
-                null
-            } finally {
+            } catch (_: Exception) { null } finally {
                 renderer?.close()
                 pfd?.close()
             }
@@ -615,7 +617,7 @@ class PdfViewerActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_ZEN_MODE = "zen_mode_enabled"
-        private const val MIN_FLIP_VELOCITY = 400f
+        private const val MIN_FLIP_VELOCITY = 250f
     }
 }
 

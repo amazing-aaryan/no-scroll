@@ -3,10 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_image"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:adjustViewBounds="true"
-    android:scaleType="fitStart"
+    android:layout_height="match_parent"
+    android:scaleType="fitCenter"
     android:background="#171615"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="20dp"
     android:contentDescription="PDF page" />
