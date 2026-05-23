@@ -23,23 +23,24 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
     private var cachedBgColor: Int = Color.BLACK
     private var lastColorSampleMs: Long = 0L
+    private var reelsBlockActive = false
 
     companion object {
         private const val INSTAGRAM_PKG = "com.instagram.android"
         private const val INSTAGRAM_LITE_PKG = "com.instagram.lite"
         private const val DEBOUNCE_MS = 600L
         private const val CONFIRM_MS = 500L
-        private const val CONTENT_DEBOUNCE_MS = 100L
+        private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
+
+        private val REELS_ACTION_KEYWORDS = listOf("like", "comment", "share", "send", "save", "bookmark")
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         if (!Settings.canDrawOverlays(this)) return
         val pkg = event.packageName?.toString() ?: return
-
         if (pkg == "android") return
 
-        // Our own package: only stop when a real Activity comes to foreground.
         if (pkg == packageName) {
             if (event.className?.toString()?.endsWith("Activity") == true) {
                 cancelAll()
@@ -51,6 +52,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         when (event.eventType) {
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
+                    if (reelsBlockActive) hideOverlay()
+                    reelsBlockActive = false
                     cancelPendingConfirm()
                     scheduleUpdate(DEBOUNCE_MS)
                 } else {
@@ -63,8 +66,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 }
             }
             AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
-                // Only care about content changes inside Instagram — used to detect
-                // when the bottom nav bar disappears (story, post, DMs, comments).
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
                     cancelPendingContentCheck()
                     pendingContentCheck = Runnable { findAndUpdateOverlay() }
@@ -117,10 +118,90 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
+    /**
+     * Single tree scan that detects both:
+     * - Whether we are in Reels (2+ action buttons on the right edge)
+     * - Where the bottom nav bar starts (topmost clickable tab in the bottom 20%)
+     *
+     * Returns Pair(inReels, navBarTop). navBarTop is -1 if not found in tree.
+     */
+    private fun scanInstagramTree(root: AccessibilityNodeInfo): Pair<Boolean, Int> {
+        val screenWidth = resources.displayMetrics.widthPixels
+        val screenHeight = resources.displayMetrics.heightPixels
+        val rightThreshold = screenWidth * 0.72f
+        val navThreshold = (screenHeight * 0.80).toInt()
+
+        var reelsMatches = 0
+        var navBarTop = Int.MAX_VALUE
+
+        val queue = ArrayDeque<AccessibilityNodeInfo>()
+        for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
+
+        while (queue.isNotEmpty()) {
+            val node = queue.removeFirst()
+            val desc = node.contentDescription?.toString() ?: ""
+            val rect = Rect()
+            node.getBoundsInScreen(rect)
+
+            if (!rect.isEmpty) {
+                // Reels action buttons: right edge of screen
+                if (rect.centerX() > rightThreshold) {
+                    val lower = desc.lowercase()
+                    if (REELS_ACTION_KEYWORDS.any { lower.contains(it) }) reelsMatches++
+                }
+
+                // Bottom nav bar: clickable, in bottom 20%, tab-sized width
+                val tabMinW = screenWidth / 8
+                val tabMaxW = screenWidth / 2
+                if (rect.top >= navThreshold && node.isClickable &&
+                    rect.width() in tabMinW..tabMaxW
+                ) {
+                    if (rect.top < navBarTop) navBarTop = rect.top
+                }
+            }
+
+            for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
+            node.recycle()
+        }
+
+        val inReels = reelsMatches >= 2
+        val navTop = if (navBarTop != Int.MAX_VALUE) navBarTop else -1
+        return Pair(inReels, navTop)
+    }
+
+    /** Best-effort nav bar top: accessibility tree first, then resource estimate. */
+    private fun resolveNavBarTop(treeNavTop: Int): Int {
+        if (treeNavTop > 0) return treeNavTop
+        val screenHeight = resources.displayMetrics.heightPixels
+        val density = resources.displayMetrics.density
+        val sysNavId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val sysNavPx = if (sysNavId > 0) resources.getDimensionPixelSize(sysNavId) else 0
+        val instagramTabPx = (56 * density + 0.5f).toInt()
+        return screenHeight - sysNavPx - instagramTabPx
+    }
+
     private fun findAndUpdateOverlay() {
         val root = rootInActiveWindow ?: return
         val rect = Rect()
+
         try {
+            val (inReels, treeNavTop) = scanInstagramTree(root)
+
+            if (inReels) {
+                if (!reelsBlockActive) {
+                    reelsBlockActive = true
+                    val navBarY = resolveNavBarTop(treeNavTop)
+                    startService(Intent(this, OverlayService::class.java).apply {
+                        action = OverlayService.ACTION_BLOCK_REELS
+                        putExtra("navBarY", navBarY)
+                    })
+                }
+                return
+            }
+
+            if (reelsBlockActive) reelsBlockActive = false
+
+            // Normal mode: small book overlay over the Reels nav tab.
             val reelsNode = findReelsNode(root) ?: run { hideOverlay(); return }
             reelsNode.getBoundsInScreen(rect)
             reelsNode.recycle()
@@ -129,15 +210,11 @@ class NoScrollAccessibilityService : AccessibilityService() {
             root.recycle()
         }
 
-        // Show immediately with the cached color so there is no delay.
         sendOverlayIntent(rect, cachedBgColor)
 
-        // Async: resample the exact nav bar background every 3 s.
-        // Sample to the LEFT of our overlay (not covered by it) so we always hit the raw nav bar.
         val now = System.currentTimeMillis()
         if (Build.VERSION.SDK_INT >= 30 && now - lastColorSampleMs > COLOR_CACHE_MS) {
             lastColorSampleMs = now
-            // Far-left edge at nav bar height — always nav bar background, never an icon
             val sampleX = 2
             val sampleY = rect.top + rect.height() / 2
             sampleScreenColor(sampleX, sampleY) { color ->

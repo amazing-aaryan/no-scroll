@@ -28,6 +28,7 @@ class OverlayService : Service() {
         const val ACTION_HIDE = "com.noscroll.HIDE_OVERLAY"
         const val ACTION_FREEZE = "com.noscroll.FREEZE_OVERLAY"
         const val ACTION_UNFREEZE = "com.noscroll.UNFREEZE_OVERLAY"
+        const val ACTION_BLOCK_REELS = "com.noscroll.BLOCK_REELS"
     }
 
     override fun onCreate() {
@@ -39,6 +40,11 @@ class OverlayService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent == null) return START_STICKY // restarted by system after kill — wait for next real command
+        if (intent.action == ACTION_BLOCK_REELS) {
+            val navBarY = intent.getIntExtra("navBarY", -1)
+            showReelsBlock(navBarY)
+            return START_STICKY
+        }
         if (intent.action == ACTION_HIDE) {
             removeOverlayView()
             return START_STICKY
@@ -122,6 +128,33 @@ class OverlayService : Service() {
             params.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         }
         try { windowManager?.updateViewLayout(view, params) } catch (_: Exception) {}
+    }
+
+    private fun showReelsBlock(navBarY: Int) {
+        removeOverlayView()
+        val screenHeight = resources.displayMetrics.heightPixels
+        val height = if (navBarY > 0) navBarY else (screenHeight * 0.80).toInt()
+        val view = LayoutInflater.from(this).inflate(R.layout.overlay_reels_block, null)
+        val params = WindowManager.LayoutParams(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            height,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+            PixelFormat.TRANSLUCENT
+        ).apply {
+            gravity = Gravity.TOP or Gravity.START
+            x = 0
+            y = 0
+        }
+        view.setOnClickListener {
+            startActivity(
+                Intent(this, PdfViewerActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            )
+        }
+        windowManager?.addView(view, params)
+        overlayView = view
     }
 
     private fun removeOverlayView() {
