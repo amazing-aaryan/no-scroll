@@ -33,7 +33,14 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
 
-        private val REELS_ACTION_KEYWORDS = listOf("like", "comment", "share", "send", "save", "bookmark")
+        // Right-side action strip — only present in full-screen Reels view.
+        private val REELS_ACTION_KEYWORDS = setOf("like", "comment", "share", "send", "save", "bookmark")
+
+        // Instagram bottom-nav tab descriptions across all recent app versions.
+        private val NAV_TAB_KEYWORDS = setOf(
+            "home", "search", "explore", "reels", "shop", "marketplace",
+            "profile", "messages", "activity", "notifications"
+        )
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -118,45 +125,52 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    /**
-     * Single tree scan that detects both:
-     * - Whether we are in Reels (2+ action buttons on the right edge)
-     * - Where the bottom nav bar starts (topmost clickable tab in the bottom 20%)
-     *
-     * Returns Pair(inReels, navBarTop). navBarTop is -1 if not found in tree.
-     */
-    private fun scanInstagramTree(root: AccessibilityNodeInfo): Pair<Boolean, Int> {
-        val screenWidth = resources.displayMetrics.widthPixels
-        val screenHeight = resources.displayMetrics.heightPixels
-        val rightThreshold = screenWidth * 0.72f
-        val navThreshold = (screenHeight * 0.80).toInt()
+    private data class ScanResult(val inReels: Boolean, val navBarTop: Int)
 
-        var reelsMatches = 0
-        var navBarTop = Int.MAX_VALUE
+    /**
+     * Single BFS that simultaneously detects Reels and locates the nav bar top.
+     *
+     * Reels: 2+ action buttons (Like/Comment/Share…) at centerX > 72 % of screen
+     *        width. These only appear in full-screen Reels.
+     *
+     * Nav bar: 2+ clickable nodes whose description matches a known Instagram tab
+     *          name (Home/Search/Profile…) in the bottom 25 % of the screen.
+     *          Taking min(rect.top) over all matches gives the exact pixel row where
+     *          the bar starts — works correctly on every screen size and density.
+     *
+     * The two keyword sets are disjoint and their screen regions do not overlap, so
+     * neither detection can contaminate the other.
+     */
+    private fun scanInstagramTree(root: AccessibilityNodeInfo): ScanResult {
+        val sw = resources.displayMetrics.widthPixels
+        val sh = resources.displayMetrics.heightPixels
+        val rightEdge  = sw * 0.72f
+        val navZoneTop = (sh * 0.75f).toInt()   // bottom 25 % catches nav on tall phones
+
+        var reelsHits = 0
+        var navTop = Int.MAX_VALUE
+        var navHits  = 0
 
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
 
         while (queue.isNotEmpty()) {
-            val node = queue.removeFirst()
-            val desc = node.contentDescription?.toString() ?: ""
-            val rect = Rect()
+            val node  = queue.removeFirst()
+            val lower = node.contentDescription?.toString()?.lowercase() ?: ""
+            val rect  = Rect()
             node.getBoundsInScreen(rect)
 
             if (!rect.isEmpty) {
-                // Reels action buttons: right edge of screen
-                if (rect.centerX() > rightThreshold) {
-                    val lower = desc.lowercase()
-                    if (REELS_ACTION_KEYWORDS.any { lower.contains(it) }) reelsMatches++
-                }
+                // ① Reels action strip — right edge only.
+                if (rect.centerX() > rightEdge && REELS_ACTION_KEYWORDS.any { lower.contains(it) })
+                    reelsHits++
 
-                // Bottom nav bar: clickable, in bottom 20%, tab-sized width
-                val tabMinW = screenWidth / 8
-                val tabMaxW = screenWidth / 2
-                if (rect.top >= navThreshold && node.isClickable &&
-                    rect.width() in tabMinW..tabMaxW
+                // ② Nav bar tabs — known descriptions, clickable, in bottom zone.
+                if (rect.top >= navZoneTop && node.isClickable &&
+                    NAV_TAB_KEYWORDS.any { lower.contains(it) }
                 ) {
-                    if (rect.top < navBarTop) navBarTop = rect.top
+                    navHits++
+                    if (rect.top < navTop) navTop = rect.top
                 }
             }
 
@@ -164,20 +178,24 @@ class NoScrollAccessibilityService : AccessibilityService() {
             node.recycle()
         }
 
-        val inReels = reelsMatches >= 2
-        val navTop = if (navBarTop != Int.MAX_VALUE) navBarTop else -1
-        return Pair(inReels, navTop)
+        return ScanResult(
+            inReels  = reelsHits >= 2,
+            navBarTop = if (navHits >= 2 && navTop != Int.MAX_VALUE) navTop else -1
+        )
     }
 
-    /** Best-effort nav bar top: accessibility tree first, then resource estimate. */
-    private fun resolveNavBarTop(treeNavTop: Int): Int {
-        if (treeNavTop > 0) return treeNavTop
-        val screenHeight = resources.displayMetrics.heightPixels
+    /**
+     * Resolves the pixel Y where the Reels block overlay must stop.
+     * Uses the live accessibility-tree value when reliable (2+ nav tabs found);
+     * otherwise computes from Android system resources — adapts to every device.
+     */
+    private fun resolveNavBarTop(treeValue: Int): Int {
+        if (treeValue > 0) return treeValue
         val density = resources.displayMetrics.density
-        val sysNavId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
-        val sysNavPx = if (sysNavId > 0) resources.getDimensionPixelSize(sysNavId) else 0
-        val instagramTabPx = (56 * density + 0.5f).toInt()
-        return screenHeight - sysNavPx - instagramTabPx
+        val sysNavId  = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val sysNavPx  = if (sysNavId > 0) resources.getDimensionPixelSize(sysNavId) else 0
+        val igTabPx   = (56f * density + 0.5f).toInt()   // Instagram tab bar is 56 dp on all phones
+        return resources.displayMetrics.heightPixels - sysNavPx - igTabPx
     }
 
     private fun findAndUpdateOverlay() {
@@ -185,7 +203,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val rect = Rect()
 
         try {
-            val (inReels, treeNavTop) = scanInstagramTree(root)
+            val scan = scanInstagramTree(root)
+            val inReels     = scan.inReels
+            val treeNavTop  = scan.navBarTop
 
             if (inReels) {
                 if (!reelsBlockActive) {
