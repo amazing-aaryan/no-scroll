@@ -193,7 +193,7 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     }
 
     companion object {
-        const val DEFAULT_HIGHLIGHT_COLOR: Int = 0x66C9A84C
+        const val DEFAULT_HIGHLIGHT_COLOR: Int = 0x80FFEE77.toInt()
     }
 }
 

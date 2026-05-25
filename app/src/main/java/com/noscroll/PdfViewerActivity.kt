@@ -1,100 +1,62 @@
 package com.noscroll
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
+import androidx.appcompat.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.graphics.pdf.PdfRenderer
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.text.InputType
-import android.view.GestureDetector
-import android.view.MotionEvent
+import android.view.Gravity
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
-import android.view.animation.DecelerateInterpolator
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageButton
-import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.RecyclerView
+import androidx.pdf.PdfDocument
+import androidx.pdf.PdfRect
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.noscroll.data.BookMetadataEntity
+import com.noscroll.data.HighlightEntity
 import com.noscroll.metadata.BookMetadataRepository
 import com.noscroll.metadata.CoverPageOcr
 import com.noscroll.metadata.EditMetadataDialog
 import com.noscroll.quote.QuoteCardPreviewActivity
+import com.noscroll.repository.AnnotationRepository
 import com.noscroll.repository.BookRepository
 import com.noscroll.repository.HighlightRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
-import kotlin.math.abs
 
-class PdfViewerActivity : AppCompatActivity() {
+class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private lateinit var metadataBar: View
     private lateinit var metadataText: TextView
     private lateinit var libraryBtn: ImageButton
     private lateinit var zenBtn: ImageButton
     private lateinit var overflowNavBtn: ImageButton
-    private lateinit var pdfContainer: FrameLayout
-    private lateinit var pdfRecyclerView: RecyclerView
 
-    private var pdfRenderer: PdfRenderer? = null
-    private var pdfParcelFd: ParcelFileDescriptor? = null
-
+    private var pdfFragment: NoScrollPdfViewerFragment? = null
     private var currentUri: Uri? = null
     private var currentMetadata: BookMetadataEntity? = null
     private var currentPage = 0
     private var totalPages = 0
     private var zenModeEnabled = false
-    private var isSliding = false
-
-    private val swipeDetector by lazy {
-        GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-            override fun onFling(
-                e1: MotionEvent?,
-                e2: MotionEvent,
-                velocityX: Float,
-                velocityY: Float
-            ): Boolean {
-                if (isSliding) return false
-                e1 ?: return false
-                val dx = abs(e2.x - e1.x)
-                val dy = abs(e2.y - e1.y)
-                val isHorizontal = dx > dy && (abs(velocityX) > MIN_FLIP_VELOCITY || dx > dp(56).toFloat())
-                if (isHorizontal) {
-                    val dir = if (velocityX < 0) 1 else -1
-                    val targetPage = currentPage + dir
-                    if (targetPage in 0 until totalPages) {
-                        goToPage(targetPage, dir)
-                        return true
-                    }
-                }
-                return false
-            }
-        })
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        swipeDetector.onTouchEvent(ev)
-        return super.dispatchTouchEvent(ev)
-    }
+    private var currentSelection: ReaderSelection? = null
+    private var currentHighlights: List<HighlightEntity> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,44 +70,20 @@ class PdfViewerActivity : AppCompatActivity() {
         libraryBtn     = findViewById(R.id.library_btn)
         zenBtn         = findViewById(R.id.zen_btn)
         overflowNavBtn = findViewById(R.id.overflow_nav_btn)
-        pdfContainer   = findViewById(R.id.pdf_container)
-        pdfRecyclerView = findViewById(R.id.pdf_recycler_view)
-
-        pdfRecyclerView.layoutManager = LinearLayoutManager(this)
-        PagerSnapHelper().attachToRecyclerView(pdfRecyclerView)
-        // Intercept horizontal touches so RecyclerView doesn't also scroll vertically.
-        pdfRecyclerView.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
-            private var startX = 0f
-            private var startY = 0f
-            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-                when (e.action) {
-                    MotionEvent.ACTION_DOWN -> { startX = e.x; startY = e.y }
-                    MotionEvent.ACTION_MOVE -> {
-                        val dx = abs(e.x - startX)
-                        val dy = abs(e.y - startY)
-                        if (dx > dy && dx > dp(8)) return true
-                    }
-                }
-                return false
-            }
-        })
-        pdfRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                if (newState != RecyclerView.SCROLL_STATE_IDLE) return
-                val lm = recyclerView.layoutManager as? LinearLayoutManager ?: return
-                val pos = lm.findFirstCompletelyVisibleItemPosition()
-                    .takeIf { it != RecyclerView.NO_POSITION }
-                    ?: lm.findFirstVisibleItemPosition()
-                if (pos != RecyclerView.NO_POSITION && pos != currentPage) {
-                    currentPage = pos
-                    PdfStorage.savePage(this@PdfViewerActivity, pos)
-                    updateProgressAsync(pos)
-                }
-            }
-        })
 
         zenModeEnabled = getPreferences(MODE_PRIVATE).getBoolean(KEY_ZEN_MODE, false)
         setupControls()
+
+        if (savedInstanceState == null) {
+            val fragment = NoScrollPdfViewerFragment()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.pdf_fragment_container, fragment)
+                .commitNow()
+            pdfFragment = fragment
+        } else {
+            pdfFragment = supportFragmentManager
+                .findFragmentById(R.id.pdf_fragment_container) as? NoScrollPdfViewerFragment
+        }
 
         val savedUri = PdfStorage.getSelectedUri(this)
         if (savedUri != null) {
@@ -173,148 +111,177 @@ class PdfViewerActivity : AppCompatActivity() {
     }
 
     private fun openPdf(uri: Uri, startPage: Int) {
-        closePdfRenderer()
         currentUri = uri
         metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
-        try {
-            val pfd = contentResolver.openFileDescriptor(uri, "r") ?: run { handleBadUri(); return }
-            pdfParcelFd = pfd
-            val renderer = PdfRenderer(pfd)
-            pdfRenderer = renderer
-            totalPages = renderer.pageCount
+        val fragment = pdfFragment ?: return
+        fragment.load(uri)
+        if (startPage > 0) fragment.scrollToPage(startPage)
+        loadMetadata(uri, allowOnlineOnce = true)
+    }
 
-            val screenWidth = resources.displayMetrics.widthPixels
-            pdfRecyclerView.adapter = PdfPageAdapter(renderer, screenWidth)
+    // ── NoScrollPdfViewerFragment.Host ────────────────────────────────────────
 
-            val safeStart = startPage.coerceIn(0, (totalPages - 1).coerceAtLeast(0))
-            (pdfRecyclerView.layoutManager as? LinearLayoutManager)
-                ?.scrollToPositionWithOffset(safeStart, 0)
-            currentPage = safeStart
+    override fun onPdfLoaded(document: PdfDocument) {
+        totalPages = document.pageCount
+        if (currentPage > 0) pdfFragment?.scrollToPage(currentPage)
+        loadHighlightsForFragment()
+        updateProgressAsync(currentPage)
+    }
 
-            loadMetadata(uri, allowOnlineOnce = true)
-            updateProgressAsync(safeStart)
-        } catch (_: Exception) {
-            handleBadUri()
+    override fun onPdfLoadError(error: Throwable) {
+        handleBadUri()
+    }
+
+    override fun onPdfViewportChanged(firstVisiblePage: Int) {
+        if (firstVisiblePage != currentPage) {
+            currentPage = firstVisiblePage
+            PdfStorage.savePage(this, firstVisiblePage)
+            updateProgressAsync(firstVisiblePage)
         }
     }
 
-    private fun closePdfRenderer() {
-        pdfRecyclerView.adapter = null
-        try { pdfRenderer?.close() } catch (_: Exception) {}
-        pdfRenderer = null
-        try { pdfParcelFd?.close() } catch (_: Exception) {}
-        pdfParcelFd = null
+    override fun onPdfTextSelectionChanged(selection: ReaderSelection?) {
+        currentSelection = selection
     }
 
-    // ── Page navigation ────────────────────────────────────────────────────────
-
-    private fun goToPage(targetPage: Int, direction: Int) {
-        val safe = targetPage.coerceIn(0, (totalPages - 1).coerceAtLeast(0))
-        if (safe == currentPage || isSliding) return
-        isSliding = true
-
-        val uri = currentUri ?: run { isSliding = false; return }
-        val fromPage = currentPage
-        val cw = pdfContainer.width.toFloat().coerceAtLeast(1f)
-        val ch = pdfContainer.height.toFloat().coerceAtLeast(1f)
-
-        lifecycleScope.launch {
-            val exitBmp  = renderPageBitmap(uri, fromPage, cw.toInt(), ch.toInt())
-            val enterBmp = renderPageBitmap(uri, safe,     cw.toInt(), ch.toInt())
-
-            if (exitBmp == null || enterBmp == null) {
-                exitBmp?.recycle(); enterBmp?.recycle()
-                isSliding = false
-                pdfRecyclerView.smoothScrollToPosition(safe)
-                return@launch
+    override fun onPdfSelectionAction(action: SelectionAction) {
+        val selection = currentSelection ?: return
+        when (action) {
+            SelectionAction.HIGHLIGHT -> saveHighlight(selection, openNote = false)
+            SelectionAction.ANNOTATE  -> saveHighlight(selection, openNote = true)
+            SelectionAction.QUOTE     -> {
+                openQuotePreview(selection.text, selection.pageIndex)
+                clearSelection()
             }
-
-            val offscreen = if (direction > 0) cw else -cw
-
-            val matchAll = FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT
-            )
-            val overlay = FrameLayout(this@PdfViewerActivity).apply {
-                setBackgroundColor(Color.parseColor("#171615"))
-            }
-
-            val exitView = ImageView(this@PdfViewerActivity).apply {
-                scaleType = ImageView.ScaleType.FIT_CENTER
-                setImageBitmap(exitBmp)
-            }
-            val enterView = ImageView(this@PdfViewerActivity).apply {
-                scaleType = ImageView.ScaleType.FIT_CENTER
-                setImageBitmap(enterBmp)
-                translationX = offscreen
-            }
-
-            overlay.addView(exitView,  matchAll)
-            overlay.addView(enterView, matchAll)
-            pdfContainer.addView(overlay, matchAll)
-            pdfRecyclerView.suppressLayout(true)
-
-            val interp = DecelerateInterpolator()
-            val exitAnim  = ObjectAnimator.ofFloat(exitView,  "translationX", 0f, -offscreen).apply {
-                duration = 300L; interpolator = interp
-            }
-            val enterAnim = ObjectAnimator.ofFloat(enterView, "translationX", offscreen, 0f).apply {
-                duration = 300L; interpolator = interp
-            }
-
-            AnimatorSet().apply {
-                playTogether(exitAnim, enterAnim)
-                addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        (pdfRecyclerView.layoutManager as? LinearLayoutManager)
-                            ?.scrollToPositionWithOffset(safe, 0)
-                        pdfRecyclerView.suppressLayout(false)
-                        pdfRecyclerView.post {
-                            pdfContainer.removeView(overlay)
-                            exitBmp.recycle()
-                            enterBmp.recycle()
-                            currentPage = safe
-                            PdfStorage.savePage(this@PdfViewerActivity, safe)
-                            updateProgressAsync(safe)
-                            isSliding = false
-                        }
-                    }
-                })
-                start()
+            SelectionAction.SHARE     -> {
+                shareSelectionText(selection.text)
+                clearSelection()
             }
         }
     }
 
-    private suspend fun renderPageBitmap(uri: Uri, pageIndex: Int, containerWidth: Int, containerHeight: Int): Bitmap? =
-        withContext(Dispatchers.IO) {
-            var pfd: ParcelFileDescriptor? = null
-            var renderer: PdfRenderer? = null
-            try {
-                pfd = contentResolver.openFileDescriptor(uri, "r") ?: return@withContext null
-                renderer = PdfRenderer(pfd)
-                val safe = pageIndex.coerceIn(0, renderer.pageCount - 1)
-                renderer.openPage(safe).use { page ->
-                    val scale = containerWidth.toFloat() / page.width.coerceAtLeast(1)
-                    val pageH = (page.height * scale).toInt().coerceAtLeast(1)
-                    val pageBmp = Bitmap.createBitmap(containerWidth, pageH, Bitmap.Config.ARGB_8888)
-                    pageBmp.eraseColor(Color.WHITE)
-                    page.render(pageBmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-                    pageBmp
+    override fun onPdfImmersiveRequest(enterImmersive: Boolean) {
+        setZenMode(enterImmersive)
+    }
+
+    override fun onPdfPointTapped(pageIndex: Int, pdfX: Float, pdfY: Float) {
+        if (currentSelection != null) return
+        val hit = currentHighlights.firstOrNull { highlight ->
+            highlight.pageIndex == pageIndex &&
+                PdfSelectionCodec.decode(highlight.selectionBoundsJson).any { rect ->
+                    rect.pageNum == pageIndex && rect.containsWithPadding(pdfX, pdfY, 4f)
                 }
-            } catch (_: Exception) { null } finally {
-                renderer?.close()
-                pfd?.close()
-            }
-        }
+        } ?: return
+        showHighlightActions(hit)
+    }
 
-    private fun updateProgressAsync(page: Int) {
-        currentUri?.let { uri ->
-            lifecycleScope.launch(Dispatchers.IO) {
-                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), page, totalPages)
-            }
+    // ── Highlight handling ────────────────────────────────────────────────────
+
+    private fun saveHighlight(selection: ReaderSelection, openNote: Boolean) {
+        showHighlightColorPicker(
+            title = if (openNote) "Highlight + note colour" else "Highlight colour"
+        ) { color ->
+            saveHighlightWithColor(selection, openNote, color)
         }
     }
 
-    // ── Highlights ─────────────────────────────────────────────────────────────
+    private fun showHighlightColorPicker(title: String, onPick: (Int) -> Unit) {
+        val dm = resources.displayMetrics
+        val circleSize = (52 * dm.density).toInt()
+        val margin = (12 * dm.density).toInt()
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER
+            setPadding(margin, margin * 2, margin, margin * 2)
+        }
+        var dialog: AlertDialog? = null
+        HIGHLIGHT_COLORS.forEach { color ->
+            val displayColor = (color and 0x00FFFFFF) or (0xDD shl 24)
+            row.addView(View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(circleSize, circleSize).also {
+                    it.marginStart = margin
+                    it.marginEnd = margin
+                }
+                background = GradientDrawable().apply {
+                    shape = GradientDrawable.OVAL
+                    setColor(displayColor)
+                }
+                setOnClickListener {
+                    dialog?.dismiss()
+                    onPick(color)
+                }
+            })
+        }
+        dialog = MaterialAlertDialogBuilder(this)
+            .setTitle(title)
+            .setView(row)
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun saveHighlightWithColor(selection: ReaderSelection, openNote: Boolean, colorArgb: Int) {
+        val uri = currentUri ?: return
+        lifecycleScope.launch {
+            val highlightId = withContext(Dispatchers.IO) {
+                HighlightRepository.save(
+                    this@PdfViewerActivity,
+                    HighlightEntity(
+                        bookUri = uri.toString(),
+                        pageIndex = selection.pageIndex,
+                        startCharIndex = -1,
+                        endCharIndex = -1,
+                        quoteText = selection.text,
+                        selectionBoundsJson = PdfSelectionCodec.encode(selection.bounds),
+                        colorArgb = colorArgb
+                    )
+                )
+            }
+            loadHighlightsForFragment()
+            if (openNote) {
+                showAnnotationDialog(highlightId, selection.text)
+            }
+            clearSelection()
+            Toast.makeText(this@PdfViewerActivity, "Highlighted", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun loadHighlightsForFragment() {
+        val uri = currentUri ?: return
+        lifecycleScope.launch {
+            val entities = withContext(Dispatchers.IO) {
+                HighlightRepository.getForBook(this@PdfViewerActivity, uri.toString())
+            }
+            currentHighlights = entities
+            val coloredBounds = entities.flatMap { entity ->
+                PdfSelectionCodec.decode(entity.selectionBoundsJson).map { rect ->
+                    Pair(rect, entity.colorArgb)
+                }
+            }
+            pdfFragment?.setSavedHighlights(coloredBounds)
+        }
+    }
+
+    private fun showAnnotationDialog(highlightId: Long, quoteText: String) {
+        val input = EditText(this).apply {
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+            minLines = 3
+            hint = "Note"
+        }
+        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+        container.addView(input)
+        MaterialAlertDialogBuilder(this)
+            .setTitle(quoteText.take(48))
+            .setView(container)
+            .setPositiveButton("Save") { _, _ ->
+                lifecycleScope.launch(Dispatchers.IO) {
+                    AnnotationRepository.upsert(this@PdfViewerActivity, input.text.toString(), highlightId)
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    // ── Highlights list dialog ─────────────────────────────────────────────────
 
     private fun showHighlightsDialog() {
         val uri = currentUri ?: return
@@ -332,14 +299,16 @@ class PdfViewerActivity : AppCompatActivity() {
                 .setItems(labels) { _, which ->
                     val highlight = highlights[which]
                     MaterialAlertDialogBuilder(this@PdfViewerActivity)
-                        .setItems(arrayOf("Go to page", "Share quote", "Delete")) { _, action ->
+                        .setItems(arrayOf("Go to page", "Share quote", "Change colour", "Delete")) { _, action ->
                             when (action) {
                                 0 -> jumpToPage(highlight.pageIndex)
                                 1 -> openQuotePreview(highlight.quoteText, highlight.pageIndex)
-                                2 -> lifecycleScope.launch {
+                                2 -> recolourHighlight(highlight)
+                                3 -> lifecycleScope.launch {
                                     withContext(Dispatchers.IO) {
                                         HighlightRepository.delete(this@PdfViewerActivity, highlight.id)
                                     }
+                                    loadHighlightsForFragment()
                                     showHighlightsDialog()
                                 }
                             }
@@ -347,6 +316,35 @@ class PdfViewerActivity : AppCompatActivity() {
                         .show()
                 }
                 .show()
+        }
+    }
+
+    private fun showHighlightActions(highlight: HighlightEntity) {
+        MaterialAlertDialogBuilder(this)
+            .setItems(arrayOf("Change colour", "Edit note", "Share quote", "Delete")) { _, which ->
+                when (which) {
+                    0 -> recolourHighlight(highlight)
+                    1 -> showAnnotationDialog(highlight.id, highlight.quoteText)
+                    2 -> openQuotePreview(highlight.quoteText, highlight.pageIndex)
+                    3 -> lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
+                            HighlightRepository.delete(this@PdfViewerActivity, highlight.id)
+                        }
+                        loadHighlightsForFragment()
+                    }
+                }
+            }
+            .show()
+    }
+
+    private fun recolourHighlight(highlight: HighlightEntity) {
+        showHighlightColorPicker(title = "Change colour") { color ->
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    HighlightRepository.updateColor(this@PdfViewerActivity, highlight.id, color)
+                }
+                loadHighlightsForFragment()
+            }
         }
     }
 
@@ -362,6 +360,15 @@ class PdfViewerActivity : AppCompatActivity() {
         )
     }
 
+    private fun shareSelectionText(text: String) {
+        startActivity(Intent.createChooser(
+            Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, text)
+            }, "Share"
+        ))
+    }
+
     private fun shareCurrentPage() {
         val metadata = currentMetadata ?: return
         startActivity(Intent.createChooser(
@@ -370,6 +377,12 @@ class PdfViewerActivity : AppCompatActivity() {
                 putExtra(Intent.EXTRA_TEXT, "${metadata.title} — ${metadata.author}")
             }, "Share"
         ))
+    }
+
+    private fun clearSelection() {
+        currentSelection = null
+        pdfFragment?.clearSelection()
+        if (zenModeEnabled) setZenMode(true, persist = false)
     }
 
     // ── OCR ───────────────────────────────────────────────────────────────────
@@ -426,9 +439,7 @@ class PdfViewerActivity : AppCompatActivity() {
                     bitmap.recycle()
                 }
             }
-        } catch (_: Exception) {
-            null
-        } finally {
+        } catch (_: Exception) { null } finally {
             renderer?.close()
             pfd?.close()
         }
@@ -468,6 +479,7 @@ class PdfViewerActivity : AppCompatActivity() {
                 val height = (page.height * scale).toInt().coerceAtLeast(1)
                 Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
                     bmp.eraseColor(Color.WHITE)
+                    bmp.eraseColor(Color.WHITE)
                     page.render(bmp, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
                 }
             }
@@ -486,8 +498,7 @@ class PdfViewerActivity : AppCompatActivity() {
     private fun jumpToPage(page: Int) {
         val safe = page.coerceIn(0, (totalPages - 1).coerceAtLeast(0))
         currentPage = safe
-        (pdfRecyclerView.layoutManager as? LinearLayoutManager)
-            ?.scrollToPositionWithOffset(safe, 0)
+        pdfFragment?.scrollToPage(safe)
         PdfStorage.savePage(this, safe)
     }
 
@@ -534,6 +545,7 @@ class PdfViewerActivity : AppCompatActivity() {
         if (persist) getPreferences(MODE_PRIVATE).edit().putBoolean(KEY_ZEN_MODE, enabled).apply()
         metadataBar.visibility = if (enabled) View.GONE else View.VISIBLE
         supportActionBar?.let { if (enabled) it.hide() else it.show() }
+        pdfFragment?.setZenToolboxVisible(!enabled)
         setSystemBarsHidden(enabled)
     }
 
@@ -585,6 +597,14 @@ class PdfViewerActivity : AppCompatActivity() {
         File(cacheDir, "quote_cards").listFiles()?.forEach { if (it.lastModified() < cutoff) it.delete() }
     }
 
+    private fun updateProgressAsync(page: Int) {
+        currentUri?.let { uri ->
+            lifecycleScope.launch(Dispatchers.IO) {
+                BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), page, totalPages)
+            }
+        }
+    }
+
     // ── Lifecycle ──────────────────────────────────────────────────────────────
 
     override fun onNewIntent(intent: Intent) {
@@ -600,11 +620,6 @@ class PdfViewerActivity : AppCompatActivity() {
         PdfStorage.savePage(this, currentPage)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        closePdfRenderer()
-    }
-
     @Suppress("OVERRIDE_DEPRECATION")
     override fun onBackPressed() {
         if (zenModeEnabled) { setZenMode(false); return }
@@ -617,7 +632,14 @@ class PdfViewerActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_ZEN_MODE = "zen_mode_enabled"
-        private const val MIN_FLIP_VELOCITY = 250f
+        private val HIGHLIGHT_COLORS = listOf(
+            0x80FFEE77.toInt(),
+            0x80AAFFD6.toInt(),
+            0x80FFB3CC.toInt(),
+            0x8099CCFF.toInt()
+        )
     }
 }
 
+private fun PdfRect.containsWithPadding(x: Float, y: Float, padding: Float): Boolean =
+    x >= left - padding && x <= right + padding && y >= top - padding && y <= bottom + padding
