@@ -23,6 +23,9 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.lifecycle.lifecycleScope
 import androidx.pdf.PdfDocument
 import androidx.pdf.PdfRect
@@ -36,6 +39,12 @@ import com.noscroll.quote.QuoteCardPreviewActivity
 import com.noscroll.repository.AnnotationRepository
 import com.noscroll.repository.BookRepository
 import com.noscroll.repository.HighlightRepository
+import com.noscroll.tutorial.ReaderTutorialSteps
+import com.noscroll.tutorial.TutorialController
+import com.noscroll.tutorial.TutorialOverlay
+import com.noscroll.tutorial.TutorialPrefs
+import com.noscroll.tutorial.TutorialStepId
+import com.noscroll.ui.NoScrollTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -48,6 +57,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private lateinit var libraryBtn: ImageButton
     private lateinit var zenBtn: ImageButton
     private lateinit var overflowNavBtn: ImageButton
+    private lateinit var pageTurnInterceptor: PageTurnInterceptor
 
     private var pdfFragment: NoScrollPdfViewerFragment? = null
     private var currentUri: Uri? = null
@@ -57,6 +67,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private var zenModeEnabled = false
     private var currentSelection: ReaderSelection? = null
     private var currentHighlights: List<HighlightEntity> = emptyList()
+    // Target page to restore on open; held separately so onPdfViewportChanged(0) can't clobber it.
+    private var savedPageTarget: Int = 0
+
+    private val tutorialController = TutorialController()
+    private lateinit var tutorialPrefs: TutorialPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +79,16 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         setContentView(R.layout.activity_pdf_viewer)
         applyReaderSystemBarContrast()
         cleanupQuoteCache()
+
+        tutorialPrefs = TutorialPrefs(this)
+        val composeOverlay = ComposeView(this).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { NoScrollTheme { TutorialOverlay(tutorialController) } }
+        }
+        (window.decorView as FrameLayout).addView(
+            composeOverlay,
+            FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+        )
 
         metadataBar    = findViewById(R.id.metadata_bar)
         metadataText   = findViewById(R.id.book_metadata_text)
@@ -107,11 +132,21 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             }
             true
         }
+        pageTurnInterceptor = findViewById(R.id.page_turn_interceptor)
+        pageTurnInterceptor.listener = object : PageTurnInterceptor.Listener {
+            override fun onSwipeLeft() {
+                if (currentPage < totalPages - 1) jumpToPage(currentPage + 1)
+            }
+            override fun onSwipeRight() {
+                if (currentPage > 0) jumpToPage(currentPage - 1)
+            }
+        }
         setZenMode(zenModeEnabled, persist = false)
     }
 
     private fun openPdf(uri: Uri, startPage: Int) {
         currentUri = uri
+        savedPageTarget = startPage
         metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
         val fragment = pdfFragment ?: return
         fragment.load(uri)
@@ -123,16 +158,26 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     override fun onPdfLoaded(document: PdfDocument) {
         totalPages = document.pageCount
-        if (currentPage > 0) pdfFragment?.scrollToPage(currentPage)
+        if (savedPageTarget >= totalPages) savedPageTarget = 0
+        if (savedPageTarget > 0) pdfFragment?.scrollToPage(savedPageTarget)
         loadHighlightsForFragment()
         updateProgressAsync(currentPage)
+        startReaderTutorialIfNeeded()
     }
 
     override fun onPdfLoadError(error: Throwable) {
         handleBadUri()
     }
 
+    override fun onPdfViewReady() {
+        loadHighlightsForFragment()
+    }
+
     override fun onPdfViewportChanged(firstVisiblePage: Int) {
+        // Block currentPage updates until we've scrolled to the saved target page.
+        if (savedPageTarget > 0) {
+            if (firstVisiblePage == savedPageTarget) savedPageTarget = 0 else return
+        }
         if (firstVisiblePage != currentPage) {
             currentPage = firstVisiblePage
             PdfStorage.savePage(this, firstVisiblePage)
@@ -262,23 +307,29 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     private fun showAnnotationDialog(highlightId: Long, quoteText: String) {
-        val input = EditText(this).apply {
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 3
-            hint = "Note"
-        }
-        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
-        container.addView(input)
-        MaterialAlertDialogBuilder(this)
-            .setTitle(quoteText.take(48))
-            .setView(container)
-            .setPositiveButton("Save") { _, _ ->
-                lifecycleScope.launch(Dispatchers.IO) {
-                    AnnotationRepository.upsert(this@PdfViewerActivity, input.text.toString(), highlightId)
-                }
+        lifecycleScope.launch {
+            val existingNote = withContext(Dispatchers.IO) {
+                AnnotationRepository.get(this@PdfViewerActivity, highlightId)?.noteText.orEmpty()
             }
-            .setNegativeButton("Cancel", null)
-            .show()
+            val input = EditText(this@PdfViewerActivity).apply {
+                inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+                minLines = 3
+                hint = "Note"
+                if (existingNote.isNotEmpty()) setText(existingNote)
+            }
+            val container = FrameLayout(this@PdfViewerActivity).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
+            container.addView(input)
+            MaterialAlertDialogBuilder(this@PdfViewerActivity)
+                .setTitle(quoteText.take(48))
+                .setView(container)
+                .setPositiveButton("Save") { _, _ ->
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        AnnotationRepository.upsert(this@PdfViewerActivity, input.text.toString(), highlightId)
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
     }
 
     // ── Highlights list dialog ─────────────────────────────────────────────────
@@ -603,6 +654,43 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
                 BookRepository.updateProgress(this@PdfViewerActivity, uri.toString(), page, totalPages)
             }
         }
+    }
+
+    private fun startReaderTutorialIfNeeded() {
+        if (!tutorialPrefs.hasOptedIn() || tutorialPrefs.isReaderDone()) return
+        // Ensure chrome is visible, then jump to middle page for real content
+        if (zenModeEnabled) setZenMode(false)
+        val middlePage = (totalPages / 2).coerceAtLeast(1)
+        pdfFragment?.scrollToPage(middlePage)
+        // Wait for the page to render before measuring layout
+        window.decorView.postDelayed({
+            val root = window.decorView
+            val rootArr = IntArray(2).also { root.getLocationInWindow(it) }
+            val zenRect = captureViewRect(zenBtn)
+            val barRect = captureViewRect(metadataBar)
+            // Wide spotlight over the PDF text area (top 60% of screen, full width)
+            val padH = root.width * 0.04f
+            val topY = if (metadataBar.visibility == View.VISIBLE) barRect.bottom + 12f
+                       else rootArr[1] + root.height * 0.08f
+            val bottomY = rootArr[1] + root.height * 0.60f
+            val textAreaRect = Rect(
+                rootArr[0] + padH,
+                topY,
+                rootArr[0] + root.width - padH,
+                bottomY
+            )
+            tutorialController.registerBounds(TutorialStepId.READER_SELECT, textAreaRect)
+            tutorialController.registerBounds(TutorialStepId.READER_ZEN, zenRect)
+            tutorialController.registerBounds(TutorialStepId.READER_CONTROLS, barRect)
+            tutorialController.start(ReaderTutorialSteps)
+            tutorialController.onDone = { tutorialPrefs.markReaderDone() }
+        }, 800L)
+    }
+
+    private fun captureViewRect(v: View): Rect {
+        val arr = IntArray(2)
+        v.getLocationInWindow(arr)
+        return Rect(arr[0].toFloat(), arr[1].toFloat(), (arr[0] + v.width).toFloat(), (arr[1] + v.height).toFloat())
     }
 
     // ── Lifecycle ──────────────────────────────────────────────────────────────

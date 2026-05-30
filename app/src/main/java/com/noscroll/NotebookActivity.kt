@@ -7,9 +7,14 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import com.noscroll.repository.BookRepository
 import com.noscroll.repository.HighlightRepository
 import com.noscroll.repository.NotebookRepository
+import com.noscroll.tutorial.NotebookTutorialSteps
+import com.noscroll.tutorial.TutorialController
+import com.noscroll.tutorial.TutorialPrefs
 import com.noscroll.ui.NoScrollTheme
 import com.noscroll.ui.NotebookScreen
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +26,15 @@ class NotebookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NoScrollTheme {
+                val controller = remember { TutorialController() }
+                val prefs = remember { TutorialPrefs(this@NotebookActivity) }
+                LaunchedEffect(Unit) {
+                    if (prefs.hasOptedIn() && !prefs.isNotebookDone()) {
+                        kotlinx.coroutines.delay(300)
+                        controller.start(NotebookTutorialSteps)
+                        controller.onDone = { prefs.markNotebookDone() }
+                    }
+                }
                 val state = NotebookRepository.observe(this).collectAsStateWithLifecycle(
                     com.noscroll.repository.NotebookState()
                 ).value
@@ -45,6 +59,7 @@ class NotebookActivity : AppCompatActivity() {
                             Toast.makeText(this@NotebookActivity, "Highlight deleted", Toast.LENGTH_SHORT).show()
                         }
                     },
+                    tutorialController = controller,
                     onExport = {
                         lifecycleScope.launch {
                             val uri = PdfStorage.getSelectedUri(this@NotebookActivity)

@@ -16,11 +16,18 @@ import com.noscroll.data.BookEntity
 import com.noscroll.data.BookMetadataEntity
 import com.noscroll.metadata.BookMetadataRepository
 import com.noscroll.repository.BookRepository
+import androidx.compose.runtime.LaunchedEffect
+import com.noscroll.tutorial.LibraryTutorialSteps
+import com.noscroll.tutorial.TutorialController
+import com.noscroll.tutorial.TutorialPrefs
 import com.noscroll.ui.LibraryScreen
 import com.noscroll.ui.NoScrollTheme
 import kotlinx.coroutines.launch
 
 class PdfLibraryActivity : AppCompatActivity() {
+
+    private val tutorialController = TutorialController()
+    private lateinit var tutorialPrefs: TutorialPrefs
 
     private val pickPdf = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri ?: return@registerForActivityResult
@@ -45,8 +52,16 @@ class PdfLibraryActivity : AppCompatActivity() {
             BookRepository.migrateLegacyLibrary(this@PdfLibraryActivity)
             identifyWeakLibraryMetadata()
         }
+        tutorialPrefs = TutorialPrefs(this)
         setContent {
             NoScrollTheme {
+                LaunchedEffect(Unit) {
+                    if (tutorialPrefs.hasOptedIn() && !tutorialPrefs.isLibraryDone()) {
+                        kotlinx.coroutines.delay(300)
+                        tutorialController.start(LibraryTutorialSteps)
+                        tutorialController.onDone = { tutorialPrefs.markLibraryDone() }
+                    }
+                }
                 val books = BookRepository.observeBooks(this).collectAsStateWithLifecycle(emptyList()).value
                 val metadata = AnnotationDatabase.getInstance(this)
                     .bookMetadataDao()
@@ -107,6 +122,12 @@ class PdfLibraryActivity : AppCompatActivity() {
                     },
                     onNotebook = {
                         startActivity(Intent(this@PdfLibraryActivity, NotebookActivity::class.java))
+                    },
+                    tutorialController = tutorialController,
+                    onHelp = {
+                        tutorialPrefs.restartFrom()
+                        tutorialController.start(LibraryTutorialSteps)
+                        tutorialController.onDone = { tutorialPrefs.markLibraryDone() }
                     }
                 )
             }
