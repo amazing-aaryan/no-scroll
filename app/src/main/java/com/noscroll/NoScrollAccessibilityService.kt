@@ -29,6 +29,26 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private var lastStableBlockRect: Rect? = null
     private var lastStableBlockMs: Long = 0L
 
+    // Polling — runs every POLL_INTERVAL_MS while Instagram is in the foreground.
+    private var pollingActive = false
+    private val pollRunnable = object : Runnable {
+        override fun run() {
+            findAndUpdateOverlay()
+            if (pollingActive) handler.postDelayed(this, POLL_INTERVAL_MS)
+        }
+    }
+
+    private fun startPolling() {
+        if (pollingActive) return
+        pollingActive = true
+        handler.post(pollRunnable)
+    }
+
+    private fun stopPolling() {
+        pollingActive = false
+        handler.removeCallbacks(pollRunnable)
+    }
+
     companion object {
         private const val TAG = "NoScrollA11y"
         private const val INSTAGRAM_PKG = "com.instagram.android"
@@ -38,6 +58,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
         private const val BLOCK_STABILITY_GRACE_MS = 3_000L
+        private const val POLL_INTERVAL_MS = 250L
         private const val NAV_BAR_GAP_MIN_DP = 24f
         private const val NAV_BAR_GAP_MAX_DP = 48f
         private const val NAV_BAR_GAP_FRACTION = 0.25f
@@ -104,7 +125,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
                     cancelPendingConfirm()
                     scheduleUpdate(DEBOUNCE_MS)
+                    startPolling()
                 } else {
+                    stopPolling()
                     cancelPendingContentCheck()
                     pendingUpdate?.let { handler.removeCallbacks(it) }
                     cancelPendingConfirm()
@@ -113,11 +136,15 @@ class NoScrollAccessibilityService : AccessibilityService() {
                     handler.postDelayed(pendingConfirm!!, CONFIRM_MS)
                 }
             }
-            AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED -> {
+            AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED,
+            AccessibilityEvent.TYPE_VIEW_SCROLLED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
+                    // Polling covers continuous updates; also do an immediate debounced refresh
+                    // on scroll/content events for snappier response.
                     cancelPendingContentCheck()
                     pendingContentCheck = Runnable { findAndUpdateOverlay() }
                     handler.postDelayed(pendingContentCheck!!, CONTENT_DEBOUNCE_MS)
+                    startPolling()
                 }
             }
         }
@@ -143,6 +170,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         pendingUpdate?.let { handler.removeCallbacks(it) }
         cancelPendingConfirm()
         cancelPendingContentCheck()
+        stopPolling()
     }
 
     private fun freezeOverlay() {
