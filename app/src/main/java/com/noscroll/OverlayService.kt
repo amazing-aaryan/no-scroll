@@ -6,12 +6,15 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.IBinder
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import androidx.core.app.NotificationCompat
 
 class OverlayService : Service() {
@@ -25,6 +28,15 @@ class OverlayService : Service() {
         private const val NOTIF_ID = 1
         const val ACTION_STOP = "com.noscroll.STOP_OVERLAY"
         const val ACTION_HIDE = "com.noscroll.HIDE_OVERLAY"
+
+        // Light-mode Instagram feed background (#FAFAFA) and matching dark icon
+        private val LIGHT_BG = Color.parseColor("#FAFAFA")
+        private val LIGHT_ICON = Color.parseColor("#1A1A2E")
+
+        // Dark-mode Instagram feed background (pure black) and white icon
+        private val DARK_BG = Color.BLACK
+        private val DARK_ICON = Color.WHITE
+
     }
 
     override fun onCreate() {
@@ -62,13 +74,22 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
+    private fun isDarkMode(): Boolean =
+        (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                Configuration.UI_MODE_NIGHT_YES
+
     private fun updateContentOverlay(x: Int, y: Int, w: Int, h: Int) {
         val existing = contentOverlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) return
         removeContentOverlayView()
 
+        val dark = isDarkMode()
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_content, null)
+        view.setBackgroundColor(if (dark) DARK_BG else LIGHT_BG)
+        view.findViewById<ImageView>(R.id.content_overlay_icon)
+            .setColorFilter(if (dark) DARK_ICON else LIGHT_ICON)
+
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
@@ -97,7 +118,16 @@ class OverlayService : Service() {
             existing.width == w && existing.height == h) return
         removeNavBarOverlayView()
 
+        val dark = isDarkMode()
+        // Nav bar bg: semi-transparent version of the nav bar's own colour (~80% alpha)
+        val navBg = if (dark) Color.argb(0xCC, 0x00, 0x00, 0x00)
+                    else      Color.argb(0xCC, 0xFA, 0xFA, 0xFA)
+        val iconColor = if (dark) DARK_ICON else LIGHT_ICON
+
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_nav, null)
+        view.setBackgroundColor(navBg)
+        view.findViewById<ImageView>(R.id.nav_overlay_icon).setColorFilter(iconColor)
+
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
