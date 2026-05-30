@@ -12,21 +12,20 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
     private val handler = Handler(Looper.getMainLooper())
     private var pendingUpdate: Runnable? = null
-    private var lastRect = Rect()
 
     companion object {
         private const val INSTAGRAM_PKG = "com.instagram.android"
         private const val INSTAGRAM_LITE_PKG = "com.instagram.lite"
-        private const val DEBOUNCE_MS = 600L
+        private const val DEBOUNCE_MS = 50L
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        if (event.eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) return
+        val type = event.eventType
+        if (type != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED &&
+            type != AccessibilityEvent.TYPE_WINDOWS_CHANGED) return
 
         val pkg = event.packageName?.toString() ?: return
 
-        // Ignore our own overlay window events and bare system events — these fire
-        // when WindowManager.addView is called and must not trigger stopOverlay.
         if (pkg == packageName || pkg == "android") return
 
         if (pkg != INSTAGRAM_PKG && pkg != INSTAGRAM_LITE_PKG) {
@@ -42,24 +41,28 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private fun findAndShowOverlay() {
         val root = rootInActiveWindow ?: return
         try {
-            val rect = Rect()
-            val reelsNode = findReelsNode(root)
-            if (reelsNode != null) {
-                reelsNode.getBoundsInScreen(rect)
-                reelsNode.recycle()
-            } else {
-                findBottomNavCenter(root, rect)
-            }
+            val screenWidth = resources.displayMetrics.widthPixels
+            val screenHeight = resources.displayMetrics.heightPixels
 
-            if (rect.isEmpty) { stopOverlay(); return }
+            val navBarRect = Rect()
+            findNavBarRect(root, navBarRect)
 
-            lastRect.set(rect)
+            // No nav bar visible = full-screen story, camera, etc. — don't block
+            if (navBarRect.isEmpty) { stopOverlay(); return }
+
+            val storiesBottomY = findStoriesBottomY(root)
+            val contentTopY = if (storiesBottomY > 0) storiesBottomY
+                             else (screenHeight * 0.18).toInt()
+
             startService(
                 Intent(this, OverlayService::class.java).apply {
-                    putExtra("x", rect.left)
-                    putExtra("y", rect.top)
-                    putExtra("w", rect.width())
-                    putExtra("h", rect.height())
+                    putExtra("contentY", contentTopY)
+                    putExtra("contentH", (navBarRect.top - contentTopY).coerceAtLeast(0))
+                    putExtra("navX", navBarRect.left)
+                    putExtra("navY", navBarRect.top)
+                    putExtra("navW", navBarRect.width())
+                    putExtra("navH", navBarRect.height())
+                    putExtra("screenW", screenWidth)
                 }
             )
         } finally {
@@ -67,26 +70,29 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    // BFS on the accessibility tree; returns node caller must recycle, or null.
-    private fun findReelsNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
+    // BFS: find the bottom of the stories row by looking for story-labelled nodes.
+    private fun findStoriesBottomY(root: AccessibilityNodeInfo): Int {
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
+
+        var maxBottom = -1
+        val nodeRect = Rect()
 
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
             val desc = node.contentDescription?.toString() ?: ""
-            if (desc.contains("reels", ignoreCase = true)) {
-                queue.forEach { it.recycle() }
-                return node
+            if (desc.contains("story", ignoreCase = true)) {
+                node.getBoundsInScreen(nodeRect)
+                if (nodeRect.bottom > maxBottom) maxBottom = nodeRect.bottom
             }
             for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
             node.recycle()
         }
-        return null
+        return maxBottom
     }
 
-    // Fallback: locate the bottom nav bar and pick its center child.
-    private fun findBottomNavCenter(root: AccessibilityNodeInfo, outRect: Rect) {
+    // BFS: locate the bottom nav bar and return its full bounds.
+    private fun findNavBarRect(root: AccessibilityNodeInfo, outRect: Rect) {
         val screenHeight = resources.displayMetrics.heightPixels
         val screenWidth = resources.displayMetrics.widthPixels
         val navThreshold = (screenHeight * 0.82).toInt()
@@ -94,8 +100,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
 
-        var navBar: AccessibilityNodeInfo? = null
-        outer@ while (queue.isNotEmpty()) {
+        while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
             val nodeRect = Rect()
             node.getBoundsInScreen(nodeRect)
@@ -103,35 +108,18 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 nodeRect.width() >= screenWidth * 0.8f &&
                 node.childCount in 4..6
             ) {
+                outRect.set(nodeRect)
+                node.recycle()
                 queue.forEach { it.recycle() }
-                navBar = node
-                break@outer
+                return
             }
             for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
             node.recycle()
         }
-
-        navBar ?: return
-        val childCount = navBar.childCount
-        if (childCount > 0) {
-            val center = navBar.getChild(childCount / 2)
-            center?.getBoundsInScreen(outRect)
-            center?.recycle()
-        }
-        navBar.recycle()
-    }
-
-    private fun hideOverlay() {
-        lastRect.setEmpty()
-        startService(
-            Intent(this, OverlayService::class.java).apply {
-                action = OverlayService.ACTION_HIDE
-            }
-        )
+        // Leave outRect empty — caller interprets empty as "nav bar not found"
     }
 
     private fun stopOverlay() {
-        lastRect.setEmpty()
         pendingUpdate?.let { handler.removeCallbacks(it) }
         startService(
             Intent(this, OverlayService::class.java).apply {

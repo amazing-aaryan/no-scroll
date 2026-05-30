@@ -17,7 +17,8 @@ import androidx.core.app.NotificationCompat
 class OverlayService : Service() {
 
     private var windowManager: WindowManager? = null
-    private var overlayView: View? = null
+    private var contentOverlayView: View? = null
+    private var navBarOverlayView: View? = null
 
     companion object {
         private const val CHANNEL_ID = "noscroll_overlay"
@@ -34,39 +35,45 @@ class OverlayService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent == null) return START_STICKY // restarted by system after kill — wait for next real command
+        if (intent == null) return START_STICKY
         if (intent.action == ACTION_HIDE) {
-            removeOverlayView()
+            removeAllOverlays()
             return START_STICKY
         }
         if (intent.action == ACTION_STOP) {
-            removeOverlayView()
+            removeAllOverlays()
             @Suppress("DEPRECATION")
             stopForeground(true)
             stopSelf()
             return START_NOT_STICKY
         }
-        val x = intent.getIntExtra("x", 0)
-        val y = intent.getIntExtra("y", 0)
-        val w = intent.getIntExtra("w", 120)
-        val h = intent.getIntExtra("h", 120)
-        updateOverlay(x, y, w, h)
+
+        val screenW = intent.getIntExtra("screenW", resources.displayMetrics.widthPixels)
+        val contentY = intent.getIntExtra("contentY", 0)
+        val contentH = intent.getIntExtra("contentH", 0)
+        val navX = intent.getIntExtra("navX", 0)
+        val navY = intent.getIntExtra("navY", 0)
+        val navW = intent.getIntExtra("navW", screenW)
+        val navH = intent.getIntExtra("navH", 120)
+
+        if (contentH > 0) updateContentOverlay(0, contentY, screenW, contentH)
+        updateNavBarOverlay(navX, navY, navW, navH)
+
         return START_STICKY
     }
 
-    private fun updateOverlay(x: Int, y: Int, w: Int, h: Int) {
-        val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
+    private fun updateContentOverlay(x: Int, y: Int, w: Int, h: Int) {
+        val existing = contentOverlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) return
-        removeOverlayView()
+        removeContentOverlayView()
 
-        val view = LayoutInflater.from(this).inflate(R.layout.overlay_book, null)
+        val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_content, null)
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-            PixelFormat.TRANSLUCENT
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.OPAQUE
         ).apply {
             gravity = Gravity.TOP or Gravity.START
             this.x = x
@@ -81,19 +88,55 @@ class OverlayService : Service() {
         }
 
         windowManager?.addView(view, params)
-        overlayView = view
+        contentOverlayView = view
     }
 
-    private fun removeOverlayView() {
-        overlayView?.let {
-            try { windowManager?.removeView(it) } catch (_: Exception) {}
-            overlayView = null
+    private fun updateNavBarOverlay(x: Int, y: Int, w: Int, h: Int) {
+        val existing = navBarOverlayView?.layoutParams as? WindowManager.LayoutParams
+        if (existing != null && existing.x == x && existing.y == y &&
+            existing.width == w && existing.height == h) return
+        removeNavBarOverlayView()
+
+        val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_nav, null)
+        val params = WindowManager.LayoutParams(
+            w, h,
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            PixelFormat.TRANSLUCENT
+        ).apply {
+            gravity = Gravity.TOP or Gravity.START
+            this.x = x
+            this.y = y
         }
+
+        windowManager?.addView(view, params)
+        navBarOverlayView = view
+    }
+
+    private fun removeContentOverlayView() {
+        contentOverlayView?.let {
+            try { windowManager?.removeView(it) } catch (_: Exception) {}
+            contentOverlayView = null
+        }
+    }
+
+    private fun removeNavBarOverlayView() {
+        navBarOverlayView?.let {
+            try { windowManager?.removeView(it) } catch (_: Exception) {}
+            navBarOverlayView = null
+        }
+    }
+
+    private fun removeAllOverlays() {
+        removeContentOverlayView()
+        removeNavBarOverlayView()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        removeOverlayView()
+        removeAllOverlays()
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -117,7 +160,7 @@ class OverlayService : Service() {
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("NoScroll active")
-            .setContentText("Book icon appears on Instagram's Reels tab")
+            .setContentText("Blocking Instagram feed — stories and nav bar accessible")
             .setSmallIcon(R.drawable.ic_book)
             .setContentIntent(tapIntent)
             .setOngoing(true)
