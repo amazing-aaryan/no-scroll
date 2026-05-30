@@ -684,7 +684,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             tutorialController.registerBounds(TutorialStepId.READER_CONTROLS, barRect)
             tutorialController.start(ReaderTutorialSteps)
             tutorialController.onDone = { tutorialPrefs.markReaderDone() }
-        }, 800L)
+        }, 300L)
     }
 
     private fun captureViewRect(v: View): Rect {
