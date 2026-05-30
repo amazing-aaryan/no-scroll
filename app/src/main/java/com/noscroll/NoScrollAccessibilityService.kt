@@ -5,7 +5,9 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Rect
+import android.util.Log
 import android.os.Build
+import com.noscroll.BuildConfig
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
@@ -23,18 +25,59 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
     private var cachedBgColor: Int = Color.BLACK
     private var lastColorSampleMs: Long = 0L
-    private var reelsBlockActive = false
+    private var feedBlockActive = false
+    private var lastStableBlockRect: Rect? = null
+    private var lastStableBlockMs: Long = 0L
 
     companion object {
+        private const val TAG = "NoScrollA11y"
         private const val INSTAGRAM_PKG = "com.instagram.android"
         private const val INSTAGRAM_LITE_PKG = "com.instagram.lite"
         private const val DEBOUNCE_MS = 600L
         private const val CONFIRM_MS = 500L
         private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
+        private const val BLOCK_STABILITY_GRACE_MS = 3_000L
+        private const val NAV_BAR_GAP_MIN_DP = 24f
+        private const val NAV_BAR_GAP_MAX_DP = 48f
+        private const val NAV_BAR_GAP_FRACTION = 0.25f
 
-        // Right-side action strip — only present in full-screen Reels view.
+        // ── Language-independent view-ID fragments (primary detection) ──────────────
+        private val REELS_TAB_IDS = setOf(
+            "clips_tab", "reels_tab", "ig_bottom_navbar_reels_button", "clips_tab_icon"
+        )
+        private val HOME_TAB_IDS = setOf(
+            "feed_tab", "home_tab", "ig_bottom_navbar_home_button", "feed_tab_icon"
+        )
+        private val OTHER_TAB_IDS = setOf(
+            "search_tab", "profile_tab", "activity_tab", "shop_tab",
+            "ig_bottom_navbar_search_button", "ig_bottom_navbar_profile_button"
+        )
+        private val NAV_BAR_CONTAINER_IDS = setOf(
+            "tab_bar", "bottom_nav", "ig_bottom_navbar", "navigation_bar_view"
+        )
+        private val REELS_LIKE_IDS = setOf(
+            "like_button", "row_clips_button_like", "row_feed_button_like", "clips_like_button"
+        )
+        private val REELS_COMMENT_IDS = setOf(
+            "comment_button", "row_clips_button_comment", "row_feed_button_comment", "clips_comment_button"
+        )
+        private val REELS_SHARE_IDS = setOf(
+            "share_button", "row_clips_button_send", "row_feed_button_share",
+            "clips_share_button", "send_button"
+        )
+        private val REELS_ACTION_IDS =
+            REELS_LIKE_IDS + REELS_COMMENT_IDS + REELS_SHARE_IDS +
+            setOf("save_button", "bookmark_button", "row_clips_button_save")
+        private val HOME_TOP_BAR_IDS = setOf(
+            "main_feed_action_bar", "action_bar_container", "ig_bar_logo",
+            "action_bar_title", "feed_header"
+        )
+
+        // ── Keyword fallbacks (secondary — English-only, used when IDs absent) ──
         private val REELS_ACTION_KEYWORDS = setOf("like", "comment", "share", "send", "save", "bookmark")
+        private val REELS_ENGAGEMENT_KEYWORDS = setOf("like", "comment")
+        private val HOME_TOP_BAR_KEYWORDS = setOf("instagram", "camera", "direct", "messages", "new post")
 
         // Instagram bottom-nav tab descriptions across all recent app versions.
         private val NAV_TAB_KEYWORDS = setOf(
@@ -59,8 +102,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         when (event.eventType) {
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
-                    if (reelsBlockActive) hideOverlay()
-                    reelsBlockActive = false
                     cancelPendingConfirm()
                     scheduleUpdate(DEBOUNCE_MS)
                 } else {
@@ -125,31 +166,55 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
     }
 
-    private data class ScanResult(val inReels: Boolean, val navBarTop: Int)
+    private enum class BlockSurface {
+        HOME,
+        REELS
+    }
+
+    private enum class NavSelectionState {
+        BLOCKED,
+        UNBLOCKED,
+        UNKNOWN
+    }
+
+    private data class ScanResult(
+        val blockSurface: BlockSurface?,
+        val navBarTop: Int,
+        val blockRect: Rect?,
+        val navSelectionState: NavSelectionState
+    )
 
     /**
-     * Single BFS that simultaneously detects Reels and locates the nav bar top.
+     * Single BFS that classifies the current Instagram surface and derives the
+     * feed-content rectangle to block.
      *
-     * Reels: 2+ action buttons (Like/Comment/Share…) at centerX > 72 % of screen
-     *        width. These only appear in full-screen Reels.
-     *
-     * Nav bar: 2+ clickable nodes whose description matches a known Instagram tab
-     *          name (Home/Search/Profile…) in the bottom 25 % of the screen.
-     *          Taking min(rect.top) over all matches gives the exact pixel row where
-     *          the bar starts — works correctly on every screen size and density.
-     *
-     * The two keyword sets are disjoint and their screen regions do not overlap, so
-     * neither detection can contaminate the other.
+     * Reels: compact right-edge action rail signature.
+     * Home: selected Home tab + top-app-bar signature.
+     * Block region: use the largest content container between top chrome and nav bar when
+     * available; otherwise fall back to full-width bounds derived from detected chrome.
      */
     private fun scanInstagramTree(root: AccessibilityNodeInfo): ScanResult {
         val sw = resources.displayMetrics.widthPixels
         val sh = resources.displayMetrics.heightPixels
         val rightEdge  = sw * 0.72f
-        val navZoneTop = (sh * 0.75f).toInt()   // bottom 25 % catches nav on tall phones
+        val navZoneTop = (sh * 0.75f).toInt()
+        val topChromeZoneBottom = (sh * 0.22f).toInt()
 
         var reelsHits = 0
+        var reelsEngagementHits = 0
         var navTop = Int.MAX_VALUE
         var navHits  = 0
+        var topChromeBottom = 0
+        var homeTabSelected = false
+        var reelsTabSelected = false
+        var otherTabSelected = false
+        var homeChromeHits = 0
+        var bestContentRect: Rect? = null
+        var bestContentArea = 0
+        var mainContainerRect: Rect? = null
+        var navBarRect: Rect? = null
+        var actionBarRect: Rect? = null
+        var storiesBarBottom = 0  // detected bottom of the stories strip on Home
 
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
@@ -157,20 +222,109 @@ class NoScrollAccessibilityService : AccessibilityService() {
         while (queue.isNotEmpty()) {
             val node  = queue.removeFirst()
             val lower = node.contentDescription?.toString()?.lowercase() ?: ""
+            val textLower = node.text?.toString()?.lowercase() ?: ""
+            val viewIdLower = node.viewIdResourceName?.lowercase() ?: ""
             val rect  = Rect()
             node.getBoundsInScreen(rect)
 
             if (!rect.isEmpty) {
-                // ① Reels action strip — right edge only.
-                if (rect.centerX() > rightEdge && REELS_ACTION_KEYWORDS.any { lower.contains(it) })
-                    reelsHits++
-
-                // ② Nav bar tabs — known descriptions, clickable, in bottom zone.
-                if (rect.top >= navZoneTop && node.isClickable &&
-                    NAV_TAB_KEYWORDS.any { lower.contains(it) }
+                if (NAV_BAR_CONTAINER_IDS.any { viewIdLower.contains(it) } && !viewIdLower.contains("shadow")) {
+                    navBarRect = Rect(rect)
+                }
+                if (viewIdLower.contains("action_bar") || viewIdLower.contains("main_feed_action_bar")) {
+                    if (actionBarRect == null || rect.bottom > actionBarRect!!.bottom) {
+                        actionBarRect = Rect(rect)
+                    }
+                }
+                if (
+                    viewIdLower.contains("layout_container_main") ||
+                    viewIdLower.contains("swipeable_tab_view_pager") ||
+                    viewIdLower == "android:id/list" ||
+                    viewIdLower.contains("refreshable_container")
                 ) {
+                    val area = rect.width() * rect.height()
+                    val existingArea = mainContainerRect?.let { it.width() * it.height() } ?: -1
+                    if (area > existingArea) {
+                        mainContainerRect = Rect(rect)
+                    }
+                }
+
+                // ① Reels action strip — right edge, mid-content, compact actionable nodes.
+                val inActionRailZone = rect.centerX() > rightEdge &&
+                    rect.centerY() > (sh * 0.20f) &&
+                    rect.centerY() < navZoneTop &&
+                    rect.width() in 1..(sw * 0.28f).toInt() &&
+                    rect.height() in 1..(sh * 0.18f).toInt()
+                if (inActionRailZone && node.isClickable) {
+                    if (BuildConfig.DEBUG) Log.d(TAG, "RAIL node id=$viewIdLower desc=$lower bounds=$rect clickable=${node.isClickable}")
+                    // ID check first (language-independent), keyword fallback second.
+                    val idActionHit = REELS_ACTION_IDS.any { viewIdLower.contains(it) }
+                    val kwActionHit = REELS_ACTION_KEYWORDS.any { lower.contains(it) }
+                    if (idActionHit || kwActionHit) reelsHits++
+                    val idEngageHit = (REELS_LIKE_IDS + REELS_COMMENT_IDS).any { viewIdLower.contains(it) }
+                    val kwEngageHit = REELS_ENGAGEMENT_KEYWORDS.any { lower.contains(it) }
+                    if (idEngageHit || kwEngageHit) reelsEngagementHits++
+                }
+
+                // ② Top chrome — ID check first (language-independent), keywords as fallback.
+                val topChromeMatch =
+                    HOME_TOP_BAR_IDS.any { viewIdLower.contains(it) } ||
+                    (lower.isNotBlank() && HOME_TOP_BAR_KEYWORDS.any { lower.contains(it) || textLower.contains(it) || viewIdLower.contains(it) })
+                if (rect.top < topChromeZoneBottom && rect.width() < (sw * 0.65f).toInt() && topChromeMatch) {
+                    homeChromeHits++
+                    if (rect.bottom > topChromeBottom) topChromeBottom = rect.bottom
+                }
+
+                // ② Stories strip — use reels_tray_container for the full row bounds (incl. usernames);
+                //    fall back to individual story nodes if the container isn't in the tree.
+                val looksLikeStory = viewIdLower.contains("reels_tray") ||
+                    lower.contains("story") || lower.contains("stories") ||
+                    viewIdLower.contains("story") || viewIdLower.contains("stories")
+                if (looksLikeStory && rect.top < (sh * 0.45f) && rect.bottom > storiesBarBottom) {
+                    storiesBarBottom = rect.bottom
+                }
+
+                // ③ Nav bar tabs — ID check first (language-independent), keyword fallback.
+                val isHomeTabId  = HOME_TAB_IDS.any { viewIdLower.contains(it) }
+                val isReelsTabId = REELS_TAB_IDS.any { viewIdLower.contains(it) }
+                val isOtherTabId = OTHER_TAB_IDS.any { viewIdLower.contains(it) }
+                val isAnyTabId   = isHomeTabId || isReelsTabId || isOtherTabId
+                val isAnyTabKw   = NAV_TAB_KEYWORDS.any { lower.contains(it) || textLower.contains(it) || viewIdLower.contains(it) }
+                if (rect.top >= navZoneTop && node.isClickable && (isAnyTabId || isAnyTabKw)) {
                     navHits++
                     if (rect.top < navTop) navTop = rect.top
+                    if (node.isSelected || node.isChecked) {
+                        when {
+                            isHomeTabId ||
+                            lower.contains("home") || textLower.contains("home") ||
+                            viewIdLower.contains("home") || viewIdLower.contains("feed_tab") ->
+                                homeTabSelected = true
+                            isReelsTabId ||
+                            lower.contains("reels") || lower.contains("clips") ||
+                            textLower.contains("reels") || textLower.contains("clips") ||
+                            viewIdLower.contains("reels") || viewIdLower.contains("clips") ->
+                                reelsTabSelected = true
+                            else -> otherTabSelected = true
+                        }
+                    }
+                }
+
+                // ④ Main feed/pager container — prefer the largest scrollable content region.
+                val candidateTop = if (topChromeBottom > 0) topChromeBottom else 0
+                val inContentBand = rect.top <= candidateTop + (sh * 0.12f) &&
+                    rect.bottom > candidateTop + (sh * 0.25f) &&
+                    rect.bottom <= navZoneTop + (sh * 0.08f)
+                val looksLikeContent = rect.width() >= (sw * 0.60f).toInt() &&
+                    rect.height() >= (sh * 0.25f).toInt() &&
+                    (node.isScrollable || node.className?.toString()?.contains("RecyclerView") == true ||
+                        node.className?.toString()?.contains("ViewPager") == true ||
+                        node.className?.toString()?.contains("ListView") == true)
+                if (inContentBand && looksLikeContent) {
+                    val area = rect.width() * rect.height()
+                    if (area > bestContentArea) {
+                        bestContentArea = area
+                        bestContentRect = Rect(rect)
+                    }
                 }
             }
 
@@ -178,9 +332,77 @@ class NoScrollAccessibilityService : AccessibilityService() {
             node.recycle()
         }
 
+        val heuristicNavTop = if (navHits >= 2 && navTop != Int.MAX_VALUE) navTop else -1
+        val resolvedNavTop = maxOf(
+            navBarRect?.top ?: -1,
+            mainContainerRect?.bottom ?: -1,
+            heuristicNavTop
+        )
+        val minGapPx = (resources.displayMetrics.density * NAV_BAR_GAP_MIN_DP + 0.5f).toInt()
+        val maxGapPx = (resources.displayMetrics.density * NAV_BAR_GAP_MAX_DP + 0.5f).toInt()
+        val navHeightPx = navBarRect?.height()
+            ?: if (mainContainerRect != null && resolvedNavTop > 0) {
+                (sh - mainContainerRect!!.bottom).coerceAtLeast(0)
+            } else {
+                0
+            }
+        val navGapPx = when {
+            navHeightPx > 0 -> (navHeightPx * NAV_BAR_GAP_FRACTION).toInt().coerceIn(minGapPx, maxGapPx)
+            else -> minGapPx
+        }
+        val resolvedBlockBottom = (if (resolvedNavTop > 0) resolvedNavTop - navGapPx else resolveNavBarTop(resolvedNavTop))
+            .coerceIn(0, sh)
+        val inReels = reelsHits >= 3 && reelsEngagementHits >= 1
+        val inHome = homeTabSelected && homeChromeHits >= 1 && !inReels
+        val blockSurface = when {
+            reelsTabSelected || inReels -> BlockSurface.REELS
+            homeTabSelected || inHome -> BlockSurface.HOME
+            else -> null
+        }
+        val navSelectionState = when {
+            homeTabSelected || reelsTabSelected -> NavSelectionState.BLOCKED
+            otherTabSelected -> NavSelectionState.UNBLOCKED
+            else -> NavSelectionState.UNKNOWN
+        }
+        val preferredTop = mainContainerRect?.top
+            ?: actionBarRect?.bottom
+            ?: if (blockSurface == BlockSurface.HOME && topChromeBottom > 0) topChromeBottom else null
+            ?: bestContentRect?.top
+        val blockTop = preferredTop?.coerceAtLeast(0) ?: 0
+        // On Home tab, skip past the Stories strip. Use the detected strip bottom when available;
+        // fall back to a 140dp fixed offset (wider than the old 108dp guess).
+        val adjustedBlockTop = if (blockSurface == BlockSurface.HOME) {
+            val gapPx = (6 * resources.displayMetrics.density + 0.5f).toInt()
+            if (storiesBarBottom > blockTop) {
+                (storiesBarBottom + gapPx).coerceIn(0, sh)
+            } else {
+                val fallbackOffsetPx = (200 * resources.displayMetrics.density + 0.5f).toInt()
+                (blockTop + fallbackOffsetPx).coerceIn(0, sh)
+            }
+        } else {
+            blockTop
+        }
+        val blockRect = if (blockSurface == null || resolvedBlockBottom <= adjustedBlockTop) {
+            null
+        } else {
+            val left = mainContainerRect?.left ?: 0
+            val right = mainContainerRect?.right ?: sw
+            Rect(left.coerceIn(0, sw), adjustedBlockTop, right.coerceIn(0, sw), resolvedBlockBottom)
+        }
+
+        if (BuildConfig.DEBUG) Log.d(
+            TAG,
+            "scan surface=$blockSurface homeSelected=$homeTabSelected reelsSelected=$reelsTabSelected " +
+                "reelsHits=$reelsHits engageHits=$reelsEngagementHits topChromeBottom=$topChromeBottom " +
+                "navTop=$resolvedNavTop navHeight=$navHeightPx navGap=$navGapPx blockRect=$blockRect bestContent=$bestContentRect " +
+                "mainContainer=$mainContainerRect navBar=$navBarRect actionBar=$actionBarRect navSelection=$navSelectionState"
+        )
+
         return ScanResult(
-            inReels  = reelsHits >= 2,
-            navBarTop = if (navHits >= 2 && navTop != Int.MAX_VALUE) navTop else -1
+            blockSurface = blockSurface,
+            navBarTop = resolvedNavTop,
+            blockRect = blockRect,
+            navSelectionState = navSelectionState
         )
     }
 
@@ -204,22 +426,54 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
         try {
             val scan = scanInstagramTree(root)
-            val inReels     = scan.inReels
-            val treeNavTop  = scan.navBarTop
+            val blockSurface = scan.blockSurface
+            val blockRect = scan.blockRect
+            val navSelectionState = scan.navSelectionState
 
-            if (inReels) {
-                if (!reelsBlockActive) {
-                    reelsBlockActive = true
-                    val navBarY = resolveNavBarTop(treeNavTop)
+            if (blockSurface != null && blockRect != null) {
+                lastStableBlockRect = Rect(blockRect)
+                lastStableBlockMs = System.currentTimeMillis()
+                if (!feedBlockActive) {
+                    feedBlockActive = true
                     startService(Intent(this, OverlayService::class.java).apply {
-                        action = OverlayService.ACTION_BLOCK_REELS
-                        putExtra("navBarY", navBarY)
+                        action = OverlayService.ACTION_BLOCK_REGION
+                        putExtra("x", blockRect.left)
+                        putExtra("y", blockRect.top)
+                        putExtra("w", blockRect.width())
+                        putExtra("h", blockRect.height())
+                    })
+                } else {
+                    startService(Intent(this, OverlayService::class.java).apply {
+                        action = OverlayService.ACTION_BLOCK_REGION
+                        putExtra("x", blockRect.left)
+                        putExtra("y", blockRect.top)
+                        putExtra("w", blockRect.width())
+                        putExtra("h", blockRect.height())
                     })
                 }
                 return
             }
 
-            if (reelsBlockActive) reelsBlockActive = false
+            val now = System.currentTimeMillis()
+            if (
+                feedBlockActive &&
+                navSelectionState != NavSelectionState.UNBLOCKED &&
+                lastStableBlockRect != null &&
+                now - lastStableBlockMs <= BLOCK_STABILITY_GRACE_MS
+            ) {
+                val stableRect = lastStableBlockRect!!
+                startService(Intent(this, OverlayService::class.java).apply {
+                    action = OverlayService.ACTION_BLOCK_REGION
+                    putExtra("x", stableRect.left)
+                    putExtra("y", stableRect.top)
+                    putExtra("w", stableRect.width())
+                    putExtra("h", stableRect.height())
+                })
+                return
+            }
+
+            if (feedBlockActive) feedBlockActive = false
+            lastStableBlockRect = null
 
             // Normal mode: small book overlay over the Reels nav tab.
             val reelsNode = findReelsNode(root) ?: run { hideOverlay(); return }
@@ -284,28 +538,47 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val navThreshold = (screenHeight * 0.80).toInt()
         val maxTabWidth = screenWidth / 3
 
+        var idMatchNode: AccessibilityNodeInfo? = null
+        var descMatchNode: AccessibilityNodeInfo? = null
+
         val queue = ArrayDeque<AccessibilityNodeInfo>()
         for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
 
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
             val desc = node.contentDescription?.toString() ?: ""
+            val viewId = node.viewIdResourceName?.lowercase() ?: ""
             val nodeRect = Rect()
             node.getBoundsInScreen(nodeRect)
-
-            val descMatch = desc.equals("Reels", ignoreCase = true) ||
-                desc.equals("Reels tab", ignoreCase = true)
             val inNavBar = nodeRect.top >= navThreshold
             val narrowEnough = nodeRect.width() in 1..maxTabWidth
 
-            if (descMatch && inNavBar && narrowEnough && node.isClickable) {
-                queue.forEach { it.recycle() }
-                return node
+            if (inNavBar && narrowEnough && node.isClickable) {
+                // ID match is language-independent — highest priority.
+                if (idMatchNode == null && REELS_TAB_IDS.any { viewId.contains(it) }) {
+                    idMatchNode = node
+                    for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
+                    continue
+                }
+                // Description match — English fallback.
+                if (descMatchNode == null &&
+                    (desc.equals("Reels", ignoreCase = true) || desc.equals("Reels tab", ignoreCase = true))
+                ) {
+                    descMatchNode = node
+                    for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
+                    continue
+                }
             }
             for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
             node.recycle()
         }
-        return null
+
+        return if (idMatchNode != null) {
+            descMatchNode?.recycle()
+            idMatchNode
+        } else {
+            descMatchNode
+        }
     }
 
     private fun hideOverlay() {
