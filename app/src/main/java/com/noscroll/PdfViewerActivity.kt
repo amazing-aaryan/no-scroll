@@ -149,9 +149,19 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         savedPageTarget = startPage
         metadataText.text = uri.lastPathSegment?.substringBeforeLast('.') ?: "..."
         val fragment = pdfFragment ?: return
-        fragment.load(uri)
-        if (startPage > 0) fragment.scrollToPage(startPage)
-        loadMetadata(uri, allowOnlineOnce = true)
+        lifecycleScope.launch {
+            // Verify URI is accessible on IO before handing to PdfViewerFragment.
+            // Google Drive cloud-only files can throw on openFileDescriptor,
+            // which crashes PdfViewerFragment silently on the main thread.
+            val accessible = withContext(Dispatchers.IO) {
+                try { contentResolver.openFileDescriptor(uri, "r")?.close(); true }
+                catch (_: Exception) { false }
+            }
+            if (!accessible) { handleBadUri(); return@launch }
+            fragment.load(uri)
+            if (startPage > 0) fragment.scrollToPage(startPage)
+            loadMetadata(uri, allowOnlineOnce = true)
+        }
     }
 
     // ── NoScrollPdfViewerFragment.Host ────────────────────────────────────────
@@ -206,6 +216,7 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     }
 
     override fun onPdfImmersiveRequest(enterImmersive: Boolean) {
+        if (tutorialController.current != null) return
         setZenMode(enterImmersive)
     }
 
@@ -638,8 +649,13 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     private fun launchLibrary() { startActivity(Intent(this, PdfLibraryActivity::class.java)) }
 
     private fun handleBadUri() {
+        val uri = currentUri
         PdfStorage.clearUri(this)
-        Toast.makeText(this, "Could not open PDF. Please choose another file.", Toast.LENGTH_LONG).show()
+        val msg = if (uri?.authority?.contains("docs.storage") == true || uri?.authority?.contains("google") == true)
+            "Could not open PDF from Google Drive. Download it to your device first, then import."
+        else
+            "Could not open PDF. Please choose another file."
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
         launchLibrary()
     }
 
@@ -658,8 +674,8 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
 
     private fun startReaderTutorialIfNeeded() {
         if (!tutorialPrefs.hasOptedIn() || tutorialPrefs.isReaderDone()) return
-        // Ensure chrome is visible, then jump to middle page for real content
-        if (zenModeEnabled) setZenMode(false)
+        // Force chrome visible regardless of persisted zen state
+        setZenMode(false, persist = false)
         val middlePage = (totalPages / 2).coerceAtLeast(1)
         pdfFragment?.scrollToPage(middlePage)
         // Wait for the page to render before measuring layout
@@ -683,7 +699,12 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             tutorialController.registerBounds(TutorialStepId.READER_ZEN, zenRect)
             tutorialController.registerBounds(TutorialStepId.READER_CONTROLS, barRect)
             tutorialController.start(ReaderTutorialSteps)
-            tutorialController.onDone = { tutorialPrefs.markReaderDone() }
+            tutorialController.onDone = {
+                tutorialPrefs.markReaderDone()
+                // Re-apply persisted zen state now that tutorial is complete
+                val persistedZen = getPreferences(MODE_PRIVATE).getBoolean(KEY_ZEN_MODE, false)
+                if (persistedZen) setZenMode(true)
+            }
         }, 800L)
     }
 
