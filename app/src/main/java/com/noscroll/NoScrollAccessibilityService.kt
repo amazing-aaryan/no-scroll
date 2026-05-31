@@ -72,7 +72,11 @@ class NoScrollAccessibilityService : AccessibilityService() {
         )
         private val OTHER_TAB_IDS = setOf(
             "search_tab", "profile_tab", "activity_tab", "shop_tab",
-            "ig_bottom_navbar_search_button", "ig_bottom_navbar_profile_button"
+            "ig_bottom_navbar_search_button", "ig_bottom_navbar_profile_button",
+            "direct_tab", "message_tab", "direct_inbox_tab"
+        )
+        private val MESSAGES_TAB_IDS = setOf(
+            "direct_tab", "message_tab", "direct_inbox_tab", "direct_list_v2_tab"
         )
         private val NAV_BAR_CONTAINER_IDS = setOf(
             "tab_bar", "bottom_nav", "ig_bottom_navbar", "navigation_bar_view"
@@ -196,7 +200,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
     private enum class BlockSurface {
         HOME,
-        REELS
+        REELS,
+        SEARCH_EXPLORE
     }
 
     private enum class NavSelectionState {
@@ -209,7 +214,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val blockSurface: BlockSurface?,
         val navBarTop: Int,
         val blockRect: Rect?,
-        val navSelectionState: NavSelectionState
+        val navSelectionState: NavSelectionState,
+        val directTabSelected: Boolean
     )
 
     /**
@@ -236,6 +242,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var homeTabSelected = false
         var reelsTabSelected = false
         var otherTabSelected = false
+        var directTabSelected = false
+        var searchTabSelected = false
+        var searchBarFocused = false   // true when user is actively typing
         var homeChromeHits = 0
         var bestContentRect: Rect? = null
         var bestContentArea = 0
@@ -298,30 +307,43 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 val topChromeMatch =
                     HOME_TOP_BAR_IDS.any { viewIdLower.contains(it) } ||
                     (lower.isNotBlank() && HOME_TOP_BAR_KEYWORDS.any { lower.contains(it) || textLower.contains(it) || viewIdLower.contains(it) })
-                if (rect.top < topChromeZoneBottom && rect.width() < (sw * 0.65f).toInt() && topChromeMatch) {
+                // Widened to 0.90 — Instagram action bar spans ~73% of width on S24
+                if (rect.top < topChromeZoneBottom && rect.width() < (sw * 0.90f).toInt() && topChromeMatch) {
                     homeChromeHits++
                     if (rect.bottom > topChromeBottom) topChromeBottom = rect.bottom
                 }
 
-                // ② Stories strip — use reels_tray_container for the full row bounds (incl. usernames);
-                //    fall back to individual story nodes if the container isn't in the tree.
+                // ② Stories strip — content-desc is "reels tray container" (space, not underscore).
+                //    Only count when the node is actually on-screen (rect.top >= 0), so scrolling
+                //    past the stories resets storiesBarBottom to 0.
                 val looksLikeStory = viewIdLower.contains("reels_tray") ||
+                    lower.contains("reels tray") ||
                     lower.contains("story") || lower.contains("stories") ||
                     viewIdLower.contains("story") || viewIdLower.contains("stories")
-                if (looksLikeStory && rect.top < (sh * 0.45f) && rect.bottom > storiesBarBottom) {
+                if (looksLikeStory && rect.top >= 0 && rect.top < (sh * 0.45f) && rect.bottom > storiesBarBottom) {
                     storiesBarBottom = rect.bottom
                 }
 
                 // ③ Nav bar tabs — ID check first (language-independent), keyword fallback.
+                //    Also detect DM/Messages tab regardless of rect bounds (may be hidden during reel play).
                 val isHomeTabId  = HOME_TAB_IDS.any { viewIdLower.contains(it) }
                 val isReelsTabId = REELS_TAB_IDS.any { viewIdLower.contains(it) }
                 val isOtherTabId = OTHER_TAB_IDS.any { viewIdLower.contains(it) }
-                val isAnyTabId   = isHomeTabId || isReelsTabId || isOtherTabId
+                val isMsgTabId   = MESSAGES_TAB_IDS.any { viewIdLower.contains(it) }
+                val isAnyTabId   = isHomeTabId || isReelsTabId || isOtherTabId || isMsgTabId
                 val isAnyTabKw   = NAV_TAB_KEYWORDS.any { lower.contains(it) || textLower.contains(it) || viewIdLower.contains(it) }
+                // Detect DM tab selected even when nav bar is hidden (empty bounds)
+                if (isMsgTabId && (node.isSelected || node.isChecked)) directTabSelected = true
+                // Search bar focus — user is actively typing → don't block search results
+                val isSearchEdit = node.className?.toString()?.contains("EditText") == true &&
+                    rect.top < (sh * 0.20f)
+                if (isSearchEdit && node.isFocused) searchBarFocused = true
                 if (rect.top >= navZoneTop && node.isClickable && (isAnyTabId || isAnyTabKw)) {
                     navHits++
                     if (rect.top < navTop) navTop = rect.top
                     if (node.isSelected || node.isChecked) {
+                        val isSearchTabId = OTHER_TAB_IDS.any { viewIdLower.contains("search") && viewIdLower.contains(it) } ||
+                            viewIdLower.contains("search_tab") || viewIdLower.contains("explore_tab")
                         when {
                             isHomeTabId ||
                             lower.contains("home") || textLower.contains("home") ||
@@ -332,6 +354,11 @@ class NoScrollAccessibilityService : AccessibilityService() {
                             textLower.contains("reels") || textLower.contains("clips") ||
                             viewIdLower.contains("reels") || viewIdLower.contains("clips") ->
                                 reelsTabSelected = true
+                            isMsgTabId -> directTabSelected = true
+                            isSearchTabId ||
+                            lower.contains("search") || lower.contains("explore") ||
+                            textLower.contains("search") || textLower.contains("explore") ->
+                                searchTabSelected = true
                             else -> otherTabSelected = true
                         }
                     }
@@ -381,15 +408,20 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val resolvedBlockBottom = (if (resolvedNavTop > 0) resolvedNavTop - navGapPx else resolveNavBarTop(resolvedNavTop))
             .coerceIn(0, sh)
         val inReels = reelsHits >= 3 && reelsEngagementHits >= 1
-        val inHome = homeTabSelected && homeChromeHits >= 1 && !inReels
+        // storiesBarBottom > 0 is the key discriminator — stories only appear on the home feed.
+        val inHome = (homeTabSelected || (homeChromeHits >= 1 && storiesBarBottom > 0)) && !inReels && !directTabSelected
+        // Block search/explore grid unless user is actively typing (searchBarFocused).
+        val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && !searchBarFocused && homeChromeHits == 0)) &&
+            !searchBarFocused && !inHome && !inReels && !directTabSelected
         val blockSurface = when {
             reelsTabSelected || inReels -> BlockSurface.REELS
-            homeTabSelected || inHome -> BlockSurface.HOME
+            inHome -> BlockSurface.HOME
+            inSearchExplore -> BlockSurface.SEARCH_EXPLORE
             else -> null
         }
         val navSelectionState = when {
             homeTabSelected || reelsTabSelected -> NavSelectionState.BLOCKED
-            otherTabSelected -> NavSelectionState.UNBLOCKED
+            otherTabSelected || directTabSelected || searchTabSelected -> NavSelectionState.UNBLOCKED
             else -> NavSelectionState.UNKNOWN
         }
         val preferredTop = mainContainerRect?.top
@@ -397,18 +429,38 @@ class NoScrollAccessibilityService : AccessibilityService() {
             ?: if (blockSurface == BlockSurface.HOME && topChromeBottom > 0) topChromeBottom else null
             ?: bestContentRect?.top
         val blockTop = preferredTop?.coerceAtLeast(0) ?: 0
-        // On Home tab, skip past the Stories strip. Use the detected strip bottom when available;
-        // fall back to a 140dp fixed offset (wider than the old 108dp guess).
-        val adjustedBlockTop = if (blockSurface == BlockSurface.HOME) {
-            val gapPx = (6 * resources.displayMetrics.density + 0.5f).toInt()
-            if (storiesBarBottom > blockTop) {
-                (storiesBarBottom + gapPx).coerceIn(0, sh)
-            } else {
-                val fallbackOffsetPx = (200 * resources.displayMetrics.density + 0.5f).toInt()
-                (blockTop + fallbackOffsetPx).coerceIn(0, sh)
+        // Block top derivation:
+        // HOME: when stories are visible, start just below them; when scrolled past stories,
+        //       start just below the action bar so no feed content leaks through.
+        // SEARCH_EXPLORE: start just below the search bar (actionBarRect.bottom).
+        val gapPx = (4 * resources.displayMetrics.density + 0.5f).toInt()
+        val adjustedBlockTop = when (blockSurface) {
+            BlockSurface.HOME -> {
+                val actionBarBottom = actionBarRect?.bottom ?: blockTop
+                // Cap storiesBarBottom: the "reels tray container" includes the first feed post.
+                // Stories circles + names are at most 130dp below the action bar.
+                val storiesCap = (actionBarBottom + (130 * resources.displayMetrics.density + 0.5f).toInt())
+                    .coerceAtMost((sh * 0.32f).toInt())
+                val effectiveStoriesBottom = if (storiesBarBottom in (actionBarBottom + 1)..storiesCap) {
+                    storiesBarBottom
+                } else if (storiesBarBottom > storiesCap) {
+                    storiesCap
+                } else {
+                    0
+                }
+                if (effectiveStoriesBottom > actionBarBottom) {
+                    // Stories visible — block starts just below the stories strip
+                    (effectiveStoriesBottom + gapPx).coerceIn(0, sh)
+                } else {
+                    // Stories scrolled off-screen — block starts just below the action bar
+                    (actionBarBottom + gapPx).coerceIn(0, sh)
+                }
             }
-        } else {
-            blockTop
+            BlockSurface.SEARCH_EXPLORE -> {
+                val searchBarBottom = actionBarRect?.bottom ?: blockTop
+                (searchBarBottom + gapPx).coerceIn(0, sh)
+            }
+            else -> blockTop
         }
         val blockRect = if (blockSurface == null || resolvedBlockBottom <= adjustedBlockTop) {
             null
@@ -421,8 +473,11 @@ class NoScrollAccessibilityService : AccessibilityService() {
         if (BuildConfig.DEBUG) Log.d(
             TAG,
             "scan surface=$blockSurface homeSelected=$homeTabSelected reelsSelected=$reelsTabSelected " +
-                "reelsHits=$reelsHits engageHits=$reelsEngagementHits topChromeBottom=$topChromeBottom " +
-                "navTop=$resolvedNavTop navHeight=$navHeightPx navGap=$navGapPx blockRect=$blockRect bestContent=$bestContentRect " +
+                "searchSelected=$searchTabSelected searchFocused=$searchBarFocused " +
+                "reelsHits=$reelsHits engageHits=$reelsEngagementHits chromHits=$homeChromeHits " +
+                "topChromeBottom=$topChromeBottom storiesBottom=$storiesBarBottom directTab=$directTabSelected " +
+                "navHits=$navHits navTop=$resolvedNavTop navHeight=$navHeightPx navGap=$navGapPx " +
+                "blockRect=$blockRect bestContent=$bestContentRect " +
                 "mainContainer=$mainContainerRect navBar=$navBarRect actionBar=$actionBarRect navSelection=$navSelectionState"
         )
 
@@ -430,7 +485,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
             blockSurface = blockSurface,
             navBarTop = resolvedNavTop,
             blockRect = blockRect,
-            navSelectionState = navSelectionState
+            navSelectionState = navSelectionState,
+            directTabSelected = directTabSelected
         )
     }
 
@@ -457,6 +513,12 @@ class NoScrollAccessibilityService : AccessibilityService() {
             val blockSurface = scan.blockSurface
             val blockRect = scan.blockRect
             val navSelectionState = scan.navSelectionState
+
+            // Hide everything while in DMs — no block, no reels icon.
+            if (scan.directTabSelected) {
+                hideOverlay()
+                return
+            }
 
             if (blockSurface != null && blockRect != null) {
                 lastStableBlockRect = Rect(blockRect)

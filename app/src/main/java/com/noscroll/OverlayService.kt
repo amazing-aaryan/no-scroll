@@ -47,11 +47,19 @@ class OverlayService : Service() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        startForeground(NOTIF_ID, buildNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        try {
+            startForeground(NOTIF_ID, buildNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        } catch (e: Exception) {
+            // ForegroundServiceStartNotAllowedException on Android 12+ when system restarts the
+            // service from the background without the accessibility service context.
+            stopSelf()
+            return
+        }
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (windowManager == null) return START_NOT_STICKY // onCreate failed — don't restart
         if (intent == null) return START_STICKY // restarted by system after kill — wait for next real command
         if (intent.action == ACTION_BLOCK_REGION) {
             val x = intent.getIntExtra("x", 0)
@@ -93,28 +101,35 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
-    private fun applyIconTint(view: View?, bgColor: Int) {
+    private fun applyIconTint(view: View?) {
+        // ic_book drawable is natively white — invert to black so it's visible on the inverted
+        // (light) background. Icon color is fixed; background inversion handles the contrast.
         val imageView = view?.findViewById<android.widget.ImageView>(R.id.book_icon) ?: return
-        val luminance = (0.299 * Color.red(bgColor) + 0.587 * Color.green(bgColor) + 0.114 * Color.blue(bgColor)) / 255.0
-        imageView.setColorFilter(if (luminance > 0.5) Color.BLACK else Color.WHITE)
+        imageView.setColorFilter(Color.BLACK)
     }
 
     private fun updateOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int = Color.BLACK) {
         if (overlayMode != OverlayMode.BOOK) {
             removeOverlayView()
         }
+        // Invert the sampled background so the overlay contrasts with Instagram's nav bar
+        val invertedBg = Color.rgb(
+            255 - Color.red(bgColor),
+            255 - Color.green(bgColor),
+            255 - Color.blue(bgColor)
+        )
         val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) {
-            overlayView?.setBackgroundColor(bgColor)
-            applyIconTint(overlayView, bgColor)
+            overlayView?.setBackgroundColor(invertedBg)
+            applyIconTint(overlayView)
             return
         }
         removeOverlayView()
 
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_book, null)
-        view.setBackgroundColor(bgColor)
-        applyIconTint(view, bgColor)
+        view.setBackgroundColor(invertedBg)
+        applyIconTint(view)
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
