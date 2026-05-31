@@ -6,7 +6,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.IBinder
@@ -28,15 +27,8 @@ class OverlayService : Service() {
         private const val NOTIF_ID = 1
         const val ACTION_STOP = "com.noscroll.STOP_OVERLAY"
         const val ACTION_HIDE = "com.noscroll.HIDE_OVERLAY"
-
-        // Light-mode Instagram feed background (#FAFAFA) and matching dark icon
-        private val LIGHT_BG = Color.parseColor("#FAFAFA")
-        private val LIGHT_ICON = Color.parseColor("#1A1A2E")
-
-        // Dark-mode Instagram feed background (pure black) and white icon
-        private val DARK_BG = Color.BLACK
-        private val DARK_ICON = Color.WHITE
-
+        private const val NAV_ALPHA = 0xCC  // ~80% — semi-transparent so nav items are faintly visible
+        private const val NO_COLOR = Int.MIN_VALUE
     }
 
     override fun onCreate() {
@@ -67,28 +59,25 @@ class OverlayService : Service() {
         val navY = intent.getIntExtra("navY", 0)
         val navW = intent.getIntExtra("navW", screenW)
         val navH = intent.getIntExtra("navH", 120)
+        val contentBgColor = intent.getIntExtra("contentBgColor", NO_COLOR)
+        val navBgColor = intent.getIntExtra("navBgColor", NO_COLOR)
 
-        if (contentH > 0) updateContentOverlay(0, contentY, screenW, contentH)
-        updateNavBarOverlay(navX, navY, navW, navH)
+        if (contentH > 0) updateContentOverlay(0, contentY, screenW, contentH, contentBgColor)
+        updateNavBarOverlay(navX, navY, navW, navH, navBgColor)
 
         return START_STICKY
     }
 
-    private fun isDarkMode(): Boolean =
-        (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
-                Configuration.UI_MODE_NIGHT_YES
-
-    private fun updateContentOverlay(x: Int, y: Int, w: Int, h: Int) {
+    private fun updateContentOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int) {
         val existing = contentOverlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) return
         removeContentOverlayView()
 
-        val dark = isDarkMode()
+        val bg = if (bgColor != NO_COLOR) bgColor else Color.WHITE
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_content, null)
-        view.setBackgroundColor(if (dark) DARK_BG else LIGHT_BG)
-        view.findViewById<ImageView>(R.id.content_overlay_icon)
-            .setColorFilter(if (dark) DARK_ICON else LIGHT_ICON)
+        view.setBackgroundColor(bg)
+        view.findViewById<ImageView>(R.id.content_overlay_icon).setColorFilter(iconColorFor(bg))
 
         val params = WindowManager.LayoutParams(
             w, h,
@@ -112,21 +101,18 @@ class OverlayService : Service() {
         contentOverlayView = view
     }
 
-    private fun updateNavBarOverlay(x: Int, y: Int, w: Int, h: Int) {
+    private fun updateNavBarOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int) {
         val existing = navBarOverlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) return
         removeNavBarOverlayView()
 
-        val dark = isDarkMode()
-        // Nav bar bg: semi-transparent version of the nav bar's own colour (~80% alpha)
-        val navBg = if (dark) Color.argb(0xCC, 0x00, 0x00, 0x00)
-                    else      Color.argb(0xCC, 0xFA, 0xFA, 0xFA)
-        val iconColor = if (dark) DARK_ICON else LIGHT_ICON
+        val base = if (bgColor != NO_COLOR) bgColor else Color.BLACK
+        val navBg = Color.argb(NAV_ALPHA, Color.red(base), Color.green(base), Color.blue(base))
 
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_instagram_nav, null)
         view.setBackgroundColor(navBg)
-        view.findViewById<ImageView>(R.id.nav_overlay_icon).setColorFilter(iconColor)
+        view.findViewById<ImageView>(R.id.nav_overlay_icon).setColorFilter(iconColorFor(base))
 
         val params = WindowManager.LayoutParams(
             w, h,
@@ -144,6 +130,10 @@ class OverlayService : Service() {
         windowManager?.addView(view, params)
         navBarOverlayView = view
     }
+
+    // Light background → dark icon; dark background → white icon
+    private fun iconColorFor(bgColor: Int): Int =
+        if (Color.luminance(bgColor) > 0.5f) Color.parseColor("#1A1A2E") else Color.WHITE
 
     private fun removeContentOverlayView() {
         contentOverlayView?.let {
