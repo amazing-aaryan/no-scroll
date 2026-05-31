@@ -28,8 +28,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private var feedBlockActive = false
     private var lastStableBlockRect: Rect? = null
     private var lastStableBlockMs: Long = 0L
-    // True while the user is watching a story — suppresses all blocking overlays.
-    private var inStoryViewer = false
+    // Timestamp of the last story-tray tap; overlay suppressed for STORY_VIEWER_WINDOW_MS after it.
+    private var lastStoryTapMs = 0L
 
     // Polling — runs every POLL_INTERVAL_MS while Instagram is in the foreground.
     private var pollingActive = false
@@ -60,6 +60,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
         private const val BLOCK_STABILITY_GRACE_MS = 3_000L
+        private const val STORY_VIEWER_WINDOW_MS = 30_000L  // 30s after last story tap
         private const val POLL_INTERVAL_MS = 250L
         private const val NAV_BAR_GAP_MIN_DP = 24f
         private const val NAV_BAR_GAP_MAX_DP = 48f
@@ -130,10 +131,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
             AccessibilityEvent.TYPE_VIEW_CLICKED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
                     val desc = event.source?.contentDescription?.toString()?.lowercase() ?: ""
-                    // Story tray items have desc like "X's story, 2 of 27, Unseen."
+                    // Story tray items: "X's story, 2 of 27, Unseen." or "...Seen."
                     if (desc.contains("story") && desc.contains(" of ") &&
                         (desc.contains("unseen") || desc.contains("seen"))) {
-                        inStoryViewer = true
+                        lastStoryTapMs = System.currentTimeMillis()
                         cancelAll()
                         hideOverlay()
                     }
@@ -141,7 +142,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
             }
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
-                    inStoryViewer = false  // any screen transition exits story viewer
+                    // Do NOT reset story viewer window here — story swipes fire this event
+                    // and would re-expose the block mid-viewing. The 30s window handles expiry.
                     cancelPendingConfirm()
                     scheduleUpdate(DEBOUNCE_MS)
                     startPolling()
@@ -231,7 +233,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val blockRect: Rect?,
         val navSelectionState: NavSelectionState,
         val directTabSelected: Boolean,
-        val homeChromeHits: Int
+        val homeChromeHits: Int,
+        val storiesBarBottom: Int
     )
 
     /**
@@ -261,6 +264,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var directTabSelected = false
         var searchTabSelected = false
         var searchBarFocused = false   // true when user is actively typing
+        var storiesTrayPresent = false // reels_tray_container ID found — reliable home indicator
         var homeChromeHits = 0
         var bestContentRect: Rect? = null
         var bestContentArea = 0
@@ -280,11 +284,21 @@ class NoScrollAccessibilityService : AccessibilityService() {
             val rect  = Rect()
             node.getBoundsInScreen(rect)
 
+            // Detect stories tray container regardless of bounds — it remains in the
+            // accessibility tree even when scrolled off screen, making it a reliable
+            // "we are on the Instagram home feed" signal.
+            if (viewIdLower.contains("reels_tray_container") || viewIdLower == "com.instagram.android:id/reels_tray") {
+                storiesTrayPresent = true
+            }
+
             if (!rect.isEmpty) {
                 if (NAV_BAR_CONTAINER_IDS.any { viewIdLower.contains(it) } && !viewIdLower.contains("shadow")) {
                     navBarRect = Rect(rect)
                 }
-                if (viewIdLower.contains("action_bar") || viewIdLower.contains("main_feed_action_bar")) {
+                // Only track action bar nodes within the top 25% — prevents action_bar_root
+                // (full-screen container) from inflating actionBarRect.bottom.
+                if ((viewIdLower.contains("action_bar") || viewIdLower.contains("main_feed_action_bar")) &&
+                    rect.bottom < (sh * 0.25f).toInt()) {
                     if (actionBarRect == null || rect.bottom > actionBarRect!!.bottom) {
                         actionBarRect = Rect(rect)
                     }
@@ -427,8 +441,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val resolvedBlockBottom = (if (resolvedNavTop > 0) resolvedNavTop - navGapPx else resolveNavBarTop(resolvedNavTop))
             .coerceIn(0, sh)
         val inReels = reelsHits >= 3 && reelsEngagementHits >= 1
-        // storiesBarBottom > 0 is the key discriminator — stories only appear on the home feed.
-        val inHome = (homeTabSelected || (homeChromeHits >= 1 && storiesBarBottom > 0)) && !inReels && !directTabSelected
+        // storiesTrayPresent: reels_tray_container ID persists in the accessibility tree even
+        // when scrolled off screen, so it reliably identifies the home feed regardless of
+        // scroll position. It is absent on Search, Profile, DMs, and Reels tab.
+        val inHome = (homeTabSelected || storiesTrayPresent) && !inReels && !directTabSelected && !searchTabSelected
         // Block search/explore grid unless user is actively typing (searchBarFocused).
         val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && !searchBarFocused && homeChromeHits == 0)) &&
             !searchBarFocused && !inHome && !inReels && !directTabSelected
@@ -455,14 +471,17 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val gapPx = (4 * resources.displayMetrics.density + 0.5f).toInt()
         val adjustedBlockTop = when (blockSurface) {
             BlockSurface.HOME -> {
-                val actionBarBottom = actionBarRect?.bottom ?: blockTop
-                if (storiesBarBottom > actionBarBottom) {
-                    // Stories visible — block starts just below the story items
-                    // (individual item detection gives accurate boundary, e.g. y=542 vs container y=612)
-                    (storiesBarBottom + gapPx).coerceIn(0, sh)
-                } else {
-                    // Stories scrolled off-screen — block starts just below the action bar
-                    (actionBarBottom + gapPx).coerceIn(0, sh)
+                val actionBarBottom = actionBarRect?.bottom ?: 0
+                when {
+                    storiesBarBottom > 0 ->
+                        // Stories visible — block starts just below the story items
+                        (storiesBarBottom + gapPx).coerceIn(0, sh)
+                    actionBarBottom > 0 ->
+                        // Stories off-screen but action bar still visible — block just below it
+                        (actionBarBottom + gapPx).coerceIn(0, sh)
+                    else ->
+                        // Both scrolled off — block from content area top (y≈91, just below status bar)
+                        ((mainContainerRect?.top ?: 91) + gapPx).coerceIn(0, sh)
                 }
             }
             BlockSurface.SEARCH_EXPLORE -> {
@@ -496,7 +515,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
             blockRect = blockRect,
             navSelectionState = navSelectionState,
             directTabSelected = directTabSelected,
-            homeChromeHits = homeChromeHits
+            homeChromeHits = homeChromeHits,
+            storiesBarBottom = storiesBarBottom
         )
     }
 
@@ -515,7 +535,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
     }
 
     private fun findAndUpdateOverlay() {
-        if (inStoryViewer) { hideOverlay(); return }
+        if (lastStoryTapMs > 0 && System.currentTimeMillis() - lastStoryTapMs < STORY_VIEWER_WINDOW_MS) {
+            hideOverlay()
+            return
+        }
         val root = rootInActiveWindow ?: return
         val rect = Rect()
 
