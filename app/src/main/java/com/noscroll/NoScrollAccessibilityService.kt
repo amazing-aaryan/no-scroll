@@ -28,6 +28,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private var feedBlockActive = false
     private var lastStableBlockRect: Rect? = null
     private var lastStableBlockMs: Long = 0L
+    // True while the user is watching a story — suppresses all blocking overlays.
+    private var inStoryViewer = false
 
     // Polling — runs every POLL_INTERVAL_MS while Instagram is in the foreground.
     private var pollingActive = false
@@ -125,8 +127,21 @@ class NoScrollAccessibilityService : AccessibilityService() {
         }
 
         when (event.eventType) {
+            AccessibilityEvent.TYPE_VIEW_CLICKED -> {
+                if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
+                    val desc = event.source?.contentDescription?.toString()?.lowercase() ?: ""
+                    // Story tray items have desc like "X's story, 2 of 27, Unseen."
+                    if (desc.contains("story") && desc.contains(" of ") &&
+                        (desc.contains("unseen") || desc.contains("seen"))) {
+                        inStoryViewer = true
+                        cancelAll()
+                        hideOverlay()
+                    }
+                }
+            }
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
+                    inStoryViewer = false  // any screen transition exits story viewer
                     cancelPendingConfirm()
                     scheduleUpdate(DEBOUNCE_MS)
                     startPolling()
@@ -215,7 +230,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val navBarTop: Int,
         val blockRect: Rect?,
         val navSelectionState: NavSelectionState,
-        val directTabSelected: Boolean
+        val directTabSelected: Boolean,
+        val homeChromeHits: Int
     )
 
     /**
@@ -313,14 +329,17 @@ class NoScrollAccessibilityService : AccessibilityService() {
                     if (rect.bottom > topChromeBottom) topChromeBottom = rect.bottom
                 }
 
-                // ② Stories strip — content-desc is "reels tray container" (space, not underscore).
-                //    Only count when the node is actually on-screen (rect.top >= 0), so scrolling
-                //    past the stories resets storiesBarBottom to 0.
-                val looksLikeStory = viewIdLower.contains("reels_tray") ||
+                // ② Stories strip — use individual story circle nodes (narrow, < 28% screen width).
+                //    The reels_tray_container extends to y=612 which includes the first feed post;
+                //    individual story items end at y≈542 (correct stories-only boundary).
+                //    Width filter also excludes story VIEWER content which is full-screen (1080px).
+                //    rect.top >= 0 ensures off-screen (scrolled past) stories are excluded.
+                val looksLikeStory = (viewIdLower.contains("reels_tray") ||
                     lower.contains("reels tray") ||
                     lower.contains("story") || lower.contains("stories") ||
-                    viewIdLower.contains("story") || viewIdLower.contains("stories")
-                if (looksLikeStory && rect.top >= 0 && rect.top < (sh * 0.45f) && rect.bottom > storiesBarBottom) {
+                    viewIdLower.contains("story") || viewIdLower.contains("stories"))
+                val isNarrowStoryItem = rect.width() in 1..(sw * 0.28f).toInt()
+                if (looksLikeStory && isNarrowStoryItem && rect.top >= 0 && rect.top < (sh * 0.45f) && rect.bottom > storiesBarBottom) {
                     storiesBarBottom = rect.bottom
                 }
 
@@ -437,20 +456,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val adjustedBlockTop = when (blockSurface) {
             BlockSurface.HOME -> {
                 val actionBarBottom = actionBarRect?.bottom ?: blockTop
-                // Cap storiesBarBottom: the "reels tray container" includes the first feed post.
-                // Stories circles + names are at most 130dp below the action bar.
-                val storiesCap = (actionBarBottom + (130 * resources.displayMetrics.density + 0.5f).toInt())
-                    .coerceAtMost((sh * 0.32f).toInt())
-                val effectiveStoriesBottom = if (storiesBarBottom in (actionBarBottom + 1)..storiesCap) {
-                    storiesBarBottom
-                } else if (storiesBarBottom > storiesCap) {
-                    storiesCap
-                } else {
-                    0
-                }
-                if (effectiveStoriesBottom > actionBarBottom) {
-                    // Stories visible — block starts just below the stories strip
-                    (effectiveStoriesBottom + gapPx).coerceIn(0, sh)
+                if (storiesBarBottom > actionBarBottom) {
+                    // Stories visible — block starts just below the story items
+                    // (individual item detection gives accurate boundary, e.g. y=542 vs container y=612)
+                    (storiesBarBottom + gapPx).coerceIn(0, sh)
                 } else {
                     // Stories scrolled off-screen — block starts just below the action bar
                     (actionBarBottom + gapPx).coerceIn(0, sh)
@@ -486,7 +495,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
             navBarTop = resolvedNavTop,
             blockRect = blockRect,
             navSelectionState = navSelectionState,
-            directTabSelected = directTabSelected
+            directTabSelected = directTabSelected,
+            homeChromeHits = homeChromeHits
         )
     }
 
@@ -505,6 +515,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
     }
 
     private fun findAndUpdateOverlay() {
+        if (inStoryViewer) { hideOverlay(); return }
         val root = rootInActiveWindow ?: return
         val rect = Rect()
 
@@ -548,6 +559,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
             if (
                 feedBlockActive &&
                 navSelectionState != NavSelectionState.UNBLOCKED &&
+                scan.homeChromeHits > 0 &&  // story viewer has no home action bar → drop immediately
                 lastStableBlockRect != null &&
                 now - lastStableBlockMs <= BLOCK_STABILITY_GRACE_MS
             ) {
