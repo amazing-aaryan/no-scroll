@@ -2,19 +2,14 @@ package com.noscroll
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.Rect
 import android.util.Log
-import android.os.Build
 import com.noscroll.BuildConfig
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
-import android.view.Display
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import androidx.annotation.RequiresApi
 
 class NoScrollAccessibilityService : AccessibilityService() {
 
@@ -23,8 +18,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private var pendingConfirm: Runnable? = null
     private var pendingContentCheck: Runnable? = null
 
-    private var cachedBgColor: Int = Color.BLACK
-    private var lastColorSampleMs: Long = 0L
     private var feedBlockActive = false
     private var lastStableBlockRect: Rect? = null
     private var lastStableBlockMs: Long = 0L
@@ -131,9 +124,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
             AccessibilityEvent.TYPE_VIEW_CLICKED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
                     val desc = event.source?.contentDescription?.toString()?.lowercase() ?: ""
-                    // Story tray items: "X's story, 2 of 27, Unseen." or "...Seen."
-                    if (desc.contains("story") && desc.contains(" of ") &&
-                        (desc.contains("unseen") || desc.contains("seen"))) {
+                    // Story tray items: "X's story, 2 of 27, Unseen/Seen." — also catch
+                    // variants that omit the "of N" counter (older IG versions, Lite).
+                    if (desc.contains("story")) {
                         lastStoryTapMs = System.currentTimeMillis()
                         cancelAll()
                         hideOverlay()
@@ -444,7 +437,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
         // storiesTrayPresent: reels_tray_container ID persists in the accessibility tree even
         // when scrolled off screen, so it reliably identifies the home feed regardless of
         // scroll position. It is absent on Search, Profile, DMs, and Reels tab.
+        // Story viewer: storiesTrayPresent=false (different activity) AND homeChromeHits=0
+        // (action bar gone). Guard against that case so story viewer never gets blocked.
         val inHome = (homeTabSelected || storiesTrayPresent) && !inReels && !directTabSelected && !searchTabSelected
+            && (homeChromeHits > 0 || storiesTrayPresent)
         // Block search/explore grid unless user is actively typing (searchBarFocused).
         val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && !searchBarFocused && homeChromeHits == 0)) &&
             !searchBarFocused && !inHome && !inReels && !directTabSelected
@@ -600,109 +596,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
             if (feedBlockActive) feedBlockActive = false
             lastStableBlockRect = null
 
-            // Normal mode: small book overlay over the Reels nav tab.
-            val reelsNode = findReelsNode(root) ?: run { hideOverlay(); return }
-            reelsNode.getBoundsInScreen(rect)
-            reelsNode.recycle()
-            if (rect.isEmpty) { hideOverlay(); return }
+            hideOverlay()
         } finally {
             root.recycle()
-        }
-
-        sendOverlayIntent(rect, cachedBgColor)
-
-        val now = System.currentTimeMillis()
-        if (Build.VERSION.SDK_INT >= 30 && now - lastColorSampleMs > COLOR_CACHE_MS) {
-            lastColorSampleMs = now
-            val sampleX = 2
-            val sampleY = rect.top + rect.height() / 2
-            sampleScreenColor(sampleX, sampleY) { color ->
-                if (color != cachedBgColor) {
-                    cachedBgColor = color
-                    sendOverlayIntent(rect, color)
-                }
-            }
-        }
-    }
-
-    @RequiresApi(30)
-    private fun sampleScreenColor(x: Int, y: Int, onColor: (Int) -> Unit) {
-        takeScreenshot(Display.DEFAULT_DISPLAY, mainExecutor,
-            object : AccessibilityService.TakeScreenshotCallback {
-                override fun onSuccess(result: AccessibilityService.ScreenshotResult) {
-                    val buffer = result.hardwareBuffer
-                    val hw = Bitmap.wrapHardwareBuffer(buffer, result.colorSpace)
-                    buffer.close()
-                    val soft = hw?.copy(Bitmap.Config.ARGB_8888, false)
-                    hw?.recycle()
-                    val color = soft?.getPixel(
-                        x.coerceIn(0, soft.width - 1),
-                        y.coerceIn(0, soft.height - 1)
-                    ) ?: cachedBgColor
-                    soft?.recycle()
-                    onColor(color)
-                }
-                override fun onFailure(errorCode: Int) { /* keep cached */ }
-            }
-        )
-    }
-
-    private fun sendOverlayIntent(rect: Rect, bgColor: Int) {
-        startService(Intent(this, OverlayService::class.java).apply {
-            putExtra("x", rect.left)
-            putExtra("y", rect.top)
-            putExtra("w", rect.width())
-            putExtra("h", rect.height())
-            putExtra("bgColor", bgColor)
-        })
-    }
-
-    private fun findReelsNode(root: AccessibilityNodeInfo): AccessibilityNodeInfo? {
-        val screenHeight = resources.displayMetrics.heightPixels
-        val screenWidth = resources.displayMetrics.widthPixels
-        val navThreshold = (screenHeight * 0.80).toInt()
-        val maxTabWidth = screenWidth / 3
-
-        var idMatchNode: AccessibilityNodeInfo? = null
-        var descMatchNode: AccessibilityNodeInfo? = null
-
-        val queue = ArrayDeque<AccessibilityNodeInfo>()
-        for (i in 0 until root.childCount) root.getChild(i)?.let { queue.add(it) }
-
-        while (queue.isNotEmpty()) {
-            val node = queue.removeFirst()
-            val desc = node.contentDescription?.toString() ?: ""
-            val viewId = node.viewIdResourceName?.lowercase() ?: ""
-            val nodeRect = Rect()
-            node.getBoundsInScreen(nodeRect)
-            val inNavBar = nodeRect.top >= navThreshold
-            val narrowEnough = nodeRect.width() in 1..maxTabWidth
-
-            if (inNavBar && narrowEnough && node.isClickable) {
-                // ID match is language-independent — highest priority.
-                if (idMatchNode == null && REELS_TAB_IDS.any { viewId.contains(it) }) {
-                    idMatchNode = node
-                    for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
-                    continue
-                }
-                // Description match — English fallback.
-                if (descMatchNode == null &&
-                    (desc.equals("Reels", ignoreCase = true) || desc.equals("Reels tab", ignoreCase = true))
-                ) {
-                    descMatchNode = node
-                    for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
-                    continue
-                }
-            }
-            for (i in 0 until node.childCount) node.getChild(i)?.let { queue.add(it) }
-            node.recycle()
-        }
-
-        return if (idMatchNode != null) {
-            descMatchNode?.recycle()
-            idMatchNode
-        } else {
-            descMatchNode
         }
     }
 
