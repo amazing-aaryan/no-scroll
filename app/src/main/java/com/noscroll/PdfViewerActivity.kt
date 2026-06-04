@@ -33,7 +33,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.noscroll.data.BookMetadataEntity
 import com.noscroll.data.HighlightEntity
 import com.noscroll.metadata.BookMetadataRepository
-import com.noscroll.metadata.CoverPageOcr
 import com.noscroll.metadata.EditMetadataDialog
 import com.noscroll.quote.QuoteCardPreviewActivity
 import com.noscroll.repository.AnnotationRepository
@@ -205,8 +204,9 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             SelectionAction.HIGHLIGHT -> saveHighlight(selection, openNote = false)
             SelectionAction.ANNOTATE  -> saveHighlight(selection, openNote = true)
             SelectionAction.QUOTE     -> {
+                saveHighlightWithColor(selection, openNote = false,
+                    colorArgb = NoScrollPdfViewerFragment.DEFAULT_HIGHLIGHT_COLOR)
                 openQuotePreview(selection.text, selection.pageIndex)
-                clearSelection()
             }
             SelectionAction.SHARE     -> {
                 shareSelectionText(selection.text)
@@ -447,66 +447,6 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         if (zenModeEnabled) setZenMode(true, persist = false)
     }
 
-    // ── OCR ───────────────────────────────────────────────────────────────────
-
-    private fun ocrCurrentPage() {
-        val uri = currentUri ?: return
-        lifecycleScope.launch {
-            Toast.makeText(this@PdfViewerActivity, "Reading page text...", Toast.LENGTH_SHORT).show()
-            val ocrSelection = withContext(Dispatchers.IO) { recognizeCurrentPage(uri, currentPage) }
-            if (ocrSelection == null || ocrSelection.text.isBlank()) {
-                Toast.makeText(this@PdfViewerActivity, getString(R.string.no_selectable_text), Toast.LENGTH_SHORT).show()
-                return@launch
-            }
-            showOcrSelectionDialog(ocrSelection)
-        }
-    }
-
-    private fun showOcrSelectionDialog(selection: ReaderSelection) {
-        val input = EditText(this).apply {
-            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
-            minLines = 5
-            setText(selection.text)
-        }
-        val container = FrameLayout(this).apply { setPadding(dp(16), dp(8), dp(16), dp(8)) }
-        container.addView(input)
-        MaterialAlertDialogBuilder(this)
-            .setTitle("OCR page ${selection.pageIndex + 1}")
-            .setView(container)
-            .setPositiveButton("Quote") { _, _ ->
-                val text = input.text.toString().trim()
-                if (text.isNotBlank()) openQuotePreview(text, selection.pageIndex)
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private suspend fun recognizeCurrentPage(uri: Uri, pageIndex: Int): ReaderSelection? {
-        var pfd: ParcelFileDescriptor? = null
-        var renderer: PdfRenderer? = null
-        return try {
-            pfd = contentResolver.openFileDescriptor(uri, "r") ?: return null
-            renderer = PdfRenderer(pfd)
-            renderer.openPage(pageIndex).use { page ->
-                val bitmapWidth = 1440
-                val scale = bitmapWidth.toFloat() / page.width.toFloat()
-                val bitmapHeight = (page.height * scale).toInt().coerceAtLeast(1)
-                val bitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
-                try {
-                    bitmap.eraseColor(Color.WHITE)
-                    page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-                    val recognized = CoverPageOcr.recognize(bitmap) ?: return null
-                    ReaderSelection(text = recognized.text.trim(), bounds = emptyList(), pageIndex = pageIndex)
-                } finally {
-                    bitmap.recycle()
-                }
-            }
-        } catch (_: Exception) { null } finally {
-            renderer?.close()
-            pfd?.close()
-        }
-    }
-
     // ── Metadata ──────────────────────────────────────────────────────────────
 
     private fun loadMetadata(uri: Uri, allowOnlineOnce: Boolean = false, forceOnline: Boolean = false) {
@@ -586,14 +526,12 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         val popup = PopupMenu(this, overflowNavBtn)
         popup.menu.add(0, 0, 0, "Highlights")
         popup.menu.add(0, 1, 1, "Go to page")
-        popup.menu.add(0, 2, 2, "OCR page")
-        popup.menu.add(0, 3, 3, "Share")
+        popup.menu.add(0, 2, 2, "Share")
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 0 -> showHighlightsDialog()
                 1 -> showGotoPageDialog()
-                2 -> ocrCurrentPage()
-                3 -> shareCurrentPage()
+                2 -> shareCurrentPage()
             }
             true
         }

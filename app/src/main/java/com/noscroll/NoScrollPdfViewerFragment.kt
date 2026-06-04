@@ -1,8 +1,9 @@
-package com.noscroll
+﻿package com.noscroll
 
 import android.graphics.RectF
 import android.net.Uri
 import android.os.Bundle
+import java.text.Normalizer
 import android.util.SparseArray
 import android.view.MotionEvent
 import android.view.View
@@ -21,6 +22,7 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     interface Host {
         fun onPdfLoaded(document: PdfDocument)
         fun onPdfLoadError(error: Throwable)
+        fun onPdfViewReady()
         fun onPdfViewportChanged(firstVisiblePage: Int)
         fun onPdfTextSelectionChanged(selection: ReaderSelection?)
         fun onPdfSelectionAction(action: SelectionAction)
@@ -38,12 +40,7 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     override fun onLoadDocumentSuccess(document: PdfDocument) {
         super.onLoadDocumentSuccess(document)
         (activity as? Host)?.onPdfLoaded(document)
-        pendingScrollPage?.let { page ->
-            try {
-                currentPdfView?.scrollToPage(page)
-                pendingScrollPage = null
-            } catch (_: IllegalStateException) {}
-        }
+        pendingScrollPage?.let { page -> scrollToPage(page) }
     }
 
     override fun onLoadDocumentError(error: Throwable) {
@@ -64,12 +61,6 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
         pendingToolboxVisible?.let { visible ->
             try { isToolboxVisible = visible } catch (_: Exception) {}
             pendingToolboxVisible = null
-        }
-        pendingScrollPage?.let { page ->
-            try {
-                pdfView.scrollToPage(page)
-                pendingScrollPage = null
-            } catch (_: IllegalStateException) {}
         }
         pdfView.addOnViewportChangedListener(
             object : PdfView.OnViewportChangedListener {
@@ -97,7 +88,7 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
                         ?.takeIf { it.text.isNotBlank() }
                         ?.let {
                             ReaderSelection(
-                                text = it.text.toString(),
+                                text = Normalizer.normalize(it.text.toString(), Normalizer.Form.NFKC),
                                 bounds = it.bounds,
                                 pageIndex = it.bounds.firstOrNull()?.pageNum ?: pdfView.firstVisiblePage
                             )
@@ -106,16 +97,18 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
                 }
             }
         )
-        pdfView.addSelectionMenuItemPreparer(
-            object : PdfView.SelectionMenuItemPreparer {
-                override fun onPrepareSelectionMenuItems(components: MutableList<ContextMenuComponent>) {
-                    components.add(selectionMenuItem(SelectionAction.HIGHLIGHT, "Highlight"))
-                    components.add(selectionMenuItem(SelectionAction.ANNOTATE, "Annotate"))
-                    components.add(selectionMenuItem(SelectionAction.QUOTE, "Quote"))
-                    components.add(selectionMenuItem(SelectionAction.SHARE, "Share"))
+        try {
+            pdfView.addSelectionMenuItemPreparer(
+                object : PdfView.SelectionMenuItemPreparer {
+                    override fun onPrepareSelectionMenuItems(components: MutableList<ContextMenuComponent>) {
+                        components.add(selectionMenuItem(SelectionAction.HIGHLIGHT, "Highlight"))
+                        components.add(selectionMenuItem(SelectionAction.ANNOTATE, "Annotate"))
+                        components.add(selectionMenuItem(SelectionAction.QUOTE, "Quote"))
+                        components.add(selectionMenuItem(SelectionAction.SHARE, "Share"))
+                    }
                 }
-            }
-        )
+            )
+        } catch (_: Exception) { }
         pdfView.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 notifyPdfPointTap(event.x, event.y)
@@ -123,8 +116,9 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
             false
         }
         if (highlights.isNotEmpty()) {
-            pdfView.setHighlights(highlights)
+            try { pdfView.setHighlights(highlights) } catch (_: IllegalStateException) { }
         }
+        (activity as? Host)?.onPdfViewReady()
     }
 
     fun load(uri: Uri) {
@@ -132,11 +126,14 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
     }
 
     fun scrollToPage(page: Int) {
-        try {
-            currentPdfView?.scrollToPage(page)
-            pendingScrollPage = null
-        } catch (_: IllegalStateException) {
+        val view = currentPdfView
+        if (view == null) {
             pendingScrollPage = page
+            return
+        }
+        pendingScrollPage = null
+        view.post {
+            try { currentPdfView?.scrollToPage(page) } catch (_: Exception) {}
         }
     }
 
@@ -149,7 +146,9 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
             val c = migrateColor(color)
             Highlight(rect, (c and 0x00FFFFFF) or (0xDD shl 24))
         }
-        currentPdfView?.setHighlights(highlights)
+        // PdfView.setHighlights throws if called before the document is loaded.
+        // onPdfViewReady fires before onLoadDocumentSuccess, so guard here.
+        try { currentPdfView?.setHighlights(highlights) } catch (_: IllegalStateException) { }
     }
 
     private fun migrateColor(color: Int): Int = when (color) {
