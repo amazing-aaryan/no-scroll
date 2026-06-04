@@ -55,19 +55,38 @@ object QuoteCardBitmapBuilder {
     }
 
     private fun drawQuoteText(canvas: Canvas, spec: QuoteCardSpec): Float {
-        val paint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = spec.theme.text
-            textSize = 62f
-            typeface = Typeface.create(Typeface.SERIF, Typeface.ITALIC)
-        }
+        // 716px available: card 1350 - start 390 - footer reserve 244
+        val availableHeight = 716f
+        val textAreaWidth = WIDTH - 200f
         val text = spec.quoteText.trim().let {
             if (it.length <= 600) it else it.take(597).trimEnd() + "…"
         }
-        val lines = wrapText(text, paint, WIDTH - 200f).take(8)
+        val serifItalic = Typeface.create(Typeface.SERIF, Typeface.ITALIC)
+
+        var textSize = 62f
+        var lineHeight = 82f
+        var lines = emptyList<String>()
+        while (textSize >= 32f) {
+            lineHeight = textSize * (82f / 62f)
+            val probe = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+                this.textSize = textSize
+                typeface = serifItalic
+            }
+            lines = wrapText(text, probe, textAreaWidth)
+            if (lines.size * lineHeight <= availableHeight) break
+            textSize -= 2f
+        }
+
+        val paint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = spec.theme.text
+            this.textSize = textSize
+            typeface = serifItalic
+        }
+        val maxLines = (availableHeight / lineHeight).toInt()
         var y = 390f
-        for (line in lines) {
+        for (line in lines.take(maxLines)) {
             if (line.isNotBlank()) canvas.drawText(line, 110f, y, paint)
-            y += 82f
+            y += lineHeight
         }
         return y
     }
