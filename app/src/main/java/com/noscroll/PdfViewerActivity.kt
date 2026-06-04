@@ -204,9 +204,10 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
             SelectionAction.HIGHLIGHT -> saveHighlight(selection, openNote = false)
             SelectionAction.ANNOTATE  -> saveHighlight(selection, openNote = true)
             SelectionAction.QUOTE     -> {
-                saveHighlightWithColor(selection, openNote = false,
-                    colorArgb = NoScrollPdfViewerFragment.DEFAULT_HIGHLIGHT_COLOR)
-                openQuotePreview(selection.text, selection.pageIndex)
+                showHighlightColorPicker(title = "Highlight colour") { color ->
+                    saveHighlightWithColor(selection, openNote = false, colorArgb = color)
+                    openQuotePreview(selection.text, selection.pageIndex)
+                }
             }
             SelectionAction.SHARE     -> {
                 shareSelectionText(selection.text)

@@ -17,9 +17,11 @@ object QuoteCardBitmapBuilder {
         val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         drawBackground(canvas, spec.theme)
+        drawAccentStrip(canvas, spec.theme)
         drawQuoteMarks(canvas, spec.theme)
         val quoteBottom = drawQuoteText(canvas, spec)
-        drawAttribution(canvas, spec, quoteBottom + 70f)
+        drawSeparator(canvas, spec.theme, quoteBottom + 56f)
+        drawAttribution(canvas, spec, quoteBottom + 96f)
         drawWatermark(canvas, spec.theme)
         return bitmap
     }
@@ -34,14 +36,22 @@ object QuoteCardBitmapBuilder {
         canvas.drawRect(0f, 0f, WIDTH.toFloat(), HEIGHT.toFloat(), paint)
     }
 
+    private fun drawAccentStrip(canvas: Canvas, theme: QuoteCardTheme) {
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = theme.accent
+            alpha = 210
+        }
+        canvas.drawRect(0f, 0f, 12f, HEIGHT.toFloat(), paint)
+    }
+
     private fun drawQuoteMarks(canvas: Canvas, theme: QuoteCardTheme) {
         val paint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
             color = theme.text
-            alpha = 95
-            textSize = 240f
+            alpha = 55
+            textSize = 280f
             typeface = Typeface.create(Typeface.SERIF, Typeface.BOLD)
         }
-        canvas.drawText("\"", 100f, 230f, paint)
+        canvas.drawText("“", 80f, 270f, paint)
     }
 
     private fun drawQuoteText(canvas: Canvas, spec: QuoteCardSpec): Float {
@@ -51,15 +61,26 @@ object QuoteCardBitmapBuilder {
             typeface = Typeface.create(Typeface.SERIF, Typeface.ITALIC)
         }
         val text = spec.quoteText.trim().let {
-            if (it.length <= 300) it else it.take(297).trimEnd() + "..."
+            if (it.length <= 600) it else it.take(597).trimEnd() + "…"
         }
-        val lines = wrapText(text, paint, WIDTH - 180f).take(10)
-        var y = 360f
+        val lines = wrapText(text, paint, WIDTH - 200f).take(8)
+        var y = 390f
         for (line in lines) {
-            canvas.drawText(line, 90f, y, paint)
-            y += 78f
+            if (line.isNotBlank()) canvas.drawText(line, 110f, y, paint)
+            y += 82f
         }
         return y
+    }
+
+    private fun drawSeparator(canvas: Canvas, theme: QuoteCardTheme, y: Float) {
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = theme.accent
+            alpha = 180
+            strokeWidth = 2f
+            style = Paint.Style.STROKE
+        }
+        val clampedY = y.coerceAtMost(1240f)
+        canvas.drawLine(110f, clampedY, 380f, clampedY, paint)
     }
 
     private fun drawAttribution(canvas: Canvas, spec: QuoteCardSpec, requestedY: Float) {
@@ -68,29 +89,40 @@ object QuoteCardBitmapBuilder {
             textSize = 38f
             typeface = Typeface.create(Typeface.SERIF, Typeface.NORMAL)
         }
-        val text = "- ${spec.author}, ${spec.bookTitle}, p.${spec.pageNumber}"
-        val lines = wrapText(text, paint, WIDTH - 180f).take(3)
-        var y = requestedY.coerceAtMost(1120f)
+        val text = if (spec.author.isBlank()) "— ${spec.bookTitle}, p. ${spec.pageNumber}"
+                   else "— ${spec.author}, ${spec.bookTitle}, p. ${spec.pageNumber}"
+        val lines = wrapText(text, paint, WIDTH - 200f).take(3)
+        var y = requestedY.coerceAtMost(1260f)
         for (line in lines) {
-            canvas.drawText(line, 90f, y, paint)
-            y += 52f
+            canvas.drawText(line, 110f, y, paint)
+            y += 54f
         }
     }
 
     private fun drawWatermark(canvas: Canvas, theme: QuoteCardTheme) {
         val paint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
             color = theme.text
-            alpha = 150
-            textSize = 28f
+            alpha = 100
+            textSize = 26f
             typeface = Typeface.MONOSPACE
         }
-        canvas.drawText("noscroll", 90f, HEIGHT - 80f, paint)
+        canvas.drawText("noscroll", WIDTH - 240f, HEIGHT - 80f, paint)
     }
 
     fun wrapText(text: String, paint: TextPaint, maxWidth: Float): List<String> {
+        val paragraphs = text.split(Regex("\\n{2,}"))
+        val lines = mutableListOf<String>()
+        for (para in paragraphs) {
+            if (lines.isNotEmpty()) lines += ""
+            lines += wrapParagraph(para.replace('\n', ' '), paint, maxWidth)
+        }
+        return lines.ifEmpty { listOf("") }
+    }
+
+    private fun wrapParagraph(text: String, paint: TextPaint, maxWidth: Float): List<String> {
         val lines = mutableListOf<String>()
         var current = ""
-        for (word in text.replace('\n', ' ').split(Regex("\\s+"))) {
+        for (word in text.split(Regex("\\s+"))) {
             if (word.isBlank()) continue
             val candidate = if (current.isBlank()) word else "$current $word"
             if (paint.measureText(candidate) <= maxWidth) {
@@ -101,7 +133,7 @@ object QuoteCardBitmapBuilder {
             }
         }
         if (current.isNotBlank()) lines += current
-        return lines.ifEmpty { listOf("") }
+        return lines
     }
 
     private fun fitLongWord(word: String, paint: TextPaint, maxWidth: Float): String {

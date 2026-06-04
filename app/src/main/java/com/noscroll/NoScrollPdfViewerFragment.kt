@@ -88,7 +88,8 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
                         ?.takeIf { it.text.isNotBlank() }
                         ?.let {
                             ReaderSelection(
-                                text = Normalizer.normalize(it.text.toString(), Normalizer.Form.NFKC),
+                                text = Normalizer.normalize(it.text.toString(), Normalizer.Form.NFKC)
+                                    .replace(Regex("([a-zA-Z])-[ \\t]*\\n[ \\t]*([a-zA-Z])"), "$1$2"),
                                 bounds = it.bounds,
                                 pageIndex = it.bounds.firstOrNull()?.pageNum ?: pdfView.firstVisiblePage
                             )

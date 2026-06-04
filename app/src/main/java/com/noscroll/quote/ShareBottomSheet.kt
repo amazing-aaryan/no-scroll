@@ -61,7 +61,6 @@ class ShareBottomSheet : BottomSheetDialogFragment() {
     }
 
     override fun onDismiss(dialog: android.content.DialogInterface) {
-        BitmapHolder.bitmap = null
         BitmapHolder.shareText = null
         super.onDismiss(dialog)
     }
