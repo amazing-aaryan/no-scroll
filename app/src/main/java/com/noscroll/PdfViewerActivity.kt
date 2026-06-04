@@ -663,6 +663,11 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadHighlightsForFragment()
+    }
+
     override fun onPause() {
         super.onPause()
         PdfStorage.savePage(this, currentPage)
