@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import java.net.URLEncoder
+import java.util.concurrent.TimeUnit
 
 data class GoogleBooksResult(
     val title: String,
@@ -14,7 +15,11 @@ data class GoogleBooksResult(
 )
 
 object GoogleBooksClient {
-    private val client = OkHttpClient()
+    private val client = OkHttpClient.Builder()
+        .connectTimeout(10, TimeUnit.SECONDS)
+        .readTimeout(15, TimeUnit.SECONDS)
+        .writeTimeout(10, TimeUnit.SECONDS)
+        .build()
 
     fun search(query: String): GoogleBooksResult? {
         val cleanQuery = query.trim().take(100)
@@ -61,11 +66,16 @@ object GoogleBooksClient {
 
     private fun score(query: String, title: String, author: String): Int {
         val haystack = "$title $author".lowercase()
-        val tokenScore = query.lowercase()
+        val queryLower = query.lowercase()
+        val tokens = queryLower
             .split(Regex("[^a-z0-9]+"))
             .filter { it.length > 2 }
             .distinct()
-            .fold(0) { score, token -> score + if (haystack.contains(token)) 2 else 0 }
-        return tokenScore + if (author != "Unknown Author") 1 else 0
+        val tokenScore = tokens.fold(0) { acc, token -> acc + if (haystack.contains(token)) 2 else 0 }
+        // Prefer exact title match and shorter titles (canonical works, not commentary about them)
+        val titleLower = title.lowercase()
+        val exactTitleBonus = if (titleLower == queryLower.removeSurrounding("\"")) 4 else 0
+        val brevityBonus = if (title.length <= query.length + 10) 1 else 0
+        return tokenScore + exactTitleBonus + brevityBonus + if (author != "Unknown Author") 1 else 0
     }
 }

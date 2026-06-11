@@ -27,7 +27,11 @@ object PdfStorage {
     }
 
     fun clearUri(context: Context) {
-        prefs(context).edit().remove(KEY_PDF_URI).remove(KEY_PDF_PAGE).apply()
+        prefs(context).edit()
+            .remove(KEY_PDF_URI)
+            .remove(KEY_PDF_PAGE)
+            .remove(KEY_SELECTED_URI)
+            .apply()
     }
 
     fun getSavedPage(context: Context): Int =

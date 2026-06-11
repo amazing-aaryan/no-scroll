@@ -163,8 +163,15 @@ object BookMetadataRepository {
 
     private fun networkEnrich(entity: BookMetadataEntity): BookMetadataEntity? {
         val queryTitle = entity.title.takeIf { !isLinkLike(it) && it != "Untitled PDF" } ?: return null
+        val hasAuthor = entity.author != "Unknown Author"
 
-        val googleExact = try { GoogleBooksClient.search("intitle:\"$queryTitle\"") } catch (_: Exception) { null }
+        // Include author in query when known — prevents broad title matches returning wrong book
+        val exactQuery = if (hasAuthor) {
+            "intitle:\"$queryTitle\" inauthor:\"${entity.author}\""
+        } else {
+            "intitle:\"$queryTitle\""
+        }
+        val googleExact = try { GoogleBooksClient.search(exactQuery) } catch (_: Exception) { null }
         if (googleExact != null && googleExact.author != "Unknown Author") {
             return entity.copy(
                 title = googleExact.title,
@@ -211,8 +218,15 @@ object BookMetadataRepository {
 
     private fun isLikelyPersonName(text: String): Boolean {
         val words = text.split(Regex("\\s+")).filter { it.isNotBlank() }
-        return words.size in 2..4 && words.all { word ->
-            word.firstOrNull()?.isUpperCase() == true &&
+        if (words.size !in 2..4) return false
+        // Normalize to title case so ALL_CAPS cover text ("NICCOLO MACHIAVELLI") is recognized
+        val normalized = words.map { it.lowercase().replaceFirstChar { c -> c.uppercase() } }
+        // Common title function words disqualify — "THE PRINCE" is not a person name
+        val titleWords = setOf("The", "A", "An", "Of", "And", "Or", "In", "On", "For", "By", "To", "From", "With")
+        if (normalized.any { it in titleWords }) return false
+        return normalized.all { word ->
+            word.length >= 2 &&
+                word.first().isUpperCase() &&
                 word.drop(1).all { it.isLowerCase() || it == '.' || it == '-' || it == '\'' }
         }
     }

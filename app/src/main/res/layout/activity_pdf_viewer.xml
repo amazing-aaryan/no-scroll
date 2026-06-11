@@ -72,22 +72,17 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- FrameLayout wraps RecyclerView so flip-animation overlay can be added on top -->
-        <FrameLayout
-            android:id="@+id/pdf_container"
+        <com.noscroll.PageTurnInterceptor
+            android:id="@+id/page_turn_interceptor"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#171615">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/pdf_recycler_view"
+            android:layout_weight="1">
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/pdf_fragment_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#171615"
-                android:overScrollMode="never" />
-
-        </FrameLayout>
+                android:background="#171615" />
+        </com.noscroll.PageTurnInterceptor>
 
     </LinearLayout>
 

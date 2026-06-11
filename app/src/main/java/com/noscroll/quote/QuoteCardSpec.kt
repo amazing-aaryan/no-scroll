@@ -5,5 +5,5 @@ data class QuoteCardSpec(
     val bookTitle: String,
     val author: String,
     val pageNumber: Int,
-    val theme: QuoteCardTheme = QuoteCardTheme.PAPER
+    val theme: QuoteCardTheme = QuoteCardTheme.PARCHMENT
 )

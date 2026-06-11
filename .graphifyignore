@@ -1,0 +1,10 @@
+.claude/
+plans/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.ico
+*.bmp

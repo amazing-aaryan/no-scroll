@@ -21,8 +21,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private var feedBlockActive = false
     private var lastStableBlockRect: Rect? = null
     private var lastStableBlockMs: Long = 0L
-    // Timestamp of the last story-tray tap; overlay suppressed for STORY_VIEWER_WINDOW_MS after it.
     private var lastStoryTapMs = 0L
+    // Set on every window-state-change while block is active. Suppresses re-show for
+    // PROACTIVE_HIDE_WINDOW_MS so the story viewer has time to land in the a11y tree.
+    private var proactiveHideMs = 0L
 
     // Polling — runs every POLL_INTERVAL_MS while Instagram is in the foreground.
     private var pollingActive = false
@@ -53,7 +55,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         private const val CONTENT_DEBOUNCE_MS = 150L
         private const val COLOR_CACHE_MS = 1_000L
         private const val BLOCK_STABILITY_GRACE_MS = 3_000L
-        private const val STORY_VIEWER_WINDOW_MS = 30_000L  // 30s after last story tap
+        private const val STORY_VIEWER_WINDOW_MS = 30_000L
+        private const val PROACTIVE_HIDE_WINDOW_MS = 500L   // suppress re-show after proactive hide
         private const val POLL_INTERVAL_MS = 250L
         private const val NAV_BAR_GAP_MIN_DP = 24f
         private const val NAV_BAR_GAP_MAX_DP = 48f
@@ -135,9 +138,16 @@ class NoScrollAccessibilityService : AccessibilityService() {
             }
             AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED -> {
                 if (pkg == INSTAGRAM_PKG || pkg == INSTAGRAM_LITE_PKG) {
-                    // Do NOT reset story viewer window here — story swipes fire this event
-                    // and would re-expose the block mid-viewing. The 30s window handles expiry.
                     cancelPendingConfirm()
+                    if (feedBlockActive) {
+                        // Hide before the a11y tree reflects the new surface — story viewer
+                        // keeps the full home-feed tree accessible, so scan-based detection
+                        // can lag. Suppress re-show for PROACTIVE_HIDE_WINDOW_MS.
+                        proactiveHideMs = System.currentTimeMillis()
+                        feedBlockActive = false
+                        lastStableBlockRect = null
+                        hideOverlay()
+                    }
                     scheduleUpdate(DEBOUNCE_MS)
                     startPolling()
                 } else {
@@ -227,7 +237,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val navSelectionState: NavSelectionState,
         val directTabSelected: Boolean,
         val homeChromeHits: Int,
-        val storiesBarBottom: Int
+        val storiesBarBottom: Int,
+        val storyViewerActive: Boolean
     )
 
     /**
@@ -258,6 +269,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var searchTabSelected = false
         var searchBarFocused = false   // true when user is actively typing
         var storiesTrayPresent = false // reels_tray_container ID found — reliable home indicator
+        var storyViewerActive = false  // swipe_navigation_container = full-screen story viewer overlay
         var homeChromeHits = 0
         var bestContentRect: Rect? = null
         var bestContentArea = 0
@@ -282,6 +294,13 @@ class NoScrollAccessibilityService : AccessibilityService() {
             // "we are on the Instagram home feed" signal.
             if (viewIdLower.contains("reels_tray_container") || viewIdLower == "com.instagram.android:id/reels_tray") {
                 storiesTrayPresent = true
+            }
+            // Story viewer overlay — swipe_navigation_container is the full-screen root
+            // of the story viewer (bounds [0,0][sw,sh]). It is present in the tree even
+            // when main_feed_action_bar and reels_tray_container are also accessible,
+            // making it the only reliable "we are inside the story viewer" signal.
+            if (viewIdLower.contains("swipe_navigation_container")) {
+                storyViewerActive = true
             }
 
             if (!rect.isEmpty) {
@@ -437,10 +456,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         // storiesTrayPresent: reels_tray_container ID persists in the accessibility tree even
         // when scrolled off screen, so it reliably identifies the home feed regardless of
         // scroll position. It is absent on Search, Profile, DMs, and Reels tab.
-        // Story viewer: storiesTrayPresent=false (different activity) AND homeChromeHits=0
-        // (action bar gone). Guard against that case so story viewer never gets blocked.
         val inHome = (homeTabSelected || storiesTrayPresent) && !inReels && !directTabSelected && !searchTabSelected
-            && (homeChromeHits > 0 || storiesTrayPresent)
         // Block search/explore grid unless user is actively typing (searchBarFocused).
         val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && !searchBarFocused && homeChromeHits == 0)) &&
             !searchBarFocused && !inHome && !inReels && !directTabSelected
@@ -512,7 +528,8 @@ class NoScrollAccessibilityService : AccessibilityService() {
             navSelectionState = navSelectionState,
             directTabSelected = directTabSelected,
             homeChromeHits = homeChromeHits,
-            storiesBarBottom = storiesBarBottom
+            storiesBarBottom = storiesBarBottom,
+            storyViewerActive = storyViewerActive
         )
     }
 
@@ -531,7 +548,12 @@ class NoScrollAccessibilityService : AccessibilityService() {
     }
 
     private fun findAndUpdateOverlay() {
-        if (lastStoryTapMs > 0 && System.currentTimeMillis() - lastStoryTapMs < STORY_VIEWER_WINDOW_MS) {
+        val now = System.currentTimeMillis()
+        if (lastStoryTapMs > 0 && now - lastStoryTapMs < STORY_VIEWER_WINDOW_MS) {
+            hideOverlay()
+            return
+        }
+        if (proactiveHideMs > 0 && now - proactiveHideMs < PROACTIVE_HIDE_WINDOW_MS) {
             hideOverlay()
             return
         }
@@ -543,6 +565,15 @@ class NoScrollAccessibilityService : AccessibilityService() {
             val blockSurface = scan.blockSurface
             val blockRect = scan.blockRect
             val navSelectionState = scan.navSelectionState
+
+            // Story viewer overlays the home feed but keeps it accessible in the tree.
+            // swipe_navigation_container is the definitive story viewer root — hide immediately.
+            if (scan.storyViewerActive) {
+                if (feedBlockActive) feedBlockActive = false
+                lastStableBlockRect = null
+                hideOverlay()
+                return
+            }
 
             // Hide everything while in DMs — no block, no reels icon.
             if (scan.directTabSelected) {

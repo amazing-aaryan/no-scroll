@@ -1,0 +1,337 @@
+{
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\build.gradle": {
+    "mtime": 1780165283.408731,
+    "ast_hash": "126b7692c019d3dc0eff9c43f89aee12",
+    "semantic_hash": "126b7692c019d3dc0eff9c43f89aee12"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\MainActivity.kt": {
+    "mtime": 1779178155.7384226,
+    "ast_hash": "747ce1ed2b3bdcc3a8c5ee281ac534d9",
+    "semantic_hash": "747ce1ed2b3bdcc3a8c5ee281ac534d9"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollAccessibilityService.kt": {
+    "mtime": 1780243043.2105837,
+    "ast_hash": "2a52f71eb27610e6d9de70bfd5cc0d09",
+    "semantic_hash": "2a52f71eb27610e6d9de70bfd5cc0d09"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollPdfViewerFragment.kt": {
+    "mtime": 1780171187.225366,
+    "ast_hash": "1908665de2f58b0801f966cc0e97e9bc",
+    "semantic_hash": "1908665de2f58b0801f966cc0e97e9bc"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NotebookActivity.kt": {
+    "mtime": 1780146813.8490176,
+    "ast_hash": "339b693669501e74f3ff1040eec64f61",
+    "semantic_hash": "339b693669501e74f3ff1040eec64f61"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\OnlineBookSearchActivity.kt": {
+    "mtime": 1779710671.9870741,
+    "ast_hash": "07a13abfa44f55f3d21d3a3bbd5a7a72",
+    "semantic_hash": "07a13abfa44f55f3d21d3a3bbd5a7a72"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\OverlayService.kt": {
+    "mtime": 1780218596.8342707,
+    "ast_hash": "94cee23a889dde9b1fb9aa3ffa8b9123",
+    "semantic_hash": "94cee23a889dde9b1fb9aa3ffa8b9123"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PageTurnInterceptor.kt": {
+    "mtime": 1779041014.1907494,
+    "ast_hash": "af8a7b41e6292bbbb97792ca5f95c121",
+    "semantic_hash": "af8a7b41e6292bbbb97792ca5f95c121"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfHighlightExporter.kt": {
+    "mtime": 1778789105.9397159,
+    "ast_hash": "8c43dd2d7dd5688172b4fe65734dbe6b",
+    "semantic_hash": "8c43dd2d7dd5688172b4fe65734dbe6b"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfLibraryActivity.kt": {
+    "mtime": 1780146793.8528118,
+    "ast_hash": "514c1f6bcb3827b64a62659640baf13a",
+    "semantic_hash": "514c1f6bcb3827b64a62659640baf13a"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfLibraryAdapter.kt": {
+    "mtime": 1778827688.3198624,
+    "ast_hash": "f9b9e3ffa2fac295f54d68d4afbaa08c",
+    "semantic_hash": "f9b9e3ffa2fac295f54d68d4afbaa08c"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfPageAdapter.kt": {
+    "mtime": 1778752391.348122,
+    "ast_hash": "98c3f4ebf9423dc9caad33aebfd55b81",
+    "semantic_hash": "98c3f4ebf9423dc9caad33aebfd55b81"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfSelectionCodec.kt": {
+    "mtime": 1778788390.9611733,
+    "ast_hash": "5a28342eeeb41dea89a75dcd1d873daf",
+    "semantic_hash": "5a28342eeeb41dea89a75dcd1d873daf"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfStorage.kt": {
+    "mtime": 1780167260.9702044,
+    "ast_hash": "8fbf05839285f28fdc905eb0278b268f",
+    "semantic_hash": "8fbf05839285f28fdc905eb0278b268f"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfThumbnailCache.kt": {
+    "mtime": 1778839443.8360424,
+    "ast_hash": "f149c8f1ce310a38c9b4671423aa638c",
+    "semantic_hash": "f149c8f1ce310a38c9b4671423aa638c"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfViewerActivity.kt": {
+    "mtime": 1780173061.0344179,
+    "ast_hash": "3879aac129b8c0e30c3ed8373b8c8926",
+    "semantic_hash": "3879aac129b8c0e30c3ed8373b8c8926"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PermissionUtils.kt": {
+    "mtime": 1778751828.4465895,
+    "ast_hash": "bdfe6c665c53b064ffb461a8fdd144b1",
+    "semantic_hash": "bdfe6c665c53b064ffb461a8fdd144b1"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\SetupActivity.kt": {
+    "mtime": 1780082229.8645039,
+    "ast_hash": "51da05d6e24fc0a596f60a6d10ccbcf4",
+    "semantic_hash": "51da05d6e24fc0a596f60a6d10ccbcf4"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDao.kt": {
+    "mtime": 1778837347.8566096,
+    "ast_hash": "1a0868a25407cea676c4eb28c9b0bdfd",
+    "semantic_hash": "1a0868a25407cea676c4eb28c9b0bdfd"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDatabase.kt": {
+    "mtime": 1778837347.8586092,
+    "ast_hash": "a8f1fac9c9071b0ddad625acc3bff740",
+    "semantic_hash": "a8f1fac9c9071b0ddad625acc3bff740"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationEntity.kt": {
+    "mtime": 1778783535.7938354,
+    "ast_hash": "f9132c5a4c77e126ed732276db35273f",
+    "semantic_hash": "f9132c5a4c77e126ed732276db35273f"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookCollectionDao.kt": {
+    "mtime": 1778837325.0237424,
+    "ast_hash": "5acb026425ff9f42d8deefb9a9d3f96f",
+    "semantic_hash": "5acb026425ff9f42d8deefb9a9d3f96f"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookCollectionEntity.kt": {
+    "mtime": 1778837325.0212283,
+    "ast_hash": "b8f71c85445066f6f07b20b715bc924c",
+    "semantic_hash": "b8f71c85445066f6f07b20b715bc924c"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookDao.kt": {
+    "mtime": 1778840476.5288584,
+    "ast_hash": "4b95674305323249ebe94e6395f6f3c7",
+    "semantic_hash": "4b95674305323249ebe94e6395f6f3c7"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookEntity.kt": {
+    "mtime": 1778837325.0195928,
+    "ast_hash": "a8f7e8c5fc1b35e0a3a44f2b34506a2c",
+    "semantic_hash": "a8f7e8c5fc1b35e0a3a44f2b34506a2c"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookMetadataDao.kt": {
+    "mtime": 1778944447.1974518,
+    "ast_hash": "43cf4076381d60902ba61d7b6d709697",
+    "semantic_hash": "43cf4076381d60902ba61d7b6d709697"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookMetadataEntity.kt": {
+    "mtime": 1778788364.1319182,
+    "ast_hash": "711bb00ff093218446516a3517fb1637",
+    "semantic_hash": "711bb00ff093218446516a3517fb1637"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookmarkDao.kt": {
+    "mtime": 1778837325.0244842,
+    "ast_hash": "edf1be5e6152bb906ff1d751ec3d786b",
+    "semantic_hash": "edf1be5e6152bb906ff1d751ec3d786b"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\BookmarkEntity.kt": {
+    "mtime": 1778837325.022235,
+    "ast_hash": "7e63070ec66e2761dc6fda43563e2251",
+    "semantic_hash": "7e63070ec66e2761dc6fda43563e2251"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\HighlightDao.kt": {
+    "mtime": 1778848861.0154612,
+    "ast_hash": "1350c496e3a4de444fed9d4b7ebce074",
+    "semantic_hash": "1350c496e3a4de444fed9d4b7ebce074"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\HighlightEntity.kt": {
+    "mtime": 1778788364.1289182,
+    "ast_hash": "412a1f16da25110b13288da355ed30d6",
+    "semantic_hash": "412a1f16da25110b13288da355ed30d6"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\QuoteCardDao.kt": {
+    "mtime": 1778837325.0254939,
+    "ast_hash": "72a46e216601058cef405edc372e74e4",
+    "semantic_hash": "72a46e216601058cef405edc372e74e4"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\QuoteCardEntity.kt": {
+    "mtime": 1778837325.022235,
+    "ast_hash": "681246b42f6fe5271cca8357d44e1f13",
+    "semantic_hash": "681246b42f6fe5271cca8357d44e1f13"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\discovery\\LegalBookApiClient.kt": {
+    "mtime": 1780035281.729451,
+    "ast_hash": "14411498e7868647835591f8a8416005",
+    "semantic_hash": "14411498e7868647835591f8a8416005"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\BookMetadataRepository.kt": {
+    "mtime": 1779012499.5291288,
+    "ast_hash": "eabfb0cc47989485ea548149a6a50ad4",
+    "semantic_hash": "eabfb0cc47989485ea548149a6a50ad4"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\CoverPageOcr.kt": {
+    "mtime": 1779009305.2292335,
+    "ast_hash": "78427ea9e1afef3d708efb1d41f4f35e",
+    "semantic_hash": "78427ea9e1afef3d708efb1d41f4f35e"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\EditMetadataDialog.kt": {
+    "mtime": 1778828487.3809614,
+    "ast_hash": "36d400878f5f0ac377e21472a181274d",
+    "semantic_hash": "36d400878f5f0ac377e21472a181274d"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\GoogleBooksClient.kt": {
+    "mtime": 1780035228.7053113,
+    "ast_hash": "7acfa2c8ee644d10be5c37d262716aaa",
+    "semantic_hash": "7acfa2c8ee644d10be5c37d262716aaa"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\MetadataLookupPrefs.kt": {
+    "mtime": 1778840476.5288584,
+    "ast_hash": "4285130232c83345ca97ac4f78d07443",
+    "semantic_hash": "4285130232c83345ca97ac4f78d07443"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\OpenLibraryClient.kt": {
+    "mtime": 1778840337.9923735,
+    "ast_hash": "a1812e1105db496fb078a03aecdbbcd2",
+    "semantic_hash": "a1812e1105db496fb078a03aecdbbcd2"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\PdfEmbeddedMetadata.kt": {
+    "mtime": 1778788520.5879936,
+    "ast_hash": "88772c9c095a0a02521f894b16cd3dfe",
+    "semantic_hash": "88772c9c095a0a02521f894b16cd3dfe"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\BitmapHolder.kt": {
+    "mtime": 1778788581.1619973,
+    "ast_hash": "f8f707dde9e4a722a5a39918c9d3b615",
+    "semantic_hash": "f8f707dde9e4a722a5a39918c9d3b615"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\InstagramShareHelper.kt": {
+    "mtime": 1778788581.1649969,
+    "ast_hash": "0dbee3398625c487cd83d869b72dad6f",
+    "semantic_hash": "0dbee3398625c487cd83d869b72dad6f"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardBitmapBuilder.kt": {
+    "mtime": 1779536942.8041723,
+    "ast_hash": "99a79e9ba20a6e5a67a73aebf78203db",
+    "semantic_hash": "99a79e9ba20a6e5a67a73aebf78203db"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardPreviewActivity.kt": {
+    "mtime": 1779537010.7558763,
+    "ast_hash": "f51a7f130f8ce44f45ba9ca8829ce3c3",
+    "semantic_hash": "f51a7f130f8ce44f45ba9ca8829ce3c3"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardSpec.kt": {
+    "mtime": 1779537059.52916,
+    "ast_hash": "400c39c5f16c4c98d1ad215005868518",
+    "semantic_hash": "400c39c5f16c4c98d1ad215005868518"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardTheme.kt": {
+    "mtime": 1779536892.4596632,
+    "ast_hash": "34fee8978fbc6354fca8a8f339f3dd7f",
+    "semantic_hash": "34fee8978fbc6354fca8a8f339f3dd7f"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\ShareBottomSheet.kt": {
+    "mtime": 1778837606.7102742,
+    "ast_hash": "8c12db9de140ab2bdef3fbf2c9fbd660",
+    "semantic_hash": "8c12db9de140ab2bdef3fbf2c9fbd660"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\repository\\AnnotationRepository.kt": {
+    "mtime": 1778783570.1842556,
+    "ast_hash": "79f5c49126e867fc418db84b56e3adc8",
+    "semantic_hash": "79f5c49126e867fc418db84b56e3adc8"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\repository\\BookRepository.kt": {
+    "mtime": 1779040308.4014142,
+    "ast_hash": "16982f79dfc9066cd74a5ae9c06260b2",
+    "semantic_hash": "16982f79dfc9066cd74a5ae9c06260b2"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\repository\\HighlightRepository.kt": {
+    "mtime": 1778848871.3451529,
+    "ast_hash": "3c87e812512aa67cec9dea16b975bb66",
+    "semantic_hash": "3c87e812512aa67cec9dea16b975bb66"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\repository\\NotebookRepository.kt": {
+    "mtime": 1778837781.620175,
+    "ast_hash": "3bd0f38d1c935dea16ad6b00a35c886c",
+    "semantic_hash": "3bd0f38d1c935dea16ad6b00a35c886c"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialAnchor.kt": {
+    "mtime": 1780065934.3462584,
+    "ast_hash": "e1ad2c3a8082309dd6fbe9e9f93b3277",
+    "semantic_hash": "e1ad2c3a8082309dd6fbe9e9f93b3277"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialController.kt": {
+    "mtime": 1780067433.0983493,
+    "ast_hash": "b7b89feddbfe9ff9bd29bece767990b8",
+    "semantic_hash": "b7b89feddbfe9ff9bd29bece767990b8"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialOverlay.kt": {
+    "mtime": 1780069257.4355457,
+    "ast_hash": "86a8e15a3dc963c8805f4e7466bca247",
+    "semantic_hash": "86a8e15a3dc963c8805f4e7466bca247"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialPrefs.kt": {
+    "mtime": 1780068972.9763072,
+    "ast_hash": "2ac6f965bf2f2a2e22a722b35117d0de",
+    "semantic_hash": "2ac6f965bf2f2a2e22a722b35117d0de"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialStep.kt": {
+    "mtime": 1780065839.0804536,
+    "ast_hash": "746a49752206638758e572d00cb18d33",
+    "semantic_hash": "746a49752206638758e572d00cb18d33"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialStepDefs.kt": {
+    "mtime": 1780159025.3795905,
+    "ast_hash": "8b4bbd2a953e58bbaa497d13709baa67",
+    "semantic_hash": "8b4bbd2a953e58bbaa497d13709baa67"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
+    "mtime": 1780146734.3932178,
+    "ast_hash": "ebda09201a9fb079656068284bda1568",
+    "semantic_hash": "ebda09201a9fb079656068284bda1568"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\NotebookScreen.kt": {
+    "mtime": 1780066575.6776993,
+    "ast_hash": "3bbe53c6c31200c75c4a61dfcfefe8b0",
+    "semantic_hash": "3bbe53c6c31200c75c4a61dfcfefe8b0"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\OnlineBookSearchScreen.kt": {
+    "mtime": 1779710671.9870741,
+    "ast_hash": "3b4758181305b16c6ffbc2aa6967667e",
+    "semantic_hash": "3b4758181305b16c6ffbc2aa6967667e"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\PaperComponents.kt": {
+    "mtime": 1778849343.8710065,
+    "ast_hash": "332cc37b21222ac3f11800ba2bb91a56",
+    "semantic_hash": "332cc37b21222ac3f11800ba2bb91a56"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\PaperTheme.kt": {
+    "mtime": 1779538539.194291,
+    "ast_hash": "c1a7dd3a6d08f9277393130b31037e82",
+    "semantic_hash": "c1a7dd3a6d08f9277393130b31037e82"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\PdfReaderGestureTest.kt": {
+    "mtime": 1779176658.8026142,
+    "ast_hash": "0fffac83d19f834c08c9b947da5348c1",
+    "semantic_hash": "0fffac83d19f834c08c9b947da5348c1"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\build-debug.ps1": {
+    "mtime": 1778777522.8835423,
+    "ast_hash": "635d79c3a8efcc2d4d020b845a3d9d44",
+    "semantic_hash": "635d79c3a8efcc2d4d020b845a3d9d44"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\build.gradle": {
+    "mtime": 1778837325.0185924,
+    "ast_hash": "79dfd36dbb7428963367bc7485e978fb",
+    "semantic_hash": "79dfd36dbb7428963367bc7485e978fb"
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\settings.gradle": {
+    "mtime": 1778783513.10204,
+    "ast_hash": "47f61a2f0b8a00efa34ce89fe700b890",
+    "semantic_hash": "47f61a2f0b8a00efa34ce89fe700b890"
+  }
+}

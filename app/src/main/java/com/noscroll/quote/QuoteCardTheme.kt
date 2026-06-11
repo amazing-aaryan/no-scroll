@@ -6,10 +6,37 @@ enum class QuoteCardTheme(
     val bgStart: Int,
     val bgEnd: Int,
     val text: Int,
-    val attribution: Int
+    val attribution: Int,
+    val accent: Int
 ) {
-    PAPER(Color.rgb(251, 248, 240), Color.rgb(247, 243, 234), Color.rgb(23, 22, 21), Color.rgb(102, 97, 90)),
-    INK(Color.rgb(23, 22, 21), Color.rgb(49, 46, 42), Color.rgb(251, 248, 240), Color.rgb(221, 213, 200)),
-    SAGE(Color.rgb(119, 132, 111), Color.rgb(91, 105, 84), Color.rgb(251, 248, 240), Color.rgb(221, 213, 200)),
-    NIGHT(Color.rgb(29, 31, 35), Color.rgb(16, 17, 19), Color.WHITE, Color.rgb(190, 186, 178))
+    PARCHMENT(
+        Color.rgb(253, 248, 235), Color.rgb(244, 234, 210),
+        Color.rgb(34, 27, 18), Color.rgb(120, 100, 70),
+        Color.rgb(180, 140, 80)
+    ),
+    MIDNIGHT(
+        Color.rgb(16, 16, 20), Color.rgb(24, 24, 32),
+        Color.rgb(240, 235, 220), Color.rgb(155, 145, 125),
+        Color.rgb(180, 140, 80)
+    ),
+    DUSK(
+        Color.rgb(30, 18, 48), Color.rgb(72, 30, 55),
+        Color.rgb(245, 225, 210), Color.rgb(185, 155, 135),
+        Color.rgb(220, 130, 100)
+    ),
+    OCEAN(
+        Color.rgb(8, 28, 58), Color.rgb(16, 50, 85),
+        Color.rgb(220, 240, 248), Color.rgb(120, 175, 205),
+        Color.rgb(70, 185, 210)
+    ),
+    FOREST(
+        Color.rgb(12, 32, 20), Color.rgb(22, 52, 32),
+        Color.rgb(220, 240, 215), Color.rgb(120, 175, 130),
+        Color.rgb(90, 175, 100)
+    ),
+    CLAY(
+        Color.rgb(240, 225, 210), Color.rgb(225, 200, 175),
+        Color.rgb(60, 30, 15), Color.rgb(140, 85, 55),
+        Color.rgb(185, 100, 60)
+    )
 }

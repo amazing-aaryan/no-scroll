@@ -528,11 +528,16 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
         popup.menu.add(0, 0, 0, "Highlights")
         popup.menu.add(0, 1, 1, "Go to page")
         popup.menu.add(0, 2, 2, "Share")
+        popup.menu.add(0, 3, 3, "Re-identify book")
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 0 -> showHighlightsDialog()
                 1 -> showGotoPageDialog()
                 2 -> shareCurrentPage()
+                3 -> currentUri?.let { uri ->
+                    Toast.makeText(this, "Re-identifying…", Toast.LENGTH_SHORT).show()
+                    loadMetadata(uri, forceOnline = true)
+                }
             }
             true
         }

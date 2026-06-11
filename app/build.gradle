@@ -13,14 +13,15 @@ android {
     defaultConfig {
         applicationId "com.noscroll"
         minSdk 28
-        targetSdk 33
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
         def localProps = new Properties()
         def localPropsFile = rootProject.file('local.properties')
         if (localPropsFile.exists()) localProps.load(localPropsFile.newDataInputStream())
-        buildConfigField "String", "GROQ_API_KEY", "\"${localProps.getProperty('GROQ_API_KEY', '')}\""
+        buildConfigField "String", "LEGAL_BOOKS_API_BASE_URL", "\"${localProps.getProperty('LEGAL_BOOKS_API_BASE_URL', '')}\""
+        buildConfigField "String", "LEGAL_BOOKS_API_KEY", "\"${localProps.getProperty('LEGAL_BOOKS_API_KEY', '')}\""
     }
 
     buildTypes {
@@ -28,7 +29,8 @@ android {
             debuggable true
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -46,6 +48,10 @@ android {
         enabled = true
     }
 
+    adbOptions {
+        installOptions "-t", "--user", "0"
+    }
+
     buildFeatures {
         compose true
         buildConfig true
@@ -53,6 +59,7 @@ android {
 }
 
 dependencies {
+    testImplementation 'junit:junit:4.13.2'
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'

@@ -2,4 +2,5 @@
 <paths>
     <cache-path name="shared_images" path="quote_cards/" />
     <cache-path name="pdf_exports" path="pdf_exports/" />
+    <files-path name="downloaded_books" path="books/" />
 </paths>

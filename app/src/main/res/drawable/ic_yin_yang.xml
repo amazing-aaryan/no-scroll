@@ -5,21 +5,32 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
 
-    <!-- Yang (light) region: right outer semicircle + left lower bump + right upper bump -->
+    <!-- Outer circle - stroke only -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M12,2 A10,10,0,0,1,12,22 A5,5,0,0,1,12,12 A5,5,0,0,0,12,2Z"/>
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.5"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,2 A10,10,0,0,1,22,12 A10,10,0,0,1,12,22 A10,10,0,0,1,2,12 A10,10,0,0,1,12,2Z"/>
 
-    <!-- Outer circle border -->
+    <!-- S-curve divider -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.5"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,2 A5,5,0,0,1,12,12 A5,5,0,0,0,12,22"/>
+
+    <!-- Yang eye (upper half) - outline circle -->
     <path
         android:strokeColor="@android:color/white"
         android:strokeWidth="1"
         android:fillColor="@android:color/transparent"
-        android:pathData="M12,2 A10,10,0,0,1,22,12 A10,10,0,0,1,12,22 A10,10,0,0,1,2,12 A10,10,0,0,1,12,2Z"/>
+        android:pathData="M12,6 A1.5,1.5,0,0,1,13.5,7.5 A1.5,1.5,0,0,1,12,9 A1.5,1.5,0,0,1,10.5,7.5 A1.5,1.5,0,0,1,12,6Z"/>
 
-    <!-- Yin eye: white dot visible in the dark (transparent) half -->
+    <!-- Yin eye (lower half) - outline circle -->
     <path
-        android:fillColor="@android:color/white"
-        android:pathData="M12,15.5 A1.5,1.5,0,0,1,13.5,17 A1.5,1.5,0,0,1,12,18.5 A1.5,1.5,0,0,1,10.5,17 A1.5,1.5,0,0,1,12,15.5Z"/>
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M12,15 A1.5,1.5,0,0,1,13.5,16.5 A1.5,1.5,0,0,1,12,18 A1.5,1.5,0,0,1,10.5,16.5 A1.5,1.5,0,0,1,12,15Z"/>
 
 </vector>

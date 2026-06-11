@@ -34,4 +34,5 @@
     <string name="no_selectable_text">No selectable text in this PDF</string>
     <string name="ocr_page">OCR page</string>
     <string name="export_highlights">Export</string>
+    <string name="search_online">Search online</string>
 </resources>
