@@ -12,15 +12,13 @@
 **Key files:**
 - `PdfViewerActivity.kt` — host activity; owns all UI, zen mode, overflow menu, selection rail
 - `NoScrollPdfViewerFragment.kt` — wraps AndroidX `PdfViewerFragment`; injects selection menu items via `SelectionMenuItemPreparer`
-- `BookMetadataRepository.kt` — metadata pipeline: cache → Groq Vision → OCR → network lookup
-- `GroqVisionClient.kt` — sends cover bitmap to Groq LLaMA 3.2 Vision; `API_KEY` via `BuildConfig.GROQ_API_KEY`
+- `BookMetadataRepository.kt` — metadata pipeline: cache → OCR → network lookup
 - `NoScrollAccessibilityService.kt` — detects Instagram nav bar; `findReelsNode` looks for `contentDescription.contains("reels")`
 - `MainActivity.kt` — routes to SetupActivity or shows a button to open the library
 - `activity_pdf_viewer.xml` — layout: top bar (44dp) | PDF fragment | bottom bar (52dp); floating selection pill at bottom center
 
 **Invariants:**
-- `local.properties` holds `GROQ_API_KEY` — never commit
-- `buildConfig true` + `buildConfigField` in `app/build.gradle` exposes it as `BuildConfig.GROQ_API_KEY`
+- `local.properties` holds machine-local SDK and API configuration — never commit
 - Back button already routes through `onBackPressed()` which exits zen first
 
 ---
@@ -40,25 +38,22 @@
 ---
 
 ## Step 1 — Fix metadata pipeline
-**Files:** `BookMetadataRepository.kt`, `GroqVisionClient.kt`
+**Files:** `BookMetadataRepository.kt`
 **Deps:** none
 
 ### Problem
-- Cache short-circuit at line 30–32 returns stale entries with `"Unknown Author"` before Groq is tried when `source` is already `"cover_ocr"` or `"network"` — so repeated opens skip Vision entirely.
-- `allowOnlineOnce=true` is passed from `onPdfLoaded` only on first load; if a stale cached row exists with bad data, it skips the Groq path.
-- `GroqVisionClient.API_KEY` is now a `val` property getter (`get() = BuildConfig.GROQ_API_KEY`) — must verify `BuildConfig` is generated and non-empty.
+- Cache short-circuit at line 30–32 returns stale entries with `"Unknown Author"` when `source` is already `"cover_ocr"` or `"network"` — so repeated opens skip metadata refresh entirely.
+- `allowOnlineOnce=true` is passed from `onPdfLoaded` only on first load; if a stale cached row exists with bad data, it skips the metadata refresh path.
 
 ### Fix
 1. **Cache invalidation:** In `resolve()`, after the `manual` / `vision_ai` guard, also return cached only if `source == "network"` AND `confidence >= 0.8f` AND `author != "Unknown Author"`. Otherwise fall through to re-run the pipeline.
-2. **Force re-run for bad cached:** If `cached != null && cached.author == "Unknown Author"` and `allowOnlineOnce=true`, delete the cached row before re-running Vision + network.
-3. **Groq error logging:** Wrap `GroqVisionClient.identify()` and log the raw HTTP response code on failure so we can distinguish 401 (bad key) vs 429 (rate limit) vs network error. Use `android.util.Log.e("GroqVision", "HTTP $code")`.
-4. **OCR fallback:** Verify `CoverPageOcr.extractText(bitmap)` returns a plain `String`. If it returns `com.google.mlkit.vision.text.Text`, extract `.text` property before passing to `extractFromCoverOcr`.
+2. **Force re-run for bad cached:** If `cached != null && cached.author == "Unknown Author"` and `allowOnlineOnce=true`, delete the cached row before re-running OCR + network.
+3. **OCR fallback:** Verify `CoverPageOcr.extractText(bitmap)` returns a plain `String`. If it returns `com.google.mlkit.vision.text.Text`, extract `.text` property before passing to `extractFromCoverOcr`.
 
 ### Task list
 - [ ] Read `CoverPageOcr.kt` — verify return type of `extractText`
 - [ ] Fix cache short-circuit in `BookMetadataRepository.resolve()`
 - [ ] Add force-re-run when cached has `"Unknown Author"` and `allowOnlineOnce=true`
-- [ ] Add error logging in `GroqVisionClient.identify()`
 - [ ] Build + install + test with a known PDF
 
 ### Verification
