@@ -2,6 +2,7 @@ package com.noscroll
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.noscroll.data.AnnotationDatabase
@@ -48,6 +50,7 @@ class PdfLibraryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        applyPaperSystemBars()
         lifecycleScope.launch {
             BookRepository.migrateLegacyLibrary(this@PdfLibraryActivity)
             identifyWeakLibraryMetadata()
@@ -131,6 +134,15 @@ class PdfLibraryActivity : AppCompatActivity() {
                     }
                 )
             }
+        }
+    }
+
+    private fun applyPaperSystemBars() {
+        window.statusBarColor = Color.parseColor("#F7F3EA")
+        window.navigationBarColor = Color.parseColor("#F7F3EA")
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+            isAppearanceLightNavigationBars = true
         }
     }
 

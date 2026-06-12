@@ -2,6 +2,7 @@ package com.noscroll
 
 import android.content.ComponentName
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -31,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import com.noscroll.tutorial.SetupTutorialSteps
 import com.noscroll.tutorial.TutorialAnchor
@@ -53,6 +55,7 @@ class SetupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        applyPaperSystemBars()
         tutorialPrefs = TutorialPrefs(this)
 
         setContent {
@@ -170,6 +173,15 @@ class SetupActivity : AppCompatActivity() {
                 updateUI()
                 delay(500)
             }
+        }
+    }
+
+    private fun applyPaperSystemBars() {
+        window.statusBarColor = Color.parseColor("#F7F3EA")
+        window.navigationBarColor = Color.parseColor("#F7F3EA")
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = true
+            isAppearanceLightNavigationBars = true
         }
     }
 

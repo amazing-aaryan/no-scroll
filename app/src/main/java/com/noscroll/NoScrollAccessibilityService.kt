@@ -234,6 +234,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         val blockSurface: BlockSurface?,
         val navBarTop: Int,
         val blockRect: Rect?,
+        val reelsTabRect: Rect?,
         val navSelectionState: NavSelectionState,
         val directTabSelected: Boolean,
         val homeChromeHits: Int,
@@ -276,6 +277,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var mainContainerRect: Rect? = null
         var navBarRect: Rect? = null
         var actionBarRect: Rect? = null
+        var reelsTabRect: Rect? = null
         var storiesBarBottom = 0  // detected bottom of the stories strip on Home
 
         val queue = ArrayDeque<AccessibilityNodeInfo>()
@@ -386,6 +388,12 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 if (rect.top >= navZoneTop && node.isClickable && (isAnyTabId || isAnyTabKw)) {
                     navHits++
                     if (rect.top < navTop) navTop = rect.top
+                    if (isReelsTabId ||
+                        lower.contains("reels") || lower.contains("clips") ||
+                        textLower.contains("reels") || textLower.contains("clips") ||
+                        viewIdLower.contains("reels") || viewIdLower.contains("clips")) {
+                        reelsTabRect = Rect(rect)
+                    }
                     if (node.isSelected || node.isChecked) {
                         val isSearchTabId = OTHER_TAB_IDS.any { viewIdLower.contains("search") && viewIdLower.contains(it) } ||
                             viewIdLower.contains("search_tab") || viewIdLower.contains("explore_tab")
@@ -517,7 +525,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 "reelsHits=$reelsHits engageHits=$reelsEngagementHits chromHits=$homeChromeHits " +
                 "topChromeBottom=$topChromeBottom storiesBottom=$storiesBarBottom directTab=$directTabSelected " +
                 "navHits=$navHits navTop=$resolvedNavTop navHeight=$navHeightPx navGap=$navGapPx " +
-                "blockRect=$blockRect bestContent=$bestContentRect " +
+                "blockRect=$blockRect reelsTab=$reelsTabRect bestContent=$bestContentRect " +
                 "mainContainer=$mainContainerRect navBar=$navBarRect actionBar=$actionBarRect navSelection=$navSelectionState"
         )
 
@@ -525,6 +533,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
             blockSurface = blockSurface,
             navBarTop = resolvedNavTop,
             blockRect = blockRect,
+            reelsTabRect = reelsTabRect,
             navSelectionState = navSelectionState,
             directTabSelected = directTabSelected,
             homeChromeHits = homeChromeHits,
@@ -581,27 +590,12 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 return
             }
 
-            if (blockSurface != null && blockRect != null) {
-                lastStableBlockRect = Rect(blockRect)
-                lastStableBlockMs = System.currentTimeMillis()
-                if (!feedBlockActive) {
-                    feedBlockActive = true
-                    startService(Intent(this, OverlayService::class.java).apply {
-                        action = OverlayService.ACTION_BLOCK_REGION
-                        putExtra("x", blockRect.left)
-                        putExtra("y", blockRect.top)
-                        putExtra("w", blockRect.width())
-                        putExtra("h", blockRect.height())
-                    })
-                } else {
-                    startService(Intent(this, OverlayService::class.java).apply {
-                        action = OverlayService.ACTION_BLOCK_REGION
-                        putExtra("x", blockRect.left)
-                        putExtra("y", blockRect.top)
-                        putExtra("w", blockRect.width())
-                        putExtra("h", blockRect.height())
-                    })
-                }
+            if (scan.reelsTabRect != null &&
+                (blockSurface != null || scan.homeChromeHits > 0) &&
+                navSelectionState != NavSelectionState.UNBLOCKED) {
+                if (feedBlockActive) feedBlockActive = false
+                lastStableBlockRect = null
+                sendBookOverlay(scan.reelsTabRect)
                 return
             }
 
@@ -636,6 +630,18 @@ class NoScrollAccessibilityService : AccessibilityService() {
     private fun hideOverlay() {
         startService(Intent(this, OverlayService::class.java).apply {
             action = OverlayService.ACTION_HIDE
+        })
+    }
+
+    private fun sendBookOverlay(reelsTabRect: Rect) {
+        val size = (48f * resources.displayMetrics.density + 0.5f).toInt()
+        val x = (reelsTabRect.centerX() - size / 2).coerceAtLeast(0)
+        val y = (reelsTabRect.centerY() - size / 2).coerceAtLeast(0)
+        startService(Intent(this, OverlayService::class.java).apply {
+            putExtra("x", x)
+            putExtra("y", y)
+            putExtra("w", size)
+            putExtra("h", size)
         })
     }
 
