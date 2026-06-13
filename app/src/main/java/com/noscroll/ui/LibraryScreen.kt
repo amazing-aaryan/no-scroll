@@ -2,9 +2,6 @@ package com.noscroll.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -110,30 +106,15 @@ fun LibraryScreen(
                         )
                     }
                     if (onHelp != null) {
-                        Box(
-                            Modifier
-                                .clip(RoundedCornerShape(6.dp))
-                                .clickable(onClick = onHelp)
-                                .padding(horizontal = 8.dp, vertical = 6.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("?", style = MaterialTheme.typography.labelLarge, color = PaperColors.Muted)
-                        }
+                        PaperActionButton(
+                            label = "Help",
+                            onClick = onHelp,
+                            tone = PaperButtonTone.Quiet,
+                            modifier = Modifier.padding(end = 8.dp)
+                        )
                     }
                     TutorialAnchor(TutorialStepId.LIBRARY_NOTEBOOK, tutorialController) {
-                        Box(
-                            Modifier
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(PaperColors.Ink)
-                                .clickable(onClick = onNotebook)
-                                .padding(horizontal = 14.dp, vertical = 8.dp)
-                        ) {
-                            Text(
-                                "Notebook",
-                                style = MaterialTheme.typography.labelLarge,
-                                color = PaperColors.Raised
-                            )
-                        }
+                        PaperActionButton(label = "Notebook", onClick = onNotebook)
                     }
                 }
             }
@@ -197,32 +178,31 @@ fun LibraryScreen(
 
             item {
                 TutorialAnchor(TutorialStepId.LIBRARY_FILTERS, tutorialController) {
-                    Row(
+                    PaperSegmentedSelector(
+                        label = "Filter",
+                        options = LibraryFilter.values().toList(),
+                        selected = filter,
+                        onSelected = { filter = it },
+                        optionLabel = { it.name },
                         Modifier
                             .fillMaxWidth()
-                            .horizontalScroll(rememberScrollState())
-                            .padding(horizontal = 20.dp, vertical = 12.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        LibraryFilter.values().forEach { option ->
-                            CompactChip(label = option.name, selected = filter == option, onClick = { filter = option })
-                        }
-                    }
+                            .padding(horizontal = 20.dp, vertical = 12.dp)
+                    )
                 }
             }
 
             item {
-                Row(
+                PaperSegmentedSelector(
+                    label = "Sort by",
+                    options = LibrarySort.values().toList(),
+                    selected = sort,
+                    onSelected = { sort = it },
+                    optionLabel = { it.name },
                     Modifier
                         .fillMaxWidth()
-                        .horizontalScroll(rememberScrollState())
                         .padding(horizontal = 20.dp, vertical = 2.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    LibrarySort.values().forEach { option ->
-                        CompactChip(label = option.name, selected = sort == option, onClick = { sort = option }, small = true)
-                    }
-                }
+                    compact = true
+                )
             }
 
             item {
@@ -282,7 +262,6 @@ private fun ContinueCard(book: BookEntity, metadata: BookMetadataEntity?, onOpen
             .clip(RoundedCornerShape(12.dp))
             .background(PaperColors.Raised)
             .border(1.dp, PaperColors.Hairline, RoundedCornerShape(12.dp))
-            .clickable(onClick = onOpen)
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -320,7 +299,12 @@ private fun ContinueCard(book: BookEntity, metadata: BookMetadataEntity?, onOpen
                 modifier = Modifier.padding(top = 5.dp)
             )
         }
-        Text("→", fontSize = 20.sp, color = PaperColors.Amber, modifier = Modifier.padding(start = 10.dp))
+        PaperActionButton(
+            label = "Open",
+            onClick = onOpen,
+            tone = PaperButtonTone.Quiet,
+            modifier = Modifier.padding(start = 10.dp)
+        )
     }
 }
 
@@ -332,12 +316,11 @@ private fun ImportCard(onClick: () -> Unit) {
             .padding(horizontal = 20.dp, vertical = 8.dp)
             .clip(RoundedCornerShape(10.dp))
             .border(1.dp, PaperColors.Hairline, RoundedCornerShape(10.dp))
-            .clickable(onClick = onClick)
             .padding(horizontal = 18.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text("+", fontSize = 24.sp, color = PaperColors.Muted, fontWeight = FontWeight.Light)
-        Column(Modifier.padding(start = 14.dp)) {
+        Column(Modifier.weight(1f).padding(start = 14.dp)) {
             Text("Add a book", style = MaterialTheme.typography.titleMedium, color = PaperColors.Graphite)
             Text(
                 "Import a PDF from your device",
@@ -346,29 +329,10 @@ private fun ImportCard(onClick: () -> Unit) {
                 modifier = Modifier.padding(top = 1.dp)
             )
         }
-    }
-}
-
-@Composable
-private fun CompactChip(label: String, selected: Boolean, onClick: () -> Unit, small: Boolean = false) {
-    val shape = RoundedCornerShape(50)
-    Box(
-        Modifier
-            .height(if (small) 30.dp else 36.dp)
-            .widthIn(min = if (small) 52.dp else 68.dp)
-            .clip(shape)
-            .background(if (selected) PaperColors.Ink else PaperColors.Paper)
-            .border(1.dp, if (selected) PaperColors.Ink else PaperColors.Hairline, shape)
-            .clickable(onClick = onClick)
-            .padding(horizontal = 14.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            label,
-            style = if (small) MaterialTheme.typography.labelSmall else MaterialTheme.typography.labelLarge,
-            color = if (selected) PaperColors.Raised else PaperColors.Graphite,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+        PaperActionButton(
+            label = "Import",
+            onClick = onClick,
+            tone = PaperButtonTone.Quiet
         )
     }
 }

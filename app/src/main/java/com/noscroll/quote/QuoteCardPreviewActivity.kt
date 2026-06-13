@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,11 +23,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -40,6 +37,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -49,6 +47,8 @@ import com.noscroll.data.AnnotationDatabase
 import com.noscroll.data.QuoteCardEntity
 import com.noscroll.metadata.BookMetadataRepository
 import com.noscroll.ui.NoScrollTheme
+import com.noscroll.ui.PaperActionButton
+import com.noscroll.ui.PaperButtonTone
 import com.noscroll.ui.PaperColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -107,7 +107,10 @@ class QuoteCardPreviewActivity : AppCompatActivity() {
                                 Column(
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                     modifier = Modifier
-                                        .clickable {
+                                        .selectable(
+                                            selected = isSelected,
+                                            role = Role.RadioButton
+                                        ) {
                                             spec = spec?.copy(theme = theme)
                                             render()
                                         }
@@ -146,17 +149,18 @@ class QuoteCardPreviewActivity : AppCompatActivity() {
                     }
 
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                        TextButton(onClick = { finish() }) { Text("Close") }
-                        Button(
+                        PaperActionButton(label = "Close", onClick = { finish() }, tone = PaperButtonTone.Quiet)
+                        PaperActionButton(
+                            label = "Save",
                             onClick = { saveCurrentQuote() },
-                            colors = ButtonDefaults.buttonColors(containerColor = PaperColors.Sage),
+                            tone = PaperButtonTone.Sage,
                             modifier = Modifier.weight(1f)
-                        ) { Text("Save") }
-                        Button(
+                        )
+                        PaperActionButton(
+                            label = "Share",
                             onClick = { shareCurrentQuote() },
-                            colors = ButtonDefaults.buttonColors(containerColor = PaperColors.Ink),
                             modifier = Modifier.weight(1f)
-                        ) { Text("Share") }
+                        )
                     }
                 }
             }
@@ -222,7 +226,7 @@ class QuoteCardPreviewActivity : AppCompatActivity() {
     private fun shareCurrentQuote() {
         val bitmap = currentBitmap
         if (bitmap == null) {
-            Toast.makeText(this, "Still loading preview…", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Still loading preview...", Toast.LENGTH_SHORT).show()
             return
         }
         saveCurrentQuote {

@@ -18,6 +18,8 @@ object PaperColors {
     val Graphite = Color(0xFF66615A)
     val Muted = Color(0xFF8A8378)
     val Hairline = Color(0xFFDDD5C8)
+    val SoftInk = Color(0xFFE8E0D2)
+    val Danger = Color(0xFF9E4A3E)
     val Amber = Color(0xFFD9A441)
     val Sage = Color(0xFF77846F)
     val OverlayInk = Color(0xE8171615)

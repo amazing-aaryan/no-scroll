@@ -2,9 +2,7 @@ package com.noscroll.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -26,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,12 +51,7 @@ fun OnlineBookSearchScreen(
                     .padding(start = 20.dp, end = 20.dp, top = 20.dp, bottom = 12.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "Back",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = PaperColors.Amber,
-                        modifier = Modifier.clickable(onClick = onBack)
-                    )
+                    PaperActionButton(label = "Back", onClick = onBack, tone = PaperButtonTone.Quiet)
                     Spacer(Modifier.weight(1f))
                     Text(
                         "Legal PDF search",
@@ -100,7 +91,8 @@ fun OnlineBookSearchScreen(
                     )
                     SearchActionRow(
                         onSearch = onSearch,
-                        isLoading = isLoading
+                        isLoading = isLoading,
+                        enabled = query.isNotBlank() && isConfigured
                     )
                     errorMessage?.let {
                         Text(
@@ -139,29 +131,18 @@ fun OnlineBookSearchScreen(
 @Composable
 private fun SearchActionRow(
     onSearch: () -> Unit,
-    isLoading: Boolean
+    isLoading: Boolean,
+    enabled: Boolean
 ) {
     Row(
         modifier = Modifier.padding(top = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            Modifier
-                .clip(RoundedCornerShape(10.dp))
-                .background(PaperColors.Ink)
-                .clickable(enabled = !isLoading, onClick = onSearch)
-                .padding(horizontal = 18.dp, vertical = 12.dp)
-        ) {
-            if (isLoading) {
-                CircularProgressIndicator(
-                    modifier = Modifier.height(16.dp),
-                    color = PaperColors.Raised,
-                    strokeWidth = 2.dp
-                )
-            } else {
-                Text("Search", style = MaterialTheme.typography.labelLarge, color = PaperColors.Raised)
-            }
-        }
+        PaperActionButton(
+            label = if (isLoading) "Searching" else "Search",
+            onClick = onSearch,
+            enabled = enabled && !isLoading
+        )
         Text(
             "Uses your configured legal-source API.",
             style = MaterialTheme.typography.labelMedium,
@@ -200,7 +181,7 @@ private fun SearchResultRow(
                 modifier = Modifier.padding(top = 2.dp)
             )
             val meta = listOfNotNull(result.source, result.year, result.language, result.fileType)
-                .joinToString(" • ")
+                .joinToString(" / ")
             if (meta.isNotBlank()) {
                 Text(
                     meta,
@@ -210,20 +191,13 @@ private fun SearchResultRow(
                 )
             }
         }
-        Box(
-            Modifier
-                .clip(RoundedCornerShape(10.dp))
-                .border(1.dp, PaperColors.Ink, RoundedCornerShape(10.dp))
-                .clickable(enabled = !isDownloading, onClick = onDownload)
-                .padding(horizontal = 14.dp, vertical = 10.dp)
-        ) {
-            Text(
-                if (isDownloading) "Importing..." else "Get PDF",
-                style = MaterialTheme.typography.labelLarge,
-                color = PaperColors.Ink,
-                fontWeight = FontWeight.Medium
-            )
-        }
+        PaperActionButton(
+            label = if (isDownloading) "Importing" else "Import",
+            onClick = onDownload,
+            enabled = !isDownloading,
+            tone = PaperButtonTone.Quiet,
+            modifier = Modifier.padding(start = 12.dp)
+        )
     }
 }
 

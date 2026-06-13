@@ -10,13 +10,13 @@
     "semantic_hash": "747ce1ed2b3bdcc3a8c5ee281ac534d9"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollAccessibilityService.kt": {
-    "mtime": 1781246151.3622484,
-    "ast_hash": "da5277c0ab1de836e424ee4d4e9fca0b",
+    "mtime": 1781362224.5311985,
+    "ast_hash": "90cffb6630bbf68be4b569a0e66a8c98",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollPdfViewerFragment.kt": {
-    "mtime": 1780591820.1579432,
-    "ast_hash": "db3e5558a06f41e8fd5ee9e9d4319c40",
+    "mtime": 1781360586.9978354,
+    "ast_hash": "9ae6999de6def78b696138f3106aff31",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NotebookActivity.kt": {
@@ -30,9 +30,9 @@
     "semantic_hash": "07a13abfa44f55f3d21d3a3bbd5a7a72"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\OverlayService.kt": {
-    "mtime": 1780218596.8342707,
-    "ast_hash": "94cee23a889dde9b1fb9aa3ffa8b9123",
-    "semantic_hash": "94cee23a889dde9b1fb9aa3ffa8b9123"
+    "mtime": 1781342882.3855333,
+    "ast_hash": "b2532fa273fefa68ef19c126a3e31786",
+    "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PageTurnInterceptor.kt": {
     "mtime": 1779041014.1907494,
@@ -85,8 +85,8 @@
     "semantic_hash": "bdfe6c665c53b064ffb461a8fdd144b1"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\SetupActivity.kt": {
-    "mtime": 1781245917.0767071,
-    "ast_hash": "2467e70e90f6fcb03de4215c5729fcdf",
+    "mtime": 1781352315.9942064,
+    "ast_hash": "bbe085f4613ec922b08249f6a903dc07",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDao.kt": {
@@ -220,8 +220,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardPreviewActivity.kt": {
-    "mtime": 1780591971.9968655,
-    "ast_hash": "e1e5e9038fbf5a001f36d04793baf237",
+    "mtime": 1781352272.1697526,
+    "ast_hash": "3cd6616d65fc3bc7649ed075b58ea02e",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardSpec.kt": {
@@ -235,8 +235,8 @@
     "semantic_hash": "34fee8978fbc6354fca8a8f339f3dd7f"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\ShareBottomSheet.kt": {
-    "mtime": 1780591991.4227028,
-    "ast_hash": "de96a1185a8fd32bb30ee7d93952154a",
+    "mtime": 1781352292.0543106,
+    "ast_hash": "0c621c9bd238c64c68fd5fe60a9d7142",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\repository\\AnnotationRepository.kt": {
@@ -290,29 +290,29 @@
     "semantic_hash": "8b4bbd2a953e58bbaa497d13709baa67"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
-    "mtime": 1781245653.5862525,
-    "ast_hash": "0d70c0611fdab3d12154c5211c0e34da",
+    "mtime": 1781352361.704252,
+    "ast_hash": "2193e9c3b41734ac17288885034b9182",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\NotebookScreen.kt": {
-    "mtime": 1780066575.6776993,
-    "ast_hash": "3bbe53c6c31200c75c4a61dfcfefe8b0",
-    "semantic_hash": "3bbe53c6c31200c75c4a61dfcfefe8b0"
+    "mtime": 1781352161.6701918,
+    "ast_hash": "d34f4531bb8410e97fe4d3527e8b0a1a",
+    "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\OnlineBookSearchScreen.kt": {
-    "mtime": 1779710671.9870741,
-    "ast_hash": "3b4758181305b16c6ffbc2aa6967667e",
-    "semantic_hash": "3b4758181305b16c6ffbc2aa6967667e"
+    "mtime": 1781352052.1292937,
+    "ast_hash": "16dc8176a4a9517101d245106cdcf3f3",
+    "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\PaperComponents.kt": {
-    "mtime": 1778849343.8710065,
-    "ast_hash": "332cc37b21222ac3f11800ba2bb91a56",
-    "semantic_hash": "332cc37b21222ac3f11800ba2bb91a56"
+    "mtime": 1781360304.1771688,
+    "ast_hash": "33d8ef8ef344623f90e3955c41c42858",
+    "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\PaperTheme.kt": {
-    "mtime": 1779538539.194291,
-    "ast_hash": "c1a7dd3a6d08f9277393130b31037e82",
-    "semantic_hash": "c1a7dd3a6d08f9277393130b31037e82"
+    "mtime": 1781351597.8365035,
+    "ast_hash": "c00531ffeb5654285f9dc656adf11794",
+    "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\PdfReaderGestureTest.kt": {
     "mtime": 1779176658.8026142,
@@ -360,8 +360,3573 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\reasoning.md": {
-    "mtime": 1778824721.7296178,
-    "ast_hash": "b326fb6ab981d97078fe02b0ea1c2848",
+    "mtime": 1781289761.997281,
+    "ast_hash": "345de40bacff4fb46402529b6dfc2ad6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-pull.txt": {
+    "mtime": 1781250486.7092974,
+    "ast_hash": "fc3f1568fca25d6f08946cb287a6756a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-window.txt": {
+    "mtime": 1781250486.8485875,
+    "ast_hash": "5f64c7d76675711c381ddffb92ca1f2f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-before-pull.txt": {
+    "mtime": 1781250477.754217,
+    "ast_hash": "7c91be43d8a5c3adde60cf6fb885182e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-before-uiautomator-command.txt": {
+    "mtime": 1781250481.5650632,
+    "ast_hash": "e633b195088144563eef7fdcaab29b46",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-before-window.txt": {
+    "mtime": 1781250478.1029758,
+    "ast_hash": "29fbb49a24fd18a21d47640ee64a29c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-before-xml-pull.txt": {
+    "mtime": 1781250482.5532966,
+    "ast_hash": "23a39411aa087e3ac1d75becbb53c7b3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-after-pull.txt": {
+    "mtime": 1781250748.792199,
+    "ast_hash": "22a8ca2e3740c06940c75067ef209c2f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-after-window.txt": {
+    "mtime": 1781250748.9239862,
+    "ast_hash": "10b4adcd72c37f85733877ce9afbcb80",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-before-pull.txt": {
+    "mtime": 1781250741.4882007,
+    "ast_hash": "61c7a8878c41860dc46740b49ef74131",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-before-uiautomator-command.txt": {
+    "mtime": 1781250744.3328888,
+    "ast_hash": "10180bfad4e619a8c83a08f0cedf2f46",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-before-window.txt": {
+    "mtime": 1781250741.7769668,
+    "ast_hash": "a897c9bdf0a0cee234ecf04088deae62",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-before-xml-pull.txt": {
+    "mtime": 1781250745.6328268,
+    "ast_hash": "fee628f0f48127c8509477c7de0431e7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-tab-pull.txt": {
+    "mtime": 1781250549.8864603,
+    "ast_hash": "29dfc64aa78a553ba54812a3b21501a3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T2-reels-tab-window.txt": {
+    "mtime": 1781250550.0093465,
+    "ast_hash": "658fc8de0f331ba8452e76857c0429ab",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-after-pull.txt": {
+    "mtime": 1781251086.2884583,
+    "ast_hash": "e5b17e8e358c0111a9f5375645303fd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-after-window.txt": {
+    "mtime": 1781251086.6516566,
+    "ast_hash": "ab5b158291216ea70484ab4e878ac6cb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-before-pull.txt": {
+    "mtime": 1781251066.2925239,
+    "ast_hash": "1cdf5d8248763d4b8cbf20f318125c4a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-before-uiautomator-command.txt": {
+    "mtime": 1781251078.0292296,
+    "ast_hash": "e72b050f19a84e4fb64fdc27608356fc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-before-window.txt": {
+    "mtime": 1781251066.7474055,
+    "ast_hash": "14557916dcf80be65787930beb1c7ec3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-actual-before-xml-pull.txt": {
+    "mtime": 1781251079.160195,
+    "ast_hash": "775749a789e0a895b668a705d5672598",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-after-pull.txt": {
+    "mtime": 1781250596.9909377,
+    "ast_hash": "556fc801bb30ae59bb58beb3522c6a00",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-after-window.txt": {
+    "mtime": 1781250597.1350482,
+    "ast_hash": "d4b0f771f1d9fdaae3167ebc1cb2c55b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-before-pull.txt": {
+    "mtime": 1781250591.6971257,
+    "ast_hash": "fef90ef4f7faedc8e6ebc3a682dbc57c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-before-uiautomator-command.txt": {
+    "mtime": 1781250593.2673912,
+    "ast_hash": "0b40a514880767c3127e10a4ea54a635",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-before-window.txt": {
+    "mtime": 1781250591.7916622,
+    "ast_hash": "ac8a0edc31af8039a56504e52a1472fe",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-before-xml-pull.txt": {
+    "mtime": 1781250594.1929946,
+    "ast_hash": "17a434989fb80b0b8426f8b9bb35cb74",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-retry-wait20-pull.txt": {
+    "mtime": 1781250816.5729752,
+    "ast_hash": "3326e9ea3b0e88259dddbb40307cd0c1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-retry-wait20-window.txt": {
+    "mtime": 1781250816.6701396,
+    "ast_hash": "0991f889d124814e4b6c3ad87d75033a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-waited-pull.txt": {
+    "mtime": 1781250641.5836306,
+    "ast_hash": "12f295ef63b0a632614b44a1a64808ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T3-search-waited-window.txt": {
+    "mtime": 1781250641.7956562,
+    "ast_hash": "ea4721ba8127ed29a52730d085d149fa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-tap-clean-pull.txt": {
+    "mtime": 1781250992.8870916,
+    "ast_hash": "48a9a61fd898861e7f69dc08c8da8e68",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-tap-clean-window.txt": {
+    "mtime": 1781250993.0333426,
+    "ast_hash": "34fb0f280070ab80367eceabd6ec0a46",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-typing-pull.txt": {
+    "mtime": 1781251161.1571522,
+    "ast_hash": "e702bbb7bf34d3b432770302bd6c8b68",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-typing-uiautomator-command.txt": {
+    "mtime": 1781251171.7427258,
+    "ast_hash": "ebe8ffb44b28ba9ababe8b0932fd86f2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-typing-window.txt": {
+    "mtime": 1781251161.2774215,
+    "ast_hash": "331d7541735737701c1e483ef1a16fc2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T4-search-typing-xml-pull.txt": {
+    "mtime": 1781251172.8654315,
+    "ast_hash": "b5d018d2761f3abc1ae1f838d652a13d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T5-account-private-window.txt": {
+    "mtime": 1781250932.6093585,
+    "ast_hash": "f207f02ddd46ffbde94224586b6935c8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-no-fixture-pull.txt": {
+    "mtime": 1781251230.7210748,
+    "ast_hash": "cc04bf013bdd385a174d394019b8d342",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-no-fixture-uiautomator-command.txt": {
+    "mtime": 1781251241.2767415,
+    "ast_hash": "40f053dbee7b499e18a2582dbc294637",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-no-fixture-window.txt": {
+    "mtime": 1781251230.8228593,
+    "ast_hash": "8e24c4cc649b41755ece5c8e3b508b1c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-no-fixture-xml-pull.txt": {
+    "mtime": 1781251242.1675138,
+    "ast_hash": "8b9423aae42583d57c4622e22466df30",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-retry-pull.txt": {
+    "mtime": 1781251292.4483037,
+    "ast_hash": "bfb2e8acde0d18c712db59950585c248",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T6-direct-retry-window.txt": {
+    "mtime": 1781251292.543015,
+    "ast_hash": "40dea8a6db7b548f34ba5f7ef0fe26ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\accessibility-dumpsys.txt": {
+    "mtime": 1781250376.5208702,
+    "ast_hash": "250acd6a58f02e973b7f86492afd3734",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\adb-state.txt": {
+    "mtime": 1781250375.151857,
+    "ast_hash": "5c03e2d52c2bb212f793c468bf5b811b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\android-version.txt": {
+    "mtime": 1781250375.2622502,
+    "ast_hash": "dad113cc10d2b01e6f26924ea3603a49",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\direct-after-modal-dismiss-pull.txt": {
+    "mtime": 1781250858.4498053,
+    "ast_hash": "3c79b2427b90a6834d0f3f95a190b6f8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\direct-after-modal-dismiss-retry-pull.txt": {
+    "mtime": 1781250895.7682915,
+    "ast_hash": "abaa02a2b13e07cb594047d41c591af1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\direct-after-modal-dismiss-uiautomator-command.txt": {
+    "mtime": 1781250859.8559098,
+    "ast_hash": "774e3b98746bed49891b3c66affb19d9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\direct-after-modal-dismiss-xml-pull.txt": {
+    "mtime": 1781250860.7654169,
+    "ast_hash": "f5e4cc75d08ac76d94d4c106ac391137",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\enabled-accessibility-services.txt": {
+    "mtime": 1781250376.2890208,
+    "ast_hash": "784ca8d5c28784c91ff7b440160686e4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\final-accessibility-dumpsys.txt": {
+    "mtime": 1781251357.0949807,
+    "ast_hash": "5f3ade65b3f54edf231fdbc9338224c1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\final-enabled-accessibility-services.txt": {
+    "mtime": 1781251357.0296824,
+    "ast_hash": "784ca8d5c28784c91ff7b440160686e4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\final-noscroll-overlay-appop.txt": {
+    "mtime": 1781251356.9706726,
+    "ast_hash": "a68470a0ed887bfafd222910fa4da921",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\git-status-short.txt": {
+    "mtime": 1781250376.6787775,
+    "ast_hash": "bdf5009ab29c2b157d6ce017b730e81b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\home-before-final-search-pull.txt": {
+    "mtime": 1781250944.1441197,
+    "ast_hash": "595308c7a8e49858a4291e81b692e19f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\initial-screencap-pull.txt": {
+    "mtime": 1781250437.1228852,
+    "ast_hash": "1e3b86b687598cc9b047253956040573",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\initial-window.txt": {
+    "mtime": 1781250408.728833,
+    "ast_hash": "9c44478400b550924fbbc3d87c5efb07",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\instagram-package.txt": {
+    "mtime": 1781250375.889416,
+    "ast_hash": "b6b878469dcf4c817100b2770b9f7fde",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\instagram-path.txt": {
+    "mtime": 1781250375.3965902,
+    "ast_hash": "2ec5fcf7972cf158c8964e9e168e945c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\launch-instagram.txt": {
+    "mtime": 1781250400.7850845,
+    "ast_hash": "8780d6cb9413f90a214c8d7886796873",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\log-scan-summary.txt": {
+    "mtime": 1781251357.2580044,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\noscroll-overlay-appop.txt": {
+    "mtime": 1781250376.1494176,
+    "ast_hash": "eca129745752a5553dc41a6bc30ac459",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\noscroll-package.txt": {
+    "mtime": 1781250376.0193534,
+    "ast_hash": "e79e76c05083d008903936d7ab2c5614",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\noscroll-path.txt": {
+    "mtime": 1781250375.5723786,
+    "ast_hash": "f3235f7989f32880d56f873691152dcf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\pre-direct-retry-pull.txt": {
+    "mtime": 1781251287.764083,
+    "ast_hash": "d6e54edba941d679e83f31957677a488",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\relaunch-after-search-spinner.txt": {
+    "mtime": 1781250687.7883878,
+    "ast_hash": "f515f77cf2ec596f06d6d40206811540",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\relaunch-after-spinner-pull.txt": {
+    "mtime": 1781250694.892774,
+    "ast_hash": "ea6b28855864b63418ba93afbdd99d8a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\relaunch-after-spinner-window.txt": {
+    "mtime": 1781250695.2064717,
+    "ast_hash": "30645bb1d8f4c8011d6f00b61ef030d5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\relaunch-before-final-search.txt": {
+    "mtime": 1781250937.8299582,
+    "ast_hash": "7d3c0c1c7b95fd50ed864ef24689d38e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\relaunch-before-search-retry.txt": {
+    "mtime": 1781250789.8206384,
+    "ast_hash": "576f072a8684e287278b2291b2448bff",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\enabled-accessibility-services.txt": {
+    "mtime": 1781270206.0546646,
+    "ast_hash": "784ca8d5c28784c91ff7b440160686e4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\fix5-search-navtest-window.txt": {
+    "mtime": 1781271726.4415746,
+    "ast_hash": "5e71a5db08a4899a770f0e2836961773",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\fix6-dm-thread-wait-window.txt": {
+    "mtime": 1781272470.3466232,
+    "ast_hash": "1164435df83745f3e130b8c91b576e5e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\fix6-home-window.txt": {
+    "mtime": 1781271983.7968268,
+    "ast_hash": "e558bff2fbb83134894621ff0290a233",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\initial-window.txt": {
+    "mtime": 1781270293.7042665,
+    "ast_hash": "558af3b2ffc034b8fe06aedaa0bad243",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\noscroll-overlay-appop.txt": {
+    "mtime": 1781270205.805247,
+    "ast_hash": "ddfa72694bba0ee9f155dbe5131c9b55",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-fix-20260612-161544\\stamp.txt": {
+    "mtime": 1781270144.975914,
+    "ast_hash": "e1e53bdf6dc1ae7013a3070b47a0ba0f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-20260612-171622\\dm-shared-opened-window.txt": {
+    "mtime": 1781274030.909211,
+    "ast_hash": "4b56616d5f02ef4b52b133dd33d6c1f4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-20260612-171622\\enabled-accessibility-services.txt": {
+    "mtime": 1781273826.4575558,
+    "ast_hash": "784ca8d5c28784c91ff7b440160686e4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-20260612-171622\\overlay-appop.txt": {
+    "mtime": 1781273826.2900841,
+    "ast_hash": "b2d236f0cfa69d0bc93496c20b53c81e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-20260612-171622\\stamp.txt": {
+    "mtime": 1781273782.168278,
+    "ast_hash": "46e18f1d8e020870140f45f6b93d96b4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\current-window.txt": {
+    "mtime": 1781274393.7477262,
+    "ast_hash": "7c03cee68080dd4f6e16c5b4cbbb3f0a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-after-swipe-window.txt": {
+    "mtime": 1781274926.2261734,
+    "ast_hash": "0a775dd5a67a30ea56d60cdf3cc463d2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-after-swipe2-window.txt": {
+    "mtime": 1781275655.1784458,
+    "ast_hash": "2d39bf3e5d606ec4c7e4c66fccb5d9bc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-after-swipe3-window.txt": {
+    "mtime": 1781276049.1799502,
+    "ast_hash": "ba3941f56d42ff8c35e0de3aa15dfc9e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-opened2-window.txt": {
+    "mtime": 1781274859.1705613,
+    "ast_hash": "fcbbd558fbddf6d6815063a844ef9dab",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-opened3-window.txt": {
+    "mtime": 1781275242.988649,
+    "ast_hash": "3e86f163d9b2a4c28edc9381da66beb3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-opened4-window.txt": {
+    "mtime": 1781275425.1000953,
+    "ast_hash": "6d5fc829c8f433d7e93837ecc36f074b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-opened5-window.txt": {
+    "mtime": 1781275610.5747693,
+    "ast_hash": "0f10efd175efa31f4c883d832dff98c8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\dm-return-window.txt": {
+    "mtime": 1781274803.212947,
+    "ast_hash": "7f36fc38e4221f61bf2828923930d387",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\instagram-package.txt": {
+    "mtime": 1781274359.337379,
+    "ast_hash": "97e8c7746660b4bdbb9541e961d898f5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-shared-fix-20260612-172900\\noscroll-package.txt": {
+    "mtime": 1781274359.5222445,
+    "ast_hash": "582aab7dcb88e3ef448a12f61519cea8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-touch-consume-20260612-180000\\dm-after-swipe-window.txt": {
+    "mtime": 1781276921.107134,
+    "ast_hash": "f65c14482839d68426e0e9de32bf70a8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-touch-consume-20260612-180000\\dm-after-swipe2-window.txt": {
+    "mtime": 1781276997.3440185,
+    "ast_hash": "63650e566a6bb8be14b0b8e09ecb30ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-touch-consume-20260612-180000\\dm-open-window.txt": {
+    "mtime": 1781276909.2240696,
+    "ast_hash": "4e20e0d6190fdc63ac40d86d6edf08ae",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\android-version.txt": {
+    "mtime": 1781277272.4963136,
+    "ast_hash": "92b59b0296b729463d53e121481bdbdd",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\device.txt": {
+    "mtime": 1781277272.3412178,
+    "ast_hash": "8d642aa037eaa2ed1ff0d53782583d44",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-dm-after-swipe-window.txt": {
+    "mtime": 1781277529.4194322,
+    "ast_hash": "2c2389fc440150de7f48f4f9edb93dae",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-dm-open-window.txt": {
+    "mtime": 1781277513.2911167,
+    "ast_hash": "290dd5bac44d71b67c072335b40f893a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-home-window.txt": {
+    "mtime": 1781277600.092023,
+    "ast_hash": "357b97f2c15431f7d34321e807b4fbbe",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-reels-window.txt": {
+    "mtime": 1781277636.2293632,
+    "ast_hash": "5ede88362845930a6707dbef3d129123",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-search-deeplink-window.txt": {
+    "mtime": 1781277760.22847,
+    "ast_hash": "7ceb99aca50866254cad5f069f0f5a3a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\final-search-window.txt": {
+    "mtime": 1781277651.690052,
+    "ast_hash": "c766cec3c5d6cfd191e76917a5c95caf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\git-status.txt": {
+    "mtime": 1781277272.5547442,
+    "ast_hash": "7edbade525c9ba34e05e08294691a0f4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\instagram-version.txt": {
+    "mtime": 1781277271.9602838,
+    "ast_hash": "97e8c7746660b4bdbb9541e961d898f5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\install.txt": {
+    "mtime": 1781277270.7046196,
+    "ast_hash": "1a0e2b49219d411a9b025a228df2ffd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-181300\\noscroll-version.txt": {
+    "mtime": 1781277272.2963269,
+    "ast_hash": "582aab7dcb88e3ef448a12f61519cea8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\00-current-window.txt": {
+    "mtime": 1781278390.484892,
+    "ast_hash": "7c6d86c727a7d7e53babcf82156c3169",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\01-account-window.txt": {
+    "mtime": 1781278444.2818477,
+    "ast_hash": "c651088f522cde4f06acb17925c6ba11",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\02-post-install-a11y-setting.txt": {
+    "mtime": 1781278707.8291066,
+    "ast_hash": "25a9666f3218d4d87ed7d058e20094ba",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\02-post-install-accessibility.txt": {
+    "mtime": 1781278708.0861232,
+    "ast_hash": "bffccbc69f12f73d69bd64ee4a36009e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\02-post-install-window.txt": {
+    "mtime": 1781278708.3760183,
+    "ast_hash": "c26f19af7c809524d61d66aea786ae97",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\03-current-after-install-window.txt": {
+    "mtime": 1781278743.3143828,
+    "ast_hash": "898768c11681ff0c798f7ff3bdb39d5e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\04-home-after-swipe-window.txt": {
+    "mtime": 1781278778.8270135,
+    "ast_hash": "f3f13df7c78ac8fda37c7db3b50b553d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\05-reels-before-window.txt": {
+    "mtime": 1781278834.8118513,
+    "ast_hash": "2a35e9c57e0649b8928d8a9fa3507f5d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\06-reels-after-swipe-window.txt": {
+    "mtime": 1781278855.892189,
+    "ast_hash": "adad872099fa1ca1ac76bdd26e3c6245",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\07-reels-settled-before-pull-xml.txt": {
+    "mtime": 1781278903.5536091,
+    "ast_hash": "47f9827cc82a71b8853152207b81fa21",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\07-reels-settled-before-uiautomator.txt": {
+    "mtime": 1781278897.313612,
+    "ast_hash": "2802d3c891b5b6cbf0e8a330355f730c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\07-reels-settled-before-window.txt": {
+    "mtime": 1781278904.4760861,
+    "ast_hash": "b99a3eb7d6d2b5b323426badc245facf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\08-reels-settled-after-swipe-pull-xml.txt": {
+    "mtime": 1781278928.5204434,
+    "ast_hash": "863efd4d2c660fffd6af5ce9c310ad58",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\08-reels-settled-after-swipe-uiautomator.txt": {
+    "mtime": 1781278927.3415036,
+    "ast_hash": "3666e3d127102abf027a5b79ed5e972c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\08-reels-settled-after-swipe-window.txt": {
+    "mtime": 1781278928.728362,
+    "ast_hash": "33ec3fd0fd615dac19d87ff824eec998",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\10-final-install-accessibility.txt": {
+    "mtime": 1781279195.1897225,
+    "ast_hash": "c866aae95a54ae2b459e8d04b5793d20",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\11-final-home-before-pull-xml.txt": {
+    "mtime": 1781279235.6707585,
+    "ast_hash": "de6dd0e5a932a1c960d26689dbfd1f71",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\11-final-home-before-uiautomator.txt": {
+    "mtime": 1781279233.7405248,
+    "ast_hash": "bc823adc929bf87d157ba0686692e5da",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\11-final-home-before-window.txt": {
+    "mtime": 1781279236.1892977,
+    "ast_hash": "d53c0c86291e931862608f76f3d74d8b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\12-final-home-after-swipe-pull-xml.txt": {
+    "mtime": 1781279247.7287655,
+    "ast_hash": "11e48312c18018c42d7c708cc1e40bb9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\12-final-home-after-swipe-uiautomator.txt": {
+    "mtime": 1781279246.570901,
+    "ast_hash": "a0e79ef17510e3f35f8a131ae64452d8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\12-final-home-after-swipe-window.txt": {
+    "mtime": 1781279248.0699382,
+    "ast_hash": "c1481ba38ad6a4757aaf2afb845510d3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\13-final-reels-before-pull-xml.txt": {
+    "mtime": 1781279263.7460546,
+    "ast_hash": "4b7ddb9a6e081e17df9f5d80506d4d46",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\13-final-reels-before-uiautomator.txt": {
+    "mtime": 1781279262.490342,
+    "ast_hash": "51a033d7e767340871847da3b01e6aa1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\13-final-reels-before-window.txt": {
+    "mtime": 1781279264.1069758,
+    "ast_hash": "35cbea5556d1e026a88fbf23f869525e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\14-final-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781279277.2260683,
+    "ast_hash": "498d5df618e13480b2fc2a4196a2d835",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\14-final-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781279275.9677358,
+    "ast_hash": "0ee2f471ac3f9e92b9a335cab85609b7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\14-final-reels-after-swipe-window.txt": {
+    "mtime": 1781279277.8718233,
+    "ast_hash": "cd84c6bf256a628cb48f805a35c0385a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\15-final-search-grid-before-pull-xml.txt": {
+    "mtime": 1781279292.3457499,
+    "ast_hash": "963bd9bea60da28c7b87c58991ed1985",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\15-final-search-grid-before-uiautomator.txt": {
+    "mtime": 1781279291.3504376,
+    "ast_hash": "af8f2cc66cd9044a66603bea3d7fd8e7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\15-final-search-grid-before-window.txt": {
+    "mtime": 1781279292.562998,
+    "ast_hash": "69f487b651967cae6094a809f5e4bbff",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\16-final-search-grid-after-swipe-pull-xml.txt": {
+    "mtime": 1781279302.2361343,
+    "ast_hash": "5c774a3119bb8da94e8f7ad470e19cbb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\16-final-search-grid-after-swipe-uiautomator.txt": {
+    "mtime": 1781279301.0360672,
+    "ast_hash": "dac5fa3363e4d4c99fb38ce0e5bce8df",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\16-final-search-grid-after-swipe-window.txt": {
+    "mtime": 1781279302.6441474,
+    "ast_hash": "90418cdbde5729605db88a270f34d8a3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\17-final-search-typing-pull-xml.txt": {
+    "mtime": 1781279314.9081578,
+    "ast_hash": "76b94c0d316ae6bdec0d6ed4d3302150",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\17-final-search-typing-uiautomator.txt": {
+    "mtime": 1781279313.483488,
+    "ast_hash": "69a01db61a776b53707af8088ee7aa3a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\17-final-search-typing-window.txt": {
+    "mtime": 1781279315.3121834,
+    "ast_hash": "1a38a08d908968632db8de3475e89685",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\18-final-account-page-pull-xml.txt": {
+    "mtime": 1781279325.5439274,
+    "ast_hash": "189323040e0403e3a1c9838f5df77d44",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\18-final-account-page-uiautomator.txt": {
+    "mtime": 1781279324.6043594,
+    "ast_hash": "8bb8b28ec5b25d90cb5f0f0e2c3937ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\18-final-account-page-window.txt": {
+    "mtime": 1781279325.6746247,
+    "ast_hash": "3ad080292c2ce8de551a22f0cd4ba147",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\19-final-search-grid-before-pull-xml.txt": {
+    "mtime": 1781279517.9148383,
+    "ast_hash": "6f5c1edab18d90a04608a69b0feb8f1e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\19-final-search-grid-before-uiautomator.txt": {
+    "mtime": 1781279516.4774115,
+    "ast_hash": "a28363acd67631b495b696ea178f4bf6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\19-final-search-grid-before-window.txt": {
+    "mtime": 1781279518.205873,
+    "ast_hash": "1560b05133c65fcf0434f329fb72c569",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\20-final-search-grid-after-swipe-pull-xml.txt": {
+    "mtime": 1781279530.879755,
+    "ast_hash": "302ef6c871b06c4e320a91e8a58ff491",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\20-final-search-grid-after-swipe-uiautomator.txt": {
+    "mtime": 1781279529.365049,
+    "ast_hash": "6276bef42e6199132e5ae47cfd4b5b4d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\20-final-search-grid-after-swipe-window.txt": {
+    "mtime": 1781279531.214712,
+    "ast_hash": "48b168aaffc6cad9c83c1c2ddf15d70f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\21-final-search-typing-pull-xml.txt": {
+    "mtime": 1781279555.8049414,
+    "ast_hash": "d288fa77f631fa3d70ad4ae181933437",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\21-final-search-typing-uiautomator.txt": {
+    "mtime": 1781279554.3290327,
+    "ast_hash": "3666e3d127102abf027a5b79ed5e972c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\21-final-search-typing-window.txt": {
+    "mtime": 1781279556.2035615,
+    "ast_hash": "60b12afc80795813a9df638c36db52ea",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\22-final-account-page-pull-xml.txt": {
+    "mtime": 1781279567.497752,
+    "ast_hash": "b052c350d97d53af78f5089ab917ff41",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\22-final-account-page-uiautomator.txt": {
+    "mtime": 1781279566.1566865,
+    "ast_hash": "debf4e7c9357c7e1d3a7bb278948dcc6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\22-final-account-page-window.txt": {
+    "mtime": 1781279567.953949,
+    "ast_hash": "2f344f1dddf065375b09b20ffc5a0748",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\23-final-search-deeplink-grid-pull-xml.txt": {
+    "mtime": 1781279624.53687,
+    "ast_hash": "f1fb5c0678940f1212ef42a899053457",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\23-final-search-deeplink-grid-uiautomator.txt": {
+    "mtime": 1781279623.4644976,
+    "ast_hash": "33ab6aca32384b4bf9bd402939b4a929",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\23-final-search-deeplink-grid-window.txt": {
+    "mtime": 1781279624.6689875,
+    "ast_hash": "d397af84b2091cdac4a270c0eb30ae41",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\24-final-search-deeplink-typing-pull-xml.txt": {
+    "mtime": 1781279635.1091778,
+    "ast_hash": "289749213fe7e8134cc1bb78fafc41b9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\24-final-search-deeplink-typing-uiautomator.txt": {
+    "mtime": 1781279634.1587534,
+    "ast_hash": "86260005b030617341cd2e49a219f61f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\24-final-search-deeplink-typing-window.txt": {
+    "mtime": 1781279635.2795553,
+    "ast_hash": "a0f0133a76566e4ec02c9372d777b073",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\25-final-search-deeplink-account-pull-xml.txt": {
+    "mtime": 1781279646.0405092,
+    "ast_hash": "c823bd64cd34291f4b23bfc3d990c510",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\25-final-search-deeplink-account-uiautomator.txt": {
+    "mtime": 1781279645.0482168,
+    "ast_hash": "c0f770c1f24a9154272bd1c8dfec7d1c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\25-final-search-deeplink-account-window.txt": {
+    "mtime": 1781279646.1645083,
+    "ast_hash": "f30a8b9c6f7adc2e9727737736e37d4e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\26-final-dm-inbox-pull-xml.txt": {
+    "mtime": 1781279689.970842,
+    "ast_hash": "7fc81220758d14c57b8158f7a5fdf507",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\26-final-dm-inbox-uiautomator.txt": {
+    "mtime": 1781279688.772038,
+    "ast_hash": "9f38eaa2ae0e9cb2f26f2e1afc55dc25",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\26-final-dm-inbox-window.txt": {
+    "mtime": 1781279690.2136314,
+    "ast_hash": "cbe99f3f5359827bc3ca65047269b68d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\27-final-dm-thread-window.txt": {
+    "mtime": 1781279919.3142538,
+    "ast_hash": "aac93369fbbd3d0508d7cff98ef06129",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\28-final-dm-open-shared-post-window.txt": {
+    "mtime": 1781279980.8601894,
+    "ast_hash": "a4ccbb60daa38747a8a4def3a30df70b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-current-20260612-verify\\29-final-dm-after-swipe-window.txt": {
+    "mtime": 1781279998.5916207,
+    "ast_hash": "b5f20b51e368f780ea464162105bad44",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\01-home-before-pull-xml.txt": {
+    "mtime": 1781280227.2901762,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\01-home-before-uiautomator.txt": {
+    "mtime": 1781280226.0728984,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\01-home-before-window.txt": {
+    "mtime": 1781280228.348591,
+    "ast_hash": "3c0b99af3ae2edeee64aaf9c0dc346c8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\02-home-after-swipe-pull-xml.txt": {
+    "mtime": 1781280239.3910868,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\02-home-after-swipe-uiautomator.txt": {
+    "mtime": 1781280238.3187277,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\02-home-after-swipe-window.txt": {
+    "mtime": 1781280239.9061139,
+    "ast_hash": "10b50f1252138b9c144202ac30e65e19",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\03-reels-before-pull-xml.txt": {
+    "mtime": 1781280253.602195,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\03-reels-before-uiautomator.txt": {
+    "mtime": 1781280252.6589777,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\03-reels-before-window.txt": {
+    "mtime": 1781280254.0137599,
+    "ast_hash": "56b183b8703f7d1edd5900c0e3ffcc6f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\04-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781280265.9090178,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\04-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781280265.017068,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\04-reels-after-swipe-window.txt": {
+    "mtime": 1781280266.1141436,
+    "ast_hash": "724b9229d14c73f9ab7ed55da8c11838",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\05-search-grid-pull-xml.txt": {
+    "mtime": 1781280277.7435029,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\05-search-grid-uiautomator.txt": {
+    "mtime": 1781280276.73795,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\05-search-grid-window.txt": {
+    "mtime": 1781280278.5119355,
+    "ast_hash": "1afd8dee6bc35e5f9ec343cfb052c7d4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\06-search-typing-pull-xml.txt": {
+    "mtime": 1781280296.3437896,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\06-search-typing-uiautomator.txt": {
+    "mtime": 1781280295.4959824,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\06-search-typing-window.txt": {
+    "mtime": 1781280296.5689154,
+    "ast_hash": "780ce695fc92b5480d3a34fdea36dd6b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\07-account-page-pull-xml.txt": {
+    "mtime": 1781280308.6230485,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\07-account-page-uiautomator.txt": {
+    "mtime": 1781280307.7236297,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\07-account-page-window.txt": {
+    "mtime": 1781280308.9618185,
+    "ast_hash": "6bd2bc7e62a85168e3d1625337486403",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\08-dm-inbox-pull-xml.txt": {
+    "mtime": 1781280317.1619518,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\08-dm-inbox-uiautomator.txt": {
+    "mtime": 1781280316.2957437,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\08-dm-inbox-window.txt": {
+    "mtime": 1781280317.3791718,
+    "ast_hash": "980a14c13aa5b2b1bd0022c14ab3d1da",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\09-dm-thread-pull-xml.txt": {
+    "mtime": 1781280324.068658,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\09-dm-thread-uiautomator.txt": {
+    "mtime": 1781280323.2003245,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\09-dm-thread-window.txt": {
+    "mtime": 1781280324.291,
+    "ast_hash": "b7e2a32223c0b494085fe7afb8386138",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\10-dm-open-shared-pull-xml.txt": {
+    "mtime": 1781280339.9737568,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\10-dm-open-shared-uiautomator.txt": {
+    "mtime": 1781280338.9409797,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\10-dm-open-shared-window.txt": {
+    "mtime": 1781280340.7291176,
+    "ast_hash": "65af75a3b628efdb59d33f92d9bdcd2f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\11-dm-after-swipe-pull-xml.txt": {
+    "mtime": 1781280358.7270472,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\11-dm-after-swipe-uiautomator.txt": {
+    "mtime": 1781280357.7118165,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\11-dm-after-swipe-window.txt": {
+    "mtime": 1781280359.4339254,
+    "ast_hash": "033f8212b2bb20cdb8939b87da0ffa4f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\12-full-logcat.txt": {
+    "mtime": 1781280361.5910163,
+    "ast_hash": "21950b97ede1f294ad65676a649d6c56",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\13-crash-scan.txt": {
+    "mtime": 1781280361.5999541,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\14-instagram-package.txt": {
+    "mtime": 1781280363.0442684,
+    "ast_hash": "db630c210e6e48baba6b734cb8d45438",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\15-noscroll-package.txt": {
+    "mtime": 1781280363.2784238,
+    "ast_hash": "4e89ffef7321215bdc0ae6f8ac452957",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\16-accessibility.txt": {
+    "mtime": 1781280363.5840108,
+    "ast_hash": "3c4b5d33b49cc019be4a7a8decfbd611",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\17-git-status.txt": {
+    "mtime": 1781280363.6420956,
+    "ast_hash": "b6b6f58daaaf3de3be191ad4baab8458",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\18-reels-tab-before-pull-xml.txt": {
+    "mtime": 1781280440.810321,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\18-reels-tab-before-uiautomator.txt": {
+    "mtime": 1781280427.3758397,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\18-reels-tab-before-window.txt": {
+    "mtime": 1781280441.8581393,
+    "ast_hash": "8cf8de04b48e62d91338fb6b0e7543cb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\19-reels-tab-after-swipe-pull-xml.txt": {
+    "mtime": 1781280469.3782787,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\19-reels-tab-after-swipe-uiautomator.txt": {
+    "mtime": 1781280455.432277,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\19-reels-tab-after-swipe-window.txt": {
+    "mtime": 1781280469.8041377,
+    "ast_hash": "5eb1e9d1cb917cf984773614a946d75c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\20-crash-scan-after-reels.txt": {
+    "mtime": 1781280470.0332582,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\21-reels-settled-before-pull-png.txt": {
+    "mtime": 1781280517.4279332,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\21-reels-settled-before-pull-xml.txt": {
+    "mtime": 1781280530.8977475,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\21-reels-settled-before-uiautomator.txt": {
+    "mtime": 1781280517.6002545,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\21-reels-settled-before-window.txt": {
+    "mtime": 1781280531.4031613,
+    "ast_hash": "7cb647ce14bda03f3709d47666a121c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\22-reels-settled-after-swipe-pull-png.txt": {
+    "mtime": 1781280539.9204302,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\22-reels-settled-after-swipe-pull-xml.txt": {
+    "mtime": 1781280554.0999682,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\22-reels-settled-after-swipe-uiautomator.txt": {
+    "mtime": 1781280540.4019282,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\22-reels-settled-after-swipe-window.txt": {
+    "mtime": 1781280554.9316611,
+    "ast_hash": "acabac0e735728ca3d2e4399058944af",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\23-crash-scan-final.txt": {
+    "mtime": 1781280556.2503173,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\24-reels-current-before-pull-png.txt": {
+    "mtime": 1781280662.269228,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\24-reels-current-before-pull-xml.txt": {
+    "mtime": 1781280676.2879012,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\24-reels-current-before-uiautomator.txt": {
+    "mtime": 1781280662.4847019,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\24-reels-current-before-window.txt": {
+    "mtime": 1781280677.0245688,
+    "ast_hash": "f147904de93871383efad86a654ce288",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\25-reels-current-after-swipe-pull-png.txt": {
+    "mtime": 1781280685.2799525,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\25-reels-current-after-swipe-pull-xml.txt": {
+    "mtime": 1781280699.4002664,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\25-reels-current-after-swipe-uiautomator.txt": {
+    "mtime": 1781280685.664665,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\25-reels-current-after-swipe-window.txt": {
+    "mtime": 1781280700.2886505,
+    "ast_hash": "a4f5077fa7a4ebc9149e6b4c5aaf5188",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\26-crash-scan-current-reels.txt": {
+    "mtime": 1781280700.4700165,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\27-patched-reels-before-pull-png.txt": {
+    "mtime": 1781280921.4781907,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\27-patched-reels-before-pull-xml.txt": {
+    "mtime": 1781280932.0470092,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\27-patched-reels-before-uiautomator.txt": {
+    "mtime": 1781280931.079918,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\27-patched-reels-before-window.txt": {
+    "mtime": 1781280932.8681958,
+    "ast_hash": "cd202136053908cb2d653f75e7c9ee55",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\28-patched-reels-after-swipe-pull-png.txt": {
+    "mtime": 1781280942.8248298,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\28-patched-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781280952.4694667,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\28-patched-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781280951.437871,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\28-patched-reels-after-swipe-window.txt": {
+    "mtime": 1781280953.5371273,
+    "ast_hash": "99bfd1f50243fe43c8e0da40af389ea3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\29-crash-scan-patched-reels.txt": {
+    "mtime": 1781280954.2418158,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\30-patched-reels-real-before-pull-png.txt": {
+    "mtime": 1781281025.2425542,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\30-patched-reels-real-before-pull-xml.txt": {
+    "mtime": 1781281031.377889,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\30-patched-reels-real-before-uiautomator.txt": {
+    "mtime": 1781281030.4667804,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\30-patched-reels-real-before-window.txt": {
+    "mtime": 1781281032.154914,
+    "ast_hash": "233da519f3dc202890a24ba9f5b5384d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\31-patched-reels-real-after-swipe-pull-png.txt": {
+    "mtime": 1781281041.8830974,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\31-patched-reels-real-after-swipe-pull-xml.txt": {
+    "mtime": 1781281049.4636898,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\31-patched-reels-real-after-swipe-uiautomator.txt": {
+    "mtime": 1781281048.4135413,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\31-patched-reels-real-after-swipe-window.txt": {
+    "mtime": 1781281050.6305463,
+    "ast_hash": "4094cd1049ff2ae40fc216f7305d434c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\32-crash-scan-patched-real-reels.txt": {
+    "mtime": 1781281050.893664,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\33-focusable-reels-before-pull-png.txt": {
+    "mtime": 1781281253.5916164,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\33-focusable-reels-before-pull-xml.txt": {
+    "mtime": 1781281262.7103999,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\33-focusable-reels-before-uiautomator.txt": {
+    "mtime": 1781281261.7260003,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\33-focusable-reels-before-window.txt": {
+    "mtime": 1781281263.7945275,
+    "ast_hash": "12824385abc0de8ec085edaf62e0b9a1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\34-focusable-reels-after-swipe-pull-png.txt": {
+    "mtime": 1781281273.4076118,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\34-focusable-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781281283.087394,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\34-focusable-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781281282.0386293,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\34-focusable-reels-after-swipe-window.txt": {
+    "mtime": 1781281283.6678307,
+    "ast_hash": "7fe6c5f8d0aa6258681c58c145c0d19d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-20260612-190500\\35-crash-scan-focusable-reels.txt": {
+    "mtime": 1781281284.407725,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-no-foreground-block-20260612-182900\\install.txt": {
+    "mtime": 1781278176.8728328,
+    "ast_hash": "1a0e2b49219d411a9b025a228df2ffd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-no-foreground-block-20260612-182900\\post-install-window.txt": {
+    "mtime": 1781278188.0050738,
+    "ast_hash": "6b53bd5ac230832a561792fa51bfca2c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-no-foreground-block-20260612-182900\\search-typing-current-window.txt": {
+    "mtime": 1781278225.9802983,
+    "ast_hash": "348b54024f00fa124a0d38f70155645d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\00-open-result.txt": {
+    "mtime": 1781283654.5435507,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\01-account-page-pull-png.txt": {
+    "mtime": 1781283663.4471142,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\01-account-page-pull-xml.txt": {
+    "mtime": 1781283667.1825001,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\01-account-page-uiautomator.txt": {
+    "mtime": 1781283666.3240743,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\01-account-page-window.txt": {
+    "mtime": 1781283667.4504838,
+    "ast_hash": "75063dc0bb61a5d2c138fbb5c7c63634",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\02-account-swipe.txt": {
+    "mtime": 1781283667.5621676,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\03-account-after-swipe-pull-png.txt": {
+    "mtime": 1781283672.3348038,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\03-account-after-swipe-pull-xml.txt": {
+    "mtime": 1781283674.8986678,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\03-account-after-swipe-uiautomator.txt": {
+    "mtime": 1781283674.0262647,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\03-account-after-swipe-window.txt": {
+    "mtime": 1781283675.081671,
+    "ast_hash": "58a31709cd71b6038f36c1fcd57a4572",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\04-open-post.txt": {
+    "mtime": 1781283675.1694758,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\05-account-post-or-grid-pull-png.txt": {
+    "mtime": 1781283681.859508,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\05-account-post-or-grid-pull-xml.txt": {
+    "mtime": 1781283687.7169158,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\05-account-post-or-grid-uiautomator.txt": {
+    "mtime": 1781283686.7675517,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\05-account-post-or-grid-window.txt": {
+    "mtime": 1781283688.4305916,
+    "ast_hash": "d72a841be65533eacf8d121923b4c012",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\99-full-logcat.txt": {
+    "mtime": 1781283689.1002977,
+    "ast_hash": "8e00e2a9002729a5e83b294658e0f836",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-account-valid-20260612-200054\\summary.txt": {
+    "mtime": 1781283689.1068127,
+    "ast_hash": "f619f9e7a07aa8e7ce4a5746e5bc92d3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\00-back-to-profile-or-search.txt": {
+    "mtime": 1781283764.1676497,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\01-back-to-search.txt": {
+    "mtime": 1781283765.6856232,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\02-dm-tab-tap.txt": {
+    "mtime": 1781283766.9047937,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\03-dm-inbox-pull-png.txt": {
+    "mtime": 1781283773.7265377,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\03-dm-inbox-pull-xml.txt": {
+    "mtime": 1781283776.239707,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\03-dm-inbox-uiautomator.txt": {
+    "mtime": 1781283775.3862772,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\03-dm-inbox-window.txt": {
+    "mtime": 1781283776.4702315,
+    "ast_hash": "3e4445771df82d4b8e5dd72dd83d1850",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\04-open-first-thread.txt": {
+    "mtime": 1781283776.6223195,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\05-first-thread-pull-png.txt": {
+    "mtime": 1781283782.9357014,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\05-first-thread-pull-xml.txt": {
+    "mtime": 1781283786.6755507,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\05-first-thread-uiautomator.txt": {
+    "mtime": 1781283785.816877,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\05-first-thread-window.txt": {
+    "mtime": 1781283786.8885908,
+    "ast_hash": "476760f645bc081bd2a4966edd3151f9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\99-full-logcat.txt": {
+    "mtime": 1781283787.4100754,
+    "ast_hash": "ea240ab3528c7ca95de31a84f0232d7f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-precondition-20260612-200244\\summary.txt": {
+    "mtime": 1781283787.074425,
+    "ast_hash": "2e5b4d9d517b2f2eae032cfe513c5237",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\00-main-tab-before-dm-pull-png.txt": {
+    "mtime": 1781283941.351588,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\00-main-tab-before-dm-pull-xml.txt": {
+    "mtime": 1781283959.0142286,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\00-main-tab-before-dm-uiautomator.txt": {
+    "mtime": 1781283957.1699712,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\00-main-tab-before-dm-window.txt": {
+    "mtime": 1781283960.2142777,
+    "ast_hash": "13fd8d7bfc69cf19231a967d9095f52d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\01-direct-tab-tap.txt": {
+    "mtime": 1781283960.9636903,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\after-back-0-pull-xml.txt": {
+    "mtime": 1781283879.3858683,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\after-back-0-uiautomator.txt": {
+    "mtime": 1781283878.5156684,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\after-back-1-pull-xml.txt": {
+    "mtime": 1781283884.038795,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\after-back-1-uiautomator.txt": {
+    "mtime": 1781283883.0843687,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\back-0.txt": {
+    "mtime": 1781283875.0840914,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-dm-valid-probe-20260612-200434\\back-1.txt": {
+    "mtime": 1781283879.5090547,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\00-force-stop-ig.txt": {
+    "mtime": 1781284215.015437,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\01-launch.txt": {
+    "mtime": 1781284222.353572,
+    "ast_hash": "c295395a87a05aff545501c61fb85d8f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\10-home-tap.txt": {
+    "mtime": 1781284228.514452,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-0-pull-xml.txt": {
+    "mtime": 1781284233.3522308,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-0-uiautomator.txt": {
+    "mtime": 1781284229.7900496,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-1-pull-xml.txt": {
+    "mtime": 1781284237.631967,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-1-uiautomator.txt": {
+    "mtime": 1781284234.5489151,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-2-pull-xml.txt": {
+    "mtime": 1781284242.4957876,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-2-uiautomator.txt": {
+    "mtime": 1781284238.7455318,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-3-pull-xml.txt": {
+    "mtime": 1781284248.0702772,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-3-uiautomator.txt": {
+    "mtime": 1781284243.753853,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-4-pull-xml.txt": {
+    "mtime": 1781284259.0539782,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-4-uiautomator.txt": {
+    "mtime": 1781284249.527771,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-5-pull-xml.txt": {
+    "mtime": 1781284271.4262226,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-5-uiautomator.txt": {
+    "mtime": 1781284260.2068465,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-6-pull-xml.txt": {
+    "mtime": 1781284291.4785025,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-6-uiautomator.txt": {
+    "mtime": 1781284287.7924066,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-7-pull-xml.txt": {
+    "mtime": 1781284296.5027287,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\11-wait-home-7-uiautomator.txt": {
+    "mtime": 1781284295.387467,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\12-home-before-pull-png.txt": {
+    "mtime": 1781284302.7955005,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\12-home-before-pull-xml.txt": {
+    "mtime": 1781284311.853858,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\12-home-before-uiautomator.txt": {
+    "mtime": 1781284306.884116,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\12-home-before-window.txt": {
+    "mtime": 1781284318.0107431,
+    "ast_hash": "cde215d43d4201ab57337e283775fcd8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\13-home-swipe.txt": {
+    "mtime": 1781284318.7286015,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\14-home-after-pull-png.txt": {
+    "mtime": 1781284330.2615657,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\14-home-after-pull-xml.txt": {
+    "mtime": 1781284334.4874287,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\14-home-after-uiautomator.txt": {
+    "mtime": 1781284333.4342225,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\14-home-after-window.txt": {
+    "mtime": 1781284335.4077663,
+    "ast_hash": "bd3ebb403c66ffb50db949a8677edd07",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\20-reels-tap.txt": {
+    "mtime": 1781284335.7663655,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-0-pull-xml.txt": {
+    "mtime": 1781284342.3468208,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-0-uiautomator.txt": {
+    "mtime": 1781284341.2069988,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-1-pull-xml.txt": {
+    "mtime": 1781284348.4966552,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-1-uiautomator.txt": {
+    "mtime": 1781284347.5032313,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-10-pull-xml.txt": {
+    "mtime": 1781284404.4759498,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-10-uiautomator.txt": {
+    "mtime": 1781284403.4089322,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-11-pull-xml.txt": {
+    "mtime": 1781284408.5670497,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-11-uiautomator.txt": {
+    "mtime": 1781284407.5955632,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-2-pull-xml.txt": {
+    "mtime": 1781284357.2276118,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-2-uiautomator.txt": {
+    "mtime": 1781284356.2983372,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-3-pull-xml.txt": {
+    "mtime": 1781284363.4444602,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-3-uiautomator.txt": {
+    "mtime": 1781284362.3518937,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-4-pull-xml.txt": {
+    "mtime": 1781284371.1720388,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-4-uiautomator.txt": {
+    "mtime": 1781284369.9472084,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-5-pull-xml.txt": {
+    "mtime": 1781284378.7077746,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-5-uiautomator.txt": {
+    "mtime": 1781284377.3109903,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-6-pull-xml.txt": {
+    "mtime": 1781284385.7001066,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-6-uiautomator.txt": {
+    "mtime": 1781284384.7778935,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-7-pull-xml.txt": {
+    "mtime": 1781284391.3001184,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-7-uiautomator.txt": {
+    "mtime": 1781284390.1266072,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-8-pull-xml.txt": {
+    "mtime": 1781284396.1728437,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-8-uiautomator.txt": {
+    "mtime": 1781284395.1222472,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-9-pull-xml.txt": {
+    "mtime": 1781284400.5356407,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\21-wait-reels-9-uiautomator.txt": {
+    "mtime": 1781284399.577699,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\22-reels-before-pull-png.txt": {
+    "mtime": 1781284411.9485214,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\22-reels-before-pull-xml.txt": {
+    "mtime": 1781284414.6614392,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\22-reels-before-uiautomator.txt": {
+    "mtime": 1781284413.7654445,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\22-reels-before-window.txt": {
+    "mtime": 1781284414.840557,
+    "ast_hash": "1eace25c6fa2e9c4bc734541429e18b5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\23-reels-swipe.txt": {
+    "mtime": 1781284415.1035695,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\24-reels-after-pull-png.txt": {
+    "mtime": 1781284421.026436,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-final-sweep-20260612-201014\\24-reels-after-uiautomator.txt": {
+    "mtime": 1781284422.6398456,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\01-reels-before-pull-png.txt": {
+    "mtime": 1781281906.8331068,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\01-reels-before-pull-xml.txt": {
+    "mtime": 1781281924.3432732,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\01-reels-before-uiautomator.txt": {
+    "mtime": 1781281923.2643116,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\01-reels-before-window.txt": {
+    "mtime": 1781281924.933805,
+    "ast_hash": "287dbae0c846b3c503da754cb70d345c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\02-reels-after-swipe-pull-png.txt": {
+    "mtime": 1781281933.365988,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\02-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781281958.9087937,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\02-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781281952.969793,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\02-reels-after-swipe-window.txt": {
+    "mtime": 1781281959.8516629,
+    "ast_hash": "2eaca93639c0b1b51feaa9a0c03dc48f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\03-full-logcat.txt": {
+    "mtime": 1781281960.6579354,
+    "ast_hash": "2f5348899001b2eecc90f2654f02b58f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-$(Get-Date -Format HHmmss)\\04-crash-scan.txt": {
+    "mtime": 1781281960.6659846,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\00-home-settled-pull-png.txt": {
+    "mtime": 1781282053.6603415,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\00-home-settled-pull-xml.txt": {
+    "mtime": 1781282072.4419875,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\00-home-settled-uiautomator.txt": {
+    "mtime": 1781282071.3806112,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\00-home-settled-window.txt": {
+    "mtime": 1781282073.2502499,
+    "ast_hash": "d27fbe58032e593489e2195227919499",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\01-after-reels-tap-pull-png.txt": {
+    "mtime": 1781282083.1927605,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\01-after-reels-tap-pull-xml.txt": {
+    "mtime": 1781282087.084936,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\01-after-reels-tap-uiautomator.txt": {
+    "mtime": 1781282086.1562266,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\01-after-reels-tap-window.txt": {
+    "mtime": 1781282087.450429,
+    "ast_hash": "53cc76c7c62da151956b4042e75c8573",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\02-after-reels-swipe-pull-png.txt": {
+    "mtime": 1781282096.1317022,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\02-after-reels-swipe-pull-xml.txt": {
+    "mtime": 1781282100.7008152,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\02-after-reels-swipe-uiautomator.txt": {
+    "mtime": 1781282099.812369,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\02-after-reels-swipe-window.txt": {
+    "mtime": 1781282100.9949424,
+    "ast_hash": "0528ed99f98c3d6dcfb15e1c5dcf8332",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\03-full-logcat.txt": {
+    "mtime": 1781282101.4300542,
+    "ast_hash": "ed19659b4e14917723df0854fce583e8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-rollback-20260612-193400\\04-crash-scan.txt": {
+    "mtime": 1781282101.473212,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\00-force-stop.txt": {
+    "mtime": 1781282391.2317674,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\01-launch.txt": {
+    "mtime": 1781282392.7130222,
+    "ast_hash": "d17c0cd28cfd821277d53c7fb565d504",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\02-wait-home-0-pull-xml.txt": {
+    "mtime": 1781282396.7,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\02-wait-home-0-uiautomator.txt": {
+    "mtime": 1781282393.8359172,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\03-before-nav-pull-png.txt": {
+    "mtime": 1781282397.8607345,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\03-before-nav-pull-xml.txt": {
+    "mtime": 1781282401.0268083,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\03-before-nav-uiautomator.txt": {
+    "mtime": 1781282397.9967713,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\03-before-nav-window.txt": {
+    "mtime": 1781282401.3200467,
+    "ast_hash": "19d8eafe890ac1af50addb31926117fc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\04-tap-reels-0.txt": {
+    "mtime": 1781282401.466985,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\04-tap-reels-1.txt": {
+    "mtime": 1781282412.268931,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\05-after-reels-tap-0-pull-xml.txt": {
+    "mtime": 1781282412.09591,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\05-after-reels-tap-0-uiautomator.txt": {
+    "mtime": 1781282411.0822353,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\05-after-reels-tap-1-pull-xml.txt": {
+    "mtime": 1781282425.1343837,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\05-after-reels-tap-1-uiautomator.txt": {
+    "mtime": 1781282424.1509738,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\06-reels-before-swipe-pull-png.txt": {
+    "mtime": 1781282431.4378448,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\06-reels-before-swipe-pull-xml.txt": {
+    "mtime": 1781282440.8687558,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\06-reels-before-swipe-uiautomator.txt": {
+    "mtime": 1781282439.8591099,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\06-reels-before-swipe-window.txt": {
+    "mtime": 1781282441.554511,
+    "ast_hash": "2da3063f321628fdbc97e7a6a4fa3cd2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\07-swipe.txt": {
+    "mtime": 1781282442.770035,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\08-reels-after-swipe-pull-png.txt": {
+    "mtime": 1781282448.7410543,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\08-reels-after-swipe-pull-xml.txt": {
+    "mtime": 1781282452.1774032,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\08-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781282451.2828083,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\08-reels-after-swipe-window.txt": {
+    "mtime": 1781282452.4007556,
+    "ast_hash": "fba451bf2620f29889e7626f44d0a729",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\09-full-logcat.txt": {
+    "mtime": 1781282452.6731284,
+    "ast_hash": "5e955d08feb91e084f2ca0f8e3875b15",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-reels-targeted-20260612-193951\\summary.txt": {
+    "mtime": 1781282452.678198,
+    "ast_hash": "92035cef17a442ee04fd2f2befc3b951",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\00-launch.txt": {
+    "mtime": 1781282545.6725843,
+    "ast_hash": "a71f1b7ddffba331b7bdef7a452d5309",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\10-home-tap.txt": {
+    "mtime": 1781282548.7583315,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\11-wait-home-0-pull-xml.txt": {
+    "mtime": 1781282553.6116168,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\11-wait-home-0-uiautomator.txt": {
+    "mtime": 1781282552.7217882,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\12-home-before-swipe-pull-png.txt": {
+    "mtime": 1781282556.0785806,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\12-home-before-swipe-pull-xml.txt": {
+    "mtime": 1781282560.5818498,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\12-home-before-swipe-uiautomator.txt": {
+    "mtime": 1781282559.6480217,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\12-home-before-swipe-window.txt": {
+    "mtime": 1781282560.863922,
+    "ast_hash": "144bbdbfc800c9f847e09d0128a56b86",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\13-home-swipe.txt": {
+    "mtime": 1781282561.373762,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\14-home-after-swipe-pull-png.txt": {
+    "mtime": 1781282566.421835,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\14-home-after-swipe-pull-xml.txt": {
+    "mtime": 1781282570.6247954,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\14-home-after-swipe-uiautomator.txt": {
+    "mtime": 1781282569.5945563,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\14-home-after-swipe-window.txt": {
+    "mtime": 1781282571.2159474,
+    "ast_hash": "b0a420a5379e2516de295ea70b8aaf3f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\20-search-tap.txt": {
+    "mtime": 1781282571.5016017,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\21-wait-search-0-pull-xml.txt": {
+    "mtime": 1781282576.8239846,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\21-wait-search-0-uiautomator.txt": {
+    "mtime": 1781282575.9389267,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\22-search-before-swipe-pull-png.txt": {
+    "mtime": 1781282578.5633192,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\22-search-before-swipe-pull-xml.txt": {
+    "mtime": 1781282586.5068247,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\22-search-before-swipe-uiautomator.txt": {
+    "mtime": 1781282585.5281262,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\22-search-before-swipe-window.txt": {
+    "mtime": 1781282587.1369615,
+    "ast_hash": "c61c1db9a5c03cffebb6c41592a77676",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\23-search-swipe.txt": {
+    "mtime": 1781282587.9943204,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\24-search-after-swipe-pull-png.txt": {
+    "mtime": 1781282598.7034822,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\24-search-after-swipe-pull-xml.txt": {
+    "mtime": 1781282609.1893082,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\24-search-after-swipe-uiautomator.txt": {
+    "mtime": 1781282608.2028544,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\24-search-after-swipe-window.txt": {
+    "mtime": 1781282610.1556668,
+    "ast_hash": "29059c469d39f03e2d06b177841b201e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\30-search-input-tap.txt": {
+    "mtime": 1781282610.6745424,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\31-search-input-text.txt": {
+    "mtime": 1781282612.6901,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\32-search-typing-results-pull-png.txt": {
+    "mtime": 1781282627.6290047,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\32-search-typing-results-pull-xml.txt": {
+    "mtime": 1781282631.3339844,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\32-search-typing-results-uiautomator.txt": {
+    "mtime": 1781282630.3824987,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\32-search-typing-results-window.txt": {
+    "mtime": 1781282631.7040558,
+    "ast_hash": "17753be34caf9a131af2553bdf5b9a2e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\40-account-result-tap.txt": {
+    "mtime": 1781282631.929172,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\41-account-page-pull-png.txt": {
+    "mtime": 1781282638.2191005,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\41-account-page-pull-xml.txt": {
+    "mtime": 1781282642.278697,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\41-account-page-uiautomator.txt": {
+    "mtime": 1781282641.36348,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\41-account-page-window.txt": {
+    "mtime": 1781282642.8122034,
+    "ast_hash": "f9ccc148c743d00105087b3b4ebd705c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\42-account-swipe.txt": {
+    "mtime": 1781282643.336132,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\43-account-after-swipe-pull-png.txt": {
+    "mtime": 1781282647.2630389,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\43-account-after-swipe-pull-xml.txt": {
+    "mtime": 1781282650.147625,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\43-account-after-swipe-uiautomator.txt": {
+    "mtime": 1781282649.2266529,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\43-account-after-swipe-window.txt": {
+    "mtime": 1781282650.3117986,
+    "ast_hash": "d215d87865dd53490c86e97a73eb455d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\50-dm-tap.txt": {
+    "mtime": 1781282650.39928,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-0-pull-xml.txt": {
+    "mtime": 1781282653.9128256,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-0-uiautomator.txt": {
+    "mtime": 1781282653.0636716,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-1-pull-xml.txt": {
+    "mtime": 1781282657.460538,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-1-uiautomator.txt": {
+    "mtime": 1781282656.612242,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-2-pull-xml.txt": {
+    "mtime": 1781282661.338283,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-2-uiautomator.txt": {
+    "mtime": 1781282660.4797442,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-3-pull-xml.txt": {
+    "mtime": 1781282664.9756503,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-3-uiautomator.txt": {
+    "mtime": 1781282664.1206036,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-4-pull-xml.txt": {
+    "mtime": 1781282668.5295398,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-4-uiautomator.txt": {
+    "mtime": 1781282667.6278028,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-5-pull-xml.txt": {
+    "mtime": 1781282672.0614686,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-5-uiautomator.txt": {
+    "mtime": 1781282671.1889634,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-6-pull-xml.txt": {
+    "mtime": 1781282675.51027,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-6-uiautomator.txt": {
+    "mtime": 1781282674.6597614,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-7-pull-xml.txt": {
+    "mtime": 1781282679.1757536,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-7-uiautomator.txt": {
+    "mtime": 1781282678.2658043,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-8-pull-xml.txt": {
+    "mtime": 1781282682.671488,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-8-uiautomator.txt": {
+    "mtime": 1781282681.8255076,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-9-pull-xml.txt": {
+    "mtime": 1781282686.0642827,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\51-wait-dm-9-uiautomator.txt": {
+    "mtime": 1781282685.2088025,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\52-dm-precondition-pull-png.txt": {
+    "mtime": 1781282686.8424973,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\52-dm-precondition-pull-xml.txt": {
+    "mtime": 1781282689.380055,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\52-dm-precondition-uiautomator.txt": {
+    "mtime": 1781282688.4846706,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\52-dm-precondition-window.txt": {
+    "mtime": 1781282689.5607996,
+    "ast_hash": "9e6f2838763c9533ab8c12893b47557a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\99-full-logcat.txt": {
+    "mtime": 1781282689.833924,
+    "ast_hash": "bcc830144909e7d344e8287fa9e6025f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-regression-20260612-194225\\summary.txt": {
+    "mtime": 1781282689.8399339,
+    "ast_hash": "cc20bd16bddfe310dd6953a5d4892c41",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\00-force-stop.txt": {
+    "mtime": 1781283166.3958962,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\01-launch.txt": {
+    "mtime": 1781283168.0405962,
+    "ast_hash": "6fbac0a8b056ebda56e6461f7b66755d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\10-search-tap.txt": {
+    "mtime": 1781283173.1641686,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-0-pull-xml.txt": {
+    "mtime": 1781283186.2098136,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-0-uiautomator.txt": {
+    "mtime": 1781283185.30907,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-1-pull-xml.txt": {
+    "mtime": 1781283193.0129752,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-1-uiautomator.txt": {
+    "mtime": 1781283191.8736577,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-10-pull-xml.txt": {
+    "mtime": 1781283258.6630838,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-10-uiautomator.txt": {
+    "mtime": 1781283257.6022768,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-11-pull-xml.txt": {
+    "mtime": 1781283266.74387,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-11-uiautomator.txt": {
+    "mtime": 1781283265.760503,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-2-pull-xml.txt": {
+    "mtime": 1781283199.9818134,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-2-uiautomator.txt": {
+    "mtime": 1781283198.9168415,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-3-pull-xml.txt": {
+    "mtime": 1781283210.6269314,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-3-uiautomator.txt": {
+    "mtime": 1781283209.5019162,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-4-pull-xml.txt": {
+    "mtime": 1781283218.3277693,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-4-uiautomator.txt": {
+    "mtime": 1781283217.3286974,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-5-pull-xml.txt": {
+    "mtime": 1781283226.6355386,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-5-uiautomator.txt": {
+    "mtime": 1781283225.7254994,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-6-pull-xml.txt": {
+    "mtime": 1781283233.8508449,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-6-uiautomator.txt": {
+    "mtime": 1781283232.7578545,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-7-pull-xml.txt": {
+    "mtime": 1781283239.2316325,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-7-uiautomator.txt": {
+    "mtime": 1781283238.1743703,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-8-pull-xml.txt": {
+    "mtime": 1781283246.5814576,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-8-uiautomator.txt": {
+    "mtime": 1781283245.4643278,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-9-pull-xml.txt": {
+    "mtime": 1781283252.8435204,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\11-wait-search-9-uiautomator.txt": {
+    "mtime": 1781283251.8405793,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\12-search-before-swipe-pull-png.txt": {
+    "mtime": 1781283272.0202794,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\12-search-before-swipe-pull-xml.txt": {
+    "mtime": 1781283281.2290118,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\12-search-before-swipe-uiautomator.txt": {
+    "mtime": 1781283280.2532923,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\12-search-before-swipe-window.txt": {
+    "mtime": 1781283282.0643942,
+    "ast_hash": "06d01adaae2cba6077eacc1804c52e02",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\13-search-swipe.txt": {
+    "mtime": 1781283283.145496,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\14-search-after-swipe-pull-png.txt": {
+    "mtime": 1781283291.887744,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\14-search-after-swipe-pull-xml.txt": {
+    "mtime": 1781283298.8814774,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\14-search-after-swipe-uiautomator.txt": {
+    "mtime": 1781283297.7902327,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\14-search-after-swipe-window.txt": {
+    "mtime": 1781283299.8619032,
+    "ast_hash": "f0971d0083537e9ca6684855ca648417",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\20-search-input-tap.txt": {
+    "mtime": 1781283300.294736,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\21-search-input-text.txt": {
+    "mtime": 1781283302.1806073,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\22-search-typing-results-pull-png.txt": {
+    "mtime": 1781283314.0523517,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-fix-20260612-195246\\22-search-typing-results-uiautomator.txt": {
+    "mtime": 1781283314.3195353,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\00-search-tap.txt": {
+    "mtime": 1781283554.3198974,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\01-search-before-swipe-pull-png.txt": {
+    "mtime": 1781283562.279368,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\01-search-before-swipe-pull-xml.txt": {
+    "mtime": 1781283566.02246,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\01-search-before-swipe-uiautomator.txt": {
+    "mtime": 1781283565.075822,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\01-search-before-swipe-window.txt": {
+    "mtime": 1781283566.4229317,
+    "ast_hash": "f406be546135bd6d276632bd4d6bd08c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\02-search-swipe.txt": {
+    "mtime": 1781283567.0218494,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\03-search-after-swipe-pull-png.txt": {
+    "mtime": 1781283574.9265995,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\03-search-after-swipe-pull-xml.txt": {
+    "mtime": 1781283579.74198,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\03-search-after-swipe-uiautomator.txt": {
+    "mtime": 1781283578.4482899,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\03-search-after-swipe-window.txt": {
+    "mtime": 1781283581.0741982,
+    "ast_hash": "13567a4f7839cffe08a16f7c786f9d61",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\10-search-input-tap.txt": {
+    "mtime": 1781283581.2289655,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\11-search-input-text.txt": {
+    "mtime": 1781283582.7015119,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\12-search-typing-results-pull-png.txt": {
+    "mtime": 1781283591.0571215,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\12-search-typing-results-pull-xml.txt": {
+    "mtime": 1781283593.9615355,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\12-search-typing-results-uiautomator.txt": {
+    "mtime": 1781283593.0765288,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\12-search-typing-results-window.txt": {
+    "mtime": 1781283594.2503304,
+    "ast_hash": "96c98fe4c50fbf84d1c3ff21fa1f98c5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\99-full-logcat.txt": {
+    "mtime": 1781283594.6650403,
+    "ast_hash": "4e37d5ce08eff103b966a75b3ffbf831",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\summary.txt": {
+    "mtime": 1781283594.6740253,
+    "ast_hash": "7cb654a68487dd272d99b72436ab7956",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\wait-search-0-pull-xml.txt": {
+    "mtime": 1781283558.7177904,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-search-valid-20260612-195914\\wait-search-0-uiautomator.txt": {
+    "mtime": 1781283557.8449914,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-android-version.txt": {
+    "mtime": 1781285294.3823075,
+    "ast_hash": "dad113cc10d2b01e6f26924ea3603a49",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-enabled-a11y.txt": {
+    "mtime": 1781285294.908101,
+    "ast_hash": "5126a8176a5cffdd277c0d9452586d58",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-launch-window.txt": {
+    "mtime": 1781285313.3447442,
+    "ast_hash": "ba7444e050353f88ef5ee887c435724c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-launch.txt": {
+    "mtime": 1781285303.8958282,
+    "ast_hash": "e927a870ce621036fe2715b290a0980a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-overlay-appop.txt": {
+    "mtime": 1781285294.5998309,
+    "ast_hash": "39c159cfa59867af9efa6d7ad44df567",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\00-wm-size.txt": {
+    "mtime": 1781285294.2047863,
+    "ast_hash": "07e2ae7d032e104e0d61589e5a62693b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\01-loaded-uiautomator.txt": {
+    "mtime": 1781285364.9505026,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\01-loaded-window.txt": {
+    "mtime": 1781285366.6371386,
+    "ast_hash": "f2370a04f4ababee4330f0268e24c7e7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\02-home-before-uiautomator.txt": {
+    "mtime": 1781285398.622783,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\02-home-before-window.txt": {
+    "mtime": 1781285399.970472,
+    "ast_hash": "da27071821ac44d3aa2f5a413d373d77",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\03-home-after-uiautomator.txt": {
+    "mtime": 1781285408.554433,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\03-home-after-window.txt": {
+    "mtime": 1781285409.6956086,
+    "ast_hash": "2d00b7a92549b7d0f2d7f144bdefcab2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\04-reels-before-uiautomator.txt": {
+    "mtime": 1781285483.6255004,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\04-reels-before-window.txt": {
+    "mtime": 1781285485.5486774,
+    "ast_hash": "52a4d6b34d7bbc7245928919d1c23f49",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\05-reels-after-uiautomator.txt": {
+    "mtime": 1781285501.26536,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\05-reels-after-window.txt": {
+    "mtime": 1781285503.719364,
+    "ast_hash": "b94e4cdc233a2dd16089a5aa1c51f32e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\06-search-before-uiautomator.txt": {
+    "mtime": 1781285547.404751,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\06-search-before-window.txt": {
+    "mtime": 1781285548.8354137,
+    "ast_hash": "b2b59892fced06476ea50841b8e5083c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\07-search-after-swipe-uiautomator.txt": {
+    "mtime": 1781285556.2005296,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\07-search-after-swipe-window.txt": {
+    "mtime": 1781285557.5678008,
+    "ast_hash": "09d09a982dfbea2d2b1f29523893dec2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\08-search-typed-uiautomator.txt": {
+    "mtime": 1781285568.114073,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\08-search-typed-window.txt": {
+    "mtime": 1781285569.246825,
+    "ast_hash": "2f109b7259922b10adbf2d186b867920",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\09-reels-menu-closed-uiautomator.txt": {
+    "mtime": 1781285641.8665607,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\10-search-before-valid-attempt-uiautomator.txt": {
+    "mtime": 1781285690.3999124,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\10-search-before-valid-attempt-window.txt": {
+    "mtime": 1781285691.8566759,
+    "ast_hash": "edee1a52ca0692b5f8551faec802fa35",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\11-search-grid-before-uiautomator.txt": {
+    "mtime": 1781285725.7658584,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\11-search-grid-before-window.txt": {
+    "mtime": 1781285726.9165425,
+    "ast_hash": "7e9d34e154ce901c4e3bbb344ed74d9d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\12-search-grid-after-swipe-uiautomator.txt": {
+    "mtime": 1781285734.8152413,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\12-search-grid-after-swipe-window.txt": {
+    "mtime": 1781285736.1591327,
+    "ast_hash": "f01d7466a9ce0eaed6ea3203828fc957",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\13-search-typed-valid-uiautomator.txt": {
+    "mtime": 1781285749.7240868,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\13-search-typed-valid-window.txt": {
+    "mtime": 1781285751.270137,
+    "ast_hash": "694f751147feeb06ebcc05bbad1b67a2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\14-account-profile-uiautomator.txt": {
+    "mtime": 1781285841.0298557,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\14-account-profile-window.txt": {
+    "mtime": 1781285842.4012876,
+    "ast_hash": "f18017751e569aa79ae733dd508c89c2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\15-account-profile-after-swipe-uiautomator.txt": {
+    "mtime": 1781285849.2037735,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\15-account-profile-after-swipe-window.txt": {
+    "mtime": 1781285850.3536153,
+    "ast_hash": "185e7aab7bc98eacd527be6e18caa797",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\16-account-post-open-uiautomator.txt": {
+    "mtime": 1781285863.116432,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\16-account-post-open-window.txt": {
+    "mtime": 1781285864.5978007,
+    "ast_hash": "04a9e277a596fd5dd11035e96b1810c0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\17-before-dm-nav-uiautomator.txt": {
+    "mtime": 1781285968.9026482,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\17-before-dm-nav-window.txt": {
+    "mtime": 1781285971.1998153,
+    "ast_hash": "d083863d8062a99a44a95343a6c9029b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\18-dm-attempt-uiautomator.txt": {
+    "mtime": 1781285985.8296628,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\18-dm-attempt-window.txt": {
+    "mtime": 1781285987.1973493,
+    "ast_hash": "7d454e199724de54e3c87f7761a33e86",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\19-dm-thread-uiautomator.txt": {
+    "mtime": 1781286044.936461,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\19-dm-thread-window.txt": {
+    "mtime": 1781286046.26547,
+    "ast_hash": "fa4c7e76079f6df4f7ef80186449ba6f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\20-dm-shared-open-uiautomator.txt": {
+    "mtime": 1781286104.4289296,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\20-dm-shared-open-window.txt": {
+    "mtime": 1781286105.9136963,
+    "ast_hash": "9adc247556ae88a13755c0cfec9db9a6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\21-dm-shared-after-swipe-uiautomator.txt": {
+    "mtime": 1781286122.2119174,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\21-dm-shared-after-swipe-window.txt": {
+    "mtime": 1781286123.3924937,
+    "ast_hash": "b0fc6ea5625f1452fe259e119eac1886",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-latest-20260612-202813\\artifact-dir.txt": {
+    "mtime": 1781285293.934053,
+    "ast_hash": "706ca7603374d38ca45933947420fe93",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\01-home-block-before-switch-window.txt": {
+    "mtime": 1781286896.9767258,
+    "ast_hash": "3028b3f976d90229a515bf93c0c64d41",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\01-home-block-before-switch-windows.txt": {
+    "mtime": 1781286897.3325832,
+    "ast_hash": "2d9a4db88cf13016e2af5007531bcaa1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\02-home-screen-away-uiautomator.txt": {
+    "mtime": 1781286910.6169121,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\02-home-screen-away-window.txt": {
+    "mtime": 1781286918.2245004,
+    "ast_hash": "cb84da06f7621918e2647d143c4197ed",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\02-home-screen-away-windows.txt": {
+    "mtime": 1781286922.603678,
+    "ast_hash": "0d18a871471af63010862e3b1381df25",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\03-home-block-after-return-uiautomator.txt": {
+    "mtime": 1781286957.1542866,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\03-home-block-after-return-window.txt": {
+    "mtime": 1781286958.2242537,
+    "ast_hash": "b1913be0a81a8405fd745714253c6835",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\03-home-block-after-return-windows.txt": {
+    "mtime": 1781286958.3371985,
+    "ast_hash": "60166be7fec3896de513c9659dd11fd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\04-home-block-after-return-swipe-uiautomator.txt": {
+    "mtime": 1781286964.5676105,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\04-home-block-after-return-swipe-window.txt": {
+    "mtime": 1781286965.742293,
+    "ast_hash": "0b9d5fd8b5765fb3144d0b2a370fb84d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\04-home-block-after-return-swipe-windows.txt": {
+    "mtime": 1781286965.8601022,
+    "ast_hash": "b733535b1f34f4bcda633668f721bcb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\99-log-extract.txt": {
+    "mtime": 1781286966.2046611,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\99-window-flag-extract.txt": {
+    "mtime": 1781286965.9561937,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-lifecycle-20260612-205434\\artifact-dir.txt": {
+    "mtime": 1781286874.6162536,
+    "ast_hash": "efa284ed48952b4ea9d7b337d31deccc",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-android-version.txt": {
+    "mtime": 1781287542.1693935,
+    "ast_hash": "dad113cc10d2b01e6f26924ea3603a49",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-enabled-a11y.txt": {
+    "mtime": 1781287542.840488,
+    "ast_hash": "25a9666f3218d4d87ed7d058e20094ba",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-instagram-version.txt": {
+    "mtime": 1781287542.5004592,
+    "ast_hash": "c55b2a0f148c3b442424a34e9cde9374",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-launch.txt": {
+    "mtime": 1781287544.6213598,
+    "ast_hash": "3b5a8f900c95188d48212d27f9a0bfd7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-meta.txt": {
+    "mtime": 1781287541.921437,
+    "ast_hash": "7ab1ae5765e163b117c2362083d5d3d8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-noscroll-version.txt": {
+    "mtime": 1781287542.6739006,
+    "ast_hash": "dc7ed86e5214009fc9f4333331863e87",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-overlay-appop.txt": {
+    "mtime": 1781287542.752659,
+    "ast_hash": "1a2c4183112a850f88e9de759d0c41b8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\00-wm-size.txt": {
+    "mtime": 1781287542.052682,
+    "ast_hash": "07e2ae7d032e104e0d61589e5a62693b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\01-accessibility.txt": {
+    "mtime": 1781287580.6764643,
+    "ast_hash": "0cce45f8f743cd2d9ad707d3056071f6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\01-launch-loaded-uiautomator.txt": {
+    "mtime": 1781287579.1937952,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\01-launch-loaded-window.txt": {
+    "mtime": 1781287579.8752432,
+    "ast_hash": "c66fe714596aeb437fd0f0ea4a7506eb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\02-home-ready-uiautomator.txt": {
+    "mtime": 1781287676.398262,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\02-home-ready-window.txt": {
+    "mtime": 1781287677.5212405,
+    "ast_hash": "35f30d52e2838e4f3b593a0c711d1a3c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\03-home-before-swipe-uiautomator.txt": {
+    "mtime": 1781287800.743693,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\03-home-before-swipe-window.txt": {
+    "mtime": 1781287801.0126362,
+    "ast_hash": "0f2f46481bad270b90d9b4ff8f1debda",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\04-home-after-swipe-uiautomator.txt": {
+    "mtime": 1781287810.9883687,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\04-home-after-swipe-window.txt": {
+    "mtime": 1781287811.230391,
+    "ast_hash": "d2bb7570746ef47b0e4a40cdc212d6e7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\05-reels-before-swipe-uiautomator.txt": {
+    "mtime": 1781287828.5090067,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\05-reels-before-swipe-window.txt": {
+    "mtime": 1781287829.2174945,
+    "ast_hash": "13fc92da4a8c62afb2c3d9f81c0a7895",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\06-reels-after-swipe-uiautomator.txt": {
+    "mtime": 1781287845.8833854,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\06-reels-after-swipe-window.txt": {
+    "mtime": 1781287846.5813398,
+    "ast_hash": "5f2db849e8186711cce94e4d93d85393",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\07-search-grid-before-swipe-uiautomator.txt": {
+    "mtime": 1781287864.053791,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\07-search-grid-before-swipe-window.txt": {
+    "mtime": 1781287865.3595746,
+    "ast_hash": "db540d1d881c23531274721ddb3da471",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\08-search-grid-after-swipe-uiautomator.txt": {
+    "mtime": 1781287876.0983617,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\08-search-grid-after-swipe-window.txt": {
+    "mtime": 1781287876.6114717,
+    "ast_hash": "c225f0a3e602f63ca1d8c3723048ea66",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\09-search-typed-openai-uiautomator.txt": {
+    "mtime": 1781287901.176332,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\09-search-typed-openai-window.txt": {
+    "mtime": 1781287901.7981975,
+    "ast_hash": "f629c2893b10e381c17b3162b6351455",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\10-account-profile-uiautomator.txt": {
+    "mtime": 1781287929.0473416,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\10-account-profile-window.txt": {
+    "mtime": 1781287929.3060534,
+    "ast_hash": "43166a48a2cc077de958a5c7e7a0c9b6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\11-account-profile-after-swipe-uiautomator.txt": {
+    "mtime": 1781287937.4128582,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\11-account-profile-after-swipe-window.txt": {
+    "mtime": 1781287937.589702,
+    "ast_hash": "a5789d2a0669bbb33ba8a2f574993d42",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\12-account-post-open-uiautomator.txt": {
+    "mtime": 1781287947.320043,
+    "ast_hash": "5ece65bac2f90e677285c1d04ae47496",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\12-account-post-open-window.txt": {
+    "mtime": 1781287947.5524,
+    "ast_hash": "6ea69aaa164b0a17c8b24baa2dabffec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\13-dm-start-state-uiautomator.txt": {
+    "mtime": 1781288264.7928245,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\13-dm-start-state-window.txt": {
+    "mtime": 1781288264.9460435,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\14-after-back-stack-uiautomator.txt": {
+    "mtime": 1781288272.471965,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\14-after-back-stack-window.txt": {
+    "mtime": 1781288272.6044407,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\15-home-after-nav-uiautomator.txt": {
+    "mtime": 1781288276.031082,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\15-home-after-nav-window.txt": {
+    "mtime": 1781288276.1233723,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\16-dm-inbox-attempt1-uiautomator.txt": {
+    "mtime": 1781288280.8096871,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\16-dm-inbox-attempt1-window.txt": {
+    "mtime": 1781288280.8911798,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\17-dm-inbox-attempt2-uiautomator.txt": {
+    "mtime": 1781288285.3336198,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\17-dm-inbox-attempt2-window.txt": {
+    "mtime": 1781288285.4038715,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\18-dm-thread-attempt-uiautomator.txt": {
+    "mtime": 1781288289.8729846,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\18-dm-thread-attempt-window.txt": {
+    "mtime": 1781288289.936758,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\19-dm-shared-open-uiautomator.txt": {
+    "mtime": 1781288295.431167,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\19-dm-shared-open-window.txt": {
+    "mtime": 1781288295.4943707,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\20-dm-shared-after-swipe-uiautomator.txt": {
+    "mtime": 1781288300.0053923,
+    "ast_hash": "e3aab43352fc3160755d1cae74e8e384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\20-dm-shared-after-swipe-window.txt": {
+    "mtime": 1781288300.0784678,
+    "ast_hash": "53bfed909b22f5357364539196ef2002",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\21-current-state-uiautomator.txt": {
+    "mtime": 1781288375.8339088,
+    "ast_hash": "9796f774ca3dc0a479c132e031f74211",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\22-after-back-uiautomator.txt": {
+    "mtime": 1781288429.355465,
+    "ast_hash": "390e4c634836946e757206895e0b6384",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\23-dm-inbox-uiautomator.txt": {
+    "mtime": 1781288476.5828044,
+    "ast_hash": "288a782ecd9135f64674a774af355dd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\24-dm-thread-uiautomator.txt": {
+    "mtime": 1781288528.9528496,
+    "ast_hash": "2d143150759d126250bffd8b2d99a0ed",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\25-dm-thread-ready-uiautomator.txt": {
+    "mtime": 1781288571.9745681,
+    "ast_hash": "e0fb84d55403189ded5089b0b53f52b2",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\26-dm-shared-open-uiautomator.txt": {
+    "mtime": 1781288657.969175,
+    "ast_hash": "790e6c9208122fe1afc7242831cceabb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\27-dm-shared-after-swipe-uiautomator.txt": {
+    "mtime": 1781288669.8324914,
+    "ast_hash": "1e134e720f7d8c81de1dfbd7beb64bd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\27-dm-shared-after-swipe-window.txt": {
+    "mtime": 1781288786.1277952,
+    "ast_hash": "8315b7b18c83148ceffe24080d7c4380",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\28-accessibility-after-containment.txt": {
+    "mtime": 1781289023.8280146,
+    "ast_hash": "e97885fae3367773b028af6388874298",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\28-install-after-containment.txt": {
+    "mtime": 1781289007.1255002,
+    "ast_hash": "1a0e2b49219d411a9b025a228df2ffd4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\28-launch-after-containment.txt": {
+    "mtime": 1781289014.214314,
+    "ast_hash": "685b5f90ca5f5e023e404cef291d725e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\29-ready-after-containment-uiautomator.txt": {
+    "mtime": 1781289064.186345,
+    "ast_hash": "f71d7df0276d1b3680e8ab8442c9d097",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\30-focus.txt": {
+    "mtime": 1781289109.7892232,
+    "ast_hash": "086c6d514dc75affea1c031d0a36151b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\30-resolve-instagram.txt": {
+    "mtime": 1781289090.912478,
+    "ast_hash": "65ce2dcb8076aa5e9e65db7248ecf431",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\30-start-instagram-uiautomator.txt": {
+    "mtime": 1781289108.41647,
+    "ast_hash": "96363c59b60b5f754ef4b87f318700e6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\30-start-instagram.txt": {
+    "mtime": 1781289091.0890217,
+    "ast_hash": "cdd9ff4adaddbc46e96a78a762aafd01",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\31-focus.txt": {
+    "mtime": 1781289168.4522066,
+    "ast_hash": "086c6d514dc75affea1c031d0a36151b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\31-instagram-ready-uiautomator.txt": {
+    "mtime": 1781289166.1763222,
+    "ast_hash": "d9d7c7537de69a1bb4c7c3838f1ffb90",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\32-dm-inbox-containment-uiautomator.txt": {
+    "mtime": 1781289241.0943756,
+    "ast_hash": "a1f8d04dec5262471ff3ba0f4bf4e0e3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\33-dm-thread-containment-uiautomator.txt": {
+    "mtime": 1781289250.9498885,
+    "ast_hash": "9c378292e17deba9e53f9d7734fac7b5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\34-dm-shared-open-containment-uiautomator.txt": {
+    "mtime": 1781289278.0180788,
+    "ast_hash": "e48b35e5021468de76c6769bef8f35f3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\35-dm-shared-after-swipe-containment-uiautomator.txt": {
+    "mtime": 1781289294.9655173,
+    "ast_hash": "e706175b3fe82f12b2c37ef9397e9369",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\36-dm-after-settle-pull-xml.txt": {
+    "mtime": 1781289370.7067416,
+    "ast_hash": "032e43104bb3d5f6335bc9e9a45654e3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\36-dm-after-settle-uiautomator.txt": {
+    "mtime": 1781289369.4238806,
+    "ast_hash": "d924bfd94d8af0dc7c16a753661b1839",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\36-dm-after-settle-window.txt": {
+    "mtime": 1781289371.013771,
+    "ast_hash": "629a9e6dfe47e34ba5dab768ab817da3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\37-accessibility-containment.txt": {
+    "mtime": 1781289458.9060345,
+    "ast_hash": "8f7eb1ed38972798c89d63ab6338fb6b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\37-enabled-a11y-containment.txt": {
+    "mtime": 1781289458.5643127,
+    "ast_hash": "8f8fe8caddfbb2be9e8b29616167a0c7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\38-focus.txt": {
+    "mtime": 1781289540.7656243,
+    "ast_hash": "81bfabfbc905e6365db1e16c6d59711b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\38-home-ready-a11y-pull-xml.txt": {
+    "mtime": 1781289540.3024728,
+    "ast_hash": "158b7d58edf7b53e7f1071b16edefbf1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\38-home-ready-a11y-uiautomator.txt": {
+    "mtime": 1781289539.1354022,
+    "ast_hash": "9c8cec86f97d8732cffb9a4d9a9a1774",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\39-dm-inbox-valid-pull-xml.txt": {
+    "mtime": 1781289593.9339066,
+    "ast_hash": "a216d0d9e08617a0e0d18c2ab1d22e5a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\39-dm-inbox-valid-uiautomator.txt": {
+    "mtime": 1781289592.6739247,
+    "ast_hash": "689b1561dc1ec713be60e71a623b33b4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\40-dm-thread-valid-pull-xml.txt": {
+    "mtime": 1781289602.425852,
+    "ast_hash": "a20d90a70a9d5f93b1eb15079c571955",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\40-dm-thread-valid-uiautomator.txt": {
+    "mtime": 1781289601.398006,
+    "ast_hash": "9aab37b32a9bca98e3d41dbf97d6b17d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\41-dm-shared-open-valid-pull-xml.txt": {
+    "mtime": 1781289628.7076724,
+    "ast_hash": "0b350e87a246593a59ae2274c8115276",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\41-dm-shared-open-valid-uiautomator.txt": {
+    "mtime": 1781289627.6790683,
+    "ast_hash": "5ac25b10e835940ed913d59042202fe5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\42-dm-shared-after-swipe-valid-pull-xml.txt": {
+    "mtime": 1781289653.6552591,
+    "ast_hash": "2f8c1d889ad80ed7fdec0521b52be915",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\42-dm-shared-after-swipe-valid-uiautomator.txt": {
+    "mtime": 1781289652.582818,
+    "ast_hash": "fc498ebcba5be408420f8b8f6c81dcc5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\42-dm-shared-after-swipe-valid-window.txt": {
+    "mtime": 1781289658.823024,
+    "ast_hash": "b31805d0dd040bba626ba1810290744f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\99-dm-flow-log-extract.txt": {
+    "mtime": 1781288300.143783,
+    "ast_hash": "f8e8393db8264af9b6cf1a739c1d17a9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-post-overlaypatch-20260612-210541\\99-main-flow-log-extract.txt": {
+    "mtime": 1781287953.3400178,
+    "ast_hash": "80768967eaf8e364edd5e1522624512e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\01-block-windows.txt": {
+    "mtime": 1781287095.6930544,
+    "ast_hash": "b733535b1f34f4bcda633668f721bcb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\01-start-block.txt": {
+    "mtime": 1781287094.5933106,
+    "ast_hash": "b24ca768a656118aa7360c5a3d46fa01",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\02-freeze.txt": {
+    "mtime": 1781287095.7662177,
+    "ast_hash": "f6721438ebc1d95d42be224e4b939683",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\03-after-unfreeze-windows.txt": {
+    "mtime": 1781287097.0771854,
+    "ast_hash": "b733535b1f34f4bcda633668f721bcb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\03-unfreeze.txt": {
+    "mtime": 1781287096.4634442,
+    "ast_hash": "b16ec2433adff20771c4cb5ee1dd620a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\04-restated-block-windows.txt": {
+    "mtime": 1781287097.8223307,
+    "ast_hash": "b733535b1f34f4bcda633668f721bcb1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\04-restated-block.txt": {
+    "mtime": 1781287097.1864505,
+    "ast_hash": "b24ca768a656118aa7360c5a3d46fa01",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\overlay-flag-regression-20260612-205814\\99-flag-extract.txt": {
+    "mtime": 1781287100.0406632,
+    "ast_hash": "9cdfa5047392462a4ca4e162c04316ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\PaperControls.kt": {
+    "mtime": 1781351597.8365035,
+    "ast_hash": "4fda130abc4be895d905d191a8cde4cf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfSelectionTextCleaner.kt": {
+    "mtime": 1781360475.9192445,
+    "ast_hash": "2bcf65bcde1097fc31dd90ecced6be75",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\PdfSelectionTextCleanerTest.kt": {
+    "mtime": 1781360475.921216,
+    "ast_hash": "fea2158b4a0c957095f41846e408526d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\InstagramBlockPolicy.kt": {
+    "mtime": 1781361886.9777906,
+    "ast_hash": "fbedf7df4799467af7cc2264ec2e1aad",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\InstagramBlockPolicyTest.kt": {
+    "mtime": 1781361908.1704361,
+    "ast_hash": "010b4941ad92b9f7b07f3730a256a424",
     "semantic_hash": ""
   }
 }

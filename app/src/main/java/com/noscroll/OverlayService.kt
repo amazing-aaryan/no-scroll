@@ -10,6 +10,7 @@ import android.content.pm.ServiceInfo
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.graphics.PixelFormat
+import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -31,7 +32,8 @@ class OverlayService : Service() {
     private enum class OverlayMode {
         NONE,
         BOOK,
-        BLOCK
+        BLOCK,
+        TOUCH_BLOCK
     }
 
     companion object {
@@ -42,6 +44,7 @@ class OverlayService : Service() {
         const val ACTION_FREEZE = "com.noscroll.FREEZE_OVERLAY"
         const val ACTION_UNFREEZE = "com.noscroll.UNFREEZE_OVERLAY"
         const val ACTION_BLOCK_REGION = "com.noscroll.BLOCK_REGION"
+        const val ACTION_TOUCH_BLOCK_REGION = "com.noscroll.TOUCH_BLOCK_REGION"
     }
 
     override fun onCreate() {
@@ -61,12 +64,17 @@ class OverlayService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (windowManager == null) return START_NOT_STICKY // onCreate failed — don't restart
         if (intent == null) return START_STICKY // restarted by system after kill — wait for next real command
-        if (intent.action == ACTION_BLOCK_REGION) {
+        if (intent.action == ACTION_BLOCK_REGION || intent.action == ACTION_TOUCH_BLOCK_REGION) {
+            if (!Settings.canDrawOverlays(this)) {
+                removeOverlayView()
+                stopSelf()
+                return START_NOT_STICKY
+            }
             val x = intent.getIntExtra("x", 0)
             val y = intent.getIntExtra("y", 0)
             val w = intent.getIntExtra("w", resources.displayMetrics.widthPixels)
             val h = intent.getIntExtra("h", (resources.displayMetrics.heightPixels * 0.80f).toInt())
-            showBlockRegion(x, y, w, h)
+            showBlockRegion(x, y, w, h, visible = intent.action == ACTION_BLOCK_REGION)
             return START_STICKY
         }
         if (intent.action == ACTION_HIDE) {
@@ -149,9 +157,16 @@ class OverlayService : Service() {
             )
         }
 
-        windowManager?.addView(view, params)
-        overlayView = view
-        overlayMode = OverlayMode.BOOK
+        try {
+            windowManager?.addView(view, params)
+            overlayView = view
+            overlayMode = OverlayMode.BOOK
+        } catch (_: Exception) {
+            overlayView = null
+            overlayMode = OverlayMode.NONE
+            stopSelf()
+            return
+        }
 
         showReelsTooltipOnce(x, y + h)
     }
@@ -203,7 +218,8 @@ class OverlayService : Service() {
     private fun setTouchable(enabled: Boolean) {
         val view = overlayView ?: return
         val params = view.layoutParams as? WindowManager.LayoutParams ?: return
-        params.flags = if (enabled) {
+        val shouldAllowTouches = enabled
+        params.flags = if (shouldAllowTouches) {
             params.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
         } else {
             params.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
@@ -211,43 +227,87 @@ class OverlayService : Service() {
         try { windowManager?.updateViewLayout(view, params) } catch (_: Exception) {}
     }
 
-    private fun showBlockRegion(x: Int, y: Int, w: Int, h: Int) {
-        if (overlayMode != OverlayMode.BLOCK) {
+    private fun blockRegionFlags(): Int {
+        return WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
+            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
+            WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+    }
+
+    private fun showBlockRegion(x: Int, y: Int, w: Int, h: Int, visible: Boolean) {
+        val targetMode = if (visible) OverlayMode.BLOCK else OverlayMode.TOUCH_BLOCK
+        if (overlayMode != targetMode) {
             removeOverlayView()
         }
+        val overlayFlags = blockRegionFlags()
         val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null) {
+            var changed = false
             if (existing.x != x || existing.y != y || existing.width != w || existing.height != h) {
                 existing.x = x
                 existing.y = y
                 existing.width = w
                 existing.height = h
+                changed = true
+            }
+            if (existing.flags != overlayFlags) {
+                existing.flags = overlayFlags
+                changed = true
+            }
+            if (changed) {
                 try { windowManager?.updateViewLayout(overlayView, existing) } catch (_: Exception) {}
             }
             return
         }
-        val view = LayoutInflater.from(this).inflate(R.layout.overlay_reels_block, null)
+        val view = if (visible) {
+            LayoutInflater.from(this).inflate(R.layout.overlay_reels_block, null).apply {
+                setBackgroundColor(Color.parseColor("#FF171615"))
+                alpha = 1f
+                isClickable = true
+                isFocusable = false
+                setOnClickListener { launchReader() }
+            }
+        } else {
+            View(this).apply {
+                setBackgroundColor(Color.TRANSPARENT)
+                isClickable = true
+                isFocusable = false
+            }
+        }
         val params = WindowManager.LayoutParams(
             w,
             h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
-            PixelFormat.TRANSLUCENT
+            overlayFlags,
+            if (visible) PixelFormat.OPAQUE else PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
             this.x = x
             this.y = y
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                setFitInsetsTypes(0)
+            }
         }
-        view.setOnClickListener {
-            startActivity(
-                Intent(this, PdfViewerActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            )
+        if (!visible) {
+            view.setOnTouchListener { _, _ -> true }
+            view.setOnClickListener { }
         }
-        windowManager?.addView(view, params)
-        overlayView = view
-        overlayMode = OverlayMode.BLOCK
+        try {
+            windowManager?.addView(view, params)
+            overlayView = view
+            overlayMode = targetMode
+        } catch (_: Exception) {
+            overlayView = null
+            overlayMode = OverlayMode.NONE
+            stopSelf()
+        }
+    }
+
+    private fun launchReader() {
+        removeOverlayView()
+        startActivity(
+            Intent(this, PdfViewerActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        )
     }
 
     private fun removeOverlayView() {

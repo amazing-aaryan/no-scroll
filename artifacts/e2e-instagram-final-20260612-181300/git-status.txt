@@ -1,0 +1,20 @@
+ M app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt
+ M app/src/main/java/com/noscroll/OverlayService.kt
+ M graphify-out/.graphify_labels.json
+ M graphify-out/2026-06-12/.graphify_labels.json
+ M graphify-out/2026-06-12/GRAPH_REPORT.md
+ M graphify-out/2026-06-12/graph.json
+ M graphify-out/2026-06-12/manifest.json
+ M graphify-out/GRAPH_REPORT.md
+ M graphify-out/cache/stat-index.json
+ M graphify-out/graph.html
+ M graphify-out/graph.json
+ M graphify-out/manifest.json
+ M reasoning.md
+?? artifacts/
+?? graphify-out/cache/ast/321980c84eddb7fc3b20adf22ab7cecfdb0dc0aa63b3b62845c66b2faffe44f0.json
+?? graphify-out/cache/ast/68b3b80fbdac90c49a5837e872b037e4cc2bc99e973f47966624deef8cda4eeb.json
+?? graphify-out/cache/ast/7b722c71da3230a707a164d0b73164da05b30f1b55485e7e9b63aef8e0cb49f6.json
+?? graphify-out/cache/ast/8d4ad9f2acf11a36cdfe38128c9e8dd3bf2371a69615e79fe8b1e4e75350ef06.json
+?? graphify-out/cache/ast/d6e76577e1975512a75a354dc2b1d9ecea561db0284d1cf2cfd3fae3d8a9d6df.json
+?? graphify-out/cache/ast/fb7b5328dfcb0870849aaf882257d0139465768ac8f9f4efabb731d788d824ed.json

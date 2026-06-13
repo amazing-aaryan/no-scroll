@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +15,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -58,12 +56,12 @@ fun DocumentRow(
     val title = metadataTitle(metadata, book)
     val needsIdentity = needsMetadataIdentification(metadata, book)
     var menuExpanded by remember { mutableStateOf(false) }
+    var confirmingDelete by remember { mutableStateOf(false) }
     Row(
             modifier = modifier
-                .clickable(onClick = onOpen)
                 .fillMaxWidth()
                 .background(PaperColors.Paper)
-                .padding(start = 20.dp, top = 14.dp, bottom = 14.dp, end = 4.dp),
+                .padding(start = 20.dp, top = 14.dp, bottom = 14.dp, end = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             PaperCover(title = title, uri = book.bookUri)
@@ -100,34 +98,81 @@ fun DocumentRow(
                     )
                 }
             }
+            PaperActionButton(
+                label = "Open",
+                onClick = onOpen,
+                tone = PaperButtonTone.Quiet,
+                modifier = Modifier.padding(start = 12.dp)
+            )
             Box {
-                IconButton(onClick = { menuExpanded = true }) {
+                IconButton(onClick = {
+                    confirmingDelete = false
+                    menuExpanded = true
+                }) {
                     Icon(
                         painter = painterResource(R.drawable.ic_more_vert),
                         contentDescription = "More options",
                         tint = PaperColors.Graphite
                     )
                 }
-                DropdownMenu(expanded = menuExpanded, onDismissRequest = { menuExpanded = false }) {
-                    DropdownMenuItem(
-                        text = { Text(if (book.isFavorite) "Unfavourite" else "Favourite") },
-                        onClick = { menuExpanded = false; onFavorite() }
-                    )
-                    if (needsIdentity) {
-                        DropdownMenuItem(
-                            text = { Text("Identify") },
-                            onClick = { menuExpanded = false; onIdentify() }
-                        )
+                DropdownMenu(
+                    expanded = menuExpanded,
+                    onDismissRequest = {
+                        menuExpanded = false
+                        confirmingDelete = false
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    containerColor = PaperColors.Raised,
+                    tonalElevation = 0.dp,
+                    shadowElevation = 6.dp
+                ) {
+                    Column(Modifier.fillMaxWidth()) {
+                        if (confirmingDelete) {
+                            PaperMenuAction(
+                                label = "Remove book",
+                                detail = "Removes it from NoScroll only.",
+                                destructive = true,
+                                onClick = {
+                                    menuExpanded = false
+                                    confirmingDelete = false
+                                    onDelete()
+                                }
+                            )
+                            PaperMenuAction(
+                                label = "Cancel",
+                                onClick = { confirmingDelete = false }
+                            )
+                        } else {
+                            PaperMenuAction(
+                                label = if (book.isFavorite) "Unfavourite" else "Favourite",
+                                detail = "Updates this book's library status.",
+                                onClick = {
+                                    menuExpanded = false
+                                    onFavorite()
+                                }
+                            )
+                            if (needsIdentity) {
+                                PaperMenuAction(
+                                    label = "Identify",
+                                    detail = "Look up title and author.",
+                                    onClick = {
+                                        menuExpanded = false
+                                        onIdentify()
+                                    }
+                                )
+                            }
+                            PaperMenuAction(
+                                label = "Remove",
+                                detail = "Requires confirmation.",
+                                destructive = true,
+                                onClick = { confirmingDelete = true }
+                            )
+                        }
                     }
-                    DropdownMenuItem(
-                        text = { Text("Remove") },
-                        onClick = { menuExpanded = false; onDelete() }
-                    )
                 }
             }
     }
 }
-
 @Composable
 fun PaperCover(title: String, modifier: Modifier = Modifier, uri: String? = null) {
     val context = LocalContext.current

@@ -1,6 +1,6 @@
 package com.noscroll.ui
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,14 +11,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -59,28 +57,22 @@ fun NotebookScreen(
                 Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 12.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                TextButton(onClick = onBack) { Text("Back") }
+                PaperActionButton(label = "Back", onClick = onBack, tone = PaperButtonTone.Quiet)
                 Text("Notebook", style = MaterialTheme.typography.titleLarge, modifier = Modifier.weight(1f))
-                TextButton(onClick = onExport) { Text("Export") }
+                PaperActionButton(label = "Export", onClick = onExport, tone = PaperButtonTone.Quiet)
             }
         }
     ) { padding ->
         Column(Modifier.padding(padding).fillMaxSize()) {
-            PrimaryScrollableTabRow(
-                selectedTabIndex = tab,
-                containerColor = PaperColors.Paper,
-                contentColor = PaperColors.Ink,
-                edgePadding = 16.dp
-            ) {
-                tabs.forEachIndexed { index, label ->
-                    if (index == 0) {
-                        TutorialAnchor(TutorialStepId.NOTEBOOK_HIGHLIGHTS, tutorialController) {
-                            Tab(selected = tab == index, onClick = { tab = index }, text = { Text(label, maxLines = 1, overflow = TextOverflow.Ellipsis) })
-                        }
-                    } else {
-                        Tab(selected = tab == index, onClick = { tab = index }, text = { Text(label, maxLines = 1, overflow = TextOverflow.Ellipsis) })
-                    }
-                }
+            TutorialAnchor(TutorialStepId.NOTEBOOK_HIGHLIGHTS, tutorialController) {
+                PaperSegmentedSelector(
+                    label = "View",
+                    options = tabs.indices.toList(),
+                    selected = tab,
+                    onSelected = { tab = it },
+                    optionLabel = { tabs[it] },
+                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
+                )
             }
             LazyColumn(Modifier.fillMaxSize()) {
                 when (tab) {
@@ -149,9 +141,9 @@ private fun NotebookQuoteRow(
     onClick: () -> Unit,
     onDelete: (() -> Unit)?
 ) {
+    var confirmingDelete by remember { mutableStateOf(false) }
     Column(
             Modifier
-                .clickable(onClick = onClick)
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp, vertical = 14.dp)
         ) {
@@ -167,9 +159,35 @@ private fun NotebookQuoteRow(
             if (!note.isNullOrBlank()) {
                 Text(note, style = MaterialTheme.typography.bodyMedium, color = PaperColors.Graphite, modifier = Modifier.padding(top = 6.dp))
             }
-            if (onDelete != null) {
-                TextButton(onClick = onDelete) {
-                    Text("Delete")
+            Row(
+                modifier = Modifier.padding(top = 12.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                PaperActionButton(
+                    label = "Open",
+                    onClick = onClick,
+                    tone = PaperButtonTone.Quiet
+                )
+                if (onDelete != null) {
+                    PaperActionButton(
+                        label = if (confirmingDelete) "Confirm delete" else "Delete",
+                        onClick = {
+                            if (confirmingDelete) {
+                                confirmingDelete = false
+                                onDelete()
+                            } else {
+                                confirmingDelete = true
+                            }
+                        },
+                        tone = PaperButtonTone.Danger
+                    )
+                    if (confirmingDelete) {
+                        PaperActionButton(
+                            label = "Cancel",
+                            onClick = { confirmingDelete = false },
+                            tone = PaperButtonTone.Quiet
+                        )
+                    }
                 }
             }
     }

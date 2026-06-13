@@ -3,7 +3,6 @@
 import android.graphics.RectF
 import android.net.Uri
 import android.os.Bundle
-import java.text.Normalizer
 import android.util.SparseArray
 import android.view.MotionEvent
 import android.view.View
@@ -84,16 +83,16 @@ class NoScrollPdfViewerFragment : PdfViewerFragment() {
             object : PdfView.OnSelectionChangedListener {
                 override fun onSelectionChanged(newSelection: Selection?) {
                     val textSelection = newSelection as? TextSelection
-                    val readerSelection = textSelection
-                        ?.takeIf { it.text.isNotBlank() }
-                        ?.let {
+                    val readerSelection = textSelection?.let {
+                        val cleanedText = PdfSelectionTextCleaner.clean(it.text)
+                        cleanedText.takeIf { text -> text.isNotBlank() }?.let { text ->
                             ReaderSelection(
-                                text = Normalizer.normalize(it.text.toString(), Normalizer.Form.NFKC)
-                                    .replace(Regex("([a-zA-Z])-[ \\t]*\\n[ \\t]*([a-zA-Z])"), "$1$2"),
+                                text = text,
                                 bounds = it.bounds,
                                 pageIndex = it.bounds.firstOrNull()?.pageNum ?: pdfView.firstVisiblePage
                             )
                         }
+                    }
                     (activity as? Host)?.onPdfTextSelectionChanged(readerSelection)
                 }
             }

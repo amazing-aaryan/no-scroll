@@ -6,14 +6,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.noscroll.ui.NoScrollTheme
+import com.noscroll.ui.PaperMenuAction
 import com.noscroll.ui.PaperColors
 
 class ShareBottomSheet : BottomSheetDialogFragment() {
@@ -76,7 +75,5 @@ class ShareBottomSheet : BottomSheetDialogFragment() {
 
 @androidx.compose.runtime.Composable
 private fun ShareRow(label: String, onClick: () -> Unit) {
-    TextButton(onClick = onClick, modifier = Modifier.fillMaxWidth()) {
-        Text(label)
-    }
+    PaperMenuAction(label = label, onClick = onClick)
 }

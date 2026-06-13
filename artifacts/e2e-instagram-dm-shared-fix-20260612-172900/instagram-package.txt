@@ -1,0 +1,2 @@
+    versionCode=383909377 minSdk=28 targetSdk=36
+    versionName=433.0.0.47.68

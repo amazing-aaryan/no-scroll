@@ -1,0 +1,46 @@
+  Reason: Input dispatching timed out (49ad630 com.noscroll is not responding. Waited 5002ms for TouchModeEvent(inTouchMode=false)).
+  Display #0 currentFocus=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity} focusedApp=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+      mPreferredTopFocusableRootTask=Task{ed1ab1f #26 type=standard A=10227:com.instagram.android}
+      mLastFocusedRootTask=Task{ed1ab1f #26 type=standard A=10227:com.instagram.android}
+      * Task{ed1ab1f #26 type=standard A=10227:com.instagram.android U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}
+        * ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+      * Task{dc2eae8 #33 type=standard A=10226:com.noscroll U=0 visible=false visibleRequested=false mode=fullscreen translucent=true sz=1}
+        * ActivityRecord{162089995 u0 com.noscroll/.PdfViewerActivity t33}
+  Window #0 Window{49ad630 u0 com.noscroll}:
+    mOwnerUid=10226 showForAllUsers=false package=com.noscroll appop=SYSTEM_ALERT_WINDOW
+  Window #1 Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}:
+    mOwnerUid=10227 showForAllUsers=false package=com.instagram.android appop=NONE
+    mBaseLayer=21000 mSubLayer=0    mToken=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+    mActivityRecord=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+    WindowStateAnimator{ed01034 com.instagram.android/com.instagram.android.activity.MainTabActivity}:
+      mSurface=Surface(name=VRI-com.instagram.android/com.instagram.android.activity.MainTabActivity#2461)/@0x2b173cb
+      Window #2: WindowStateAnimator{ed01034 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+    numWindow=1 mCanAddInternalSystemWindow=false mAlertWindows={} mClientDead=false    mPackageName=com.instagram.android
+  deepestLastOrientationSource=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+  mImeLayeringTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  mImeInputTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  mImeControlTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  mImeParent=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+  mCurrentFocus=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  mFocusedApp=ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+  mObscuringWindow=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  mLastWakeLockObscuringWindow=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+      mPreferredTopFocusableRootTask=Task{ed1ab1f #26 type=standard A=10227:com.instagram.android}
+      mLastFocusedRootTask=Task{ed1ab1f #26 type=standard A=10227:com.instagram.android}
+      * Task{ed1ab1f #26 type=standard A=10227:com.instagram.android U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}
+        * ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+    mFocusedWindow=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+    mTopFullscreenOpaqueWindowState=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+    mSystemUiControllingWindow=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+    mSystemBarColorApps={ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}}
+    mNavBarColorWindowCandidate=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+    mNavBarBackgroundWindowCandidate=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+      Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+      Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}:
+        mControlTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+        mControlTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+        mControlTarget=Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}
+  ActivityRecord{200534228 u0 com.instagram.android/.activity.MainTabActivity t26}
+  Window #8 Window{4a860ab u0 com.instagram.android/com.instagram.android.activity.MainTabActivity}:
+    mOwnerUid=10227 showForAllUsers=false package=com.instagram.android appop=NONE
+    WindowStateAnimator{ed01034 com.instagram.android/com.instagram.android.activity.MainTabActivity}:
