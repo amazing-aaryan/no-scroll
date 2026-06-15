@@ -1,0 +1,19 @@
+NoScroll presentable social demo image pack
+Generated: 2026-06-13T19:23:10
+Output: C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-20260613-192258
+Source blocker evidence:
+- C:\Users\aarya\Desktop\no-scroll\artifacts\e2e-instagram-latest-20260612-202813\04-reels-before.png
+- C:\Users\aarya\Desktop\no-scroll\artifacts\e2e-instagram-latest-20260612-202813\05-reels-after.png
+- C:\Users\aarya\Desktop\no-scroll\artifacts\e2e-instagram-post-overlaypatch-20260612-210541
+Sanitization:
+- Live Instagram content regions were replaced/redacted with neutral mock feed surfaces.
+- Personal account names, profile photos, and DM names are not used in final composites.
+- App UI screens for library/reader/quote are deterministic NoScroll Paper-theme mockups, not edited app source.
+Dimensions:
+- 01-hero.png: 1080x1350
+- 02-how-it-works-carousel-1.png: 1080x1350
+- 03-how-it-works-carousel-2.png: 1080x1350
+- 04-how-it-works-carousel-3.png: 1080x1350
+- 05-reader-library.png: 1080x1350
+- 06-quote-card.png: 1080x1350
+- 07-story-demo.png: 1080x1920

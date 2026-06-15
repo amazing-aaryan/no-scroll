@@ -94,15 +94,6 @@
       "norm_label": ".blockbounds()"
     },
     {
-      "label": "Float",
-      "file_type": "code",
-      "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
-      "source_location": "L20",
-      "id": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_float",
-      "community": 63,
-      "norm_label": "float"
-    },
-    {
       "label": "MainActivity.kt",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
@@ -207,7 +198,7 @@
       "source_file": "",
       "source_location": "",
       "id": "accessibilityservice",
-      "community": 62,
+      "community": 1,
       "norm_label": "accessibilityservice"
     },
     {
@@ -385,7 +376,7 @@
       "label": ".resolveNavBarTop()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L705",
+      "source_location": "L777",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_resolvenavbartop",
       "community": 7,
       "norm_label": ".resolvenavbartop()"
@@ -394,7 +385,7 @@
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L705",
+      "source_location": "L777",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_int",
       "community": 7,
       "norm_label": "int"
@@ -403,7 +394,7 @@
       "label": ".findAndUpdateOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L714",
+      "source_location": "L786",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findandupdateoverlay",
       "community": 7,
       "norm_label": ".findandupdateoverlay()"
@@ -412,7 +403,7 @@
       "label": ".logOverlayDecision()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L843",
+      "source_location": "L917",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
       "community": 7,
       "norm_label": ".logoverlaydecision()"
@@ -421,7 +412,7 @@
       "label": ".maybeRollbackBlockedScroll()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L857",
+      "source_location": "L931",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_mayberollbackblockedscroll",
       "community": 7,
       "norm_label": ".mayberollbackblockedscroll()"
@@ -430,7 +421,7 @@
       "label": ".isForwardScroll()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L886",
+      "source_location": "L960",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_isforwardscroll",
       "community": 7,
       "norm_label": ".isforwardscroll()"
@@ -439,7 +430,7 @@
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L886",
+      "source_location": "L960",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_boolean",
       "community": 7,
       "norm_label": "boolean"
@@ -448,7 +439,7 @@
       "label": ".findBlockedScrollableNode()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L902",
+      "source_location": "L976",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findblockedscrollablenode",
       "community": 7,
       "norm_label": ".findblockedscrollablenode()"
@@ -457,7 +448,7 @@
       "label": "InstagramBlockSurface",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L902",
+      "source_location": "L976",
       "id": "instagramblocksurface",
       "community": 7,
       "norm_label": "instagramblocksurface"
@@ -466,7 +457,7 @@
       "label": ".sendBlockOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L971",
+      "source_location": "L1045",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendblockoverlay",
       "community": 7,
       "norm_label": ".sendblockoverlay()"
@@ -475,7 +466,7 @@
       "label": ".sendTouchBlockOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L981",
+      "source_location": "L1055",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendtouchblockoverlay",
       "community": 7,
       "norm_label": ".sendtouchblockoverlay()"
@@ -484,7 +475,7 @@
       "label": ".hideOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L991",
+      "source_location": "L1065",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_hideoverlay",
       "community": 7,
       "norm_label": ".hideoverlay()"
@@ -493,7 +484,7 @@
       "label": ".sendBookOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L997",
+      "source_location": "L1071",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendbookoverlay",
       "community": 7,
       "norm_label": ".sendbookoverlay()"
@@ -502,7 +493,7 @@
       "label": ".stopOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1009",
+      "source_location": "L1083",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_stopoverlay",
       "community": 7,
       "norm_label": ".stopoverlay()"
@@ -511,7 +502,7 @@
       "label": ".sendOverlayIntent()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1016",
+      "source_location": "L1090",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendoverlayintent",
       "community": 7,
       "norm_label": ".sendoverlayintent()"
@@ -520,7 +511,7 @@
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1016",
+      "source_location": "L1090",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_intent",
       "community": 7,
       "norm_label": "intent"
@@ -529,7 +520,7 @@
       "label": ".overlayCommandKey()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1036",
+      "source_location": "L1110",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
       "community": 7,
       "norm_label": ".overlaycommandkey()"
@@ -538,7 +529,7 @@
       "label": ".isInsideNodeWithId()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1045",
+      "source_location": "L1119",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_isinsidenodewithid",
       "community": 7,
       "norm_label": ".isinsidenodewithid()"
@@ -547,7 +538,7 @@
       "label": "Set",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1045",
+      "source_location": "L1119",
       "id": "set",
       "community": 7,
       "norm_label": "set"
@@ -556,7 +547,7 @@
       "label": ".containsDescendantWithId()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1063",
+      "source_location": "L1137",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_containsdescendantwithid",
       "community": 7,
       "norm_label": ".containsdescendantwithid()"
@@ -565,7 +556,7 @@
       "label": ".onInterrupt()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1081",
+      "source_location": "L1155",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_oninterrupt",
       "community": 7,
       "norm_label": ".oninterrupt()"
@@ -574,7 +565,7 @@
       "label": ".onDestroy()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1083",
+      "source_location": "L1157",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_ondestroy",
       "community": 7,
       "norm_label": ".ondestroy()"
@@ -3114,7 +3105,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L1",
       "id": "noscroll_setupactivity",
-      "community": 62,
+      "community": 1,
       "norm_label": "setupactivity.kt"
     },
     {
@@ -3123,7 +3114,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L50",
       "id": "noscroll_setupactivity_setupactivity",
-      "community": 62,
+      "community": 1,
       "norm_label": "setupactivity"
     },
     {
@@ -3132,7 +3123,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L55",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_tutorialprefs",
-      "community": 62,
+      "community": 1,
       "norm_label": "tutorialprefs"
     },
     {
@@ -3141,7 +3132,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L57",
       "id": "noscroll_setupactivity_setupactivity_oncreate",
-      "community": 62,
+      "community": 1,
       "norm_label": ".oncreate()"
     },
     {
@@ -3150,7 +3141,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L57",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_bundle",
-      "community": 62,
+      "community": 1,
       "norm_label": "bundle"
     },
     {
@@ -3159,7 +3150,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L176",
       "id": "noscroll_setupactivity_setupactivity_applypapersystembars",
-      "community": 62,
+      "community": 1,
       "norm_label": ".applypapersystembars()"
     },
     {
@@ -3168,7 +3159,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L185",
       "id": "noscroll_setupactivity_setupactivity_onresume",
-      "community": 62,
+      "community": 1,
       "norm_label": ".onresume()"
     },
     {
@@ -3177,7 +3168,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L190",
       "id": "noscroll_setupactivity_setupactivity_updateui",
-      "community": 62,
+      "community": 1,
       "norm_label": ".updateui()"
     },
     {
@@ -3186,7 +3177,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L195",
       "id": "noscroll_setupactivity_setupactivity_accessibilityserviceintent",
-      "community": 62,
+      "community": 1,
       "norm_label": ".accessibilityserviceintent()"
     },
     {
@@ -3195,7 +3186,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L195",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_intent",
-      "community": 62,
+      "community": 1,
       "norm_label": "intent"
     },
     {
@@ -3204,7 +3195,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L209",
       "id": "noscroll_setupactivity_setupactivity_statustext",
-      "community": 62,
+      "community": 1,
       "norm_label": ".statustext()"
     },
     {
@@ -3213,7 +3204,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L209",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_string",
-      "community": 62,
+      "community": 1,
       "norm_label": "string"
     },
     {
@@ -3222,7 +3213,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L221",
       "id": "noscroll_setupactivity_permissionrow",
-      "community": 62,
+      "community": 1,
       "norm_label": "permissionrow()"
     },
     {
@@ -3231,7 +3222,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L221",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_boolean",
-      "community": 62,
+      "community": 1,
       "norm_label": "boolean"
     },
     {
@@ -7078,40 +7069,40 @@
       "norm_label": "instagramblockpolicytest"
     },
     {
-      "label": ".`reels block covers from display top to nav top at full width`()",
+      "label": ".`reels block uses detected container bounds`()",
       "file_type": "code",
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L8",
-      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_covers_from_display_top_to_nav_top_at_full_width",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_uses_detected_container_bounds",
       "community": 63,
-      "norm_label": ".`reels block covers from display top to nav top at full width`()"
+      "norm_label": ".`reels block uses detected container bounds`()"
     },
     {
-      "label": ".`home block starts below visible stories but does not leave a nav gap`()",
+      "label": ".`home block uses detected feed container bounds`()",
       "file_type": "code",
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
-      "source_location": "L24",
-      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_starts_below_visible_stories_but_does_not_leave_a_nav_gap",
+      "source_location": "L20",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_uses_detected_feed_container_bounds",
       "community": 63,
-      "norm_label": ".`home block starts below visible stories but does not leave a nav gap`()"
+      "norm_label": ".`home block uses detected feed container bounds`()"
     },
     {
-      "label": ".`search block starts below search chrome at full width`()",
+      "label": ".`search block uses detected result container bounds`()",
       "file_type": "code",
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
-      "source_location": "L40",
-      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_starts_below_search_chrome_at_full_width",
+      "source_location": "L32",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds",
       "community": 63,
-      "norm_label": ".`search block starts below search chrome at full width`()"
+      "norm_label": ".`search block uses detected result container bounds`()"
     },
     {
-      "label": ".`invalid or inverted geometry produces no block`()",
+      "label": ".`missing or too-small container produces no block`()",
       "file_type": "code",
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
-      "source_location": "L56",
-      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_invalid_or_inverted_geometry_produces_no_block",
+      "source_location": "L44",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block",
       "community": 63,
-      "norm_label": ".`invalid or inverted geometry produces no block`()"
+      "norm_label": ".`missing or too-small container produces no block`()"
     },
     {
       "label": "PdfReaderGestureTest.kt",
@@ -8248,6 +8239,51 @@
       "norm_label": "final current readiness decision"
     },
     {
+      "label": "Float",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
+      "source_location": "L20",
+      "community": 63,
+      "norm_label": "float",
+      "id": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_float"
+    },
+    {
+      "label": ".`reels block covers from display top to nav top at full width`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L8",
+      "community": 63,
+      "norm_label": ".`reels block covers from display top to nav top at full width`()",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_covers_from_display_top_to_nav_top_at_full_width"
+    },
+    {
+      "label": ".`home block starts below visible stories but does not leave a nav gap`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L24",
+      "community": 63,
+      "norm_label": ".`home block starts below visible stories but does not leave a nav gap`()",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_starts_below_visible_stories_but_does_not_leave_a_nav_gap"
+    },
+    {
+      "label": ".`search block starts below search chrome at full width`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L40",
+      "community": 63,
+      "norm_label": ".`search block starts below search chrome at full width`()",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_starts_below_search_chrome_at_full_width"
+    },
+    {
+      "label": ".`invalid or inverted geometry produces no block`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L56",
+      "community": 63,
+      "norm_label": ".`invalid or inverted geometry produces no block`()",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_invalid_or_inverted_geometry_produces_no_block"
+    },
+    {
       "label": "BlockSurface",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
@@ -8653,9 +8689,9 @@
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy",
-      "target": "noscroll_instagramblockpolicy_instagramblockpolicy",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_instagramblockpolicy"
     },
     {
       "relation": "contains",
@@ -8663,9 +8699,9 @@
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy",
-      "target": "noscroll_instagramblockpolicy_instagramblocksurface",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_instagramblocksurface"
     },
     {
       "relation": "contains",
@@ -8673,9 +8709,9 @@
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy",
-      "target": "noscroll_instagramblockpolicy_intbounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_intbounds"
     },
     {
       "relation": "references",
@@ -8684,9 +8720,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
-      "target": "noscroll_instagramblockpolicy_instagramblocksurface",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_instagramblocksurface"
     },
     {
       "relation": "references",
@@ -8695,9 +8731,9 @@
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
-      "target": "noscroll_instagramblockpolicy_intbounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_intbounds"
     },
     {
       "relation": "references",
@@ -8706,9 +8742,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_intbounds",
-      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_int",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_int"
     },
     {
       "relation": "calls",
@@ -8719,6 +8755,28 @@
       "source_location": "L37",
       "weight": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_starts_below_visible_stories_but_does_not_leave_a_nav_gap",
+      "target": "noscroll_instagramblockpolicy_intbounds"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_uses_detected_feed_container_bounds",
+      "target": "noscroll_instagramblockpolicy_intbounds"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block",
       "target": "noscroll_instagramblockpolicy_intbounds"
     },
     {
@@ -8738,9 +8796,42 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_uses_detected_container_bounds",
+      "target": "noscroll_instagramblockpolicy_intbounds"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L53",
       "weight": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_starts_below_search_chrome_at_full_width",
+      "target": "noscroll_instagramblockpolicy_intbounds"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds",
+      "target": "noscroll_instagramblockpolicy_intbounds"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
+      "source_location": "L722",
+      "weight": 1.0,
+      "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_scaninstagramtree",
       "target": "noscroll_instagramblockpolicy_intbounds"
     },
     {
@@ -8750,9 +8841,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
-      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_int",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_int"
     },
     {
       "relation": "method",
@@ -8760,9 +8851,9 @@
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_instagramblockpolicy",
-      "target": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds"
     },
     {
       "relation": "references",
@@ -8771,9 +8862,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
-      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_float",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_float"
     },
     {
       "relation": "inherits",
@@ -9394,9 +9485,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "context": "field",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string"
     },
     {
       "relation": "method",
@@ -9514,9 +9605,9 @@
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
       "source_location": "L843",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice",
-      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
-      "confidence_score": 1.0
+      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision"
     },
     {
       "relation": "method",
@@ -9574,9 +9665,9 @@
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
       "source_location": "L1036",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice",
-      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
-      "confidence_score": 1.0
+      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey"
     },
     {
       "relation": "method",
@@ -9783,9 +9874,9 @@
       "source_location": "L714",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findandupdateoverlay",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string"
     },
     {
       "relation": "references",
@@ -9805,9 +9896,9 @@
       "source_location": "L843",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string"
     },
     {
       "relation": "references",
@@ -9816,9 +9907,9 @@
       "source_location": "L1036",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string"
     },
     {
       "relation": "references",
@@ -9827,9 +9918,9 @@
       "source_location": "L253",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_scheduleupdate",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_string"
     },
     {
       "relation": "references",
@@ -9838,9 +9929,9 @@
       "source_location": "L714",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findandupdateoverlay",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_long",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_long"
     },
     {
       "relation": "references",
@@ -9849,9 +9940,9 @@
       "source_location": "L843",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_long",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_long"
     },
     {
       "relation": "references",
@@ -9904,9 +9995,9 @@
       "source_location": "L843",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_rect",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_rect"
     },
     {
       "relation": "calls",
@@ -10542,9 +10633,9 @@
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
       "source_location": "L718",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findandupdateoverlay",
-      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
-      "confidence_score": 1.0
+      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision"
     },
     {
       "relation": "calls",
@@ -10652,9 +10743,9 @@
       "source_location": "L902",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findblockedscrollablenode",
-      "target": "instagramblocksurface",
-      "confidence_score": 1.0
+      "target": "instagramblocksurface"
     },
     {
       "relation": "references",
@@ -10817,9 +10908,9 @@
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
       "source_location": "L1018",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendoverlayintent",
-      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
-      "confidence_score": 1.0
+      "target": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey"
     },
     {
       "relation": "references",
@@ -10828,9 +10919,9 @@
       "source_location": "L1036",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
-      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_intent",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_intent"
     },
     {
       "relation": "references",
@@ -27699,9 +27790,9 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest"
     },
     {
       "relation": "method",
@@ -27709,9 +27800,19 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_starts_below_visible_stories_but_does_not_leave_a_nav_gap",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_starts_below_visible_stories_but_does_not_leave_a_nav_gap"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_uses_detected_feed_container_bounds"
     },
     {
       "relation": "method",
@@ -27719,9 +27820,19 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_invalid_or_inverted_geometry_produces_no_block",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_invalid_or_inverted_geometry_produces_no_block"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block"
     },
     {
       "relation": "method",
@@ -27729,9 +27840,19 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_covers_from_display_top_to_nav_top_at_full_width",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_covers_from_display_top_to_nav_top_at_full_width"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_uses_detected_container_bounds"
     },
     {
       "relation": "method",
@@ -27739,9 +27860,19 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_starts_below_search_chrome_at_full_width",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_starts_below_search_chrome_at_full_width"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds"
     },
     {
       "relation": "contains",
@@ -29188,5 +29319,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4f7e4100e5b540226c3c3095a79bb71d5ec841c2"
+  "built_at_commit": "cf021b48beb99d5022d1310ba4f4b2b61d1e7d15"
 }

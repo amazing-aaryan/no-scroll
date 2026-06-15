@@ -10,8 +10,8 @@
     "semantic_hash": "747ce1ed2b3bdcc3a8c5ee281ac534d9"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollAccessibilityService.kt": {
-    "mtime": 1781361402.761945,
-    "ast_hash": "2f6981c7df276aa08d4ad5ad18aa7cf9",
+    "mtime": 1781366461.809481,
+    "ast_hash": "be0967a7b3c58defeb60c8ad531ca7b4",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollPdfViewerFragment.kt": {
@@ -3920,13 +3920,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\InstagramBlockPolicy.kt": {
-    "mtime": 1781361207.70202,
-    "ast_hash": "f3b715445df64f849d5aaa61871c9276",
+    "mtime": 1781361886.9777906,
+    "ast_hash": "fbedf7df4799467af7cc2264ec2e1aad",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\InstagramBlockPolicyTest.kt": {
-    "mtime": 1781361353.6664672,
-    "ast_hash": "ef4b0bfbb77ee5ff832724adc684ddda",
+    "mtime": 1781361908.1704361,
+    "ast_hash": "010b4941ad92b9f7b07f3730a256a424",
     "semantic_hash": ""
   }
 }

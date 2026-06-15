@@ -1,16 +1,16 @@
 # Graph Report - no-scroll  (2026-06-13)
 
 ## Corpus Check
-- 78 files · ~2,422,955 words
+- 78 files · ~2,423,167 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 944 nodes · 1951 edges · 64 communities (58 shown, 6 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 88 edges (avg confidence: 0.8)
+- 948 nodes · 1960 edges · 63 communities (57 shown, 6 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 93 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f7e4100`
+- Built from commit: `cf021b48`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -72,7 +72,6 @@
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -88,29 +87,29 @@
 10. `AccessibilityEvent` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `PermissionRow()` --calls--> `Text`  [INFERRED]
-  app/src/main/java/com/noscroll/SetupActivity.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
-- `PermissionRow()` --calls--> `PaperActionButton()`  [INFERRED]
-  app/src/main/java/com/noscroll/SetupActivity.kt → app/src/main/java/com/noscroll/ui/PaperControls.kt
 - `ShareRow()` --calls--> `Text`  [INFERRED]
   app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
 - `TutorialOverlay()` --calls--> `Canvas`  [INFERRED]
   app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt → app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt
 - `ShareRow()` --calls--> `PaperMenuAction()`  [INFERRED]
   app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt → app/src/main/java/com/noscroll/ui/PaperControls.kt
+- `LibraryScreen()` --calls--> `TutorialAnchor()`  [INFERRED]
+  app/src/main/java/com/noscroll/ui/LibraryScreen.kt → app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt
+- `NotebookScreen()` --calls--> `TutorialAnchor()`  [INFERRED]
+  app/src/main/java/com/noscroll/ui/NotebookScreen.kt → app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt
 
 ## Import Cycles
 - None detected.
 
-## Communities (64 total, 6 thin omitted)
+## Communities (63 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.08
 Nodes (28): Boolean, Bitmap, BookMetadataEntity, Boolean, Bundle, Float, HighlightEntity, Int (+20 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.07
-Nodes (59): TutorialController, TutorialStep, BookEntity, BookMetadataEntity, Boolean, HighlightEntity, List, String (+51 more)
+Cohesion: 0.06
+Nodes (67): AccessibilityService, Boolean, Bundle, Intent, String, TutorialPrefs, TutorialController, TutorialStep (+59 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.10
@@ -308,16 +307,12 @@ Nodes (8): [2026-06-12 17:59] Session: DM shared-media state retest and partial 
 Cohesion: 0.32
 Nodes (5): Boolean, Int, String, CharSequence, PdfSelectionTextCleaner
 
-### Community 62 - "Community 62"
-Cohesion: 0.30
-Nodes (8): AccessibilityService, Boolean, Bundle, Intent, String, TutorialPrefs, PermissionRow(), SetupActivity
-
 ### Community 63 - "Community 63"
-Cohesion: 0.22
+Cohesion: 0.18
 Nodes (6): Float, Int, InstagramBlockPolicy, InstagramBlockSurface, IntBounds, InstagramBlockPolicyTest
 
 ## Knowledge Gaps
-- **211 isolated node(s):** `PreToolUse`, `Float`, `Bundle`, `NavSelectionState`, `InstagramBlockSurface` (+206 more)
+- **211 isolated node(s):** `PreToolUse`, `Bundle`, `NavSelectionState`, `InstagramBlockSurface`, `ReaderSelection` (+206 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -325,16 +320,16 @@ Nodes (6): Float, Int, InstagramBlockPolicy, InstagramBlockSurface, IntBounds, I
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `PdfViewerActivity` connect `Community 0` to `Community 8`, `Community 2`, `Community 4`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `TutorialOverlay()` connect `Community 1` to `Community 0`, `Community 11`, `Community 62`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `Text` connect `Community 1` to `Community 16`, `Community 2`, `Community 28`, `Community 62`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+- **Why does `NoScrollAccessibilityService` connect `Community 7` to `Community 1`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `TutorialOverlay()` connect `Community 1` to `Community 0`, `Community 11`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Are the 24 inferred relationships involving `Text` (e.g. with `PermissionRow()` and `.onCreate()`) actually correct?**
   _`Text` has 24 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `PreToolUse`, `Float`, `Bundle` to the rest of the system?**
+- **What connects `PreToolUse`, `Bundle`, `NavSelectionState` to the rest of the system?**
   _211 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07753164556962025 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.075 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06139240506329114 - nodes in this community are weakly interconnected._

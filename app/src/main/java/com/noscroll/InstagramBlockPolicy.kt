@@ -2,8 +2,7 @@ package com.noscroll
 
 internal enum class InstagramBlockSurface {
     HOME,
-    REELS,
-    SEARCH_EXPLORE
+    REELS
 }
 
 internal data class IntBounds(

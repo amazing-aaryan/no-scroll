@@ -1,0 +1,21 @@
+NoScroll app-first product flow
+Output: C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-app-flow-20260613-215417
+
+Final assets:
+- 01-setup.png: 1080x1350, real NoScroll setup screen.
+- 02-blocker.png: 1080x1350, sanitized real Instagram blocker state.
+- 03-reader.png: 1080x1350, real PDF reader state.
+- 04-library.png: 1080x1350, real library state.
+- 05-quote-share.png: 1080x1350, real highlight action and native share sheet.
+- 06-story-summary.png: 1080x1920, vertical summary of blocker -> reader.
+- contact-sheet.png: clean flow board.
+
+Source provenance:
+- All phone UI is sourced from curated real screenshots in C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-app-flow-20260613-215417\raw.
+- Instagram blocker source remains sanitized/redacted.
+- No DM thread or Instagram share destination was opened.
+
+Design direction:
+- App-first, Apple-style product presentation: minimal copy, neutral surfaces, large device captures, subtle shadows, no decorative texture.
+- This is a new flow-focused export; the older deleted comparison slide is not reused.
+- No app source code was changed; graphify update was not required.

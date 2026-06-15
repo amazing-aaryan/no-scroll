@@ -355,6 +355,7 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var profilePageActive = false
         var storiesTrayPresent = false // reels_tray_container ID found — reliable home indicator
         var swipeNavigationContainerPresent = false
+        var storyViewerChromePresent = false
         var storyViewerActive = false  // swipe_navigation_container without bottom-nav chrome
         var homeChromeHits = 0
         var bestContentRect: Rect? = null
@@ -364,8 +365,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         var reelsContainerScore = 0
         var homeContainerRect: Rect? = null
         var homeContainerScore = 0
-        var searchContainerRect: Rect? = null
-        var searchContainerScore = 0
         var navBarRect: Rect? = null
         var actionBarRect: Rect? = null
         var reelsTabRect: Rect? = null
@@ -410,6 +409,14 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 viewIdLower.contains("reply_bar_edittext") ||
                 viewIdLower.contains("sender_username_or_fullname")) {
                 directSharedViewerActive = true
+                storyViewerChromePresent = true
+            }
+            if (viewIdLower.contains("reel_viewer") ||
+                viewIdLower.contains("story_viewer") ||
+                viewIdLower.contains("reel_viewer_progress") ||
+                viewIdLower.contains("reel_viewer_media") ||
+                viewIdLower.contains("reel_viewer_video")) {
+                storyViewerChromePresent = true
             }
 
             if (!rect.isEmpty) {
@@ -471,6 +478,10 @@ class NoScrollAccessibilityService : AccessibilityService() {
                     }
 
                     val homeScore = when {
+                        containerIdentity.contains("video_container") -> 9_000_000 + area
+                        containerIdentity.contains("feed_preview_keep_watching") -> 8_500_000 + area
+                        containerIdentity.contains("media_group") -> 8_000_000 + area
+                        containerIdentity.contains("row_feed") -> 7_500_000 + area
                         containerIdentity.contains("feed") && scrollableContent -> 7_000_000 + area
                         containerIdentity.contains("timeline") && scrollableContent -> 6_000_000 + area
                         containerIdentity.contains("recycler_view") && scrollableContent -> 5_000_000 + area
@@ -484,18 +495,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
                         homeContainerRect = Rect(rect)
                     }
 
-                    val searchScore = when {
-                        containerIdentity.contains("recycler_view") && scrollableContent -> 7_000_000 + area
-                        containerIdentity.contains("explore") && scrollableContent -> 6_000_000 + area
-                        containerIdentity.contains("grid") && scrollableContent -> 5_000_000 + area
-                        containerIdentity.contains("layout_container_swipeable") -> 4_000_000 + area
-                        containerIdentity.contains("swipeable_tab_view_pager") -> 2_000_000 + area
-                        else -> 0
-                    }
-                    if (searchScore > searchContainerScore) {
-                        searchContainerScore = searchScore
-                        searchContainerRect = Rect(rect)
-                    }
                 }
 
                 val inActionRailZone = rect.centerX() > rightEdge &&
@@ -663,17 +662,18 @@ class NoScrollAccessibilityService : AccessibilityService() {
             !directTabSelected &&
             !directThreadActive &&
             !searchTabSelected
-        // Block search/explore grid unless user is actively typing (searchBarFocused).
-        val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && !searchBarFocused && homeChromeHits == 0)) &&
-            !searchBarFocused && !profilePageActive && !inHome && !inReels && !directTabSelected
-        storyViewerActive = swipeNavigationContainerPresent &&
-            !directSharedViewerActive &&
-            !inSearchExplore &&
-            !inReels
+        // Search/Explore is an allowed surface. Keep detecting it only to avoid
+        // misclassifying it as Home, Reels, or the story viewer.
+        val inSearchExplore = (searchTabSelected || (navHits >= 2 && !homeTabSelected && !reelsTabSelected && !directTabSelected && !inHome && homeChromeHits == 0)) &&
+            !profilePageActive && !inHome && !inReels && !directTabSelected
+        storyViewerActive = storyViewerChromePresent &&
+            swipeNavigationContainerPresent &&
+            !directThreadActive &&
+            !directTabSelected &&
+            !inSearchExplore
         val blockSurface = when {
             reelsTabSelected || inReels -> InstagramBlockSurface.REELS
             inHome -> InstagramBlockSurface.HOME
-            inSearchExplore -> InstagramBlockSurface.SEARCH_EXPLORE
             else -> null
         }
         val navSelectionState = when {
@@ -684,7 +684,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
         // Block top derivation:
         // HOME: when stories are visible, start just below them; when scrolled past stories,
         //       start just below the action bar so no feed content leaks through.
-        // SEARCH_EXPLORE: start just below the search bar (actionBarRect.bottom).
         val gapPx = (4 * resources.displayMetrics.density + 0.5f).toInt()
         val adjustedBlockTop = when (blockSurface) {
             InstagramBlockSurface.HOME -> {
@@ -701,18 +700,12 @@ class NoScrollAccessibilityService : AccessibilityService() {
                         ((mainContainerRect?.top ?: 91) + gapPx).coerceIn(0, sh)
                 }
             }
-            InstagramBlockSurface.SEARCH_EXPLORE -> {
-                val searchBarFallbackBottom = (sh * 0.12f).toInt()
-                val searchBarBottom = maxOf(actionBarRect?.bottom ?: 0, searchBarFallbackBottom, 0)
-                (searchBarBottom + gapPx).coerceIn(0, sh)
-            }
             InstagramBlockSurface.REELS -> 0
             else -> 0
         }
         val blockContainerRect = when (blockSurface) {
             InstagramBlockSurface.REELS -> reelsContainerRect ?: mainContainerRect ?: bestContentRect
             InstagramBlockSurface.HOME -> homeContainerRect ?: mainContainerRect ?: bestContentRect
-            InstagramBlockSurface.SEARCH_EXPLORE -> searchContainerRect ?: bestContentRect ?: mainContainerRect
             null -> null
         }
         val blockBounds = InstagramBlockPolicy.blockBounds(
@@ -736,7 +729,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 "blockRect=$blockRect blockContainer=$blockContainerRect " +
                 "reelsContainer=$reelsContainerRect/$reelsContainerScore " +
                 "homeContainer=$homeContainerRect/$homeContainerScore " +
-                "searchContainer=$searchContainerRect/$searchContainerScore " +
                 "reelsTab=$reelsTabRect bestContent=$bestContentRect " +
                 "mainContainer=$mainContainerRect navBar=$navBarRect actionBar=$actionBarRect navSelection=$navSelectionState"
         )
@@ -800,7 +792,9 @@ class NoScrollAccessibilityService : AccessibilityService() {
 
             // Story viewer overlays the home feed but keeps it accessible in the tree.
             // swipe_navigation_container is the definitive story viewer root — hide immediately.
-            if (scan.storyViewerActive) {
+            val activeDmSharedMediaSession =
+                dmSharedMediaSessionActive || (dmSharedMediaAllowedUntilMs > 0L && now <= dmSharedMediaAllowedUntilMs)
+            if (scan.storyViewerActive && !activeDmSharedMediaSession) {
                 if (feedBlockActive) feedBlockActive = false
                 lastStableBlockRect = null
                 logOverlayDecision(trigger, eventTimeMs, startedAtMs, "hide-story-viewer scanMs=$scanMs", null)
@@ -997,12 +991,6 @@ class NoScrollAccessibilityService : AccessibilityService() {
                 blockSurface == InstagramBlockSurface.REELS &&
                     viewIdLower.contains("root_clips_layout") &&
                     isScrollablePager -> 2_000_000 + area
-                blockSurface == InstagramBlockSurface.SEARCH_EXPLORE &&
-                    viewIdLower.contains("recycler_view") &&
-                    isScrollablePager -> 4_000_000 + area
-                blockSurface == InstagramBlockSurface.SEARCH_EXPLORE &&
-                    (viewIdLower.contains("explore") || viewIdLower.contains("grid")) &&
-                    isScrollablePager -> 3_000_000 + area
                 blockSurface == InstagramBlockSurface.HOME &&
                     (viewIdLower.contains("feed") || viewIdLower.contains("timeline")) &&
                     isScrollablePager -> 4_000_000 + area

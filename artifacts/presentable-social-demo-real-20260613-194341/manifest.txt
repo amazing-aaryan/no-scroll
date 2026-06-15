@@ -1,0 +1,33 @@
+NoScroll real screenshot social demo pack
+Output: C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341
+
+Final assets:
+- 01-hero.png: 1080x1350
+- 02-setup.png: 1080x1350
+- 04-reader.png: 1080x1350
+- 05-library.png: 1080x1350
+- 06-native-share.png: 1080x1350
+- 07-story-demo.png: 1080x1920
+- contact-sheet.png: overview sheet, rebuilt without slide 3
+
+Removed:
+- 03-instagram-blocking.png was deleted per request and is not used in the contact sheet.
+
+Source provenance:
+- 01-hero.png: fresh device capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-instagram-blocker-sanitized.png with Instagram identities redacted.
+- 02-setup.png: fresh device capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-setup.png.
+- 04-reader.png: fresh device capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-reader.png.
+- 05-library.png: fresh device capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-library.png.
+- 06-native-share.png: fresh device captures C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-highlight-actions.png and C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-native-share-sheet.png. The flow used PdfViewerActivity -> Highlights -> Share quote -> QuoteCardPreviewActivity -> ShareBottomSheet.
+- 07-story-demo.png: fresh blocker capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-instagram-blocker-sanitized.png plus fresh reader capture C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-real-20260613-194341\raw\source-reader.png.
+
+Privacy / scope:
+- No individual DM thread or conversation was opened.
+- No Instagram share destination was opened; capture stopped at NoScroll's native share sheet.
+- Instagram handles, avatars, profile images, story row content, captions, and feed content remain redacted in used Instagram blocker sources.
+- Slide 06 uses real current NoScroll UI: highlight action menu, quote-card preview visible behind the share sheet, and native Instagram options.
+- No app source code was changed; graphify update was not required.
+
+Visual treatment:
+- Re-rendered final assets in an app-first product-shot style: neutral Apple-like surfaces, minimal copy, large centered device captures, subtle shadows, and no decorative texture competing with the UI.
+- App and Instagram screen contents remain real screenshots; only the surrounding social composition was redesigned.

@@ -1,0 +1,23 @@
+NoScroll dark product flow
+Output: C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-app-flow-dark-20260613-225509
+
+Final assets:
+- 01-setup.png: 1080x1350
+- 02-blocker.png: 1080x1350
+- 03-reader.png: 1080x1350
+- 04-library.png: 1080x1350
+- 05-quote-share.png: 1080x1350
+- 06-story-summary.png: 1080x1920
+- contact-sheet.png: dark flow board
+
+Source provenance:
+- All phone UI is sourced from curated real screenshots in C:\Users\aarya\Desktop\no-scroll\artifacts\presentable-social-demo-app-flow-dark-20260613-225509\raw.
+- Instagram blocker source remains sanitized/redacted.
+- No DM thread or Instagram share destination was opened.
+
+Design direction:
+- Same clean start-to-end flow, with dark backgrounds across every asset.
+- App UI remains the visual focus; surrounding composition is minimal.
+- No app source code was changed; graphify update was not required.
+
+Revision: removed the white stage glow so every asset has a true dark background.

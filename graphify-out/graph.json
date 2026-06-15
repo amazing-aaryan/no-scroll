@@ -61,7 +61,7 @@
       "label": "IntBounds",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
-      "source_location": "L9",
+      "source_location": "L8",
       "id": "noscroll_instagramblockpolicy_intbounds",
       "community": 63,
       "norm_label": "intbounds"
@@ -70,7 +70,7 @@
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
-      "source_location": "L15",
+      "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_instagramblockpolicy_kt_int",
       "community": 63,
       "norm_label": "int"
@@ -79,7 +79,7 @@
       "label": "InstagramBlockPolicy",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
-      "source_location": "L19",
+      "source_location": "L18",
       "id": "noscroll_instagramblockpolicy_instagramblockpolicy",
       "community": 63,
       "norm_label": "instagramblockpolicy"
@@ -88,7 +88,7 @@
       "label": ".blockBounds()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/InstagramBlockPolicy.kt",
-      "source_location": "L20",
+      "source_location": "L19",
       "id": "noscroll_instagramblockpolicy_instagramblockpolicy_blockbounds",
       "community": 63,
       "norm_label": ".blockbounds()"
@@ -376,7 +376,7 @@
       "label": ".resolveNavBarTop()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L767",
+      "source_location": "L759",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_resolvenavbartop",
       "community": 7,
       "norm_label": ".resolvenavbartop()"
@@ -385,7 +385,7 @@
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L767",
+      "source_location": "L759",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_int",
       "community": 7,
       "norm_label": "int"
@@ -394,7 +394,7 @@
       "label": ".findAndUpdateOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L776",
+      "source_location": "L768",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findandupdateoverlay",
       "community": 7,
       "norm_label": ".findandupdateoverlay()"
@@ -403,7 +403,7 @@
       "label": ".logOverlayDecision()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L905",
+      "source_location": "L899",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_logoverlaydecision",
       "community": 7,
       "norm_label": ".logoverlaydecision()"
@@ -412,7 +412,7 @@
       "label": ".maybeRollbackBlockedScroll()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L919",
+      "source_location": "L913",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_mayberollbackblockedscroll",
       "community": 7,
       "norm_label": ".mayberollbackblockedscroll()"
@@ -421,7 +421,7 @@
       "label": ".isForwardScroll()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L948",
+      "source_location": "L942",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_isforwardscroll",
       "community": 7,
       "norm_label": ".isforwardscroll()"
@@ -430,7 +430,7 @@
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L948",
+      "source_location": "L942",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_boolean",
       "community": 7,
       "norm_label": "boolean"
@@ -439,7 +439,7 @@
       "label": ".findBlockedScrollableNode()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L964",
+      "source_location": "L958",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_findblockedscrollablenode",
       "community": 7,
       "norm_label": ".findblockedscrollablenode()"
@@ -448,7 +448,7 @@
       "label": "InstagramBlockSurface",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L964",
+      "source_location": "L958",
       "id": "instagramblocksurface",
       "community": 7,
       "norm_label": "instagramblocksurface"
@@ -457,7 +457,7 @@
       "label": ".sendBlockOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1033",
+      "source_location": "L1021",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendblockoverlay",
       "community": 7,
       "norm_label": ".sendblockoverlay()"
@@ -466,7 +466,7 @@
       "label": ".sendTouchBlockOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1043",
+      "source_location": "L1031",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendtouchblockoverlay",
       "community": 7,
       "norm_label": ".sendtouchblockoverlay()"
@@ -475,7 +475,7 @@
       "label": ".hideOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1053",
+      "source_location": "L1041",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_hideoverlay",
       "community": 7,
       "norm_label": ".hideoverlay()"
@@ -484,7 +484,7 @@
       "label": ".sendBookOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1059",
+      "source_location": "L1047",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendbookoverlay",
       "community": 7,
       "norm_label": ".sendbookoverlay()"
@@ -493,7 +493,7 @@
       "label": ".stopOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1071",
+      "source_location": "L1059",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_stopoverlay",
       "community": 7,
       "norm_label": ".stopoverlay()"
@@ -502,7 +502,7 @@
       "label": ".sendOverlayIntent()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1078",
+      "source_location": "L1066",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_sendoverlayintent",
       "community": 7,
       "norm_label": ".sendoverlayintent()"
@@ -511,7 +511,7 @@
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1078",
+      "source_location": "L1066",
       "id": "app_src_main_java_com_noscroll_noscrollaccessibilityservice_kt_intent",
       "community": 7,
       "norm_label": "intent"
@@ -520,7 +520,7 @@
       "label": ".overlayCommandKey()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1098",
+      "source_location": "L1086",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_overlaycommandkey",
       "community": 7,
       "norm_label": ".overlaycommandkey()"
@@ -529,7 +529,7 @@
       "label": ".isInsideNodeWithId()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1107",
+      "source_location": "L1095",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_isinsidenodewithid",
       "community": 7,
       "norm_label": ".isinsidenodewithid()"
@@ -538,7 +538,7 @@
       "label": "Set",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1107",
+      "source_location": "L1095",
       "id": "set",
       "community": 7,
       "norm_label": "set"
@@ -547,7 +547,7 @@
       "label": ".containsDescendantWithId()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1125",
+      "source_location": "L1113",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_containsdescendantwithid",
       "community": 7,
       "norm_label": ".containsdescendantwithid()"
@@ -556,7 +556,7 @@
       "label": ".onInterrupt()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1143",
+      "source_location": "L1131",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_oninterrupt",
       "community": 7,
       "norm_label": ".oninterrupt()"
@@ -565,7 +565,7 @@
       "label": ".onDestroy()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollAccessibilityService.kt",
-      "source_location": "L1145",
+      "source_location": "L1133",
       "id": "noscroll_noscrollaccessibilityservice_noscrollaccessibilityservice_ondestroy",
       "community": 7,
       "norm_label": ".ondestroy()"
@@ -7087,19 +7087,10 @@
       "norm_label": ".`home block uses detected feed container bounds`()"
     },
     {
-      "label": ".`search block uses detected result container bounds`()",
-      "file_type": "code",
-      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
-      "source_location": "L32",
-      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds",
-      "community": 63,
-      "norm_label": ".`search block uses detected result container bounds`()"
-    },
-    {
       "label": ".`missing or too-small container produces no block`()",
       "file_type": "code",
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
-      "source_location": "L44",
+      "source_location": "L32",
       "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block",
       "community": 63,
       "norm_label": ".`missing or too-small container produces no block`()"
@@ -8237,6 +8228,15 @@
       "id": "reasoning_final_current_readiness_decision",
       "community": 43,
       "norm_label": "final current readiness decision"
+    },
+    {
+      "label": ".`search block uses detected result container bounds`()",
+      "file_type": "code",
+      "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
+      "source_location": "L32",
+      "community": 63,
+      "norm_label": ".`search block uses detected result container bounds`()",
+      "id": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds"
     },
     {
       "label": "Float",
@@ -27810,9 +27810,9 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_uses_detected_feed_container_bounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_home_block_uses_detected_feed_container_bounds"
     },
     {
       "relation": "method",
@@ -27830,9 +27830,9 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_missing_or_too_small_container_produces_no_block"
     },
     {
       "relation": "method",
@@ -27850,9 +27850,9 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_uses_detected_container_bounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_reels_block_uses_detected_container_bounds"
     },
     {
       "relation": "method",
@@ -27870,9 +27870,9 @@
       "source_file": "app/src/test/java/com/noscroll/InstagramBlockPolicyTest.kt",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "noscroll_instagramblockpolicytest_instagramblockpolicytest",
-      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds",
-      "confidence_score": 1.0
+      "target": "noscroll_instagramblockpolicytest_instagramblockpolicytest_search_block_uses_detected_result_container_bounds"
     },
     {
       "relation": "contains",
@@ -29319,5 +29319,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4f7e4100e5b540226c3c3095a79bb71d5ec841c2"
+  "built_at_commit": "cf021b48beb99d5022d1310ba4f4b2b61d1e7d15"
 }

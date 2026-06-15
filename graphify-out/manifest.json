@@ -10,8 +10,8 @@
     "semantic_hash": "747ce1ed2b3bdcc3a8c5ee281ac534d9"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollAccessibilityService.kt": {
-    "mtime": 1781362224.5311985,
-    "ast_hash": "90cffb6630bbf68be4b569a0e66a8c98",
+    "mtime": 1781428718.698901,
+    "ast_hash": "c3c90b637980bcc77e408aa4e45df21f",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\NoScrollPdfViewerFragment.kt": {
@@ -3920,13 +3920,53 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\InstagramBlockPolicy.kt": {
-    "mtime": 1781361886.9777906,
-    "ast_hash": "fbedf7df4799467af7cc2264ec2e1aad",
+    "mtime": 1781428718.695389,
+    "ast_hash": "e84ef080baaa836918919a7179561b66",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\test\\java\\com\\noscroll\\InstagramBlockPolicyTest.kt": {
-    "mtime": 1781361908.1704361,
-    "ast_hash": "010b4941ad92b9f7b07f3730a256a424",
+    "mtime": 1781428718.7026129,
+    "ast_hash": "dcaff23e04108dd67f306a21eecbb0fb",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-20260613-192258\\manifest.txt": {
+    "mtime": 1781367790.5654836,
+    "ast_hash": "c318ed36352937f0b883b81dd02a9761",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-app-flow-20260613-215417\\manifest.txt": {
+    "mtime": 1781376860.424715,
+    "ast_hash": "089efcfdb25a1f8510b6da13043ec14e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-app-flow-20260613-215417\\path.txt": {
+    "mtime": 1781376860.427751,
+    "ast_hash": "52ff047d39a907d5229426473d146d7a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-app-flow-dark-20260613-225509\\manifest.txt": {
+    "mtime": 1781380665.537206,
+    "ast_hash": "29f495c158567f4ec1a0685eca7117f6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-app-flow-dark-20260613-225509\\path.txt": {
+    "mtime": 1781380511.1469884,
+    "ast_hash": "1be17afdb41c1d45a41f14c8a6abe9d3",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-real-20260613-193312\\path.txt": {
+    "mtime": 1781368393.0973797,
+    "ast_hash": "1e922f1f1f45672bee711a02a859e24a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-real-20260613-194341\\manifest.txt": {
+    "mtime": 1781373705.7098444,
+    "ast_hash": "61ff9cf72753a2c6de9d475fea402229",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-real-20260613-194341\\path.txt": {
+    "mtime": 1781369021.8706448,
+    "ast_hash": "6d7f56c4ee531969c995035d3777a56b",
     "semantic_hash": ""
   }
 }
