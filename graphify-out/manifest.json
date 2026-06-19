@@ -85,8 +85,8 @@
     "semantic_hash": "bdfe6c665c53b064ffb461a8fdd144b1"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\SetupActivity.kt": {
-    "mtime": 1781862874.0561347,
-    "ast_hash": "298efab91b5d6bd36c90dc17172c85a8",
+    "mtime": 1781866038.1534638,
+    "ast_hash": "9f6e93ba930484b878d982ada6904579",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDao.kt": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
-    "mtime": 1781862874.080062,
-    "ast_hash": "d383fbe653754ea665c1f593ed5006a5",
+    "mtime": 1781866038.156775,
+    "ast_hash": "19704c6d9aa294979ec649fa34aad4e5",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\NotebookScreen.kt": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\reasoning.md": {
-    "mtime": 1781865227.83929,
-    "ast_hash": "aa250a99083f2de97dadfdc38245b44b",
+    "mtime": 1781865937.6278539,
+    "ast_hash": "b55db5d60fbde43a49319101fa61383a",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-pull.txt": {
@@ -3987,6 +3987,11 @@
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\quote\\QuoteCardStylePack.kt": {
     "mtime": 1781864824.0017495,
     "ast_hash": "f03f7ead932996320b640996fe367668",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\BrandMark.kt": {
+    "mtime": 1781866007.3531342,
+    "ast_hash": "26d121e2b9bae34067fcb2266695bf03",
     "semantic_hash": ""
   }
 }

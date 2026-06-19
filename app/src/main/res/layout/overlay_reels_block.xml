@@ -10,12 +10,12 @@
     android:padding="48dp">
 
     <ImageView
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/noscroll_logo_transparent_128"
         android:contentDescription="Open your book"
         android:scaleType="fitCenter"
-        android:layout_marginBottom="28dp" />
+        android:layout_marginBottom="24dp" />
 
     <TextView
         android:layout_width="wrap_content"

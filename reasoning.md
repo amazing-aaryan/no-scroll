@@ -995,3 +995,12 @@ Remaining caveat:
 **Decision:** Rewrote active README/PRODUCT docs and setup strings to describe NoScroll as an Instagram blocker plus standalone PDF reader and quote-sharing app, not a Reels-button interception tool.
 **Why:** Current implementation blocks whole distracting Instagram regions, reads imported PDFs, saves highlights/notes, supports OCR fallback, and creates shareable quote cards; docs were stale and under-described the product.
 **Impact:** Future docs should avoid framing NoScroll as only replacing/intercepting the Reels button; use blocker + reader + quote sharing as the product model.
+
+## [2026-06-19 13:47] Logo placements fitted across app surfaces
+**Decision:** Added a reusable Compose `BrandMark`, enlarged/accommodated setup and library logo headers, tuned XML logo padding/scale in the reader nav and overlays, and updated setup copy away from Reels-button wording.
+**Why:** The transparent logo asset has built-in empty border, and prior placements either wasted too much space in compact controls or treated the brand mark like a generic tinted icon.
+**Impact:** Future logo use should choose `BrandMark` for Compose paper-theme headers and keep overlay/nav ImageViews explicitly sized with `centerInside` plus surface-specific padding.
+## [2026-06-19 13:45] Black transparent logo variants added
+**Decision:** Created `noscroll-logo-black-transparent-128.png` and `noscroll-logo-black-transparent-2048.png` from existing transparent logo alpha masks, with all visible pixels forced to solid black.
+**Why:** User wanted the app logo in black with a real transparent background while preserving the existing shape and cutouts.
+**Impact:** Use the `noscroll-logo-black-transparent-*` files when black primary logo artwork with alpha transparency is needed; `noscroll-logo-black-transparent-preview.png` is only a checkerboard preview.

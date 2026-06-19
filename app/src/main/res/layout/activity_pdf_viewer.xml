@@ -32,8 +32,8 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="My Library"
                     android:src="@drawable/noscroll_logo_transparent_128"
-                    android:tint="#90FFFFFF"
-                    android:padding="12dp" />
+                    android:scaleType="centerInside"
+                    android:padding="8dp" />
 
                 <TextView
                     android:id="@+id/book_metadata_text"

@@ -16,11 +16,12 @@
         android:paddingBottom="32dp">
 
         <ImageView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@drawable/noscroll_logo_transparent_128"
             android:contentDescription="@string/app_name"
-            android:layout_marginBottom="12dp" />
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="14dp" />
 
         <TextView
             android:layout_width="wrap_content"

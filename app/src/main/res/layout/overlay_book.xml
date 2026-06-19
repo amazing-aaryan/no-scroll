@@ -13,6 +13,6 @@
         android:scaleType="centerInside"
         android:src="@drawable/noscroll_logo_transparent_128"
         android:contentDescription="Open PDF reader"
-        android:padding="6dp" />
+        android:padding="2dp" />
 
 </FrameLayout>
