@@ -1004,3 +1004,7 @@ Remaining caveat:
 **Decision:** Created `noscroll-logo-black-transparent-128.png` and `noscroll-logo-black-transparent-2048.png` from existing transparent logo alpha masks, with all visible pixels forced to solid black.
 **Why:** User wanted the app logo in black with a real transparent background while preserving the existing shape and cutouts.
 **Impact:** Use the `noscroll-logo-black-transparent-*` files when black primary logo artwork with alpha transparency is needed; `noscroll-logo-black-transparent-preview.png` is only a checkerboard preview.
+## [2026-06-19 13:56] Debug app redeployed to connected phone
+**Decision:** Ran `build-debug.ps1`, which set `JAVA_HOME` to Android Studio JBR, assembled debug, installed `com.noscroll`, then launched it via `adb shell monkey`.
+**Why:** User asked to redeploy on connected phone; shell lacked global Java but project script already encoded the correct local JBR path.
+**Impact:** Connected device package `com.noscroll` was updated at `2026-06-19 13:56:12`; future redeploys can reuse `build-debug.ps1`.
