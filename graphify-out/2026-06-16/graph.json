@@ -198,7 +198,7 @@
       "source_file": "",
       "source_location": "",
       "id": "accessibilityservice",
-      "community": 1,
+      "community": 64,
       "norm_label": "accessibilityservice"
     },
     {
@@ -3105,124 +3105,124 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L1",
       "id": "noscroll_setupactivity",
-      "community": 1,
+      "community": 64,
       "norm_label": "setupactivity.kt"
     },
     {
       "label": "SetupActivity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L53",
+      "source_location": "L50",
       "id": "noscroll_setupactivity_setupactivity",
-      "community": 1,
+      "community": 64,
       "norm_label": "setupactivity"
     },
     {
       "label": "TutorialPrefs",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L58",
+      "source_location": "L55",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_tutorialprefs",
-      "community": 1,
+      "community": 64,
       "norm_label": "tutorialprefs"
     },
     {
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L60",
+      "source_location": "L57",
       "id": "noscroll_setupactivity_setupactivity_oncreate",
-      "community": 1,
+      "community": 64,
       "norm_label": ".oncreate()"
     },
     {
       "label": "Bundle",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L60",
+      "source_location": "L57",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_bundle",
-      "community": 1,
+      "community": 64,
       "norm_label": "bundle"
     },
     {
       "label": ".applyPaperSystemBars()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L185",
+      "source_location": "L176",
       "id": "noscroll_setupactivity_setupactivity_applypapersystembars",
-      "community": 1,
+      "community": 64,
       "norm_label": ".applypapersystembars()"
     },
     {
       "label": ".onResume()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L194",
+      "source_location": "L185",
       "id": "noscroll_setupactivity_setupactivity_onresume",
-      "community": 1,
+      "community": 64,
       "norm_label": ".onresume()"
     },
     {
       "label": ".updateUI()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L199",
+      "source_location": "L190",
       "id": "noscroll_setupactivity_setupactivity_updateui",
-      "community": 1,
+      "community": 64,
       "norm_label": ".updateui()"
     },
     {
       "label": ".accessibilityServiceIntent()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L204",
+      "source_location": "L195",
       "id": "noscroll_setupactivity_setupactivity_accessibilityserviceintent",
-      "community": 1,
+      "community": 64,
       "norm_label": ".accessibilityserviceintent()"
     },
     {
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L204",
+      "source_location": "L195",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_intent",
-      "community": 1,
+      "community": 64,
       "norm_label": "intent"
     },
     {
       "label": ".statusText()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L218",
+      "source_location": "L209",
       "id": "noscroll_setupactivity_setupactivity_statustext",
-      "community": 1,
+      "community": 64,
       "norm_label": ".statustext()"
     },
     {
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L218",
+      "source_location": "L209",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_string",
-      "community": 1,
+      "community": 64,
       "norm_label": "string"
     },
     {
       "label": "PermissionRow()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L230",
+      "source_location": "L221",
       "id": "noscroll_setupactivity_permissionrow",
-      "community": 1,
+      "community": 64,
       "norm_label": "permissionrow()"
     },
     {
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L230",
+      "source_location": "L221",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_boolean",
-      "community": 1,
+      "community": 64,
       "norm_label": "boolean"
     },
     {
@@ -3420,7 +3420,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "data_annotationdatabase_annotationdatabase_bookcollectiondao",
-      "community": 26,
+      "community": 44,
       "norm_label": ".bookcollectiondao()"
     },
     {
@@ -3429,7 +3429,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "bookcollectiondao",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectiondao"
     },
     {
@@ -3492,7 +3492,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "data_annotationdatabase_migrate",
-      "community": 26,
+      "community": 59,
       "norm_label": "migrate()"
     },
     {
@@ -3501,7 +3501,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "supportsqlitedatabase",
-      "community": 26,
+      "community": 59,
       "norm_label": "supportsqlitedatabase"
     },
     {
@@ -3528,7 +3528,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L1",
       "id": "data_bookcollectiondao",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectiondao.kt"
     },
     {
@@ -3537,7 +3537,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L9",
       "id": "data_bookcollectiondao_bookcollectiondao",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectiondao"
     },
     {
@@ -3546,7 +3546,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "data_bookcollectiondao_bookcollectiondao_observeall",
-      "community": 26,
+      "community": 44,
       "norm_label": ".observeall()"
     },
     {
@@ -3555,7 +3555,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_flow",
-      "community": 26,
+      "community": 44,
       "norm_label": "flow"
     },
     {
@@ -3564,7 +3564,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_list",
-      "community": 26,
+      "community": 44,
       "norm_label": "list"
     },
     {
@@ -3573,7 +3573,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "bookcollectionentity",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectionentity"
     },
     {
@@ -3582,7 +3582,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L14",
       "id": "data_bookcollectiondao_bookcollectiondao_upsert",
-      "community": 26,
+      "community": 44,
       "norm_label": ".upsert()"
     },
     {
@@ -3591,7 +3591,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_long",
-      "community": 26,
+      "community": 44,
       "norm_label": "long"
     },
     {
@@ -3600,7 +3600,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L17",
       "id": "data_bookcollectiondao_bookcollectiondao_delete",
-      "community": 26,
+      "community": 44,
       "norm_label": ".delete()"
     },
     {
@@ -3609,7 +3609,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionEntity.kt",
       "source_location": "L1",
       "id": "data_bookcollectionentity",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectionentity.kt"
     },
     {
@@ -3618,7 +3618,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionEntity.kt",
       "source_location": "L6",
       "id": "data_bookcollectionentity_bookcollectionentity",
-      "community": 26,
+      "community": 44,
       "norm_label": "bookcollectionentity"
     },
     {
@@ -4041,7 +4041,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L1",
       "id": "data_highlightdao",
-      "community": 26,
+      "community": 23,
       "norm_label": "highlightdao.kt"
     },
     {
@@ -4050,7 +4050,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L9",
       "id": "data_highlightdao_highlightdao",
-      "community": 26,
+      "community": 23,
       "norm_label": "highlightdao"
     },
     {
@@ -4059,7 +4059,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "data_highlightdao_highlightdao_observeall",
-      "community": 26,
+      "community": 23,
       "norm_label": ".observeall()"
     },
     {
@@ -4068,7 +4068,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_flow",
-      "community": 26,
+      "community": 23,
       "norm_label": "flow"
     },
     {
@@ -4077,7 +4077,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_list",
-      "community": 26,
+      "community": 23,
       "norm_label": "list"
     },
     {
@@ -4086,7 +4086,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_highlightentity",
-      "community": 26,
+      "community": 23,
       "norm_label": "highlightentity"
     },
     {
@@ -4095,7 +4095,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L14",
       "id": "data_highlightdao_highlightdao_getforbook",
-      "community": 26,
+      "community": 23,
       "norm_label": ".getforbook()"
     },
     {
@@ -4104,7 +4104,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_string",
-      "community": 26,
+      "community": 23,
       "norm_label": "string"
     },
     {
@@ -4113,7 +4113,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L17",
       "id": "data_highlightdao_highlightdao_observeforbook",
-      "community": 26,
+      "community": 23,
       "norm_label": ".observeforbook()"
     },
     {
@@ -4122,7 +4122,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L20",
       "id": "data_highlightdao_highlightdao_getforpage",
-      "community": 26,
+      "community": 23,
       "norm_label": ".getforpage()"
     },
     {
@@ -4131,7 +4131,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L20",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_int",
-      "community": 26,
+      "community": 23,
       "norm_label": "int"
     },
     {
@@ -4140,7 +4140,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L23",
       "id": "data_highlightdao_highlightdao_insert",
-      "community": 26,
+      "community": 23,
       "norm_label": ".insert()"
     },
     {
@@ -4149,7 +4149,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L23",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_long",
-      "community": 26,
+      "community": 23,
       "norm_label": "long"
     },
     {
@@ -4158,7 +4158,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L26",
       "id": "data_highlightdao_highlightdao_deletebyid",
-      "community": 26,
+      "community": 23,
       "norm_label": ".deletebyid()"
     },
     {
@@ -4167,7 +4167,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L29",
       "id": "data_highlightdao_highlightdao_updatecolor",
-      "community": 26,
+      "community": 23,
       "norm_label": ".updatecolor()"
     },
     {
@@ -4194,7 +4194,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L1",
       "id": "data_quotecarddao",
-      "community": 26,
+      "community": 24,
       "norm_label": "quotecarddao.kt"
     },
     {
@@ -4203,7 +4203,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L9",
       "id": "data_quotecarddao_quotecarddao",
-      "community": 26,
+      "community": 24,
       "norm_label": "quotecarddao"
     },
     {
@@ -4212,7 +4212,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "data_quotecarddao_quotecarddao_observeall",
-      "community": 26,
+      "community": 24,
       "norm_label": ".observeall()"
     },
     {
@@ -4221,7 +4221,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_flow",
-      "community": 26,
+      "community": 24,
       "norm_label": "flow"
     },
     {
@@ -4230,7 +4230,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_list",
-      "community": 26,
+      "community": 24,
       "norm_label": "list"
     },
     {
@@ -4239,7 +4239,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "quotecardentity",
-      "community": 26,
+      "community": 24,
       "norm_label": "quotecardentity"
     },
     {
@@ -4248,7 +4248,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L14",
       "id": "data_quotecarddao_quotecarddao_upsert",
-      "community": 26,
+      "community": 24,
       "norm_label": ".upsert()"
     },
     {
@@ -4257,7 +4257,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_long",
-      "community": 26,
+      "community": 24,
       "norm_label": "long"
     },
     {
@@ -4266,7 +4266,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L17",
       "id": "data_quotecarddao_quotecarddao_delete",
-      "community": 26,
+      "community": 24,
       "norm_label": ".delete()"
     },
     {
@@ -4275,7 +4275,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardEntity.kt",
       "source_location": "L1",
       "id": "data_quotecardentity",
-      "community": 26,
+      "community": 24,
       "norm_label": "quotecardentity.kt"
     },
     {
@@ -4284,7 +4284,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardEntity.kt",
       "source_location": "L7",
       "id": "data_quotecardentity_quotecardentity",
-      "community": 26,
+      "community": 24,
       "norm_label": "quotecardentity"
     },
     {
@@ -5562,7 +5562,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L1",
       "id": "quote_sharebottomsheet",
-      "community": 2,
+      "community": 16,
       "norm_label": "sharebottomsheet.kt"
     },
     {
@@ -5571,7 +5571,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L18",
       "id": "quote_sharebottomsheet_sharebottomsheet",
-      "community": 2,
+      "community": 16,
       "norm_label": "sharebottomsheet"
     },
     {
@@ -5580,7 +5580,7 @@
       "source_file": "",
       "source_location": "",
       "id": "bottomsheetdialogfragment",
-      "community": 2,
+      "community": 16,
       "norm_label": "bottomsheetdialogfragment"
     },
     {
@@ -5589,7 +5589,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "quote_sharebottomsheet_sharebottomsheet_oncreatedialog",
-      "community": 2,
+      "community": 16,
       "norm_label": ".oncreatedialog()"
     },
     {
@@ -5598,7 +5598,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_bundle",
-      "community": 2,
+      "community": 16,
       "norm_label": "bundle"
     },
     {
@@ -5607,7 +5607,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "dialog",
-      "community": 2,
+      "community": 16,
       "norm_label": "dialog"
     },
     {
@@ -5616,7 +5616,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "quote_sharebottomsheet_sharebottomsheet_ondismiss",
-      "community": 2,
+      "community": 16,
       "norm_label": ".ondismiss()"
     },
     {
@@ -5625,7 +5625,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "android",
-      "community": 2,
+      "community": 16,
       "norm_label": "android"
     },
     {
@@ -5634,7 +5634,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L68",
       "id": "quote_sharebottomsheet_newinstance",
-      "community": 2,
+      "community": 16,
       "norm_label": "newinstance()"
     },
     {
@@ -5643,7 +5643,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L68",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_string",
-      "community": 2,
+      "community": 16,
       "norm_label": "string"
     },
     {
@@ -5652,7 +5652,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L76",
       "id": "quote_sharebottomsheet_sharerow",
-      "community": 2,
+      "community": 16,
       "norm_label": "sharerow()"
     },
     {
@@ -6111,7 +6111,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialanchor",
-      "community": 1,
+      "community": 14,
       "norm_label": "tutorialanchor.kt"
     },
     {
@@ -6120,7 +6120,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "tutorial_tutorialanchor_tutorialanchor",
-      "community": 1,
+      "community": 14,
       "norm_label": "tutorialanchor()"
     },
     {
@@ -6129,7 +6129,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialanchor_kt_tutorialstepid",
-      "community": 1,
+      "community": 14,
       "norm_label": "tutorialstepid"
     },
     {
@@ -6138,7 +6138,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialanchor_kt_tutorialcontroller",
-      "community": 1,
+      "community": 14,
       "norm_label": "tutorialcontroller"
     },
     {
@@ -6147,7 +6147,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialController.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialcontroller",
-      "community": 1,
+      "community": 14,
       "norm_label": "tutorialcontroller.kt"
     },
     {
@@ -6541,7 +6541,7 @@
       "label": "LibraryFilter",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L49",
+      "source_location": "L44",
       "id": "ui_libraryscreen_libraryfilter",
       "community": 1,
       "norm_label": "libraryfilter"
@@ -6550,7 +6550,7 @@
       "label": "LibrarySort",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L50",
+      "source_location": "L45",
       "id": "ui_libraryscreen_librarysort",
       "community": 1,
       "norm_label": "librarysort"
@@ -6559,7 +6559,7 @@
       "label": "LibraryScreen()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "ui_libraryscreen_libraryscreen",
       "community": 1,
       "norm_label": "libraryscreen()"
@@ -6568,7 +6568,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_list",
       "community": 1,
       "norm_label": "list"
@@ -6577,7 +6577,7 @@
       "label": "BookEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_bookentity",
       "community": 1,
       "norm_label": "bookentity"
@@ -6586,7 +6586,7 @@
       "label": "BookMetadataEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_bookmetadataentity",
       "community": 1,
       "norm_label": "bookmetadataentity"
@@ -6595,7 +6595,7 @@
       "label": "HighlightEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_highlightentity",
       "community": 1,
       "norm_label": "highlightentity"
@@ -6604,7 +6604,7 @@
       "label": "TutorialController",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_tutorialcontroller",
       "community": 1,
       "norm_label": "tutorialcontroller"
@@ -6613,7 +6613,7 @@
       "label": "Unit",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L52",
+      "source_location": "L47",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_unit",
       "community": 1,
       "norm_label": "unit"
@@ -6622,7 +6622,7 @@
       "label": "ContinueCard()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L269",
+      "source_location": "L256",
       "id": "ui_libraryscreen_continuecard",
       "community": 1,
       "norm_label": "continuecard()"
@@ -6631,7 +6631,7 @@
       "label": "ImportCard()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L324",
+      "source_location": "L311",
       "id": "ui_libraryscreen_importcard",
       "community": 1,
       "norm_label": "importcard()"
@@ -7573,96 +7573,6 @@
       "norm_label": "troubleshooting"
     },
     {
-      "label": "first-post-copy.md",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L1",
-      "id": "social_first_post_copy",
-      "community": 16,
-      "norm_label": "first-post-copy.md"
-    },
-    {
-      "label": "NoScroll - First Social Post",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L1",
-      "id": "social_first_post_copy_noscroll_first_social_post",
-      "community": 16,
-      "norm_label": "noscroll - first social post"
-    },
-    {
-      "label": "Image / Carousel",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L3",
-      "id": "social_first_post_copy_image_carousel",
-      "community": 16,
-      "norm_label": "image / carousel"
-    },
-    {
-      "label": "Title",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L10",
-      "id": "social_first_post_copy_title",
-      "community": 16,
-      "norm_label": "title"
-    },
-    {
-      "label": "On-image headline",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L14",
-      "id": "social_first_post_copy_on_image_headline",
-      "community": 16,
-      "norm_label": "on-image headline"
-    },
-    {
-      "label": "Caption",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L18",
-      "id": "social_first_post_copy_caption",
-      "community": 16,
-      "norm_label": "caption"
-    },
-    {
-      "label": "Short caption",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L30",
-      "id": "social_first_post_copy_short_caption",
-      "community": 16,
-      "norm_label": "short caption"
-    },
-    {
-      "label": "Alt text",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L36",
-      "id": "social_first_post_copy_alt_text",
-      "community": 16,
-      "norm_label": "alt text"
-    },
-    {
-      "label": "Hashtags",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L40",
-      "id": "social_first_post_copy_hashtags",
-      "community": 16,
-      "norm_label": "hashtags"
-    },
-    {
-      "label": "First comment",
-      "file_type": "document",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L44",
-      "id": "social_first_post_copy_first_comment",
-      "community": 16,
-      "norm_label": "first comment"
-    },
-    {
       "label": "reasoning.md",
       "file_type": "document",
       "source_file": "reasoning.md",
@@ -8417,60 +8327,6 @@
       "id": "reasoning_2026_06_16_18_31_final_selected_logo_promoted",
       "community": 43,
       "norm_label": "[2026-06-16 18:31] final selected logo promoted"
-    },
-    {
-      "label": "[2026-06-16 18:34] Logo size exports added",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L944",
-      "id": "reasoning_2026_06_16_18_34_logo_size_exports_added",
-      "community": 43,
-      "norm_label": "[2026-06-16 18:34] logo size exports added"
-    },
-    {
-      "label": "[2026-06-16 18:44] Logo variants and app-wide logo placement",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L949",
-      "id": "reasoning_2026_06_16_18_44_logo_variants_and_app_wide_logo_placement",
-      "community": 43,
-      "norm_label": "[2026-06-16 18:44] logo variants and app-wide logo placement"
-    },
-    {
-      "label": "[2026-06-16 20:56] First social post concept",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L954",
-      "id": "reasoning_2026_06_16_20_56_first_social_post_concept",
-      "community": 43,
-      "norm_label": "[2026-06-16 20:56] first social post concept"
-    },
-    {
-      "label": "[2026-06-16 21:02] Corrected first social post accuracy",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L959",
-      "id": "reasoning_2026_06_16_21_02_corrected_first_social_post_accuracy",
-      "community": 43,
-      "norm_label": "[2026-06-16 21:02] corrected first social post accuracy"
-    },
-    {
-      "label": "[2026-06-16 21:11] Removed blocker mechanic from social post",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L964",
-      "id": "reasoning_2026_06_16_21_11_removed_blocker_mechanic_from_social_post",
-      "community": 43,
-      "norm_label": "[2026-06-16 21:11] removed blocker mechanic from social post"
-    },
-    {
-      "label": "[2026-06-16 21:24] First post refocused on doomscroll blocker",
-      "file_type": "document",
-      "source_file": "reasoning.md",
-      "source_location": "L969",
-      "id": "reasoning_2026_06_16_21_24_first_post_refocused_on_doomscroll_blocker",
-      "community": 43,
-      "norm_label": "[2026-06-16 21:24] first post refocused on doomscroll blocker"
     },
     {
       "label": ".`search block uses detected result container bounds`()",
@@ -28680,96 +28536,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "social_first_post_copy",
-      "target": "social_first_post_copy_noscroll_first_social_post",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_alt_text",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_caption",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L44",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_first_comment",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_hashtags",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_image_carousel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_on_image_headline",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_short_caption",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "artifacts/social/first-post-copy.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "social_first_post_copy_noscroll_first_social_post",
-      "target": "social_first_post_copy_title",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "reasoning.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -28973,68 +28739,8 @@
       "source_file": "reasoning.md",
       "source_location": "L939",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_18_31_final_selected_logo_promoted"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L944",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_18_34_logo_size_exports_added"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L949",
-      "weight": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_18_44_logo_variants_and_app_wide_logo_placement",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L954",
-      "weight": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_20_56_first_social_post_concept",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L959",
-      "weight": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_21_02_corrected_first_social_post_accuracy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L964",
-      "weight": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_21_11_removed_blocker_mechanic_from_social_post",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "reasoning.md",
-      "source_location": "L969",
-      "weight": 1.0,
-      "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_21_24_first_post_refocused_on_doomscroll_blocker",
+      "target": "reasoning_2026_06_16_18_31_final_selected_logo_promoted",
       "confidence_score": 1.0
     },
     {

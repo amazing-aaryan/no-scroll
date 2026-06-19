@@ -30,8 +30,8 @@
     "semantic_hash": "07a13abfa44f55f3d21d3a3bbd5a7a72"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\OverlayService.kt": {
-    "mtime": 1781624423.1726675,
-    "ast_hash": "e979155038a4fbcfa977b3782fab86c4",
+    "mtime": 1781342882.3855333,
+    "ast_hash": "b2532fa273fefa68ef19c126a3e31786",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PageTurnInterceptor.kt": {
@@ -85,8 +85,8 @@
     "semantic_hash": "bdfe6c665c53b064ffb461a8fdd144b1"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\SetupActivity.kt": {
-    "mtime": 1781624503.8680522,
-    "ast_hash": "26b96d11895270ec201b0bff0d3bf6d9",
+    "mtime": 1781352315.9942064,
+    "ast_hash": "bbe085f4613ec922b08249f6a903dc07",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDao.kt": {
@@ -285,13 +285,13 @@
     "semantic_hash": "746a49752206638758e572d00cb18d33"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialStepDefs.kt": {
-    "mtime": 1781862546.1993754,
-    "ast_hash": "b7f758d77871dfa814d0449e69e29324",
-    "semantic_hash": ""
+    "mtime": 1780159025.3795905,
+    "ast_hash": "8b4bbd2a953e58bbaa497d13709baa67",
+    "semantic_hash": "8b4bbd2a953e58bbaa497d13709baa67"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
-    "mtime": 1781624515.837975,
-    "ast_hash": "c799cc9543a57fb1a850fd2e26d90f69",
+    "mtime": 1781352361.704252,
+    "ast_hash": "2193e9c3b41734ac17288885034b9182",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\NotebookScreen.kt": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\reasoning.md": {
-    "mtime": 1781633322.0134299,
-    "ast_hash": "0f3ea7899470c9fc16673849d8302cce",
+    "mtime": 1781623930.7068322,
+    "ast_hash": "2f25dda873d6e1ea8c3f14b69f16b988",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-pull.txt": {
@@ -3967,21 +3967,6 @@
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-real-20260613-194341\\path.txt": {
     "mtime": 1781369021.8706448,
     "ast_hash": "6d7f56c4ee531969c995035d3777a56b",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-blocker-cover.html": {
-    "mtime": 1781633366.808315,
-    "ast_hash": "4432ac97f163ec17a11050d1202eb34c",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-copy.md": {
-    "mtime": 1781633322.0134299,
-    "ast_hash": "c3b99daa9762f4b9540df5825cc0abed",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-v3.html": {
-    "mtime": 1781633144.7794611,
-    "ast_hash": "4c4a5dd21ecc3c4642e53e2fda1715f2",
     "semantic_hash": ""
   }
 }

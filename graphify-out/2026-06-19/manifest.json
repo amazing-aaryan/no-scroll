@@ -285,8 +285,8 @@
     "semantic_hash": "746a49752206638758e572d00cb18d33"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\tutorial\\TutorialStepDefs.kt": {
-    "mtime": 1781862546.1993754,
-    "ast_hash": "b7f758d77871dfa814d0449e69e29324",
+    "mtime": 1781624452.230441,
+    "ast_hash": "2f64a6b005a74a3231453d3772a6c40f",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\reasoning.md": {
-    "mtime": 1781633322.0134299,
-    "ast_hash": "0f3ea7899470c9fc16673849d8302cce",
+    "mtime": 1781624110.23152,
+    "ast_hash": "dec4cae598fd567b1d52674175dbeeaa",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-pull.txt": {
@@ -3967,21 +3967,6 @@
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\presentable-social-demo-real-20260613-194341\\path.txt": {
     "mtime": 1781369021.8706448,
     "ast_hash": "6d7f56c4ee531969c995035d3777a56b",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-blocker-cover.html": {
-    "mtime": 1781633366.808315,
-    "ast_hash": "4432ac97f163ec17a11050d1202eb34c",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-copy.md": {
-    "mtime": 1781633322.0134299,
-    "ast_hash": "c3b99daa9762f4b9540df5825cc0abed",
-    "semantic_hash": ""
-  },
-  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\social\\first-post-v3.html": {
-    "mtime": 1781633144.7794611,
-    "ast_hash": "4c4a5dd21ecc3c4642e53e2fda1715f2",
     "semantic_hash": ""
   }
 }
