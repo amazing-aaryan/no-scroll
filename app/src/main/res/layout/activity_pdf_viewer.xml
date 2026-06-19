@@ -31,7 +31,7 @@
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="My Library"
-                    android:src="@drawable/ic_book"
+                    android:src="@drawable/noscroll_logo_transparent_128"
                     android:tint="#90FFFFFF"
                     android:padding="12dp" />
 

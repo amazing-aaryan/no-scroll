@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_book"
+        android:src="@drawable/noscroll_logo_transparent_128"
         android:contentDescription="Open PDF reader"
         android:padding="6dp" />
 

@@ -110,7 +110,7 @@ class OverlayService : Service() {
     }
 
     private fun applyIconTint(view: View?) {
-        // ic_book drawable is natively white — invert to black so it's visible on the inverted
+        // Logo drawable is natively white; tint black so it stays visible on the inverted
         // (light) background. Icon color is fixed; background inversion handles the contrast.
         val imageView = view?.findViewById<android.widget.ImageView>(R.id.book_icon) ?: return
         imageView.setColorFilter(Color.BLACK)
@@ -344,7 +344,7 @@ class OverlayService : Service() {
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("NoScroll active")
-            .setContentText("Book icon appears on Instagram and blocks distracting feeds")
+            .setContentText("NoScroll logo appears on Instagram and blocks distracting feeds")
             .setSmallIcon(R.drawable.ic_book)
             .setContentIntent(tapIntent)
             .setOngoing(true)

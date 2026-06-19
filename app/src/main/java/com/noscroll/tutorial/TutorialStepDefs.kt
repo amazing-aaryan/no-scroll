@@ -3,8 +3,8 @@ package com.noscroll.tutorial
 val SetupTutorialSteps = listOf(
     TutorialStep(
         TutorialStepId.SETUP_OVERLAY,
-        "Allow the floating icon",
-        "This lets the book icon appear over Instagram.",
+        "Allow the NoScroll logo",
+        "This lets the NoScroll logo appear over Instagram.",
         TooltipSide.Below
     ),
     TutorialStep(

@@ -12,8 +12,7 @@
     <ImageView
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/ic_book"
-        android:tint="#FBF8F0"
+        android:src="@drawable/noscroll_logo_transparent_128"
         android:contentDescription="Open your book"
         android:scaleType="fitCenter"
         android:layout_marginBottom="28dp" />
