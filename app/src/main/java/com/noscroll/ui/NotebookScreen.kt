@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.noscroll.quote.QuoteCardStyles
 import com.noscroll.repository.NotebookState
 import com.noscroll.tutorial.TutorialAnchor
 import com.noscroll.tutorial.TutorialController
@@ -101,7 +102,7 @@ fun NotebookScreen(
                     2 -> items(state.quotes, key = { "q-${it.id}" }) { quote ->
                         NotebookQuoteRow(
                             title = safeTitle(metadataByUri[quote.bookUri]?.title, booksByUri[quote.bookUri]?.displayName ?: "Quote card"),
-                            detail = quote.themeName,
+                            detail = QuoteCardStyles.byId(quote.themeName).name,
                             quote = quote.quoteText,
                             note = null,
                             onClick = { onOpenBook(quote.bookUri, quote.pageIndex) },

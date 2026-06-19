@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoScroll First Post v3</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #e9dfcf;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .post {
+      position: relative;
+      width: 1254px;
+      height: 1254px;
+      overflow: hidden;
+      color: #11110f;
+      background:
+        radial-gradient(circle at 16% 60%, rgba(91, 111, 79, 0.2) 0 13%, transparent 30%),
+        radial-gradient(circle at 83% 72%, rgba(173, 93, 62, 0.12) 0 12%, transparent 29%),
+        linear-gradient(135deg, rgba(255, 252, 246, 0.92), rgba(232, 220, 199, 0.9)),
+        #efe4d0;
+    }
+
+    .post::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      background-image:
+        radial-gradient(rgba(62, 47, 32, 0.16) 0.8px, transparent 0.8px),
+        radial-gradient(rgba(62, 47, 32, 0.12) 0.6px, transparent 0.6px);
+      background-position: 0 0, 13px 19px;
+      background-size: 28px 28px, 34px 34px;
+      pointer-events: none;
+    }
+
+    .brand {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      z-index: 4;
+    }
+
+    .brand img {
+      width: 124px;
+      height: 124px;
+      border-radius: 28px;
+      box-shadow: 0 18px 46px rgba(17, 17, 15, 0.14);
+    }
+
+    .brand-word {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 102px;
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 600;
+    }
+
+    .headline {
+      position: absolute;
+      top: 232px;
+      left: 112px;
+      right: 112px;
+      z-index: 5;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 124px;
+      line-height: 0.98;
+      letter-spacing: 0;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .headline .accent {
+      color: #64755a;
+    }
+
+    .scroll-ghosts {
+      position: absolute;
+      inset: 438px 78px 190px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ghost {
+      position: absolute;
+      width: 214px;
+      height: 382px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.16)),
+        var(--bg);
+      box-shadow: 0 18px 44px rgba(40, 32, 25, 0.12);
+      filter: blur(1.4px);
+      opacity: 0.42;
+    }
+
+    .ghost::after {
+      content: "";
+      position: absolute;
+      top: 148px;
+      left: 83px;
+      width: 0;
+      height: 0;
+      border-top: 36px solid transparent;
+      border-bottom: 36px solid transparent;
+      border-left: 54px solid rgba(255, 255, 255, 0.68);
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+    }
+
+    .ghost:nth-child(1) {
+      left: 88px;
+      top: 44px;
+      transform: rotate(-8deg);
+      --bg: linear-gradient(145deg, #566a5c, #c8b997);
+    }
+
+    .ghost:nth-child(2) {
+      left: 386px;
+      top: 8px;
+      transform: rotate(3deg);
+      --bg: linear-gradient(145deg, #8f6f59, #27323a);
+    }
+
+    .ghost:nth-child(3) {
+      right: 80px;
+      top: 70px;
+      transform: rotate(8deg);
+      --bg: linear-gradient(145deg, #9e6149, #293e46);
+    }
+
+    .phone {
+      position: absolute;
+      left: 327px;
+      bottom: 44px;
+      width: 600px;
+      height: 600px;
+      z-index: 3;
+      border-radius: 76px;
+      background: #121211;
+      padding: 24px;
+      box-shadow:
+        0 44px 98px rgba(31, 27, 22, 0.3),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.06);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      width: 138px;
+      height: 28px;
+      transform: translateX(-50%);
+      border-radius: 0 0 20px 20px;
+      background: #121211;
+      z-index: 4;
+    }
+
+    .screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 56px;
+      background: linear-gradient(180deg, #fffdf8, #efe5d5);
+      box-shadow: inset 0 0 0 2px rgba(30, 29, 24, 0.1);
+    }
+
+    .reader-top {
+      height: 104px;
+      padding: 42px 42px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #26231f;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .reader-pill {
+      width: 112px;
+      height: 32px;
+      border-radius: 999px;
+      background: #d8e0cf;
+      box-shadow: inset 0 0 0 2px rgba(91, 111, 79, 0.22);
+    }
+
+    .page {
+      position: absolute;
+      left: 52px;
+      right: 52px;
+      top: 134px;
+      height: 405px;
+      border-radius: 8px;
+      background: #fffaf0;
+      box-shadow:
+        0 18px 38px rgba(49, 38, 27, 0.11),
+        inset 0 0 0 2px rgba(93, 70, 48, 0.08);
+      padding: 40px 38px;
+    }
+
+    .page-line {
+      height: 10px;
+      margin-bottom: 19px;
+      border-radius: 999px;
+      background: rgba(52, 45, 36, 0.18);
+    }
+
+    .page-line:nth-child(2n) {
+      width: 88%;
+    }
+
+    .page-line:nth-child(3n) {
+      width: 74%;
+    }
+
+    .highlight {
+      height: 18px;
+      margin: 22px 0 21px;
+      border-radius: 999px;
+      background: rgba(187, 147, 67, 0.36);
+      box-shadow: 0 0 0 8px rgba(187, 147, 67, 0.12);
+    }
+
+    .quote-card {
+      position: absolute;
+      right: 36px;
+      bottom: 94px;
+      width: 272px;
+      height: 178px;
+      border-radius: 8px;
+      background: #10100f;
+      box-shadow: 0 24px 44px rgba(20, 17, 13, 0.26);
+      padding: 30px;
+      color: #f7efe1;
+    }
+
+    .quote-card::before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 6px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: #c96d49;
+    }
+
+    .quote-line {
+      height: 7px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(247, 239, 225, 0.72);
+    }
+
+    .quote-line:nth-child(3) {
+      width: 82%;
+    }
+
+    .quote-line:nth-child(4) {
+      width: 56%;
+    }
+
+    .bottom-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 106px;
+      background: rgba(255, 252, 246, 0.86);
+      border-top: 2px solid rgba(47, 42, 35, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 82px;
+    }
+
+    .mini-icon {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 4px solid #2f382d;
+      opacity: 0.68;
+    }
+
+    .mini-icon:nth-child(2) {
+      border-radius: 999px;
+      background: #2f382d;
+      box-shadow: 0 0 0 12px rgba(100, 117, 90, 0.18);
+      opacity: 1;
+    }
+
+    .mini-icon:nth-child(3) {
+      width: 38px;
+      height: 30px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main class="post" aria-label="NoScroll launch social post">
+    <section class="brand">
+      <img src="../../app/src/main/res/drawable-nodpi/noscroll_logo_128.png" alt="">
+      <div class="brand-word">NoScroll</div>
+    </section>
+
+    <h1 class="headline">Read when <span class="accent">you'd scroll.</span></h1>
+
+    <div class="scroll-ghosts" aria-hidden="true">
+      <div class="ghost"></div>
+      <div class="ghost"></div>
+      <div class="ghost"></div>
+    </div>
+
+    <section class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="reader-top">
+          <span>Reading</span>
+          <span class="reader-pill"></span>
+        </div>
+        <div class="page">
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="highlight"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+          <div class="page-line"></div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-line"></div>
+          <div class="quote-line"></div>
+          <div class="quote-line"></div>
+        </div>
+        <div class="bottom-bar">
+          <span class="mini-icon"></span>
+          <span class="mini-icon"></span>
+          <span class="mini-icon"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

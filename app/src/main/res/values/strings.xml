@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">NoScroll</string>
     <string name="setup_title">Setup NoScroll</string>
-    <string name="accessibility_description">NoScroll watches for Instagram to show the NoScroll logo over the Reels tab button.</string>
+    <string name="accessibility_description">NoScroll watches for Instagram to show the blocker or reader entry point on distracting scroll surfaces.</string>
     <string name="overlay_step_title">Step 1: Display Over Other Apps</string>
-    <string name="overlay_step_desc">Lets NoScroll draw the NoScroll logo on top of Instagram.</string>
+    <string name="overlay_step_desc">Lets NoScroll draw the blocker and reader entry point on top of Instagram.</string>
     <string name="overlay_btn">Grant Permission</string>
     <string name="accessibility_step_title">Step 2: Accessibility Service</string>
-    <string name="accessibility_step_desc">Lets NoScroll detect when Instagram is open and find the Reels button.</string>
+    <string name="accessibility_step_desc">Lets NoScroll detect when Instagram is open and identify distracting scroll surfaces.</string>
     <string name="accessibility_btn">Enable Service</string>
     <string name="done_btn">Done</string>
     <string name="change_pdf">Change PDF</string>

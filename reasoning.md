@@ -980,3 +980,18 @@ Remaining caveat:
 **Decision:** Pointed all app logo surfaces at the new NoScroll logo assets, exposed the round adaptive launcher icon via `android:roundIcon`, and changed remaining user-facing setup/tutorial copy from old book/floating icon wording to NoScroll logo wording.
 **Why:** The app had already gained new logo PNG variants and partial references, but launcher round icon and tutorial title still needed alignment.
 **Impact:** `ic_book` remains only for PDF placeholders and notification small icon constraints; UI logo surfaces use `noscroll_logo_*` assets.
+
+## [2026-06-19 13:25] Quote sharing style packs implemented
+**Decision:** Implemented quote card style packs inside `com.noscroll.quote` with 8 presets, procedural scenic backgrounds, stable style ids, legacy `QuoteCardTheme` mapping, richer Compose style picker, saved-style preference, share text fallback, and Notebook display-name mapping.
+**Why:** User wanted quote sharing preloaded with better designs, fonts, and scenic options; procedural Canvas scenery avoids bundled asset licensing and app-size risk while keeping offline deterministic rendering.
+**Impact:** Existing `QuoteCardEntity.themeName` remains the persistence column but now stores style ids; old enum names still resolve through `QuoteCardStyles.byId()`. Quote card rendering now uses `QuoteCardBitmapBuilder.build(context, spec)`.
+
+## [2026-06-19 13:28] Quote card review issues fixed
+**Decision:** Added bounded `StaticLayout` max-lines/ellipsize/clipping for quote and attribution text, restored radio-button selection semantics in the style picker, and guarded preview rendering with generation tokens.
+**Why:** Code review found long quote overflow, accessibility regression, and async render race risks after the first implementation pass.
+**Impact:** Quote card text should stay inside its assigned regions, style pack selection remains accessible to TalkBack, and stale renders are discarded if users change styles quickly.
+
+## [2026-06-19 13:33] Product docs repositioned around blocker, reader, and quote sharing
+**Decision:** Rewrote active README/PRODUCT docs and setup strings to describe NoScroll as an Instagram blocker plus standalone PDF reader and quote-sharing app, not a Reels-button interception tool.
+**Why:** Current implementation blocks whole distracting Instagram regions, reads imported PDFs, saves highlights/notes, supports OCR fallback, and creates shareable quote cards; docs were stale and under-described the product.
+**Impact:** Future docs should avoid framing NoScroll as only replacing/intercepting the Reels button; use blocker + reader + quote sharing as the product model.

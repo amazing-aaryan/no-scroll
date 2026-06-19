@@ -1,16 +1,16 @@
-# Graph Report - no-scroll  (2026-06-16)
+# Graph Report - no-scroll  (2026-06-19)
 
 ## Corpus Check
-- 78 files · ~2,424,189 words
+- 80 files · ~2,427,807 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 960 nodes · 1972 edges · 65 communities (59 shown, 6 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 93 edges (avg confidence: 0.8)
+- 1020 nodes · 2091 edges · 68 communities (61 shown, 7 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 98 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b7340cc8`
+- Built from commit: `e977a183`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,35 +75,38 @@
 - [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `PdfViewerActivity` - 57 edges
 2. `NoScrollAccessibilityService` - 34 edges
-3. `Text` - 25 edges
-4. `NoScrollPdfViewerFragment` - 24 edges
-5. `reasoning.md — no-scroll` - 22 edges
-6. `OverlayService` - 19 edges
-7. `LibraryScreen()` - 18 edges
-8. `PaperActionButton()` - 18 edges
-9. `TutorialPrefs` - 17 edges
-10. `readme_no_scroll` - 17 edges
+3. `reasoning.md — no-scroll` - 30 edges
+4. `Text` - 28 edges
+5. `NoScrollPdfViewerFragment` - 25 edges
+6. `QuoteCardBitmapBuilder` - 23 edges
+7. `OverlayService` - 19 edges
+8. `LibraryScreen()` - 18 edges
+9. `PaperActionButton()` - 18 edges
+10. `TutorialPrefs` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `PermissionRow()` --calls--> `Text`  [INFERRED]
   app/src/main/java/com/noscroll/SetupActivity.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
 - `PermissionRow()` --calls--> `PaperActionButton()`  [INFERRED]
   app/src/main/java/com/noscroll/SetupActivity.kt → app/src/main/java/com/noscroll/ui/PaperControls.kt
-- `ShareRow()` --calls--> `Text`  [INFERRED]
-  app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
-- `TutorialOverlay()` --calls--> `Canvas`  [INFERRED]
-  app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt → app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt
-- `ShareRow()` --calls--> `PaperMenuAction()`  [INFERRED]
-  app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt → app/src/main/java/com/noscroll/ui/PaperControls.kt
+- `StylePackCard()` --calls--> `Text`  [INFERRED]
+  app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
+- `StylePicker()` --calls--> `Text`  [INFERRED]
+  app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
+- `StyleSwatch()` --calls--> `Text`  [INFERRED]
+  app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt → app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt
 
 ## Import Cycles
 - None detected.
 
-## Communities (65 total, 6 thin omitted)
+## Communities (68 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.08
@@ -111,11 +114,11 @@ Nodes (28): Boolean, Bitmap, BookMetadataEntity, Boolean, Bundle, Float, Highlig
 
 ### Community 1 - "Community 1"
 Cohesion: 0.07
-Nodes (59): TutorialController, TutorialStep, BookEntity, BookMetadataEntity, Boolean, HighlightEntity, List, String (+51 more)
+Nodes (60): TutorialController, TutorialStep, BookEntity, BookMetadataEntity, Boolean, HighlightEntity, List, String (+52 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.10
-Nodes (21): Bundle, Intent, Bundle, Bundle, LegalBookSearchResult, List, String, Uri (+13 more)
+Cohesion: 0.07
+Nodes (25): Bundle, Intent, Bundle, Bundle, LegalBookSearchResult, List, String, Uri (+17 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.21
@@ -123,15 +126,11 @@ Nodes (8): Flow, Int, List, Long, String, BookmarkEntity, BookmarkDao, BookmarkE
 
 ### Community 4 - "Community 4"
 Cohesion: 0.10
-Nodes (22): Boolean, Float, Int, List, PdfDocument, PdfRect, ReaderSelection, SelectionAction (+14 more)
+Nodes (23): Boolean, Float, Int, List, PdfDocument, PdfRect, ReaderSelection, RectF (+15 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.14
 Nodes (19): Int, Job, List, String, ViewGroup, Bitmap, Int, Job (+11 more)
-
-### Community 6 - "Community 6"
-Cohesion: 0.07
-Nodes (12): BookEntity, BookMetadataEntity, Boolean, Bundle, String, TutorialPrefs, Uri, Boolean (+4 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.16
@@ -150,8 +149,8 @@ Cohesion: 0.31
 Nodes (9): Context, Int, List, String, Uri, JSONArray, PdfEntry, PdfStorage (+1 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.24
-Nodes (11): Bitmap, Float, List, String, Canvas, QuoteCardBitmapBuilder, QuoteCardSpec, QuoteCardTheme (+3 more)
+Cohesion: 0.15
+Nodes (18): Bitmap, Boolean, Context, Float, Int, List, QuoteCardSpec, QuoteCardStylePack (+10 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.26
@@ -170,8 +169,8 @@ Cohesion: 0.18
 Nodes (8): BookEntity, Boolean, Flow, Int, List, Long, String, BookDao
 
 ### Community 16 - "Community 16"
-Cohesion: 0.31
-Nodes (8): android, Bundle, String, BottomSheetDialogFragment, Dialog, newInstance(), ShareBottomSheet, ShareRow()
+Cohesion: 0.20
+Nodes (9): Alt text, Caption, First comment, Hashtags, Image / Carousel, NoScroll - First Social Post, On-image headline, Short caption (+1 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.40
@@ -194,12 +193,12 @@ Cohesion: 0.55
 Nodes (5): Activity, Bitmap, String, Uri, InstagramShareHelper
 
 ### Community 23 - "Community 23"
-Cohesion: 0.26
-Nodes (7): Flow, HighlightEntity, Int, List, Long, String, HighlightDao
+Cohesion: 0.22
+Nodes (12): Boolean, Bundle, Int, Modifier, QuoteCardSpec, QuoteCardStylePack, String, Unit (+4 more)
 
 ### Community 24 - "Community 24"
-Cohesion: 0.22
-Nodes (6): Flow, List, Long, QuoteCardDao, QuoteCardEntity, QuoteCardEntity
+Cohesion: 0.30
+Nodes (8): AccessibilityService, Boolean, Bundle, Intent, String, TutorialPrefs, PermissionRow(), SetupActivity
 
 ### Community 25 - "Community 25"
 Cohesion: 0.45
@@ -258,12 +257,12 @@ Cohesion: 0.83
 Nodes (3): Bitmap, String, BitmapHolder
 
 ### Community 43 - "Community 43"
-Cohesion: 0.13
-Nodes (14): [2026-06-12 17:59] Session: DM shared-media state retest and partial implementation, [2026-06-15 22:08] NoScroll logo direction research, [2026-06-15 22:55] Public social automation knowledge brief source boundary, [2026-06-16 08:50] Deterministic NoScroll logo variants built, [2026-06-16 16:09] Launcher logo now uses exact supplied PNG, [2026-06-16 16:20] New imagegen 3D paused-book draft, [2026-06-16 16:23] Cleaner tilted paused-book imagegen draft, [2026-06-16 16:28] Side-tilt paused-book imagegen draft (+6 more)
+Cohesion: 0.09
+Nodes (22): [2026-06-12 17:59] Session: DM shared-media state retest and partial implementation, [2026-06-15 22:08] NoScroll logo direction research, [2026-06-15 22:55] Public social automation knowledge brief source boundary, [2026-06-16 08:50] Deterministic NoScroll logo variants built, [2026-06-16 16:09] Launcher logo now uses exact supplied PNG, [2026-06-16 16:20] New imagegen 3D paused-book draft, [2026-06-16 16:23] Cleaner tilted paused-book imagegen draft, [2026-06-16 16:28] Side-tilt paused-book imagegen draft (+14 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.18
-Nodes (7): Flow, List, Long, BookCollectionDao, BookCollectionEntity, BookCollectionDao, BookCollectionEntity
+Nodes (10): List, String, QuoteBackgroundKind, QuoteCardStylePack, QuoteCardStyles, QuoteFontFamily, QuoteLayout, QuotePanel (+2 more)
 
 ### Community 45 - "Community 45"
 Cohesion: 0.18
@@ -278,8 +277,8 @@ Cohesion: 0.25
 Nodes (8): [2026-06-12 11:05] Session: Android emulator E2E test run for Instagram blocking oracle, Regression checks, T1 - Home feed scroll blocking, T2 - Reels blocking, T3 - Search/Explore grid scroll blocking, T4 - Search typing allowance, T5 - Account page allowance, T6 - Friend-sent DM post/reel allowance
 
 ### Community 51 - "Community 51"
-Cohesion: 0.27
-Nodes (5): BookMetadataEntity, Flow, List, String, BookMetadataDao
+Cohesion: 0.18
+Nodes (7): Flow, List, Long, BookCollectionDao, BookCollectionEntity, BookCollectionDao, BookCollectionEntity
 
 ### Community 53 - "Community 53"
 Cohesion: 0.18
@@ -305,6 +304,10 @@ Nodes (7): [2026-05-15 08:34] Session: diagnose and fix all app crashes + naviga
 Cohesion: 0.40
 Nodes (5): 2026-06-12 21:00 EET - Reviewer Follow-up: Overlay Touchability Lifecycle, Direct overlay command attempt, Final deployment note, Lifecycle E2E attempt, Reviewer finding addressed
 
+### Community 59 - "Community 59"
+Cohesion: 0.26
+Nodes (7): Flow, HighlightEntity, Int, List, Long, String, HighlightDao
+
 ### Community 60 - "Community 60"
 Cohesion: 0.32
 Nodes (5): Boolean, Int, String, CharSequence, PdfSelectionTextCleaner
@@ -318,28 +321,36 @@ Cohesion: 0.18
 Nodes (6): Float, Int, InstagramBlockPolicy, InstagramBlockSurface, IntBounds, InstagramBlockPolicyTest
 
 ### Community 64 - "Community 64"
-Cohesion: 0.30
-Nodes (8): AccessibilityService, Boolean, Bundle, Intent, String, TutorialPrefs, PermissionRow(), SetupActivity
+Cohesion: 0.31
+Nodes (8): android, Bundle, String, BottomSheetDialogFragment, Dialog, newInstance(), ShareBottomSheet, ShareRow()
+
+### Community 65 - "Community 65"
+Cohesion: 0.22
+Nodes (6): Flow, List, Long, QuoteCardDao, QuoteCardEntity, QuoteCardEntity
+
+### Community 66 - "Community 66"
+Cohesion: 0.27
+Nodes (5): BookMetadataEntity, Flow, List, String, BookMetadataDao
 
 ## Knowledge Gaps
-- **223 isolated node(s):** `PreToolUse`, `Bundle`, `NavSelectionState`, `InstagramBlockSurface`, `ReaderSelection` (+218 more)
+- **251 isolated node(s):** `PreToolUse`, `Bundle`, `NavSelectionState`, `InstagramBlockSurface`, `ReaderSelection` (+246 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `PdfViewerActivity` connect `Community 0` to `Community 8`, `Community 2`, `Community 4`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `NoScrollAccessibilityService` connect `Community 7` to `Community 64`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `TutorialOverlay()` connect `Community 1` to `Community 0`, `Community 11`, `Community 64`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Are the 24 inferred relationships involving `Text` (e.g. with `PermissionRow()` and `.onCreate()`) actually correct?**
-  _`Text` has 24 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Why does `NoScrollAccessibilityService` connect `Community 7` to `Community 24`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **Why does `TutorialOverlay()` connect `Community 1` to `Community 0`, `Community 24`, `Community 11`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+- **Are the 27 inferred relationships involving `Text` (e.g. with `PermissionRow()` and `.onCreate()`) actually correct?**
+  _`Text` has 27 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `PreToolUse`, `Bundle`, `NavSelectionState` to the rest of the system?**
-  _223 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _251 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07753164556962025 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.075 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07319347319347319 - nodes in this community are weakly interconnected._

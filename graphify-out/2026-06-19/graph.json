@@ -198,7 +198,7 @@
       "source_file": "",
       "source_location": "",
       "id": "accessibilityservice",
-      "community": 64,
+      "community": 24,
       "norm_label": "accessibilityservice"
     },
     {
@@ -782,7 +782,7 @@
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/NoScrollPdfViewerFragment.kt",
       "source_location": "L34",
-      "id": "rectf",
+      "id": "app_src_main_java_com_noscroll_noscrollpdfviewerfragment_kt_rectf",
       "community": 4,
       "norm_label": "rectf"
     },
@@ -1575,7 +1575,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L1",
       "id": "noscroll_pdflibraryactivity",
-      "community": 6,
+      "community": 2,
       "norm_label": "pdflibraryactivity.kt"
     },
     {
@@ -1584,7 +1584,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L29",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity",
-      "community": 6,
+      "community": 2,
       "norm_label": "pdflibraryactivity"
     },
     {
@@ -1593,7 +1593,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L32",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_tutorialprefs",
-      "community": 6,
+      "community": 2,
       "norm_label": "tutorialprefs"
     },
     {
@@ -1602,7 +1602,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L51",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_oncreate",
-      "community": 6,
+      "community": 2,
       "norm_label": ".oncreate()"
     },
     {
@@ -1611,7 +1611,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L51",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_bundle",
-      "community": 6,
+      "community": 2,
       "norm_label": "bundle"
     },
     {
@@ -1620,7 +1620,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L140",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_applypapersystembars",
-      "community": 6,
+      "community": 2,
       "norm_label": ".applypapersystembars()"
     },
     {
@@ -1629,7 +1629,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L149",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_launchpicker",
-      "community": 6,
+      "community": 2,
       "norm_label": ".launchpicker()"
     },
     {
@@ -1638,7 +1638,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L157",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_identifyweaklibrarymetadata",
-      "community": 6,
+      "community": 2,
       "norm_label": ".identifyweaklibrarymetadata()"
     },
     {
@@ -1647,7 +1647,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L176",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_needsautomaticlookup",
-      "community": 6,
+      "community": 2,
       "norm_label": ".needsautomaticlookup()"
     },
     {
@@ -1656,7 +1656,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L176",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_bookentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookentity"
     },
     {
@@ -1665,7 +1665,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L176",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_bookmetadataentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookmetadataentity"
     },
     {
@@ -1674,7 +1674,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L176",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_boolean",
-      "community": 6,
+      "community": 2,
       "norm_label": "boolean"
     },
     {
@@ -1683,7 +1683,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L191",
       "id": "noscroll_pdflibraryactivity_pdflibraryactivity_resolvedisplayname",
-      "community": 6,
+      "community": 2,
       "norm_label": ".resolvedisplayname()"
     },
     {
@@ -1692,7 +1692,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L191",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_uri",
-      "community": 6,
+      "community": 2,
       "norm_label": "uri"
     },
     {
@@ -1701,7 +1701,7 @@
       "source_file": "app/src/main/java/com/noscroll/PdfLibraryActivity.kt",
       "source_location": "L191",
       "id": "app_src_main_java_com_noscroll_pdflibraryactivity_kt_string",
-      "community": 6,
+      "community": 2,
       "norm_label": "string"
     },
     {
@@ -3105,7 +3105,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L1",
       "id": "noscroll_setupactivity",
-      "community": 64,
+      "community": 24,
       "norm_label": "setupactivity.kt"
     },
     {
@@ -3114,7 +3114,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L53",
       "id": "noscroll_setupactivity_setupactivity",
-      "community": 64,
+      "community": 24,
       "norm_label": "setupactivity"
     },
     {
@@ -3123,7 +3123,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L58",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_tutorialprefs",
-      "community": 64,
+      "community": 24,
       "norm_label": "tutorialprefs"
     },
     {
@@ -3132,7 +3132,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L60",
       "id": "noscroll_setupactivity_setupactivity_oncreate",
-      "community": 64,
+      "community": 24,
       "norm_label": ".oncreate()"
     },
     {
@@ -3141,7 +3141,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L60",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_bundle",
-      "community": 64,
+      "community": 24,
       "norm_label": "bundle"
     },
     {
@@ -3150,7 +3150,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L185",
       "id": "noscroll_setupactivity_setupactivity_applypapersystembars",
-      "community": 64,
+      "community": 24,
       "norm_label": ".applypapersystembars()"
     },
     {
@@ -3159,7 +3159,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L194",
       "id": "noscroll_setupactivity_setupactivity_onresume",
-      "community": 64,
+      "community": 24,
       "norm_label": ".onresume()"
     },
     {
@@ -3168,7 +3168,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L199",
       "id": "noscroll_setupactivity_setupactivity_updateui",
-      "community": 64,
+      "community": 24,
       "norm_label": ".updateui()"
     },
     {
@@ -3177,7 +3177,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L204",
       "id": "noscroll_setupactivity_setupactivity_accessibilityserviceintent",
-      "community": 64,
+      "community": 24,
       "norm_label": ".accessibilityserviceintent()"
     },
     {
@@ -3186,7 +3186,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L204",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_intent",
-      "community": 64,
+      "community": 24,
       "norm_label": "intent"
     },
     {
@@ -3195,7 +3195,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L218",
       "id": "noscroll_setupactivity_setupactivity_statustext",
-      "community": 64,
+      "community": 24,
       "norm_label": ".statustext()"
     },
     {
@@ -3204,7 +3204,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L218",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_string",
-      "community": 64,
+      "community": 24,
       "norm_label": "string"
     },
     {
@@ -3213,7 +3213,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L230",
       "id": "noscroll_setupactivity_permissionrow",
-      "community": 64,
+      "community": 24,
       "norm_label": "permissionrow()"
     },
     {
@@ -3222,7 +3222,7 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L230",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_boolean",
-      "community": 64,
+      "community": 24,
       "norm_label": "boolean"
     },
     {
@@ -3420,7 +3420,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "data_annotationdatabase_annotationdatabase_bookcollectiondao",
-      "community": 44,
+      "community": 51,
       "norm_label": ".bookcollectiondao()"
     },
     {
@@ -3429,7 +3429,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "bookcollectiondao",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectiondao"
     },
     {
@@ -3492,7 +3492,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "data_annotationdatabase_migrate",
-      "community": 59,
+      "community": 67,
       "norm_label": "migrate()"
     },
     {
@@ -3501,7 +3501,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "supportsqlitedatabase",
-      "community": 59,
+      "community": 67,
       "norm_label": "supportsqlitedatabase"
     },
     {
@@ -3528,7 +3528,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L1",
       "id": "data_bookcollectiondao",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectiondao.kt"
     },
     {
@@ -3537,7 +3537,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L9",
       "id": "data_bookcollectiondao_bookcollectiondao",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectiondao"
     },
     {
@@ -3546,7 +3546,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "data_bookcollectiondao_bookcollectiondao_observeall",
-      "community": 44,
+      "community": 51,
       "norm_label": ".observeall()"
     },
     {
@@ -3555,7 +3555,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_flow",
-      "community": 44,
+      "community": 51,
       "norm_label": "flow"
     },
     {
@@ -3564,7 +3564,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_list",
-      "community": 44,
+      "community": 51,
       "norm_label": "list"
     },
     {
@@ -3573,7 +3573,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L11",
       "id": "bookcollectionentity",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectionentity"
     },
     {
@@ -3582,7 +3582,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L14",
       "id": "data_bookcollectiondao_bookcollectiondao_upsert",
-      "community": 44,
+      "community": 51,
       "norm_label": ".upsert()"
     },
     {
@@ -3591,7 +3591,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_bookcollectiondao_kt_long",
-      "community": 44,
+      "community": 51,
       "norm_label": "long"
     },
     {
@@ -3600,7 +3600,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionDao.kt",
       "source_location": "L17",
       "id": "data_bookcollectiondao_bookcollectiondao_delete",
-      "community": 44,
+      "community": 51,
       "norm_label": ".delete()"
     },
     {
@@ -3609,7 +3609,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionEntity.kt",
       "source_location": "L1",
       "id": "data_bookcollectionentity",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectionentity.kt"
     },
     {
@@ -3618,7 +3618,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookCollectionEntity.kt",
       "source_location": "L6",
       "id": "data_bookcollectionentity_bookcollectionentity",
-      "community": 44,
+      "community": 51,
       "norm_label": "bookcollectionentity"
     },
     {
@@ -3780,7 +3780,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookEntity.kt",
       "source_location": "L1",
       "id": "data_bookentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookentity.kt"
     },
     {
@@ -3789,7 +3789,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookEntity.kt",
       "source_location": "L7",
       "id": "data_bookentity_bookentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookentity"
     },
     {
@@ -3798,7 +3798,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L1",
       "id": "data_bookmetadatadao",
-      "community": 51,
+      "community": 66,
       "norm_label": "bookmetadatadao.kt"
     },
     {
@@ -3807,7 +3807,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L9",
       "id": "data_bookmetadatadao_bookmetadatadao",
-      "community": 51,
+      "community": 66,
       "norm_label": "bookmetadatadao"
     },
     {
@@ -3816,7 +3816,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L11",
       "id": "data_bookmetadatadao_bookmetadatadao_observeall",
-      "community": 51,
+      "community": 66,
       "norm_label": ".observeall()"
     },
     {
@@ -3825,7 +3825,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookmetadatadao_kt_flow",
-      "community": 51,
+      "community": 66,
       "norm_label": "flow"
     },
     {
@@ -3834,7 +3834,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookmetadatadao_kt_list",
-      "community": 51,
+      "community": 66,
       "norm_label": "list"
     },
     {
@@ -3843,7 +3843,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_bookmetadatadao_kt_bookmetadataentity",
-      "community": 51,
+      "community": 66,
       "norm_label": "bookmetadataentity"
     },
     {
@@ -3852,7 +3852,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L14",
       "id": "data_bookmetadatadao_bookmetadatadao_get",
-      "community": 51,
+      "community": 66,
       "norm_label": ".get()"
     },
     {
@@ -3861,7 +3861,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_bookmetadatadao_kt_string",
-      "community": 51,
+      "community": 66,
       "norm_label": "string"
     },
     {
@@ -3870,7 +3870,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L17",
       "id": "data_bookmetadatadao_bookmetadatadao_upsert",
-      "community": 51,
+      "community": 66,
       "norm_label": ".upsert()"
     },
     {
@@ -3879,7 +3879,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataDao.kt",
       "source_location": "L20",
       "id": "data_bookmetadatadao_bookmetadatadao_delete",
-      "community": 51,
+      "community": 66,
       "norm_label": ".delete()"
     },
     {
@@ -3888,7 +3888,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataEntity.kt",
       "source_location": "L1",
       "id": "data_bookmetadataentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookmetadataentity.kt"
     },
     {
@@ -3897,7 +3897,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/BookMetadataEntity.kt",
       "source_location": "L6",
       "id": "data_bookmetadataentity_bookmetadataentity",
-      "community": 6,
+      "community": 2,
       "norm_label": "bookmetadataentity"
     },
     {
@@ -4041,7 +4041,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L1",
       "id": "data_highlightdao",
-      "community": 23,
+      "community": 59,
       "norm_label": "highlightdao.kt"
     },
     {
@@ -4050,7 +4050,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L9",
       "id": "data_highlightdao_highlightdao",
-      "community": 23,
+      "community": 59,
       "norm_label": "highlightdao"
     },
     {
@@ -4059,7 +4059,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "data_highlightdao_highlightdao_observeall",
-      "community": 23,
+      "community": 59,
       "norm_label": ".observeall()"
     },
     {
@@ -4068,7 +4068,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_flow",
-      "community": 23,
+      "community": 59,
       "norm_label": "flow"
     },
     {
@@ -4077,7 +4077,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_list",
-      "community": 23,
+      "community": 59,
       "norm_label": "list"
     },
     {
@@ -4086,7 +4086,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_highlightentity",
-      "community": 23,
+      "community": 59,
       "norm_label": "highlightentity"
     },
     {
@@ -4095,7 +4095,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L14",
       "id": "data_highlightdao_highlightdao_getforbook",
-      "community": 23,
+      "community": 59,
       "norm_label": ".getforbook()"
     },
     {
@@ -4104,7 +4104,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_string",
-      "community": 23,
+      "community": 59,
       "norm_label": "string"
     },
     {
@@ -4113,7 +4113,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L17",
       "id": "data_highlightdao_highlightdao_observeforbook",
-      "community": 23,
+      "community": 59,
       "norm_label": ".observeforbook()"
     },
     {
@@ -4122,7 +4122,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L20",
       "id": "data_highlightdao_highlightdao_getforpage",
-      "community": 23,
+      "community": 59,
       "norm_label": ".getforpage()"
     },
     {
@@ -4131,7 +4131,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L20",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_int",
-      "community": 23,
+      "community": 59,
       "norm_label": "int"
     },
     {
@@ -4140,7 +4140,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L23",
       "id": "data_highlightdao_highlightdao_insert",
-      "community": 23,
+      "community": 59,
       "norm_label": ".insert()"
     },
     {
@@ -4149,7 +4149,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L23",
       "id": "app_src_main_java_com_noscroll_data_highlightdao_kt_long",
-      "community": 23,
+      "community": 59,
       "norm_label": "long"
     },
     {
@@ -4158,7 +4158,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L26",
       "id": "data_highlightdao_highlightdao_deletebyid",
-      "community": 23,
+      "community": 59,
       "norm_label": ".deletebyid()"
     },
     {
@@ -4167,7 +4167,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/HighlightDao.kt",
       "source_location": "L29",
       "id": "data_highlightdao_highlightdao_updatecolor",
-      "community": 23,
+      "community": 59,
       "norm_label": ".updatecolor()"
     },
     {
@@ -4194,7 +4194,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L1",
       "id": "data_quotecarddao",
-      "community": 24,
+      "community": 65,
       "norm_label": "quotecarddao.kt"
     },
     {
@@ -4203,7 +4203,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L9",
       "id": "data_quotecarddao_quotecarddao",
-      "community": 24,
+      "community": 65,
       "norm_label": "quotecarddao"
     },
     {
@@ -4212,7 +4212,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "data_quotecarddao_quotecarddao_observeall",
-      "community": 24,
+      "community": 65,
       "norm_label": ".observeall()"
     },
     {
@@ -4221,7 +4221,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_flow",
-      "community": 24,
+      "community": 65,
       "norm_label": "flow"
     },
     {
@@ -4230,7 +4230,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_list",
-      "community": 24,
+      "community": 65,
       "norm_label": "list"
     },
     {
@@ -4239,7 +4239,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L11",
       "id": "quotecardentity",
-      "community": 24,
+      "community": 65,
       "norm_label": "quotecardentity"
     },
     {
@@ -4248,7 +4248,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L14",
       "id": "data_quotecarddao_quotecarddao_upsert",
-      "community": 24,
+      "community": 65,
       "norm_label": ".upsert()"
     },
     {
@@ -4257,7 +4257,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L14",
       "id": "app_src_main_java_com_noscroll_data_quotecarddao_kt_long",
-      "community": 24,
+      "community": 65,
       "norm_label": "long"
     },
     {
@@ -4266,7 +4266,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardDao.kt",
       "source_location": "L17",
       "id": "data_quotecarddao_quotecarddao_delete",
-      "community": 24,
+      "community": 65,
       "norm_label": ".delete()"
     },
     {
@@ -4275,7 +4275,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardEntity.kt",
       "source_location": "L1",
       "id": "data_quotecardentity",
-      "community": 24,
+      "community": 65,
       "norm_label": "quotecardentity.kt"
     },
     {
@@ -4284,7 +4284,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/QuoteCardEntity.kt",
       "source_location": "L7",
       "id": "data_quotecardentity_quotecardentity",
-      "community": 24,
+      "community": 65,
       "norm_label": "quotecardentity"
     },
     {
@@ -5227,7 +5227,7 @@
       "label": "QuoteCardBitmapBuilder",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L12",
+      "source_location": "L18",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
       "community": 11,
       "norm_label": "quotecardbitmapbuilder"
@@ -5236,17 +5236,26 @@
       "label": ".build()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L16",
+      "source_location": "L22",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
       "community": 11,
       "norm_label": ".build()"
     },
     {
+      "label": "Context",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L22",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_context",
+      "community": 11,
+      "norm_label": "context"
+    },
+    {
       "label": "QuoteCardSpec",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L16",
-      "id": "quotecardspec",
+      "source_location": "L22",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardspec",
       "community": 11,
       "norm_label": "quotecardspec"
     },
@@ -5254,7 +5263,7 @@
       "label": "Bitmap",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L16",
+      "source_location": "L22",
       "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_bitmap",
       "community": 11,
       "norm_label": "bitmap"
@@ -5263,7 +5272,7 @@
       "label": ".drawBackground()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L29",
+      "source_location": "L37",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
       "community": 11,
       "norm_label": ".drawbackground()"
@@ -5272,34 +5281,70 @@
       "label": "Canvas",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L29",
+      "source_location": "L37",
       "id": "canvas",
       "community": 11,
       "norm_label": "canvas"
     },
     {
-      "label": "QuoteCardTheme",
+      "label": "QuoteCardStylePack",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L29",
-      "id": "quotecardtheme",
+      "source_location": "L37",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack",
       "community": 11,
-      "norm_label": "quotecardtheme"
+      "norm_label": "quotecardstylepack"
     },
     {
-      "label": ".drawAccentStrip()",
+      "label": ".drawPaperGrain()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L39",
-      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawaccentstrip",
+      "source_location": "L53",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawpapergrain",
       "community": 11,
-      "norm_label": ".drawaccentstrip()"
+      "norm_label": ".drawpapergrain()"
+    },
+    {
+      "label": ".drawOcean()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L65",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawocean",
+      "community": 11,
+      "norm_label": ".drawocean()"
+    },
+    {
+      "label": ".drawMountain()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L86",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawmountain",
+      "community": 11,
+      "norm_label": ".drawmountain()"
+    },
+    {
+      "label": ".drawRain()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L101",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawrain",
+      "community": 11,
+      "norm_label": ".drawrain()"
+    },
+    {
+      "label": ".drawFrame()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L116",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe",
+      "community": 11,
+      "norm_label": ".drawframe()"
     },
     {
       "label": ".drawQuoteMarks()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L47",
+      "source_location": "L161",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotemarks",
       "community": 11,
       "norm_label": ".drawquotemarks()"
@@ -5308,7 +5353,7 @@
       "label": ".drawQuoteText()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L57",
+      "source_location": "L173",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
       "community": 11,
       "norm_label": ".drawquotetext()"
@@ -5317,25 +5362,16 @@
       "label": "Float",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L57",
+      "source_location": "L173",
       "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_float",
       "community": 11,
       "norm_label": "float"
     },
     {
-      "label": ".drawSeparator()",
-      "file_type": "code",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L94",
-      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawseparator",
-      "community": 11,
-      "norm_label": ".drawseparator()"
-    },
-    {
       "label": ".drawAttribution()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L105",
+      "source_location": "L213",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
       "community": 11,
       "norm_label": ".drawattribution()"
@@ -5344,43 +5380,142 @@
       "label": ".drawWatermark()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L121",
+      "source_location": "L248",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawwatermark",
       "community": 11,
       "norm_label": ".drawwatermark()"
     },
     {
-      "label": ".wrapText()",
+      "label": ".panelRect()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L131",
-      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
+      "source_location": "L258",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_panelrect",
       "community": 11,
-      "norm_label": ".wraptext()"
+      "norm_label": ".panelrect()"
     },
     {
-      "label": "String",
+      "label": "RectF",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L131",
-      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string",
+      "source_location": "L258",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf",
       "community": 11,
-      "norm_label": "string"
+      "norm_label": "rectf"
+    },
+    {
+      "label": ".quoteTextRect()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotetextrect",
+      "community": 11,
+      "norm_label": ".quotetextrect()"
+    },
+    {
+      "label": ".attributionRect()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L272",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect",
+      "community": 11,
+      "norm_label": ".attributionrect()"
+    },
+    {
+      "label": ".quotePaint()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L278",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint",
+      "community": 11,
+      "norm_label": ".quotepaint()"
     },
     {
       "label": "TextPaint",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L131",
+      "source_location": "L278",
       "id": "textpaint",
       "community": 11,
       "norm_label": "textpaint"
     },
     {
+      "label": ".buildTextLayout()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "community": 11,
+      "norm_label": ".buildtextlayout()"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string",
+      "community": 11,
+      "norm_label": "string"
+    },
+    {
+      "label": "Int",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_int",
+      "community": 11,
+      "norm_label": "int"
+    },
+    {
+      "label": "Layout",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "layout",
+      "community": 1,
+      "norm_label": "layout"
+    },
+    {
+      "label": "Boolean",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_boolean",
+      "community": 11,
+      "norm_label": "boolean"
+    },
+    {
+      "label": "StaticLayout",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "id": "staticlayout",
+      "community": 11,
+      "norm_label": "staticlayout"
+    },
+    {
+      "label": ".buildAttribution()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L302",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildattribution",
+      "community": 11,
+      "norm_label": ".buildattribution()"
+    },
+    {
+      "label": ".wrapText()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L309",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
+      "community": 11,
+      "norm_label": ".wraptext()"
+    },
+    {
       "label": "List",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L131",
+      "source_location": "L309",
       "id": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_list",
       "community": 11,
       "norm_label": "list"
@@ -5389,7 +5524,7 @@
       "label": ".wrapParagraph()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L141",
+      "source_location": "L319",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph",
       "community": 11,
       "norm_label": ".wrapparagraph()"
@@ -5398,7 +5533,7 @@
       "label": ".fitLongWord()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L158",
+      "source_location": "L336",
       "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_fitlongword",
       "community": 11,
       "norm_label": ".fitlongword()"
@@ -5409,116 +5544,197 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L1",
       "id": "quote_quotecardpreviewactivity",
-      "community": 2,
+      "community": 23,
       "norm_label": "quotecardpreviewactivity.kt"
     },
     {
       "label": "QuoteCardPreviewActivity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L57",
+      "source_location": "L67",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
-      "community": 2,
+      "community": 23,
       "norm_label": "quotecardpreviewactivity"
     },
     {
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L60",
+      "source_location": "L70",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string",
-      "community": 2,
+      "community": 23,
       "norm_label": "string"
     },
     {
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L61",
+      "source_location": "L71",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_int",
-      "community": 2,
+      "community": 23,
       "norm_label": "int"
     },
     {
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L63",
+      "source_location": "L74",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate",
-      "community": 2,
+      "community": 23,
       "norm_label": ".oncreate()"
     },
     {
       "label": "Bundle",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L63",
+      "source_location": "L74",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_bundle",
-      "community": 2,
+      "community": 23,
       "norm_label": "bundle"
     },
     {
       "label": ".loadSpec()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L171",
+      "source_location": "L132",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec",
-      "community": 2,
+      "community": 23,
       "norm_label": ".loadspec()"
     },
     {
       "label": ".isBadBookTitle()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L197",
+      "source_location": "L158",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_isbadbooktitle",
-      "community": 2,
+      "community": 23,
       "norm_label": ".isbadbooktitle()"
     },
     {
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L197",
+      "source_location": "L158",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_boolean",
-      "community": 2,
+      "community": 23,
       "norm_label": "boolean"
     },
     {
       "label": ".render()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L200",
+      "source_location": "L161",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_render",
-      "community": 2,
+      "community": 23,
       "norm_label": ".render()"
     },
     {
       "label": ".saveCurrentQuote()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L210",
+      "source_location": "L176",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_savecurrentquote",
-      "community": 2,
+      "community": 23,
       "norm_label": ".savecurrentquote()"
     },
     {
       "label": "Unit",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L210",
+      "source_location": "L176",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_unit",
-      "community": 2,
+      "community": 23,
       "norm_label": "unit"
     },
     {
       "label": ".shareCurrentQuote()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
-      "source_location": "L226",
+      "source_location": "L192",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_sharecurrentquote",
-      "community": 2,
+      "community": 23,
       "norm_label": ".sharecurrentquote()"
+    },
+    {
+      "label": ".buildShareText()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L205",
+      "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext",
+      "community": 23,
+      "norm_label": ".buildsharetext()"
+    },
+    {
+      "label": "QuoteCardSpec",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L205",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardspec",
+      "community": 23,
+      "norm_label": "quotecardspec"
+    },
+    {
+      "label": ".loadLastStyle()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L214",
+      "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadlaststyle",
+      "community": 23,
+      "norm_label": ".loadlaststyle()"
+    },
+    {
+      "label": ".rememberLastStyle()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L218",
+      "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_rememberlaststyle",
+      "community": 23,
+      "norm_label": ".rememberlaststyle()"
+    },
+    {
+      "label": "StylePicker()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L231",
+      "id": "quote_quotecardpreviewactivity_stylepicker",
+      "community": 23,
+      "norm_label": "stylepicker()"
+    },
+    {
+      "label": "StylePackCard()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L258",
+      "id": "quote_quotecardpreviewactivity_stylepackcard",
+      "community": 23,
+      "norm_label": "stylepackcard()"
+    },
+    {
+      "label": "QuoteCardStylePack",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L258",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardstylepack",
+      "community": 23,
+      "norm_label": "quotecardstylepack"
+    },
+    {
+      "label": "StyleSwatch()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L292",
+      "id": "quote_quotecardpreviewactivity_styleswatch",
+      "community": 23,
+      "norm_label": "styleswatch()"
+    },
+    {
+      "label": "Modifier",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L292",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_modifier",
+      "community": 23,
+      "norm_label": "modifier"
     },
     {
       "label": "QuoteCardSpec.kt",
@@ -5539,6 +5755,123 @@
       "norm_label": "quotecardspec"
     },
     {
+      "label": "QuoteCardStylePack.kt",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L1",
+      "id": "quote_quotecardstylepack",
+      "community": 44,
+      "norm_label": "quotecardstylepack.kt"
+    },
+    {
+      "label": "QuoteBackgroundKind",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L6",
+      "id": "quote_quotecardstylepack_quotebackgroundkind",
+      "community": 44,
+      "norm_label": "quotebackgroundkind"
+    },
+    {
+      "label": "QuoteLayout",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L13",
+      "id": "quote_quotecardstylepack_quotelayout",
+      "community": 44,
+      "norm_label": "quotelayout"
+    },
+    {
+      "label": "QuotePanel",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L21",
+      "id": "quote_quotecardstylepack_quotepanel",
+      "community": 44,
+      "norm_label": "quotepanel"
+    },
+    {
+      "label": "QuoteFontFamily",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L28",
+      "id": "quote_quotecardstylepack_quotefontfamily",
+      "community": 44,
+      "norm_label": "quotefontfamily"
+    },
+    {
+      "label": "QuoteTypefaceSpec",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L34",
+      "id": "quote_quotecardstylepack_quotetypefacespec",
+      "community": 44,
+      "norm_label": "quotetypefacespec"
+    },
+    {
+      "label": ".toTypeface()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L38",
+      "id": "quote_quotecardstylepack_quotetypefacespec_totypeface",
+      "community": 44,
+      "norm_label": ".totypeface()"
+    },
+    {
+      "label": "Typeface",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L38",
+      "id": "typeface",
+      "community": 44,
+      "norm_label": "typeface"
+    },
+    {
+      "label": "QuoteCardStylePack",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L48",
+      "id": "quote_quotecardstylepack_quotecardstylepack",
+      "community": 44,
+      "norm_label": "quotecardstylepack"
+    },
+    {
+      "label": "QuoteCardStyles",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L68",
+      "id": "quote_quotecardstylepack_quotecardstyles",
+      "community": 44,
+      "norm_label": "quotecardstyles"
+    },
+    {
+      "label": "List",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L71",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardstylepack_kt_list",
+      "community": 44,
+      "norm_label": "list"
+    },
+    {
+      "label": ".byId()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L217",
+      "id": "quote_quotecardstylepack_quotecardstyles_byid",
+      "community": 44,
+      "norm_label": ".byid()"
+    },
+    {
+      "label": "String",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L217",
+      "id": "app_src_main_java_com_noscroll_quote_quotecardstylepack_kt_string",
+      "community": 44,
+      "norm_label": "string"
+    },
+    {
       "label": "QuoteCardTheme.kt",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardTheme.kt",
@@ -5551,7 +5884,7 @@
       "label": "QuoteCardTheme",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardTheme.kt",
-      "source_location": "L5",
+      "source_location": "L3",
       "id": "quote_quotecardtheme_quotecardtheme",
       "community": 11,
       "norm_label": "quotecardtheme"
@@ -5562,7 +5895,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L1",
       "id": "quote_sharebottomsheet",
-      "community": 16,
+      "community": 64,
       "norm_label": "sharebottomsheet.kt"
     },
     {
@@ -5571,7 +5904,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L18",
       "id": "quote_sharebottomsheet_sharebottomsheet",
-      "community": 16,
+      "community": 64,
       "norm_label": "sharebottomsheet"
     },
     {
@@ -5580,7 +5913,7 @@
       "source_file": "",
       "source_location": "",
       "id": "bottomsheetdialogfragment",
-      "community": 16,
+      "community": 64,
       "norm_label": "bottomsheetdialogfragment"
     },
     {
@@ -5589,7 +5922,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "quote_sharebottomsheet_sharebottomsheet_oncreatedialog",
-      "community": 16,
+      "community": 64,
       "norm_label": ".oncreatedialog()"
     },
     {
@@ -5598,7 +5931,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_bundle",
-      "community": 16,
+      "community": 64,
       "norm_label": "bundle"
     },
     {
@@ -5607,7 +5940,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "dialog",
-      "community": 16,
+      "community": 64,
       "norm_label": "dialog"
     },
     {
@@ -5616,7 +5949,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "quote_sharebottomsheet_sharebottomsheet_ondismiss",
-      "community": 16,
+      "community": 64,
       "norm_label": ".ondismiss()"
     },
     {
@@ -5625,34 +5958,34 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "android",
-      "community": 16,
+      "community": 64,
       "norm_label": "android"
     },
     {
       "label": "newInstance()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
-      "source_location": "L68",
+      "source_location": "L69",
       "id": "quote_sharebottomsheet_newinstance",
-      "community": 16,
+      "community": 64,
       "norm_label": "newinstance()"
     },
     {
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
-      "source_location": "L68",
+      "source_location": "L69",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_string",
-      "community": 16,
+      "community": 64,
       "norm_label": "string"
     },
     {
       "label": "ShareRow()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
-      "source_location": "L76",
+      "source_location": "L77",
       "id": "quote_sharebottomsheet_sharerow",
-      "community": 16,
+      "community": 64,
       "norm_label": "sharerow()"
     },
     {
@@ -6318,7 +6651,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialprefs",
-      "community": 6,
+      "community": 2,
       "norm_label": "tutorialprefs.kt"
     },
     {
@@ -6649,7 +6982,7 @@
       "label": "NotebookScreen()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "ui_notebookscreen_notebookscreen",
       "community": 1,
       "norm_label": "notebookscreen()"
@@ -6658,7 +6991,7 @@
       "label": "NotebookState",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "notebookstate",
       "community": 1,
       "norm_label": "notebookstate"
@@ -6667,7 +7000,7 @@
       "label": "TutorialController",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_tutorialcontroller",
       "community": 1,
       "norm_label": "tutorialcontroller"
@@ -6676,7 +7009,7 @@
       "label": "safeTitle()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L120",
+      "source_location": "L121",
       "id": "ui_notebookscreen_safetitle",
       "community": 1,
       "norm_label": "safetitle()"
@@ -6685,7 +7018,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L120",
+      "source_location": "L121",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_string",
       "community": 1,
       "norm_label": "string"
@@ -6694,7 +7027,7 @@
       "label": "NotebookQuoteRow()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L135",
+      "source_location": "L136",
       "id": "ui_notebookscreen_notebookquoterow",
       "community": 1,
       "norm_label": "notebookquoterow()"
@@ -6703,7 +7036,7 @@
       "label": "Unit",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L135",
+      "source_location": "L136",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_unit",
       "community": 1,
       "norm_label": "unit"
@@ -7573,6 +7906,96 @@
       "norm_label": "troubleshooting"
     },
     {
+      "label": "first-post-copy.md",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L1",
+      "id": "social_first_post_copy",
+      "community": 16,
+      "norm_label": "first-post-copy.md"
+    },
+    {
+      "label": "NoScroll - First Social Post",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L1",
+      "id": "social_first_post_copy_noscroll_first_social_post",
+      "community": 16,
+      "norm_label": "noscroll - first social post"
+    },
+    {
+      "label": "Image / Carousel",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L3",
+      "id": "social_first_post_copy_image_carousel",
+      "community": 16,
+      "norm_label": "image / carousel"
+    },
+    {
+      "label": "Title",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L10",
+      "id": "social_first_post_copy_title",
+      "community": 16,
+      "norm_label": "title"
+    },
+    {
+      "label": "On-image headline",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L14",
+      "id": "social_first_post_copy_on_image_headline",
+      "community": 16,
+      "norm_label": "on-image headline"
+    },
+    {
+      "label": "Caption",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L18",
+      "id": "social_first_post_copy_caption",
+      "community": 16,
+      "norm_label": "caption"
+    },
+    {
+      "label": "Short caption",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L30",
+      "id": "social_first_post_copy_short_caption",
+      "community": 16,
+      "norm_label": "short caption"
+    },
+    {
+      "label": "Alt text",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L36",
+      "id": "social_first_post_copy_alt_text",
+      "community": 16,
+      "norm_label": "alt text"
+    },
+    {
+      "label": "Hashtags",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L40",
+      "id": "social_first_post_copy_hashtags",
+      "community": 16,
+      "norm_label": "hashtags"
+    },
+    {
+      "label": "First comment",
+      "file_type": "document",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L44",
+      "id": "social_first_post_copy_first_comment",
+      "community": 16,
+      "norm_label": "first comment"
+    },
+    {
       "label": "reasoning.md",
       "file_type": "document",
       "source_file": "reasoning.md",
@@ -8336,6 +8759,123 @@
       "id": "reasoning_2026_06_16_18_34_logo_size_exports_added",
       "community": 43,
       "norm_label": "[2026-06-16 18:34] logo size exports added"
+    },
+    {
+      "label": "[2026-06-16 18:44] Logo variants and app-wide logo placement",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L949",
+      "id": "reasoning_2026_06_16_18_44_logo_variants_and_app_wide_logo_placement",
+      "community": 43,
+      "norm_label": "[2026-06-16 18:44] logo variants and app-wide logo placement"
+    },
+    {
+      "label": "[2026-06-16 20:56] First social post concept",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L954",
+      "id": "reasoning_2026_06_16_20_56_first_social_post_concept",
+      "community": 43,
+      "norm_label": "[2026-06-16 20:56] first social post concept"
+    },
+    {
+      "label": "[2026-06-16 21:02] Corrected first social post accuracy",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L959",
+      "id": "reasoning_2026_06_16_21_02_corrected_first_social_post_accuracy",
+      "community": 43,
+      "norm_label": "[2026-06-16 21:02] corrected first social post accuracy"
+    },
+    {
+      "label": "[2026-06-16 21:11] Removed blocker mechanic from social post",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L964",
+      "id": "reasoning_2026_06_16_21_11_removed_blocker_mechanic_from_social_post",
+      "community": 43,
+      "norm_label": "[2026-06-16 21:11] removed blocker mechanic from social post"
+    },
+    {
+      "label": "[2026-06-16 21:24] First post refocused on doomscroll blocker",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L969",
+      "id": "reasoning_2026_06_16_21_24_first_post_refocused_on_doomscroll_blocker",
+      "community": 43,
+      "norm_label": "[2026-06-16 21:24] first post refocused on doomscroll blocker"
+    },
+    {
+      "label": "[2026-06-19 12:51] Planned quote card style packs",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L974",
+      "id": "reasoning_2026_06_19_12_51_planned_quote_card_style_packs",
+      "community": 43,
+      "norm_label": "[2026-06-19 12:51] planned quote card style packs"
+    },
+    {
+      "label": "[2026-06-19 12:50] New logo applied across app surfaces",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L979",
+      "id": "reasoning_2026_06_19_12_50_new_logo_applied_across_app_surfaces",
+      "community": 43,
+      "norm_label": "[2026-06-19 12:50] new logo applied across app surfaces"
+    },
+    {
+      "label": "[2026-06-19 13:25] Quote sharing style packs implemented",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L984",
+      "id": "reasoning_2026_06_19_13_25_quote_sharing_style_packs_implemented",
+      "community": 43,
+      "norm_label": "[2026-06-19 13:25] quote sharing style packs implemented"
+    },
+    {
+      "label": "RectF",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/NoScrollPdfViewerFragment.kt",
+      "source_location": "L34",
+      "community": 4,
+      "norm_label": "rectf",
+      "id": "rectf"
+    },
+    {
+      "label": "QuoteCardSpec",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L16",
+      "community": 11,
+      "norm_label": "quotecardspec",
+      "id": "quotecardspec"
+    },
+    {
+      "label": "QuoteCardTheme",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L29",
+      "community": 11,
+      "norm_label": "quotecardtheme",
+      "id": "quotecardtheme"
+    },
+    {
+      "label": ".drawAccentStrip()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L39",
+      "community": 11,
+      "norm_label": ".drawaccentstrip()",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawaccentstrip"
+    },
+    {
+      "label": ".drawSeparator()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L94",
+      "community": 11,
+      "norm_label": ".drawseparator()",
+      "id": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawseparator"
     },
     {
       "label": ".`search block uses detected result container bounds`()",
@@ -11386,6 +11926,17 @@
       "context": "generic_arg",
       "confidence_score": 1.0,
       "source": "noscroll_noscrollpdfviewerfragment_noscrollpdfviewerfragment",
+      "target": "app_src_main_java_com_noscroll_noscrollpdfviewerfragment_kt_rectf"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/NoScrollPdfViewerFragment.kt",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "noscroll_noscrollpdfviewerfragment_noscrollpdfviewerfragment",
       "target": "highlight"
     },
     {
@@ -11960,17 +12511,6 @@
       "confidence_score": 1.0,
       "source": "noscroll_noscrollpdfviewerfragment_noscrollpdfviewerfragment_setsavedhighlights",
       "target": "highlight"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "app/src/main/java/com/noscroll/PdfHighlightExporter.kt",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "noscroll_pdfhighlightexporter_pdfhighlightexporter_exportannotatedpdf",
-      "target": "rectf"
     },
     {
       "relation": "calls",
@@ -13620,6 +14160,17 @@
       "confidence_score": 1.0,
       "source": "noscroll_pdfhighlightexporter_pdfhighlightexporter_exportannotatedpdf",
       "target": "noscroll_pdfhighlightexporter_pdfhighlightexporter_exportfile"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/PdfHighlightExporter.kt",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "noscroll_pdfhighlightexporter_pdfhighlightexporter_exportannotatedpdf",
+      "target": "rectf"
     },
     {
       "relation": "references",
@@ -22099,6 +22650,39 @@
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepackcard",
+      "target": "text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L230",
+      "weight": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepicker",
+      "target": "text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L331",
+      "weight": 1.0,
+      "source": "quote_quotecardpreviewactivity_styleswatch",
+      "target": "text"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L81",
       "weight": 1.0,
@@ -23537,11 +24121,41 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L276",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildattribution"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout"
     },
     {
       "relation": "method",
@@ -23577,6 +24191,46 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawmountain"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawocean"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawpapergrain"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L47",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -23592,6 +24246,16 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawrain"
     },
     {
       "relation": "method",
@@ -23627,6 +24291,36 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_panelrect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L257",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L243",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotetextrect"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L141",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -23653,6 +24347,28 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
       "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_bitmap"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_context"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardspec"
     },
     {
       "relation": "calls",
@@ -23697,6 +24413,17 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe"
     },
     {
       "relation": "calls",
@@ -23754,36 +24481,59 @@
       "target": "quotecardspec"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L270",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_build"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L86",
+      "source_location": "L276",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildattribution",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardspec"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L200",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
-      "target": "quotecardspec"
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardspec"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L57",
+      "source_location": "L172",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
-      "target": "quotecardspec"
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardspec"
     },
     {
-      "relation": "contains",
+      "relation": "references",
       "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardSpec.kt",
-      "source_location": "L3",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L36",
       "weight": 1.0,
+      "context": "parameter_type",
       "confidence_score": 1.0,
-      "source": "quotecardspec",
-      "target": "quote_quotecardspec_quotecardspec"
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
     },
     {
       "relation": "references",
@@ -23795,6 +24545,50 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
       "target": "canvas"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawmountain"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawocean"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawpapergrain"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawbackground",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawrain"
     },
     {
       "relation": "references",
@@ -23833,6 +24627,50 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L115",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe",
+      "target": "canvas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L85",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawmountain",
+      "target": "canvas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L64",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawocean",
+      "target": "canvas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawpapergrain",
+      "target": "canvas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L47",
       "weight": 1.0,
       "context": "parameter_type",
@@ -23855,6 +24693,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L100",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawrain",
+      "target": "canvas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L75",
       "weight": 1.0,
       "context": "parameter_type",
@@ -23871,6 +24720,17 @@
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawwatermark",
+      "target": "canvas"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L288",
+      "weight": 1.0,
+      "source": "quote_quotecardpreviewactivity_styleswatch",
       "target": "canvas"
     },
     {
@@ -23899,12 +24759,144 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L39",
+      "source_location": "L251",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawaccentstrip",
-      "target": "quotecardtheme"
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L200",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L115",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawpapergrain",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L160",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotemarks",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L172",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L227",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawwatermark",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L237",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_panelrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L257",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L243",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotetextrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_quotecardstylepack"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawmountain",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L116",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawframe",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_panelrect"
     },
     {
       "relation": "references",
@@ -23916,38 +24908,6 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotemarks",
       "target": "quotecardtheme"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L75",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawseparator",
-      "target": "quotecardtheme"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L101",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawwatermark",
-      "target": "quotecardtheme"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardTheme.kt",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "quotecardtheme",
-      "target": "quote_quotecardtheme_quotecardtheme"
     },
     {
       "relation": "calls",
@@ -23976,11 +24936,55 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L185",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L173",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotetextrect"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L66",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
+      "target": "quotecardspec"
     },
     {
       "relation": "calls",
@@ -23992,6 +24996,17 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawquotetext",
       "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_float"
     },
     {
       "relation": "references",
@@ -24030,6 +25045,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L257",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_float"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L141",
       "weight": 1.0,
       "context": "parameter_type",
@@ -24053,11 +25079,55 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L201",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildattribution"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L213",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
+      "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L93",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L86",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
+      "target": "quotecardspec"
     },
     {
       "relation": "calls",
@@ -24069,6 +25139,17 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawattribution",
       "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L101",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawwatermark",
+      "target": "quotecardtheme"
     },
     {
       "relation": "calls",
@@ -24083,14 +25164,179 @@
     },
     {
       "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_panelrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_attributionrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L243",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotetextrect",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_rectf"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L257",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_quotepaint",
+      "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L128",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_fitlongword",
+      "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L141",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph",
+      "target": "textpaint"
+    },
+    {
+      "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L111",
       "weight": 1.0,
-      "context": "return_type",
+      "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
-      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_list"
+      "target": "textpaint"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L285",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_boolean",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_int"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "layout"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildtextlayout",
+      "target": "staticlayout"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L276",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_buildattribution",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L128",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_fitlongword",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L141",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
     },
     {
       "relation": "references",
@@ -24102,6 +25348,28 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
       "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "tutorial_tutorialoverlay_tutorialoverlay",
+      "target": "layout"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L111",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_list"
     },
     {
       "relation": "calls",
@@ -24124,61 +25392,6 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
       "target": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L111",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wraptext",
-      "target": "textpaint"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L128",
-      "weight": 1.0,
-      "context": "return_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_fitlongword",
-      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L141",
-      "weight": 1.0,
-      "context": "generic_arg",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph",
-      "target": "app_src_main_java_com_noscroll_quote_quotecardbitmapbuilder_kt_string"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L128",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_fitlongword",
-      "target": "textpaint"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
-      "source_location": "L141",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "confidence_score": 1.0,
-      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_wrapparagraph",
-      "target": "textpaint"
     },
     {
       "relation": "references",
@@ -24295,6 +25508,36 @@
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_sharecurrentquote"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_stylepackcard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L224",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_stylepicker"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L285",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_styleswatch"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
@@ -24320,11 +25563,31 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L198",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L193",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_isbadbooktitle"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadlaststyle"
     },
     {
       "relation": "method",
@@ -24345,6 +25608,16 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L211",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_rememberlaststyle"
     },
     {
       "relation": "method",
@@ -24380,11 +25653,55 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L198",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L192",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
       "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_isbadbooktitle",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L207",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadlaststyle",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L211",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_rememberlaststyle",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L224",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepicker",
       "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string"
     },
     {
@@ -24408,6 +25725,17 @@
       "confidence_score": 1.0,
       "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate",
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_rememberlaststyle"
     },
     {
       "relation": "calls",
@@ -24445,6 +25773,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate",
+      "target": "quote_quotecardpreviewactivity_stylepicker"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
@@ -24469,11 +25808,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L145",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardspec"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L179",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec",
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_isbadbooktitle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadlaststyle"
     },
     {
       "relation": "calls",
@@ -24501,6 +25862,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepackcard",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_boolean"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L205",
       "weight": 1.0,
       "context": "parameter_type",
@@ -24520,6 +25892,83 @@
       "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_savecurrentquote"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L193",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_sharecurrentquote",
+      "target": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L198",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardspec"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L241",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepicker",
+      "target": "quote_quotecardpreviewactivity_stylepackcard"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L251",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepackcard",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardstylepack"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L267",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_stylepackcard",
+      "target": "quote_quotecardpreviewactivity_styleswatch"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L285",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_styleswatch",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
+      "source_location": "L285",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardpreviewactivity_styleswatch",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_modifier"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardSpec.kt",
@@ -24532,11 +25981,176 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardSpec.kt",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quotecardspec",
+      "target": "quote_quotecardspec_quotecardspec"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotebackgroundkind"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotecardstylepack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotecardstyles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotefontfamily"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotelayout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotepanel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack",
+      "target": "quote_quotecardstylepack_quotetypefacespec"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotetypefacespec",
+      "target": "quote_quotecardstylepack_quotetypefacespec_totypeface"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L38",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotetypefacespec_totypeface",
+      "target": "typeface"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L71",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotecardstyles",
+      "target": "quote_quotecardstylepack_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L214",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotecardstyles_byid",
+      "target": "quote_quotecardstylepack_quotecardstylepack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L71",
+      "weight": 1.0,
+      "context": "field",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotecardstyles",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardstylepack_kt_list"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotecardstyles",
+      "target": "quote_quotecardstylepack_quotecardstyles_byid"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardStylePack.kt",
+      "source_location": "L214",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardstylepack_quotecardstyles_byid",
+      "target": "app_src_main_java_com_noscroll_quote_quotecardstylepack_kt_string"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardTheme.kt",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "quote_quotecardtheme",
+      "target": "quote_quotecardtheme_quotecardtheme"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardTheme.kt",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "quotecardtheme",
       "target": "quote_quotecardtheme_quotecardtheme"
     },
     {
@@ -28545,6 +30159,96 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy",
+      "target": "social_first_post_copy_noscroll_first_social_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_alt_text"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_caption"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_first_comment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_hashtags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_image_carousel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_on_image_headline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_short_caption"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/social/first-post-copy.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "social_first_post_copy_noscroll_first_social_post",
+      "target": "social_first_post_copy_title"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "reasoning.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -28758,8 +30462,88 @@
       "source_file": "reasoning.md",
       "source_location": "L944",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_16_18_34_logo_size_exports_added",
+      "target": "reasoning_2026_06_16_18_34_logo_size_exports_added"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L949",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_16_18_44_logo_variants_and_app_wide_logo_placement"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L954",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_16_20_56_first_social_post_concept"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L959",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_16_21_02_corrected_first_social_post_accuracy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L964",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_16_21_11_removed_blocker_mechanic_from_social_post"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L969",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_16_21_24_first_post_refocused_on_doomscroll_blocker"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L979",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_12_50_new_logo_applied_across_app_surfaces"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L974",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_12_51_planned_quote_card_style_packs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L984",
+      "weight": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_13_25_quote_sharing_style_packs_implemented",
       "confidence_score": 1.0
     },
     {
@@ -29385,6 +31169,28 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawaccentstrip",
+      "target": "quotecardtheme"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
+      "source_location": "L75",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "quote_quotecardbitmapbuilder_quotecardbitmapbuilder_drawseparator",
+      "target": "quotecardtheme"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L350",
       "weight": 1.0,
@@ -29547,5 +31353,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b7340cc8e81069a977d4397ce1fda0bf498e7d06"
+  "built_at_commit": "e977a1833a743378ff89926c30b4a0091b565f78"
 }

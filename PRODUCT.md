@@ -1,182 +1,205 @@
-# NoScroll — Product Description
+# NoScroll - Product Description
 
 ## What It Is
 
-NoScroll is an Android app that replaces the habit of mindlessly scrolling Instagram Reels with intentional reading. When you would tap the Reels button, NoScroll intercepts and redirects you to your book.
+NoScroll is an Android reading app that combines three things:
+
+- A blocker for distracting Instagram scroll surfaces.
+- A full PDF library and reader for any imported PDF.
+- A quote-sharing workflow that turns passages into polished image cards for friends.
+
+The product is more than a blocker. The blocker creates the reading moment, the reader makes PDFs usable, and quote cards make good passages easy to share.
 
 ---
 
-## Core Mechanism: Instagram Interception
+## Current Product Position
 
-NoScroll uses two Android system permissions to intercept Instagram:
+NoScroll no longer depends on intercepting only the Reels button. Current behavior is broader:
 
-1. **Accessibility Service** — watches Instagram's UI tree in real time. Detects when the Reels tab button is visible (by view ID, language-independent). Polls every 250ms while Instagram is in the foreground.
-2. **Display Over Other Apps** — draws a floating overlay directly on top of the Reels tab button.
+- It can block whole distracting Instagram content regions.
+- It can still show a book entry point where appropriate.
+- It opens a real reader/library, not a single hardcoded PDF.
+- It supports reading any PDF the user imports.
+- It supports highlights, notes, OCR fallback, and quote sharing.
 
-When Reels is detected, the overlay covers that exact button region with a book icon. Tapping it launches the reader instead of Reels.
+---
 
-The service also handles:
-- Story viewer detection (suppresses overlay during story viewing for 30 seconds)
-- Full-page feed block mode (covers entire Instagram feed region when active)
-- Adaptive positioning relative to Instagram's navigation bar, regardless of device or app layout version
-- Support for both Instagram and Instagram Lite packages
+## Instagram Blocker
+
+NoScroll uses two Android capabilities:
+
+1. **Accessibility Service** - watches Instagram UI state while Instagram is foregrounded.
+2. **Display Over Other Apps** - draws the NoScroll blocker or reader entry point over Instagram.
+
+Implemented blocker behavior:
+
+- Blocks Home feed scroll regions.
+- Blocks Reels surfaces.
+- Uses content-region bounds rather than only a button coordinate.
+- Allows useful non-scroll states such as search typing/results and profile pages where detected.
+- Suppresses the overlay during Story viewing.
+- Supports Instagram and Instagram Lite package names.
+- Rolls back blocked scroll attempts where supported by the accessibility tree.
+- Uses a foreground overlay service with permission checks to avoid restart loops when overlay permission is missing.
+
+The blocker is a habit boundary: when the user hits a scroll surface, NoScroll puts reading in the way.
 
 ---
 
 ## PDF Library
 
-A local library of imported PDF books. Books are stored in app-private storage.
+A local library of imported PDF books. Books are copied into app-private storage so they remain available after import.
 
-**Library features:**
-- Import PDFs from any source (file picker, share sheet)
-- Filter by: All, Favorites, Highlights
-- Sort by: Recent, Title, Author, Added
-- Thumbnail preview per book (cached)
-- Progress indicator (pages read / total pages)
-- Long-press context menu: open, favorite, identify (metadata lookup), delete
-- Online book search and download (via configured legal books API — Open Library compatible)
+Implemented library features:
+
+- Import PDFs from Android file picker.
+- Receive PDFs from Android share sheet.
+- Open any imported PDF.
+- Track last-opened and reading progress.
+- Thumbnail/progress-oriented library UI.
+- Favorites/highlights-aware library filters where available in UI.
+- Long-press book actions where implemented.
+- Online book search/download support through configured public-book APIs.
 
 ---
 
 ## PDF Reader
 
-Full-featured reader built on Android's `PdfRenderer` and `androidx.pdf`.
+The reader is built on AndroidX PDF and is meant to be useful even without Instagram.
 
-**Reader features:**
-- Paginated view with smooth page turning
-- Text selection via the native PDF text layer
-- **Zen mode**: hides all UI chrome for distraction-free reading
-- Page number jump dialog
-- Metadata bar showing book title/author at top
-- Persistent reading position (saved per book)
+Implemented reader features:
 
-**Text actions on selection:**
-- **Highlight** — saves the selection as a persistent highlight (stored in Room DB, linked to page + book)
-- **Quote** — opens the quote card creator
-- **Annotate** — attach a freeform note to the selection
+- Full-screen PDF reading.
+- Open any imported PDF.
+- Persistent page progress per book.
+- Page jump.
+- Metadata bar for title/author when known.
+- Zen mode to hide reader chrome.
+- Native PDF text selection where the document exposes text.
+- OCR page fallback for scanned/non-selectable PDFs.
+- Current-page sharing.
+
+Selection actions:
+
+- **Highlight** - save selected text and page-bound highlight data.
+- **Annotate** - attach a note to a saved highlight.
+- **Quote** - open the quote-card creator.
+- **Share** - share selected/current content where available.
 
 ---
 
-## Highlights System
+## Highlights And Notebook
 
-All highlights persist to a Room database.
+Highlights persist in Room and are tied to the source PDF.
 
-- Each highlight stores: book ID, page number, selected text, normalized text, bounding rect, timestamp
-- Highlights visible inline in the reader (colored overlay on text)
-- Exportable via Export Highlights action
-- Viewable across all books in the Notebook
+Implemented highlight features:
+
+- Store book URI, page number, selected text, normalized text, PDF bounds, color, and timestamp.
+- Render saved highlights back into the PDF where AndroidX PDF supports highlight overlays.
+- Tap saved highlights in the reader to edit/share/delete.
+- Highlight list dialog with jump, note edit, share, and delete actions.
+- Notebook screen for cross-book saved quote/highlight browsing.
+- Export highlights action.
 
 ---
 
 ## Quote Card Creator
 
-Highlight any text → "Quote" → generates a shareable image card.
+NoScroll can turn selected PDF text into a shareable image card. This is a major product surface, not an accessory.
 
-**Card contents:**
-- The highlighted quote text
-- Book title and author (from metadata)
-- Page number
-- Decorative accent line and yin-yang icon
+Quote-card input:
 
-**6 visual themes:**
-| Theme | Background | Text | Feel |
-|-------|-----------|------|------|
-| Parchment | Warm cream gradient | Dark brown | Classic paper |
-| Midnight | Near-black blue-gray | Off-white | Elegant dark |
-| Dusk | Deep purple → magenta | Soft peach | Moody warm |
-| Ocean | Deep navy | Ice blue | Calm cool |
-| Forest | Deep green | Pale green | Natural |
-| Clay | Warm tan | Dark brown | Earthy |
+- Quote text.
+- Book title and author when known.
+- Page number.
+- Source PDF URI for history.
+- User-selected style.
 
-**Dynamic font scaling:** Quote text scales down automatically based on character count so the full quote always fits without overlap, preserving card proportions.
+Implemented style system:
 
-**Share destinations:**
-- Instagram Stories (direct intent)
-- Instagram Feed
-- Instagram Direct
-- Messages (SMS/MMS)
-- Generic Android share sheet
+| Style | Category | Background |
+|-------|----------|------------|
+| Parchment Editorial | Classic | Warm paper gradient |
+| Midnight Library | Classic | Dark library gradient |
+| Forest Margin | Classic | Deep green centered card |
+| Ocean Still | Scenic | Procedural ocean scene |
+| Mountain Dawn | Scenic | Procedural mountain scene |
+| Rain Window | Scenic | Procedural rain/window scene |
+| Minimal Ink | Modern | Minimal light editorial style |
+| Classic Bookplate | Classic | Bookplate-style paper panel |
 
----
+Implemented quote-card behavior:
 
-## Notebook
+- Canvas-rendered 1080x1350 bitmap.
+- Bounded quote and attribution layout.
+- Long quote ellipsizing/clipping instead of overflow.
+- Procedural scenic backgrounds, no bundled stock assets.
+- Style picker with accessible radio-button semantics.
+- Last selected style preference.
+- Saved quote-card history using existing quote-card database storage.
+- Legacy theme-name mapping for old saved cards.
+- Share text fallback alongside the image.
 
-Cross-book view of all highlights and annotations.
+Share destinations:
 
-- Tabbed by book
-- Shows quote text, page number, source book
-- Tap any entry to jump directly to that page in the reader
-- Share any highlight as a quote card from here
+- Instagram Stories.
+- Instagram Feed.
+- Instagram Direct.
+- Messages.
+- Generic Android share sheet.
 
 ---
 
 ## Book Metadata
 
-NoScroll automatically identifies books and fetches rich metadata.
+NoScroll can derive and store book display names used by the reader, notebook, and quote cards.
 
-**Sources (in priority order):**
-1. **Embedded PDF metadata** — title/author from the PDF's XMP/document info
-2. **Google Books API** — search by title+author, fetches cover URL, description, ISBN
-3. **Open Library API** — fallback metadata source
-4. **Cover page OCR** — extracts text from the first page image when no metadata exists
+Implemented sources include:
 
-**Metadata includes:** title, author, cover image URL, description, ISBN, publisher, year
-
-Manual edit dialog lets the user correct any field.
-
----
-
-## Collections
-
-Books can be organized into named collections. Collections support custom ordering and grouping for large libraries.
-
----
-
-## Tutorial System
-
-First-run onboarding with anchored tooltip overlays.
-
-- Tutorial steps anchored to specific UI views
-- Steps walk through: granting permissions, importing first book, highlighting, making a quote card, navigating to Notebook
-- Progress persisted — never shown again after completion
+- Existing/imported file information.
+- Embedded or derived metadata where available.
+- Cover-page OCR heuristics.
+- Online lookup through Google Books/Open Library style APIs when enabled by the user flow.
 
 ---
 
 ## UI / Design System
 
-- **Jetpack Compose** throughout (library, reader toolbar, notebook, search, tutorial)
-- **Paper Theme** — warm off-white backgrounds, serif-adjacent typography, cream/brown accent palette
-- Material 3 components with custom color scheme
+- Kotlin Android app.
+- Jetpack Compose for major app surfaces such as library/notebook/quote preview.
+- XML/View interop for reader host and overlay layouts.
+- Material 3 where required by AndroidX PDF viewer components.
+- Paper-inspired reading UI with warm surfaces and restrained controls.
 
 ---
 
 ## Architecture
 
 | Layer | Technology |
-|-------|-----------|
-| UI | Jetpack Compose + View interop |
-| PDF rendering | `android.graphics.pdf.PdfRenderer` + `androidx.pdf` |
-| Local storage | Room (SQLite), app-private file storage |
-| Networking | OkHttp (metadata APIs, book search) |
-| Background | Foreground Service (overlay), AccessibilityService |
-| Image sharing | Canvas-rendered Bitmap → FileProvider URI |
+|-------|------------|
+| App platform | Native Android / Kotlin |
+| UI | Jetpack Compose + XML/View interop |
+| PDF rendering and text selection | AndroidX PDF |
+| OCR | ML Kit text recognition |
+| Local storage | Room + app-private file storage |
+| Metadata/network | OkHttp + book metadata APIs |
+| Blocker | AccessibilityService + foreground OverlayService |
+| Sharing | Canvas bitmap + FileProvider URI + Android intents |
 
 ---
 
 ## Permissions Required
 
 | Permission | Why |
-|-----------|-----|
-| Accessibility Service | Detect Instagram Reels tab in real time |
-| SYSTEM_ALERT_WINDOW | Draw book overlay on top of Instagram |
-| READ_EXTERNAL_STORAGE / READ_MEDIA_IMAGES | Import PDFs from device storage |
-| FOREGROUND_SERVICE | Keep overlay alive while Instagram is open |
-| INTERNET | Book metadata lookup, online book search |
+|------------|-----|
+| Accessibility Service | Detect supported Instagram surfaces and blocker state |
+| SYSTEM_ALERT_WINDOW | Draw blocker or reader entry point over Instagram |
+| Foreground service | Keep overlay service alive while Instagram is active |
+| Storage/file access via picker | Import user-selected PDFs |
+| INTERNET | Optional book metadata lookup and online book search |
 
 ---
 
 ## Value Proposition
 
-> Every time you would scroll Reels, you read instead.
-
-NoScroll works at the OS level — no willpower required. The habit replacement is mechanical: the button you'd tap to scroll now opens your book. Paired with a full reader, highlight system, and quote sharing, it makes reading as frictionless as social media.
+NoScroll turns scroll reflex into a reading path. It blocks the worst scroll surfaces, lets users read any PDF, saves useful passages, and makes sharing a quote as easy as sharing social content.
