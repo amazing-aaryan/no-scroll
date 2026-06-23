@@ -1,7 +1,7 @@
 {
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\build.gradle": {
-    "mtime": 1781862874.0440354,
-    "ast_hash": "97f73def4aab5f5e402ce27b0d8f9fa9",
+    "mtime": 1782206443.1076553,
+    "ast_hash": "460e5bde1e3a935b7bb4a9fedb9e378a",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\MainActivity.kt": {
@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\OverlayService.kt": {
-    "mtime": 1781862874.0484066,
-    "ast_hash": "c4c921130678039276fbc021e0dcbdc5",
+    "mtime": 1781871015.252551,
+    "ast_hash": "1fa802ba86a190df78042057e23d185a",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PageTurnInterceptor.kt": {
@@ -75,8 +75,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PdfViewerActivity.kt": {
-    "mtime": 1781862874.0541282,
-    "ast_hash": "eba61e2d165046af98722c6d5eb856b9",
+    "mtime": 1781871015.255015,
+    "ast_hash": "86806671d27363f09d0528898853b33a",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\PermissionUtils.kt": {
@@ -85,8 +85,8 @@
     "semantic_hash": "bdfe6c665c53b064ffb461a8fdd144b1"
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\SetupActivity.kt": {
-    "mtime": 1781866038.1534638,
-    "ast_hash": "9f6e93ba930484b878d982ada6904579",
+    "mtime": 1781871816.2248032,
+    "ast_hash": "e87d5e9733342d3a4d2b6ef0b64a5445",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\data\\AnnotationDao.kt": {
@@ -165,13 +165,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\discovery\\LegalBookApiClient.kt": {
-    "mtime": 1781862874.064036,
-    "ast_hash": "c778f0d3be05a12e98e9235457af00cd",
+    "mtime": 1781870542.0770404,
+    "ast_hash": "55ef219d29c07b339828436386bbde5c",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\BookMetadataRepository.kt": {
-    "mtime": 1781862874.064036,
-    "ast_hash": "88239985eec873c47c8c9c3195c588ba",
+    "mtime": 1781870569.7954984,
+    "ast_hash": "e9a8e93ed79c8dafb2dd8bf1685ca6b8",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\metadata\\CoverPageOcr.kt": {
@@ -290,13 +290,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\LibraryScreen.kt": {
-    "mtime": 1781866038.156775,
-    "ast_hash": "19704c6d9aa294979ec649fa34aad4e5",
+    "mtime": 1781867270.824151,
+    "ast_hash": "2b2183aa58d5832d505d075fa20ef106",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\NotebookScreen.kt": {
-    "mtime": 1781864540.0035455,
-    "ast_hash": "4b775cc64a99a4e1f22153045ef70388",
+    "mtime": 1781867421.268797,
+    "ast_hash": "7435338aeb83a3fd00517daa79c1926a",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\OnlineBookSearchScreen.kt": {
@@ -355,13 +355,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\README.md": {
-    "mtime": 1781865210.6794894,
-    "ast_hash": "26f4f0e125a724148fd36aa90b1dce27",
+    "mtime": 1782206443.1107278,
+    "ast_hash": "ce38ba7f4efc8a32b227b8658f5b7459",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\reasoning.md": {
-    "mtime": 1781865937.6278539,
-    "ast_hash": "b55db5d60fbde43a49319101fa61383a",
+    "mtime": 1782206937.5395908,
+    "ast_hash": "827172346d5900f515334f71f642e0c0",
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\e2e-instagram-oracle-20260612-104446\\T1-home-after-pull.txt": {
@@ -3990,8 +3990,58 @@
     "semantic_hash": ""
   },
   "C:\\Users\\aarya\\Desktop\\no-scroll\\app\\src\\main\\java\\com\\noscroll\\ui\\BrandMark.kt": {
-    "mtime": 1781866007.3531342,
-    "ast_hash": "26d121e2b9bae34067fcb2266695bf03",
+    "mtime": 1781867094.457091,
+    "ast_hash": "aec4ef3667497ad4331503d9a51afd0b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\PRIVACY_POLICY.md": {
+    "mtime": 1781871898.266261,
+    "ast_hash": "37146f0011b4b507b91aa3ab0ebd892f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\scripts\\create-upload-keystore.ps1": {
+    "mtime": 1781871889.7180521,
+    "ast_hash": "d6402f3d194452a6c8147e0ceef56da0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\docs\\play-store-release.md": {
+    "mtime": 1782206912.558346,
+    "ast_hash": "2572fa8397d3909cc8c55cc3f9d3db9a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\docs\\data-safety.md": {
+    "mtime": 1781872435.9565985,
+    "ast_hash": "cc6bb5000b222b0c7a4ad13673769970",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\docs\\play-store-listing.md": {
+    "mtime": 1782207381.1999135,
+    "ast_hash": "a84af132732f5e8ba6169152fb842f27",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\docs\\release-verification.md": {
+    "mtime": 1782207381.2011347,
+    "ast_hash": "e3bd01907ffd62f106908906d0588bac",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\docs\\versioning.md": {
+    "mtime": 1782206443.1093204,
+    "ast_hash": "ff4aa8e0bb3e8513d0cc53152c17cf28",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\scripts\\check-android-native-libs.ps1": {
+    "mtime": 1782206840.3168309,
+    "ast_hash": "4dd7a09f3da7dc423f8ebf09c9ae962f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\scripts\\create-play-store-assets.ps1": {
+    "mtime": 1782207336.3160717,
+    "ast_hash": "fb787b47a202c4aa73c384b0777e6e8a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\aarya\\Desktop\\no-scroll\\artifacts\\play-store\\main-listing\\manifest.md": {
+    "mtime": 1782207394.5559216,
+    "ast_hash": "db1cadbf94da5c711ba87a0dcd86b1f0",
     "semantic_hash": ""
   }
 }

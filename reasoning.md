@@ -1000,6 +1000,21 @@ Remaining caveat:
 **Decision:** Added a reusable Compose `BrandMark`, enlarged/accommodated setup and library logo headers, tuned XML logo padding/scale in the reader nav and overlays, and updated setup copy away from Reels-button wording.
 **Why:** The transparent logo asset has built-in empty border, and prior placements either wasted too much space in compact controls or treated the brand mark like a generic tinted icon.
 **Impact:** Future logo use should choose `BrandMark` for Compose paper-theme headers and keep overlay/nav ImageViews explicitly sized with `centerInside` plus surface-specific padding.
+
+## [2026-06-19 14:14] Paper UI logo variant and main-page QA pass
+**Decision:** Added the black transparent logo resource for paper-theme UI, switched `BrandMark` to it, made overlay logo selection luminance-aware, split library header actions into a second row, moved setup content near the top with status-bar padding, and added status-bar padding to Notebook.
+**Why:** Device screenshots showed the full-square inverted logo looked like a white tile on paper screens, the library header was crowded, setup had excessive top dead space, and Notebook content overlapped the status bar.
+**Impact:** Use black transparent logos on light paper surfaces, white transparent logos on dark surfaces, and dynamic black/white selection for sampled overlay backgrounds.
+
+## [2026-06-19 14:18] Launcher icon rebuilt for adaptive masks
+**Decision:** Replaced the adaptive launcher foreground with a centered transparent black book mark and changed the launcher background to paper color.
+**Why:** The previous launcher foreground was an opaque black full-canvas image with an oversized white mark, which looked heavy and could crop poorly under launcher masks.
+**Impact:** Launcher icon resources now use `ic_launcher_mark` on `launcherBackground`; keep foreground transparent and inside adaptive safe-zone padding.
+
+## [2026-06-19 14:22] Instagram Reels blocker appearance verified
+**Decision:** Tested NoScroll over live Instagram Reels after re-binding the accessibility service; kept blocker design unchanged.
+**Why:** The first capture showed no blocker because the accessibility service was unbound after force-stop/install; once bound, logs showed `decision=block-REELS` and the screenshot showed a clean dark blocker with white transparent logo and centered copy.
+**Impact:** For future overlay QA, verify accessibility is bound in `dumpsys accessibility` before judging blocker behavior; screenshots live under `artifacts/e2e/`.
 ## [2026-06-19 13:45] Black transparent logo variants added
 **Decision:** Created `noscroll-logo-black-transparent-128.png` and `noscroll-logo-black-transparent-2048.png` from existing transparent logo alpha masks, with all visible pixels forced to solid black.
 **Why:** User wanted the app logo in black with a real transparent background while preserving the existing shape and cutouts.
@@ -1008,3 +1023,48 @@ Remaining caveat:
 **Decision:** Ran `build-debug.ps1`, which set `JAVA_HOME` to Android Studio JBR, assembled debug, installed `com.noscroll`, then launched it via `adb shell monkey`.
 **Why:** User asked to redeploy on connected phone; shell lacked global Java but project script already encoded the correct local JBR path.
 **Impact:** Connected device package `com.noscroll` was updated at `2026-06-19 13:56:12`; future redeploys can reuse `build-debug.ps1`.
+## [2026-06-19 15:21] Play release readiness hardening
+**Decision:** Removed client-side legal book API key embedding, gated metadata OCR/network logs behind `BuildConfig.DEBUG`, fixed release lint API/tint errors, added optional env/local release signing config, added Play release docs, added privacy-policy source text, added setup permission disclosures, and rebuilt the graph.
+**Why:** Google Play release needs target API/lint-clean bundle output, no embedded secrets, clear sensitive-permission disclosure, and a path to signed App Bundle generation without committing keystore secrets.
+**Impact:** `:app:lintRelease`, `:app:testReleaseUnitTest`, and `:app:bundleRelease` pass with Android Studio JBR. Unsigned bundle still requires `NOSCROLL_RELEASE_*` upload-key values before Play upload. AgentShield still reports `CLAUDE.md` as POSIX `0o666` under Windows/Git Bash even after ACL owner-only read/write.
+## [2026-06-19 15:32] Signed Play upload bundle created
+**Decision:** Generated a local NoScroll Play upload keystore at `C:\Users\aarya\.android\noscroll-upload.jks`, stored signing values in gitignored `local.properties`, rebuilt `app-release.aab`, removed unused accessibility screenshot capability, added affirmative consent dialogs for overlay/accessibility settings, and added `docs/play-store-release.md` plus `scripts/create-upload-keystore.ps1`.
+**Why:** Play upload requires a signed App Bundle and sensitive permission review requires in-app prominent disclosure with affirmative consent. Screenshot capability was unused and broadened Accessibility API scope unnecessarily.
+**Impact:** `jarsigner -verify` reports `jar verified` with upload cert SHA-256 `0F:D2:F4:2D:37:C9:41:1A:CD:8B:F9:C5:C2:A3:4B:22:E7:F4:65:A4:7B:EE:28:52:BB:5D:17:56:1C:BC:EC:45`. Android UI smoke still needs a connected device; no ADB devices were attached.
+## [2026-06-19 15:35] Play Console submission docs completed
+**Decision:** Added Play Store listing draft, Data safety draft, release verification checklist, `.claude` permissions deny rules, and a Stop hook secret scan; re-ran release gates, AgentShield, graphify, AAB signature verification, and AAB checksum.
+**Why:** Local code/build readiness is not enough for Play review; sensitive API declarations, listing text, data-safety answers, and repeatable verification evidence are required to submit cleanly.
+**Impact:** `:app:lintRelease`, `:app:testReleaseUnitTest`, and `:app:bundleRelease` pass; AgentShield is A 97/100 with only Windows POSIX `CLAUDE.md` stat finding remaining; signed AAB SHA-256 is `319F14492467002AFA2BF3507CC8374EC4C0ED6938A5AB106E487834DDE38206`.
+
+## [2026-06-23 12:15] Launcher icon restored to black background with white mark
+**Decision:** Rebuilt `ic_launcher_mark.png` from the white transparent logo and kept adaptive launcher XML pointing at it with black `launcherBackground`.
+**Why:** User wanted the phone search/app drawer icon to show a black background with the white NoScroll book mark in front, not the paper background/black mark variant.
+**Impact:** Launcher icon should remain black-background/white-mark for app search; local `:app:assembleDebug` passed, but `:app:installDebug` could not run because no device was connected.
+
+## [2026-06-23 12:24] Launcher icon build installed on device
+**Decision:** Installed the debug build containing the black-background/white-mark launcher icon after the phone reconnected.
+**Why:** Previous verification only built locally; device was disconnected during install.
+**Impact:** `:app:installDebug` now passes on device `RZCY21ACXEB`; launcher screenshot attempt opened NoScroll, confirming installed app launches.
+
+## [2026-06-23 12:28] Launcher icon mark padded
+**Decision:** Shrunk and re-centered `ic_launcher_mark.png` so the white book mark sits inside a larger black adaptive-icon background.
+**Why:** Device launcher screenshot showed the mark still felt too close to icon edges; user wanted more background around it.
+**Impact:** Launcher icon foreground bbox is now about 825x880 within 2048, leaving generous adaptive-mask padding; `:app:assembleDebug` and `:app:installDebug` passed on device.
+
+## [2026-06-23 12:25] Play release versioning and device smoke update
+**Decision:** Added Gradle-controlled Play version metadata via NOSCROLL_VERSION_CODE/NOSCROLL_VERSION_NAME with Android/Google Play bounds validation, documented versionCode reuse rules, regenerated signed release artifacts, and ran a connected-device launch smoke without uninstalling the existing differently signed app.
+**Why:** Google Play requires monotonically increasing versionCode values and rejects duplicate uploads; the connected phone already had com.noscroll installed under another signing key, so replacing it with the release key would require uninstalling and losing local app data.
+**Impact:** Future Play uploads must set NOSCROLL_VERSION_CODE higher than the latest Play Console upload before building. Release APK install testing needs a clean device or explicit approval to uninstall the existing com.noscroll package first.
+
+
+## [2026-06-23 12:28] Added 16 KB native-library Play gate
+**Decision:** Added scripts/check-android-native-libs.ps1 and documented the Android 15+ 16 KB page-size Play requirement alongside target SDK and versioning sources.
+**Why:** Current Play policy requires new apps/updates targeting Android 15+ devices to support 16 KB page sizes, and NoScroll packages dependency native libraries that must be verified rather than assumed safe.
+**Impact:** Future release verification should run the native-lib script against release APK/AAB after dependency changes; current release artifacts have matching 64-bit ABIs and 12 64-bit LOAD segments aligned to at least 0x4000.
+
+
+## [2026-06-23 12:36] Play Store preview asset pack generated
+**Decision:** Added scripts/create-play-store-assets.ps1 and generated artifacts/play-store/main-listing with 512px app icon, 1024x500 feature graphic, and six 1080x1920 no-alpha phone screenshots.
+**Why:** Play Store submission needs compliant preview assets, and current artifacts already had curated real/sanitized app captures. The generated blocker screenshot crops out account handles and private feed content.
+**Impact:** Future listing updates can regenerate assets from curated screenshots with the script. Use artifacts/play-store/main-listing for Play Console main listing upload, and keep blocker screenshots sanitized before upload.
+

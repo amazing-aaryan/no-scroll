@@ -99,7 +99,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L1",
       "id": "noscroll_mainactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "mainactivity.kt"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L8",
       "id": "noscroll_mainactivity_mainactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "mainactivity"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "",
       "source_location": "",
       "id": "appcompatactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "appcompatactivity"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L10",
       "id": "noscroll_mainactivity_mainactivity_oncreate",
-      "community": 2,
+      "community": 67,
       "norm_label": ".oncreate()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L10",
       "id": "app_src_main_java_com_noscroll_mainactivity_kt_bundle",
-      "community": 2,
+      "community": 67,
       "norm_label": "bundle"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L16",
       "id": "noscroll_mainactivity_mainactivity_onnewintent",
-      "community": 2,
+      "community": 67,
       "norm_label": ".onnewintent()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L16",
       "id": "app_src_main_java_com_noscroll_mainactivity_kt_intent",
-      "community": 2,
+      "community": 67,
       "norm_label": "intent"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L21",
       "id": "noscroll_mainactivity_mainactivity_route",
-      "community": 2,
+      "community": 67,
       "norm_label": ".route()"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "app/src/main/java/com/noscroll/MainActivity.kt",
       "source_location": "L42",
       "id": "noscroll_mainactivity_mainactivity_cleanupquotecache",
-      "community": 2,
+      "community": 67,
       "norm_label": ".cleanupquotecache()"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "",
       "source_location": "",
       "id": "accessibilityservice",
-      "community": 1,
+      "community": 68,
       "norm_label": "accessibilityservice"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "app/src/main/java/com/noscroll/NotebookActivity.kt",
       "source_location": "L1",
       "id": "noscroll_notebookactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "notebookactivity.kt"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "app/src/main/java/com/noscroll/NotebookActivity.kt",
       "source_location": "L24",
       "id": "noscroll_notebookactivity_notebookactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "notebookactivity"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "app/src/main/java/com/noscroll/NotebookActivity.kt",
       "source_location": "L25",
       "id": "noscroll_notebookactivity_notebookactivity_oncreate",
-      "community": 2,
+      "community": 67,
       "norm_label": ".oncreate()"
     },
     {
@@ -990,7 +990,7 @@
       "source_file": "app/src/main/java/com/noscroll/NotebookActivity.kt",
       "source_location": "L25",
       "id": "app_src_main_java_com_noscroll_notebookactivity_kt_bundle",
-      "community": 2,
+      "community": 67,
       "norm_label": "bundle"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L1",
       "id": "noscroll_onlinebooksearchactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "onlinebooksearchactivity.kt"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L29",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity",
-      "community": 2,
+      "community": 67,
       "norm_label": "onlinebooksearchactivity"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L38",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_oncreate",
-      "community": 2,
+      "community": 67,
       "norm_label": ".oncreate()"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L38",
       "id": "app_src_main_java_com_noscroll_onlinebooksearchactivity_kt_bundle",
-      "community": 2,
+      "community": 67,
       "norm_label": "bundle"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L58",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_runsearch",
-      "community": 2,
+      "community": 67,
       "norm_label": ".runsearch()"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L80",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_downloadandimport",
-      "community": 2,
+      "community": 67,
       "norm_label": ".downloadandimport()"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L80",
       "id": "app_src_main_java_com_noscroll_onlinebooksearchactivity_kt_legalbooksearchresult",
-      "community": 2,
+      "community": 67,
       "norm_label": "legalbooksearchresult"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L121",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_pickpdflink",
-      "community": 2,
+      "community": 67,
       "norm_label": ".pickpdflink()"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L121",
       "id": "app_src_main_java_com_noscroll_onlinebooksearchactivity_kt_list",
-      "community": 2,
+      "community": 67,
       "norm_label": "list"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L121",
       "id": "legalbookdownloadlink",
-      "community": 2,
+      "community": 67,
       "norm_label": "legalbookdownloadlink"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L126",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_downloadpdf",
-      "community": 2,
+      "community": 67,
       "norm_label": ".downloadpdf()"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L126",
       "id": "app_src_main_java_com_noscroll_onlinebooksearchactivity_kt_uri",
-      "community": 2,
+      "community": 67,
       "norm_label": "uri"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L145",
       "id": "noscroll_onlinebooksearchactivity_onlinebooksearchactivity_buildfilename",
-      "community": 2,
+      "community": 67,
       "norm_label": ".buildfilename()"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "app/src/main/java/com/noscroll/OnlineBookSearchActivity.kt",
       "source_location": "L145",
       "id": "app_src_main_java_com_noscroll_onlinebooksearchactivity_kt_string",
-      "community": 2,
+      "community": 67,
       "norm_label": "string"
     },
     {
@@ -1132,7 +1132,7 @@
       "label": "OverlayService",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "noscroll_overlayservice_overlayservice",
       "community": 8,
       "norm_label": "overlayservice"
@@ -1150,7 +1150,7 @@
       "label": "WindowManager",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L28",
+      "source_location": "L29",
       "id": "windowmanager",
       "community": 8,
       "norm_label": "windowmanager"
@@ -1159,7 +1159,7 @@
       "label": "View",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "app_src_main_java_com_noscroll_overlayservice_kt_view",
       "community": 8,
       "norm_label": "view"
@@ -1168,7 +1168,7 @@
       "label": "OverlayMode",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L30",
+      "source_location": "L31",
       "id": "overlaymode",
       "community": 8,
       "norm_label": "overlaymode"
@@ -1177,7 +1177,7 @@
       "label": "OverlayMode",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "noscroll_overlayservice_overlaymode",
       "community": 8,
       "norm_label": "overlaymode"
@@ -1186,16 +1186,34 @@
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L50",
+      "source_location": "L51",
       "id": "noscroll_overlayservice_overlayservice_oncreate",
       "community": 8,
       "norm_label": ".oncreate()"
     },
     {
+      "label": ".startForegroundCompat()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L65",
+      "id": "noscroll_overlayservice_overlayservice_startforegroundcompat",
+      "community": 8,
+      "norm_label": ".startforegroundcompat()"
+    },
+    {
+      "label": "Notification",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L65",
+      "id": "notification",
+      "community": 8,
+      "norm_label": "notification"
+    },
+    {
       "label": ".onStartCommand()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L64",
+      "source_location": "L74",
       "id": "noscroll_overlayservice_overlayservice_onstartcommand",
       "community": 8,
       "norm_label": ".onstartcommand()"
@@ -1204,7 +1222,7 @@
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L64",
+      "source_location": "L74",
       "id": "app_src_main_java_com_noscroll_overlayservice_kt_intent",
       "community": 8,
       "norm_label": "intent"
@@ -1213,25 +1231,25 @@
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L64",
+      "source_location": "L74",
       "id": "app_src_main_java_com_noscroll_overlayservice_kt_int",
       "community": 8,
       "norm_label": "int"
     },
     {
-      "label": ".applyIconTint()",
+      "label": ".applyLogoVariant()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L112",
-      "id": "noscroll_overlayservice_overlayservice_applyicontint",
+      "source_location": "L122",
+      "id": "noscroll_overlayservice_overlayservice_applylogovariant",
       "community": 8,
-      "norm_label": ".applyicontint()"
+      "norm_label": ".applylogovariant()"
     },
     {
       "label": ".updateOverlay()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L119",
+      "source_location": "L134",
       "id": "noscroll_overlayservice_overlayservice_updateoverlay",
       "community": 8,
       "norm_label": ".updateoverlay()"
@@ -1240,7 +1258,7 @@
       "label": ".showReelsTooltipOnce()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L174",
+      "source_location": "L189",
       "id": "noscroll_overlayservice_overlayservice_showreelstooltiponce",
       "community": 8,
       "norm_label": ".showreelstooltiponce()"
@@ -1249,7 +1267,7 @@
       "label": ".setTouchable()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L218",
+      "source_location": "L233",
       "id": "noscroll_overlayservice_overlayservice_settouchable",
       "community": 8,
       "norm_label": ".settouchable()"
@@ -1258,7 +1276,7 @@
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L218",
+      "source_location": "L233",
       "id": "app_src_main_java_com_noscroll_overlayservice_kt_boolean",
       "community": 8,
       "norm_label": "boolean"
@@ -1267,7 +1285,7 @@
       "label": ".blockRegionFlags()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L230",
+      "source_location": "L245",
       "id": "noscroll_overlayservice_overlayservice_blockregionflags",
       "community": 8,
       "norm_label": ".blockregionflags()"
@@ -1276,7 +1294,7 @@
       "label": ".showBlockRegion()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L236",
+      "source_location": "L251",
       "id": "noscroll_overlayservice_overlayservice_showblockregion",
       "community": 8,
       "norm_label": ".showblockregion()"
@@ -1285,7 +1303,7 @@
       "label": ".launchReader()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L305",
+      "source_location": "L320",
       "id": "noscroll_overlayservice_overlayservice_launchreader",
       "community": 8,
       "norm_label": ".launchreader()"
@@ -1294,7 +1312,7 @@
       "label": ".removeOverlayView()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L313",
+      "source_location": "L328",
       "id": "noscroll_overlayservice_overlayservice_removeoverlayview",
       "community": 8,
       "norm_label": ".removeoverlayview()"
@@ -1303,7 +1321,7 @@
       "label": ".onDestroy()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L321",
+      "source_location": "L336",
       "id": "noscroll_overlayservice_overlayservice_ondestroy",
       "community": 8,
       "norm_label": ".ondestroy()"
@@ -1312,7 +1330,7 @@
       "label": ".onBind()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L326",
+      "source_location": "L341",
       "id": "noscroll_overlayservice_overlayservice_onbind",
       "community": 8,
       "norm_label": ".onbind()"
@@ -1321,7 +1339,7 @@
       "label": "IBinder",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L326",
+      "source_location": "L341",
       "id": "ibinder",
       "community": 8,
       "norm_label": "ibinder"
@@ -1330,7 +1348,7 @@
       "label": ".createNotificationChannel()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L328",
+      "source_location": "L343",
       "id": "noscroll_overlayservice_overlayservice_createnotificationchannel",
       "community": 8,
       "norm_label": ".createnotificationchannel()"
@@ -1339,19 +1357,10 @@
       "label": ".buildNotification()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L339",
+      "source_location": "L354",
       "id": "noscroll_overlayservice_overlayservice_buildnotification",
       "community": 8,
       "norm_label": ".buildnotification()"
-    },
-    {
-      "label": "Notification",
-      "file_type": "code",
-      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L339",
-      "id": "notification",
-      "community": 8,
-      "norm_label": "notification"
     },
     {
       "label": "PageTurnInterceptor.kt",
@@ -2446,7 +2455,7 @@
       "label": "PdfViewerActivity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L52",
+      "source_location": "L54",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity",
       "community": 0,
       "norm_label": "pdfvieweractivity"
@@ -2455,7 +2464,7 @@
       "label": "View",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L54",
+      "source_location": "L56",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_view",
       "community": 0,
       "norm_label": "view"
@@ -2464,16 +2473,16 @@
       "label": "TextView",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L55",
+      "source_location": "L57",
       "id": "textview",
-      "community": 0,
+      "community": 8,
       "norm_label": "textview"
     },
     {
       "label": "ImageButton",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L56",
+      "source_location": "L58",
       "id": "imagebutton",
       "community": 0,
       "norm_label": "imagebutton"
@@ -2482,7 +2491,7 @@
       "label": "PageTurnInterceptor",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L59",
+      "source_location": "L61",
       "id": "pageturninterceptor",
       "community": 0,
       "norm_label": "pageturninterceptor"
@@ -2491,7 +2500,7 @@
       "label": "Uri",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L62",
+      "source_location": "L64",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_uri",
       "community": 0,
       "norm_label": "uri"
@@ -2500,7 +2509,7 @@
       "label": "BookMetadataEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L63",
+      "source_location": "L65",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_bookmetadataentity",
       "community": 0,
       "norm_label": "bookmetadataentity"
@@ -2509,7 +2518,7 @@
       "label": "ReaderSelection",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L67",
+      "source_location": "L69",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_readerselection",
       "community": 0,
       "norm_label": "readerselection"
@@ -2518,7 +2527,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L68",
+      "source_location": "L70",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_list",
       "community": 0,
       "norm_label": "list"
@@ -2527,7 +2536,7 @@
       "label": "HighlightEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L68",
+      "source_location": "L70",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_highlightentity",
       "community": 0,
       "norm_label": "highlightentity"
@@ -2536,7 +2545,7 @@
       "label": "Int",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L70",
+      "source_location": "L72",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_int",
       "community": 0,
       "norm_label": "int"
@@ -2545,7 +2554,7 @@
       "label": "TutorialPrefs",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L73",
+      "source_location": "L75",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_tutorialprefs",
       "community": 0,
       "norm_label": "tutorialprefs"
@@ -2554,7 +2563,7 @@
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L75",
+      "source_location": "L77",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_oncreate",
       "community": 0,
       "norm_label": ".oncreate()"
@@ -2563,7 +2572,7 @@
       "label": "Bundle",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L75",
+      "source_location": "L77",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_bundle",
       "community": 0,
       "norm_label": "bundle"
@@ -2572,7 +2581,7 @@
       "label": ".setupControls()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L121",
+      "source_location": "L123",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_setupcontrols",
       "community": 0,
       "norm_label": ".setupcontrols()"
@@ -2581,7 +2590,7 @@
       "label": ".openPdf()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L146",
+      "source_location": "L148",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_openpdf",
       "community": 0,
       "norm_label": ".openpdf()"
@@ -2590,7 +2599,7 @@
       "label": ".onPdfLoaded()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L168",
+      "source_location": "L170",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfloaded",
       "community": 0,
       "norm_label": ".onpdfloaded()"
@@ -2599,7 +2608,7 @@
       "label": "PdfDocument",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L168",
+      "source_location": "L170",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_pdfdocument",
       "community": 0,
       "norm_label": "pdfdocument"
@@ -2608,7 +2617,7 @@
       "label": ".onPdfLoadError()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L177",
+      "source_location": "L179",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfloaderror",
       "community": 0,
       "norm_label": ".onpdfloaderror()"
@@ -2617,7 +2626,7 @@
       "label": "Throwable",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L177",
+      "source_location": "L179",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_throwable",
       "community": 0,
       "norm_label": "throwable"
@@ -2626,7 +2635,7 @@
       "label": ".onPdfViewReady()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L181",
+      "source_location": "L183",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfviewready",
       "community": 0,
       "norm_label": ".onpdfviewready()"
@@ -2635,7 +2644,7 @@
       "label": ".onPdfViewportChanged()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L185",
+      "source_location": "L187",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfviewportchanged",
       "community": 0,
       "norm_label": ".onpdfviewportchanged()"
@@ -2644,7 +2653,7 @@
       "label": ".onPdfTextSelectionChanged()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L197",
+      "source_location": "L199",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdftextselectionchanged",
       "community": 0,
       "norm_label": ".onpdftextselectionchanged()"
@@ -2653,7 +2662,7 @@
       "label": ".onPdfSelectionAction()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L201",
+      "source_location": "L203",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfselectionaction",
       "community": 0,
       "norm_label": ".onpdfselectionaction()"
@@ -2662,7 +2671,7 @@
       "label": "SelectionAction",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L201",
+      "source_location": "L203",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_selectionaction",
       "community": 0,
       "norm_label": "selectionaction"
@@ -2671,7 +2680,7 @@
       "label": ".onPdfImmersiveRequest()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L219",
+      "source_location": "L221",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfimmersiverequest",
       "community": 0,
       "norm_label": ".onpdfimmersiverequest()"
@@ -2680,7 +2689,7 @@
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L219",
+      "source_location": "L221",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_boolean",
       "community": 0,
       "norm_label": "boolean"
@@ -2689,7 +2698,7 @@
       "label": ".onPdfPointTapped()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L224",
+      "source_location": "L226",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpdfpointtapped",
       "community": 0,
       "norm_label": ".onpdfpointtapped()"
@@ -2698,7 +2707,7 @@
       "label": "Float",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L224",
+      "source_location": "L226",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_float",
       "community": 0,
       "norm_label": "float"
@@ -2707,7 +2716,7 @@
       "label": ".saveHighlight()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L237",
+      "source_location": "L239",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_savehighlight",
       "community": 0,
       "norm_label": ".savehighlight()"
@@ -2716,7 +2725,7 @@
       "label": ".showHighlightColorPicker()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L245",
+      "source_location": "L247",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showhighlightcolorpicker",
       "community": 0,
       "norm_label": ".showhighlightcolorpicker()"
@@ -2725,7 +2734,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L245",
+      "source_location": "L247",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_string",
       "community": 0,
       "norm_label": "string"
@@ -2734,7 +2743,7 @@
       "label": ".saveHighlightWithColor()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L279",
+      "source_location": "L281",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_savehighlightwithcolor",
       "community": 0,
       "norm_label": ".savehighlightwithcolor()"
@@ -2743,7 +2752,7 @@
       "label": ".loadHighlightsForFragment()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L305",
+      "source_location": "L307",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_loadhighlightsforfragment",
       "community": 0,
       "norm_label": ".loadhighlightsforfragment()"
@@ -2752,7 +2761,7 @@
       "label": ".showAnnotationDialog()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L321",
+      "source_location": "L323",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showannotationdialog",
       "community": 0,
       "norm_label": ".showannotationdialog()"
@@ -2761,7 +2770,7 @@
       "label": "Long",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L321",
+      "source_location": "L323",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_long",
       "community": 0,
       "norm_label": "long"
@@ -2770,7 +2779,7 @@
       "label": ".showHighlightsDialog()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L349",
+      "source_location": "L351",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showhighlightsdialog",
       "community": 0,
       "norm_label": ".showhighlightsdialog()"
@@ -2779,7 +2788,7 @@
       "label": ".showHighlightActions()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L385",
+      "source_location": "L387",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showhighlightactions",
       "community": 0,
       "norm_label": ".showhighlightactions()"
@@ -2788,7 +2797,7 @@
       "label": ".recolourHighlight()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L403",
+      "source_location": "L405",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_recolourhighlight",
       "community": 0,
       "norm_label": ".recolourhighlight()"
@@ -2797,7 +2806,7 @@
       "label": ".openQuotePreview()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L416",
+      "source_location": "L418",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_openquotepreview",
       "community": 0,
       "norm_label": ".openquotepreview()"
@@ -2806,7 +2815,7 @@
       "label": ".shareSelectionText()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L426",
+      "source_location": "L428",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_shareselectiontext",
       "community": 0,
       "norm_label": ".shareselectiontext()"
@@ -2815,7 +2824,7 @@
       "label": ".shareCurrentPage()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L435",
+      "source_location": "L437",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_sharecurrentpage",
       "community": 0,
       "norm_label": ".sharecurrentpage()"
@@ -2824,7 +2833,7 @@
       "label": ".clearSelection()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L445",
+      "source_location": "L447",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_clearselection",
       "community": 0,
       "norm_label": ".clearselection()"
@@ -2833,7 +2842,7 @@
       "label": ".loadMetadata()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L453",
+      "source_location": "L455",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_loadmetadata",
       "community": 0,
       "norm_label": ".loadmetadata()"
@@ -2842,7 +2851,7 @@
       "label": ".renderCoverBitmap()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L473",
+      "source_location": "L475",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_rendercoverbitmap",
       "community": 0,
       "norm_label": ".rendercoverbitmap()"
@@ -2851,7 +2860,7 @@
       "label": "Bitmap",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L473",
+      "source_location": "L475",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_bitmap",
       "community": 0,
       "norm_label": "bitmap"
@@ -2860,7 +2869,7 @@
       "label": ".renderMetadata()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L495",
+      "source_location": "L497",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_rendermetadata",
       "community": 0,
       "norm_label": ".rendermetadata()"
@@ -2869,7 +2878,7 @@
       "label": ".jumpToPage()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L501",
+      "source_location": "L503",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_jumptopage",
       "community": 0,
       "norm_label": ".jumptopage()"
@@ -2878,7 +2887,7 @@
       "label": ".showGotoPageDialog()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L508",
+      "source_location": "L510",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showgotopagedialog",
       "community": 0,
       "norm_label": ".showgotopagedialog()"
@@ -2887,7 +2896,7 @@
       "label": ".showOverflowMenu()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L526",
+      "source_location": "L528",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_showoverflowmenu",
       "community": 0,
       "norm_label": ".showoverflowmenu()"
@@ -2896,7 +2905,7 @@
       "label": ".setZenMode()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L549",
+      "source_location": "L551",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_setzenmode",
       "community": 0,
       "norm_label": ".setzenmode()"
@@ -2905,7 +2914,7 @@
       "label": ".setSystemBarsHidden()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L560",
+      "source_location": "L562",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_setsystembarshidden",
       "community": 0,
       "norm_label": ".setsystembarshidden()"
@@ -2914,7 +2923,7 @@
       "label": ".applyReaderSystemBarContrast()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L571",
+      "source_location": "L574",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_applyreadersystembarcontrast",
       "community": 0,
       "norm_label": ".applyreadersystembarcontrast()"
@@ -2923,7 +2932,7 @@
       "label": ".dp()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L591",
+      "source_location": "L594",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_dp",
       "community": 0,
       "norm_label": ".dp()"
@@ -2932,7 +2941,7 @@
       "label": ".launchLibrary()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L593",
+      "source_location": "L596",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_launchlibrary",
       "community": 0,
       "norm_label": ".launchlibrary()"
@@ -2941,7 +2950,7 @@
       "label": ".handleBadUri()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L595",
+      "source_location": "L598",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_handlebaduri",
       "community": 0,
       "norm_label": ".handlebaduri()"
@@ -2950,7 +2959,7 @@
       "label": ".cleanupQuoteCache()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L606",
+      "source_location": "L609",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_cleanupquotecache",
       "community": 0,
       "norm_label": ".cleanupquotecache()"
@@ -2959,7 +2968,7 @@
       "label": ".updateProgressAsync()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L611",
+      "source_location": "L614",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_updateprogressasync",
       "community": 0,
       "norm_label": ".updateprogressasync()"
@@ -2968,7 +2977,7 @@
       "label": ".startReaderTutorialIfNeeded()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L619",
+      "source_location": "L622",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_startreadertutorialifneeded",
       "community": 0,
       "norm_label": ".startreadertutorialifneeded()"
@@ -2977,7 +2986,7 @@
       "label": ".captureViewRect()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L655",
+      "source_location": "L658",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_captureviewrect",
       "community": 0,
       "norm_label": ".captureviewrect()"
@@ -2986,7 +2995,7 @@
       "label": "Rect",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L655",
+      "source_location": "L658",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_rect",
       "community": 0,
       "norm_label": "rect"
@@ -2995,7 +3004,7 @@
       "label": ".onNewIntent()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L663",
+      "source_location": "L666",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onnewintent",
       "community": 0,
       "norm_label": ".onnewintent()"
@@ -3004,7 +3013,7 @@
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L663",
+      "source_location": "L666",
       "id": "app_src_main_java_com_noscroll_pdfvieweractivity_kt_intent",
       "community": 0,
       "norm_label": "intent"
@@ -3013,7 +3022,7 @@
       "label": ".onResume()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L671",
+      "source_location": "L674",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onresume",
       "community": 0,
       "norm_label": ".onresume()"
@@ -3022,7 +3031,7 @@
       "label": ".onPause()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L676",
+      "source_location": "L679",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onpause",
       "community": 0,
       "norm_label": ".onpause()"
@@ -3031,7 +3040,7 @@
       "label": ".onBackPressed()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L681",
+      "source_location": "L684",
       "id": "noscroll_pdfvieweractivity_pdfvieweractivity_onbackpressed",
       "community": 0,
       "norm_label": ".onbackpressed()"
@@ -3040,7 +3049,7 @@
       "label": "containsWithPadding()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/PdfViewerActivity.kt",
-      "source_location": "L702",
+      "source_location": "L705",
       "id": "noscroll_pdfvieweractivity_containswithpadding",
       "community": 0,
       "norm_label": "containswithpadding()"
@@ -3105,125 +3114,188 @@
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L1",
       "id": "noscroll_setupactivity",
-      "community": 1,
+      "community": 68,
       "norm_label": "setupactivity.kt"
     },
     {
       "label": "SetupActivity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L51",
+      "source_location": "L56",
       "id": "noscroll_setupactivity_setupactivity",
-      "community": 1,
+      "community": 68,
       "norm_label": "setupactivity"
     },
     {
       "label": "TutorialPrefs",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L56",
+      "source_location": "L61",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_tutorialprefs",
-      "community": 1,
+      "community": 68,
       "norm_label": "tutorialprefs"
     },
     {
       "label": ".onCreate()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L58",
+      "source_location": "L66",
       "id": "noscroll_setupactivity_setupactivity_oncreate",
-      "community": 1,
+      "community": 68,
       "norm_label": ".oncreate()"
     },
     {
       "label": "Bundle",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L58",
+      "source_location": "L66",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_bundle",
-      "community": 1,
+      "community": 68,
       "norm_label": "bundle"
     },
     {
       "label": ".applyPaperSystemBars()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L179",
+      "source_location": "L214",
       "id": "noscroll_setupactivity_setupactivity_applypapersystembars",
-      "community": 1,
+      "community": 68,
       "norm_label": ".applypapersystembars()"
     },
     {
       "label": ".onResume()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L188",
+      "source_location": "L223",
       "id": "noscroll_setupactivity_setupactivity_onresume",
-      "community": 1,
+      "community": 68,
       "norm_label": ".onresume()"
     },
     {
       "label": ".updateUI()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L193",
+      "source_location": "L228",
       "id": "noscroll_setupactivity_setupactivity_updateui",
-      "community": 1,
+      "community": 68,
       "norm_label": ".updateui()"
+    },
+    {
+      "label": ".openOverlaySettings()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L233",
+      "id": "noscroll_setupactivity_setupactivity_openoverlaysettings",
+      "community": 68,
+      "norm_label": ".openoverlaysettings()"
+    },
+    {
+      "label": ".openAccessibilitySettings()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L242",
+      "id": "noscroll_setupactivity_setupactivity_openaccessibilitysettings",
+      "community": 68,
+      "norm_label": ".openaccessibilitysettings()"
+    },
+    {
+      "label": ".hasAccepted()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "id": "noscroll_setupactivity_setupactivity_hasaccepted",
+      "community": 68,
+      "norm_label": ".hasaccepted()"
+    },
+    {
+      "label": "PermissionDisclosure",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "id": "permissiondisclosure",
+      "community": 68,
+      "norm_label": "permissiondisclosure"
+    },
+    {
+      "label": "Boolean",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "id": "app_src_main_java_com_noscroll_setupactivity_kt_boolean",
+      "community": 68,
+      "norm_label": "boolean"
+    },
+    {
+      "label": ".accept()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L249",
+      "id": "noscroll_setupactivity_setupactivity_accept",
+      "community": 68,
+      "norm_label": ".accept()"
     },
     {
       "label": ".accessibilityServiceIntent()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L198",
+      "source_location": "L253",
       "id": "noscroll_setupactivity_setupactivity_accessibilityserviceintent",
-      "community": 1,
+      "community": 68,
       "norm_label": ".accessibilityserviceintent()"
     },
     {
       "label": "Intent",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L198",
+      "source_location": "L253",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_intent",
-      "community": 1,
+      "community": 68,
       "norm_label": "intent"
     },
     {
       "label": ".statusText()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L212",
+      "source_location": "L267",
       "id": "noscroll_setupactivity_setupactivity_statustext",
-      "community": 1,
+      "community": 68,
       "norm_label": ".statustext()"
     },
     {
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L212",
+      "source_location": "L267",
       "id": "app_src_main_java_com_noscroll_setupactivity_kt_string",
-      "community": 1,
+      "community": 68,
       "norm_label": "string"
+    },
+    {
+      "label": "PermissionDisclosure",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L279",
+      "id": "noscroll_setupactivity_permissiondisclosure",
+      "community": 68,
+      "norm_label": "permissiondisclosure"
+    },
+    {
+      "label": "PermissionDisclosureDialog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L299",
+      "id": "noscroll_setupactivity_permissiondisclosuredialog",
+      "community": 68,
+      "norm_label": "permissiondisclosuredialog()"
     },
     {
       "label": "PermissionRow()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L224",
+      "source_location": "L337",
       "id": "noscroll_setupactivity_permissionrow",
-      "community": 1,
+      "community": 68,
       "norm_label": "permissionrow()"
-    },
-    {
-      "label": "Boolean",
-      "file_type": "code",
-      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L224",
-      "id": "app_src_main_java_com_noscroll_setupactivity_kt_boolean",
-      "community": 1,
-      "norm_label": "boolean"
     },
     {
       "label": "AnnotationDao.kt",
@@ -3420,7 +3492,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "data_annotationdatabase_annotationdatabase_bookcollectiondao",
-      "community": 26,
+      "community": 51,
       "norm_label": ".bookcollectiondao()"
     },
     {
@@ -3429,7 +3501,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L28",
       "id": "bookcollectiondao",
-      "community": 26,
+      "community": 51,
       "norm_label": "bookcollectiondao"
     },
     {
@@ -3492,7 +3564,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "data_annotationdatabase_migrate",
-      "community": 26,
+      "community": 83,
       "norm_label": "migrate()"
     },
     {
@@ -3501,7 +3573,7 @@
       "source_file": "app/src/main/java/com/noscroll/data/AnnotationDatabase.kt",
       "source_location": "L48",
       "id": "supportsqlitedatabase",
-      "community": 26,
+      "community": 83,
       "norm_label": "supportsqlitedatabase"
     },
     {
@@ -4399,7 +4471,7 @@
       "label": ".parseSearchResults()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/discovery/LegalBookApiClient.kt",
-      "source_location": "L99",
+      "source_location": "L92",
       "id": "discovery_legalbookapiclient_legalbookapiclient_parsesearchresults",
       "community": 17,
       "norm_label": ".parsesearchresults()"
@@ -4408,7 +4480,7 @@
       "label": ".parseDownloadLinks()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/discovery/LegalBookApiClient.kt",
-      "source_location": "L125",
+      "source_location": "L118",
       "id": "discovery_legalbookapiclient_legalbookapiclient_parsedownloadlinks",
       "community": 17,
       "norm_label": ".parsedownloadlinks()"
@@ -4417,7 +4489,7 @@
       "label": ".extractArray()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/discovery/LegalBookApiClient.kt",
-      "source_location": "L145",
+      "source_location": "L138",
       "id": "discovery_legalbookapiclient_legalbookapiclient_extractarray",
       "community": 17,
       "norm_label": ".extractarray()"
@@ -4426,7 +4498,7 @@
       "label": "JSONArray",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/discovery/LegalBookApiClient.kt",
-      "source_location": "L145",
+      "source_location": "L138",
       "id": "jsonarray",
       "community": 10,
       "norm_label": "jsonarray"
@@ -4444,7 +4516,7 @@
       "label": "BookMetadataRepository",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository",
       "community": 9,
       "norm_label": "bookmetadatarepository"
@@ -4453,7 +4525,7 @@
       "label": ".resolve()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_resolve",
       "community": 9,
       "norm_label": ".resolve()"
@@ -4462,7 +4534,7 @@
       "label": "Context",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_context",
       "community": 9,
       "norm_label": "context"
@@ -4471,7 +4543,7 @@
       "label": "Uri",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_uri",
       "community": 9,
       "norm_label": "uri"
@@ -4480,7 +4552,7 @@
       "label": "PdfDocument",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_pdfdocument",
       "community": 9,
       "norm_label": "pdfdocument"
@@ -4489,7 +4561,7 @@
       "label": "Boolean",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_boolean",
       "community": 9,
       "norm_label": "boolean"
@@ -4498,7 +4570,7 @@
       "label": "Bitmap",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_bitmap",
       "community": 9,
       "norm_label": "bitmap"
@@ -4507,7 +4579,7 @@
       "label": "BookMetadataEntity",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_bookmetadataentity",
       "community": 9,
       "norm_label": "bookmetadataentity"
@@ -4516,7 +4588,7 @@
       "label": ".saveManual()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L84",
+      "source_location": "L85",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_savemanual",
       "community": 9,
       "norm_label": ".savemanual()"
@@ -4525,7 +4597,7 @@
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L84",
+      "source_location": "L85",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_string",
       "community": 9,
       "norm_label": "string"
@@ -4534,7 +4606,7 @@
       "label": ".extractFromBlocks()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L99",
+      "source_location": "L100",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_extractfromblocks",
       "community": 9,
       "norm_label": ".extractfromblocks()"
@@ -4543,7 +4615,7 @@
       "label": "List",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L99",
+      "source_location": "L100",
       "id": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_list",
       "community": 9,
       "norm_label": "list"
@@ -4552,7 +4624,7 @@
       "label": "CoverBlock",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L99",
+      "source_location": "L100",
       "id": "coverblock",
       "community": 9,
       "norm_label": "coverblock"
@@ -4561,7 +4633,7 @@
       "label": ".networkEnrich()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L164",
+      "source_location": "L165",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_networkenrich",
       "community": 9,
       "norm_label": ".networkenrich()"
@@ -4570,7 +4642,7 @@
       "label": ".isPublisherNoise()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L207",
+      "source_location": "L208",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_ispublishernoise",
       "community": 9,
       "norm_label": ".ispublishernoise()"
@@ -4579,7 +4651,7 @@
       "label": ".isLikelyPersonName()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L219",
+      "source_location": "L220",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_islikelypersonname",
       "community": 9,
       "norm_label": ".islikelypersonname()"
@@ -4588,7 +4660,7 @@
       "label": ".toTitleCase()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L234",
+      "source_location": "L235",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_totitlecase",
       "community": 9,
       "norm_label": ".totitlecase()"
@@ -4597,7 +4669,7 @@
       "label": ".cleanTitle()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L239",
+      "source_location": "L240",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_cleantitle",
       "community": 9,
       "norm_label": ".cleantitle()"
@@ -4606,7 +4678,7 @@
       "label": ".isBadText()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L244",
+      "source_location": "L245",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_isbadtext",
       "community": 9,
       "norm_label": ".isbadtext()"
@@ -4615,16 +4687,25 @@
       "label": ".isLinkLike()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L248",
+      "source_location": "L249",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_islinklike",
       "community": 9,
       "norm_label": ".islinklike()"
     },
     {
+      "label": ".debugLog()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
+      "source_location": "L252",
+      "id": "metadata_bookmetadatarepository_bookmetadatarepository_debuglog",
+      "community": 9,
+      "norm_label": ".debuglog()"
+    },
+    {
       "label": ".renderCoverPage()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L251",
+      "source_location": "L258",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_rendercoverpage",
       "community": 9,
       "norm_label": ".rendercoverpage()"
@@ -4633,7 +4714,7 @@
       "label": ".fallbackTitle()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
-      "source_location": "L274",
+      "source_location": "L281",
       "id": "metadata_bookmetadatarepository_bookmetadatarepository_fallbacktitle",
       "community": 9,
       "norm_label": ".fallbacktitle()"
@@ -4644,7 +4725,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L1",
       "id": "metadata_coverpageocr",
-      "community": 28,
+      "community": 6,
       "norm_label": "coverpageocr.kt"
     },
     {
@@ -4653,7 +4734,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L10",
       "id": "metadata_coverpageocr_coverblock",
-      "community": 28,
+      "community": 6,
       "norm_label": "coverblock"
     },
     {
@@ -4662,7 +4743,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L16",
       "id": "metadata_coverpageocr_coverpageocr",
-      "community": 28,
+      "community": 6,
       "norm_label": "coverpageocr"
     },
     {
@@ -4671,7 +4752,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L17",
       "id": "metadata_coverpageocr_coverpageocr_extracttext",
-      "community": 28,
+      "community": 6,
       "norm_label": ".extracttext()"
     },
     {
@@ -4680,7 +4761,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L17",
       "id": "app_src_main_java_com_noscroll_metadata_coverpageocr_kt_bitmap",
-      "community": 28,
+      "community": 6,
       "norm_label": "bitmap"
     },
     {
@@ -4689,7 +4770,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L17",
       "id": "app_src_main_java_com_noscroll_metadata_coverpageocr_kt_string",
-      "community": 28,
+      "community": 6,
       "norm_label": "string"
     },
     {
@@ -4698,7 +4779,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L26",
       "id": "metadata_coverpageocr_coverpageocr_recognize",
-      "community": 28,
+      "community": 6,
       "norm_label": ".recognize()"
     },
     {
@@ -4707,7 +4788,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L26",
       "id": "text",
-      "community": 1,
+      "community": 73,
       "norm_label": "text"
     },
     {
@@ -4716,7 +4797,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L37",
       "id": "metadata_coverpageocr_coverpageocr_recognizeblocks",
-      "community": 28,
+      "community": 6,
       "norm_label": ".recognizeblocks()"
     },
     {
@@ -4725,7 +4806,7 @@
       "source_file": "app/src/main/java/com/noscroll/metadata/CoverPageOcr.kt",
       "source_location": "L37",
       "id": "app_src_main_java_com_noscroll_metadata_coverpageocr_kt_list",
-      "community": 28,
+      "community": 6,
       "norm_label": "list"
     },
     {
@@ -5472,7 +5553,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardBitmapBuilder.kt",
       "source_location": "L285",
       "id": "layout",
-      "community": 1,
+      "community": 74,
       "norm_label": "layout"
     },
     {
@@ -5544,7 +5625,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L1",
       "id": "quote_quotecardpreviewactivity",
-      "community": 23,
+      "community": 67,
       "norm_label": "quotecardpreviewactivity.kt"
     },
     {
@@ -5553,7 +5634,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L67",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity",
-      "community": 23,
+      "community": 67,
       "norm_label": "quotecardpreviewactivity"
     },
     {
@@ -5562,7 +5643,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L70",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_string",
-      "community": 23,
+      "community": 67,
       "norm_label": "string"
     },
     {
@@ -5571,7 +5652,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L71",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_int",
-      "community": 23,
+      "community": 67,
       "norm_label": "int"
     },
     {
@@ -5580,7 +5661,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L74",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_oncreate",
-      "community": 23,
+      "community": 67,
       "norm_label": ".oncreate()"
     },
     {
@@ -5589,7 +5670,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L74",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_bundle",
-      "community": 23,
+      "community": 67,
       "norm_label": "bundle"
     },
     {
@@ -5598,7 +5679,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L132",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadspec",
-      "community": 23,
+      "community": 67,
       "norm_label": ".loadspec()"
     },
     {
@@ -5607,7 +5688,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L158",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_isbadbooktitle",
-      "community": 23,
+      "community": 67,
       "norm_label": ".isbadbooktitle()"
     },
     {
@@ -5616,7 +5697,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L158",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_boolean",
-      "community": 23,
+      "community": 67,
       "norm_label": "boolean"
     },
     {
@@ -5625,7 +5706,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L161",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_render",
-      "community": 23,
+      "community": 67,
       "norm_label": ".render()"
     },
     {
@@ -5634,7 +5715,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L176",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_savecurrentquote",
-      "community": 23,
+      "community": 67,
       "norm_label": ".savecurrentquote()"
     },
     {
@@ -5643,7 +5724,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L176",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_unit",
-      "community": 23,
+      "community": 67,
       "norm_label": "unit"
     },
     {
@@ -5652,7 +5733,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L192",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_sharecurrentquote",
-      "community": 23,
+      "community": 67,
       "norm_label": ".sharecurrentquote()"
     },
     {
@@ -5661,7 +5742,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L205",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_buildsharetext",
-      "community": 23,
+      "community": 67,
       "norm_label": ".buildsharetext()"
     },
     {
@@ -5670,7 +5751,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L205",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardspec",
-      "community": 23,
+      "community": 67,
       "norm_label": "quotecardspec"
     },
     {
@@ -5679,7 +5760,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L214",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_loadlaststyle",
-      "community": 23,
+      "community": 67,
       "norm_label": ".loadlaststyle()"
     },
     {
@@ -5688,7 +5769,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L218",
       "id": "quote_quotecardpreviewactivity_quotecardpreviewactivity_rememberlaststyle",
-      "community": 23,
+      "community": 67,
       "norm_label": ".rememberlaststyle()"
     },
     {
@@ -5697,7 +5778,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L231",
       "id": "quote_quotecardpreviewactivity_stylepicker",
-      "community": 23,
+      "community": 67,
       "norm_label": "stylepicker()"
     },
     {
@@ -5706,7 +5787,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L258",
       "id": "quote_quotecardpreviewactivity_stylepackcard",
-      "community": 23,
+      "community": 67,
       "norm_label": "stylepackcard()"
     },
     {
@@ -5715,7 +5796,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L258",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_quotecardstylepack",
-      "community": 23,
+      "community": 67,
       "norm_label": "quotecardstylepack"
     },
     {
@@ -5724,7 +5805,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L292",
       "id": "quote_quotecardpreviewactivity_styleswatch",
-      "community": 23,
+      "community": 67,
       "norm_label": "styleswatch()"
     },
     {
@@ -5733,7 +5814,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/QuoteCardPreviewActivity.kt",
       "source_location": "L292",
       "id": "app_src_main_java_com_noscroll_quote_quotecardpreviewactivity_kt_modifier",
-      "community": 23,
+      "community": 67,
       "norm_label": "modifier"
     },
     {
@@ -5895,7 +5976,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L1",
       "id": "quote_sharebottomsheet",
-      "community": 24,
+      "community": 71,
       "norm_label": "sharebottomsheet.kt"
     },
     {
@@ -5904,7 +5985,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L18",
       "id": "quote_sharebottomsheet_sharebottomsheet",
-      "community": 24,
+      "community": 71,
       "norm_label": "sharebottomsheet"
     },
     {
@@ -5913,7 +5994,7 @@
       "source_file": "",
       "source_location": "",
       "id": "bottomsheetdialogfragment",
-      "community": 24,
+      "community": 71,
       "norm_label": "bottomsheetdialogfragment"
     },
     {
@@ -5922,7 +6003,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "quote_sharebottomsheet_sharebottomsheet_oncreatedialog",
-      "community": 24,
+      "community": 71,
       "norm_label": ".oncreatedialog()"
     },
     {
@@ -5931,7 +6012,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_bundle",
-      "community": 24,
+      "community": 71,
       "norm_label": "bundle"
     },
     {
@@ -5940,7 +6021,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L19",
       "id": "dialog",
-      "community": 24,
+      "community": 71,
       "norm_label": "dialog"
     },
     {
@@ -5949,7 +6030,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "quote_sharebottomsheet_sharebottomsheet_ondismiss",
-      "community": 24,
+      "community": 71,
       "norm_label": ".ondismiss()"
     },
     {
@@ -5958,7 +6039,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L62",
       "id": "android",
-      "community": 24,
+      "community": 71,
       "norm_label": "android"
     },
     {
@@ -5967,7 +6048,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L69",
       "id": "quote_sharebottomsheet_newinstance",
-      "community": 24,
+      "community": 71,
       "norm_label": "newinstance()"
     },
     {
@@ -5976,7 +6057,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L69",
       "id": "app_src_main_java_com_noscroll_quote_sharebottomsheet_kt_string",
-      "community": 24,
+      "community": 71,
       "norm_label": "string"
     },
     {
@@ -5985,7 +6066,7 @@
       "source_file": "app/src/main/java/com/noscroll/quote/ShareBottomSheet.kt",
       "source_location": "L77",
       "id": "quote_sharebottomsheet_sharerow",
-      "community": 24,
+      "community": 71,
       "norm_label": "sharerow()"
     },
     {
@@ -6444,7 +6525,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialanchor",
-      "community": 14,
+      "community": 69,
       "norm_label": "tutorialanchor.kt"
     },
     {
@@ -6453,7 +6534,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "tutorial_tutorialanchor_tutorialanchor",
-      "community": 14,
+      "community": 69,
       "norm_label": "tutorialanchor()"
     },
     {
@@ -6462,7 +6543,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialanchor_kt_tutorialstepid",
-      "community": 14,
+      "community": 69,
       "norm_label": "tutorialstepid"
     },
     {
@@ -6471,7 +6552,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialAnchor.kt",
       "source_location": "L9",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialanchor_kt_tutorialcontroller",
-      "community": 14,
+      "community": 69,
       "norm_label": "tutorialcontroller"
     },
     {
@@ -6480,7 +6561,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialController.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialcontroller",
-      "community": 14,
+      "community": 69,
       "norm_label": "tutorialcontroller.kt"
     },
     {
@@ -6606,7 +6687,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
       "source_location": "L1",
       "id": "tutorial_tutorialoverlay",
-      "community": 1,
+      "community": 74,
       "norm_label": "tutorialoverlay.kt"
     },
     {
@@ -6615,7 +6696,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
       "source_location": "L37",
       "id": "tutorial_tutorialoverlay_tutorialoverlay",
-      "community": 1,
+      "community": 74,
       "norm_label": "tutorialoverlay()"
     },
     {
@@ -6624,7 +6705,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
       "source_location": "L37",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialoverlay_kt_tutorialcontroller",
-      "community": 1,
+      "community": 74,
       "norm_label": "tutorialcontroller"
     },
     {
@@ -6633,7 +6714,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
       "source_location": "L107",
       "id": "tutorial_tutorialoverlay_tooltipcard",
-      "community": 1,
+      "community": 74,
       "norm_label": "tooltipcard()"
     },
     {
@@ -6642,7 +6723,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialOverlay.kt",
       "source_location": "L107",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialoverlay_kt_tutorialstep",
-      "community": 1,
+      "community": 74,
       "norm_label": "tutorialstep"
     },
     {
@@ -6660,7 +6741,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L5",
       "id": "tutorial_tutorialprefs_tutorialprefs",
-      "community": 6,
+      "community": 2,
       "norm_label": "tutorialprefs"
     },
     {
@@ -6669,7 +6750,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L9",
       "id": "tutorial_tutorialprefs_tutorialprefs_hasmadechoice",
-      "community": 6,
+      "community": 2,
       "norm_label": ".hasmadechoice()"
     },
     {
@@ -6678,7 +6759,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L10",
       "id": "tutorial_tutorialprefs_tutorialprefs_hasoptedin",
-      "community": 6,
+      "community": 2,
       "norm_label": ".hasoptedin()"
     },
     {
@@ -6687,7 +6768,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L11",
       "id": "tutorial_tutorialprefs_tutorialprefs_setoptedin",
-      "community": 6,
+      "community": 2,
       "norm_label": ".setoptedin()"
     },
     {
@@ -6696,7 +6777,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L11",
       "id": "app_src_main_java_com_noscroll_tutorial_tutorialprefs_kt_boolean",
-      "community": 6,
+      "community": 2,
       "norm_label": "boolean"
     },
     {
@@ -6705,7 +6786,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L14",
       "id": "tutorial_tutorialprefs_tutorialprefs_issetupdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".issetupdone()"
     },
     {
@@ -6714,7 +6795,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L15",
       "id": "tutorial_tutorialprefs_tutorialprefs_islibrarydone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".islibrarydone()"
     },
     {
@@ -6723,7 +6804,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L16",
       "id": "tutorial_tutorialprefs_tutorialprefs_isreaderdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".isreaderdone()"
     },
     {
@@ -6732,7 +6813,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L17",
       "id": "tutorial_tutorialprefs_tutorialprefs_isnotebookdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".isnotebookdone()"
     },
     {
@@ -6741,7 +6822,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L18",
       "id": "tutorial_tutorialprefs_tutorialprefs_isreelsdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".isreelsdone()"
     },
     {
@@ -6750,7 +6831,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L20",
       "id": "tutorial_tutorialprefs_tutorialprefs_marksetupdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".marksetupdone()"
     },
     {
@@ -6759,7 +6840,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L21",
       "id": "tutorial_tutorialprefs_tutorialprefs_marklibrarydone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".marklibrarydone()"
     },
     {
@@ -6768,7 +6849,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L22",
       "id": "tutorial_tutorialprefs_tutorialprefs_markreaderdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".markreaderdone()"
     },
     {
@@ -6777,7 +6858,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L23",
       "id": "tutorial_tutorialprefs_tutorialprefs_marknotebookdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".marknotebookdone()"
     },
     {
@@ -6786,7 +6867,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L24",
       "id": "tutorial_tutorialprefs_tutorialprefs_markreelsdone",
-      "community": 6,
+      "community": 2,
       "norm_label": ".markreelsdone()"
     },
     {
@@ -6795,7 +6876,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L27",
       "id": "tutorial_tutorialprefs_tutorialprefs_skipall",
-      "community": 6,
+      "community": 2,
       "norm_label": ".skipall()"
     },
     {
@@ -6804,7 +6885,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L37",
       "id": "tutorial_tutorialprefs_tutorialprefs_restartfrom",
-      "community": 6,
+      "community": 2,
       "norm_label": ".restartfrom()"
     },
     {
@@ -6813,7 +6894,7 @@
       "source_file": "app/src/main/java/com/noscroll/tutorial/TutorialPrefs.kt",
       "source_location": "L45",
       "id": "tutorial_tutorialprefs_tutorialprefs_resetall",
-      "community": 6,
+      "community": 2,
       "norm_label": ".resetall()"
     },
     {
@@ -6867,34 +6948,34 @@
       "source_file": "app/src/main/java/com/noscroll/ui/BrandMark.kt",
       "source_location": "L1",
       "id": "ui_brandmark",
-      "community": 1,
+      "community": 81,
       "norm_label": "brandmark.kt"
     },
     {
       "label": "BrandMark()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/BrandMark.kt",
-      "source_location": "L18",
+      "source_location": "L15",
       "id": "ui_brandmark_brandmark",
-      "community": 1,
+      "community": 81,
       "norm_label": "brandmark()"
     },
     {
       "label": "Modifier",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/BrandMark.kt",
-      "source_location": "L18",
+      "source_location": "L15",
       "id": "app_src_main_java_com_noscroll_ui_brandmark_kt_modifier",
-      "community": 1,
+      "community": 81,
       "norm_label": "modifier"
     },
     {
       "label": "Dp",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/BrandMark.kt",
-      "source_location": "L18",
+      "source_location": "L15",
       "id": "dp",
-      "community": 1,
+      "community": 81,
       "norm_label": "dp"
     },
     {
@@ -6903,7 +6984,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L1",
       "id": "ui_libraryscreen",
-      "community": 1,
+      "community": 23,
       "norm_label": "libraryscreen.kt"
     },
     {
@@ -6912,7 +6993,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L45",
       "id": "ui_libraryscreen_libraryfilter",
-      "community": 1,
+      "community": 23,
       "norm_label": "libraryfilter"
     },
     {
@@ -6921,7 +7002,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L46",
       "id": "ui_libraryscreen_librarysort",
-      "community": 1,
+      "community": 23,
       "norm_label": "librarysort"
     },
     {
@@ -6930,7 +7011,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "ui_libraryscreen_libraryscreen",
-      "community": 1,
+      "community": 23,
       "norm_label": "libraryscreen()"
     },
     {
@@ -6939,7 +7020,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_list",
-      "community": 1,
+      "community": 23,
       "norm_label": "list"
     },
     {
@@ -6948,7 +7029,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_bookentity",
-      "community": 1,
+      "community": 23,
       "norm_label": "bookentity"
     },
     {
@@ -6957,7 +7038,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_bookmetadataentity",
-      "community": 1,
+      "community": 23,
       "norm_label": "bookmetadataentity"
     },
     {
@@ -6966,7 +7047,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_highlightentity",
-      "community": 1,
+      "community": 23,
       "norm_label": "highlightentity"
     },
     {
@@ -6975,7 +7056,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_tutorialcontroller",
-      "community": 1,
+      "community": 23,
       "norm_label": "tutorialcontroller"
     },
     {
@@ -6984,25 +7065,25 @@
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L48",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_unit",
-      "community": 1,
+      "community": 23,
       "norm_label": "unit"
     },
     {
       "label": "ContinueCard()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L259",
+      "source_location": "L273",
       "id": "ui_libraryscreen_continuecard",
-      "community": 1,
+      "community": 23,
       "norm_label": "continuecard()"
     },
     {
       "label": "ImportCard()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
-      "source_location": "L314",
+      "source_location": "L328",
       "id": "ui_libraryscreen_importcard",
-      "community": 1,
+      "community": 23,
       "norm_label": "importcard()"
     },
     {
@@ -7011,70 +7092,70 @@
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
       "source_location": "L1",
       "id": "ui_notebookscreen",
-      "community": 1,
+      "community": 69,
       "norm_label": "notebookscreen.kt"
     },
     {
       "label": "NotebookScreen()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "ui_notebookscreen_notebookscreen",
-      "community": 1,
+      "community": 69,
       "norm_label": "notebookscreen()"
     },
     {
       "label": "NotebookState",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "notebookstate",
-      "community": 1,
+      "community": 69,
       "norm_label": "notebookstate"
     },
     {
       "label": "TutorialController",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L34",
+      "source_location": "L35",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_tutorialcontroller",
-      "community": 1,
+      "community": 69,
       "norm_label": "tutorialcontroller"
     },
     {
       "label": "safeTitle()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L121",
+      "source_location": "L125",
       "id": "ui_notebookscreen_safetitle",
-      "community": 1,
+      "community": 69,
       "norm_label": "safetitle()"
     },
     {
       "label": "String",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L121",
+      "source_location": "L125",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_string",
-      "community": 1,
+      "community": 69,
       "norm_label": "string"
     },
     {
       "label": "NotebookQuoteRow()",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L136",
+      "source_location": "L140",
       "id": "ui_notebookscreen_notebookquoterow",
-      "community": 1,
+      "community": 69,
       "norm_label": "notebookquoterow()"
     },
     {
       "label": "Unit",
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/NotebookScreen.kt",
-      "source_location": "L136",
+      "source_location": "L140",
       "id": "app_src_main_java_com_noscroll_ui_notebookscreen_kt_unit",
-      "community": 1,
+      "community": 69,
       "norm_label": "unit"
     },
     {
@@ -7083,7 +7164,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L1",
       "id": "ui_onlinebooksearchscreen",
-      "community": 1,
+      "community": 73,
       "norm_label": "onlinebooksearchscreen.kt"
     },
     {
@@ -7092,7 +7173,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L31",
       "id": "ui_onlinebooksearchscreen_onlinebooksearchscreen",
-      "community": 1,
+      "community": 73,
       "norm_label": "onlinebooksearchscreen()"
     },
     {
@@ -7101,7 +7182,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L31",
       "id": "app_src_main_java_com_noscroll_ui_onlinebooksearchscreen_kt_string",
-      "community": 1,
+      "community": 73,
       "norm_label": "string"
     },
     {
@@ -7110,7 +7191,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L31",
       "id": "app_src_main_java_com_noscroll_ui_onlinebooksearchscreen_kt_boolean",
-      "community": 1,
+      "community": 73,
       "norm_label": "boolean"
     },
     {
@@ -7119,7 +7200,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L31",
       "id": "app_src_main_java_com_noscroll_ui_onlinebooksearchscreen_kt_list",
-      "community": 1,
+      "community": 73,
       "norm_label": "list"
     },
     {
@@ -7128,7 +7209,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L31",
       "id": "app_src_main_java_com_noscroll_ui_onlinebooksearchscreen_kt_legalbooksearchresult",
-      "community": 1,
+      "community": 73,
       "norm_label": "legalbooksearchresult"
     },
     {
@@ -7137,7 +7218,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L131",
       "id": "ui_onlinebooksearchscreen_searchactionrow",
-      "community": 1,
+      "community": 73,
       "norm_label": "searchactionrow()"
     },
     {
@@ -7146,7 +7227,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L155",
       "id": "ui_onlinebooksearchscreen_searchresultrow",
-      "community": 1,
+      "community": 73,
       "norm_label": "searchresultrow()"
     },
     {
@@ -7155,7 +7236,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/OnlineBookSearchScreen.kt",
       "source_location": "L204",
       "id": "ui_onlinebooksearchscreen_noticecard",
-      "community": 1,
+      "community": 73,
       "norm_label": "noticecard()"
     },
     {
@@ -7299,7 +7380,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L1",
       "id": "ui_papercontrols",
-      "community": 1,
+      "community": 72,
       "norm_label": "papercontrols.kt"
     },
     {
@@ -7308,7 +7389,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L31",
       "id": "ui_papercontrols_paperbuttontone",
-      "community": 1,
+      "community": 72,
       "norm_label": "paperbuttontone"
     },
     {
@@ -7317,7 +7398,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L38",
       "id": "ui_papercontrols_paperactionbutton",
-      "community": 1,
+      "community": 72,
       "norm_label": "paperactionbutton()"
     },
     {
@@ -7326,7 +7407,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L38",
       "id": "app_src_main_java_com_noscroll_ui_papercontrols_kt_string",
-      "community": 1,
+      "community": 72,
       "norm_label": "string"
     },
     {
@@ -7335,7 +7416,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L38",
       "id": "app_src_main_java_com_noscroll_ui_papercontrols_kt_modifier",
-      "community": 1,
+      "community": 72,
       "norm_label": "modifier"
     },
     {
@@ -7344,7 +7425,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L38",
       "id": "app_src_main_java_com_noscroll_ui_papercontrols_kt_boolean",
-      "community": 1,
+      "community": 72,
       "norm_label": "boolean"
     },
     {
@@ -7353,7 +7434,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L88",
       "id": "ui_papercontrols_papersegmentedselector",
-      "community": 1,
+      "community": 72,
       "norm_label": "papersegmentedselector()"
     },
     {
@@ -7362,7 +7443,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L88",
       "id": "app_src_main_java_com_noscroll_ui_papercontrols_kt_list",
-      "community": 1,
+      "community": 72,
       "norm_label": "list"
     },
     {
@@ -7371,7 +7452,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L88",
       "id": "t",
-      "community": 1,
+      "community": 72,
       "norm_label": "t"
     },
     {
@@ -7380,7 +7461,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L124",
       "id": "ui_papercontrols_paperchoicechip",
-      "community": 1,
+      "community": 72,
       "norm_label": "paperchoicechip()"
     },
     {
@@ -7389,7 +7470,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperControls.kt",
       "source_location": "L155",
       "id": "ui_papercontrols_papermenuaction",
-      "community": 1,
+      "community": 72,
       "norm_label": "papermenuaction()"
     },
     {
@@ -7398,7 +7479,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperTheme.kt",
       "source_location": "L1",
       "id": "ui_papertheme",
-      "community": 2,
+      "community": 67,
       "norm_label": "papertheme.kt"
     },
     {
@@ -7407,7 +7488,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperTheme.kt",
       "source_location": "L14",
       "id": "ui_papertheme_papercolors",
-      "community": 2,
+      "community": 67,
       "norm_label": "papercolors"
     },
     {
@@ -7416,7 +7497,7 @@
       "source_file": "app/src/main/java/com/noscroll/ui/PaperTheme.kt",
       "source_location": "L55",
       "id": "ui_papertheme_noscrolltheme",
-      "community": 2,
+      "community": 67,
       "norm_label": "noscrolltheme()"
     },
     {
@@ -7663,6 +7744,78 @@
       "norm_label": "build.gradle"
     },
     {
+      "label": "check-android-native-libs.ps1",
+      "file_type": "code",
+      "source_file": "scripts/check-android-native-libs.ps1",
+      "source_location": "L1",
+      "id": "scripts_check_android_native_libs",
+      "community": 28,
+      "norm_label": "check-android-native-libs.ps1"
+    },
+    {
+      "label": "create-play-store-assets.ps1",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L1",
+      "id": "scripts_create_play_store_assets",
+      "community": 75,
+      "norm_label": "create-play-store-assets.ps1"
+    },
+    {
+      "label": "New-Directory()",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L11",
+      "id": "scripts_create_play_store_assets_new_directory",
+      "community": 75,
+      "norm_label": "new-directory()"
+    },
+    {
+      "label": "Save-Jpeg()",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L17",
+      "id": "scripts_create_play_store_assets_save_jpeg",
+      "community": 75,
+      "norm_label": "save-jpeg()"
+    },
+    {
+      "label": "Draw-CenteredImage()",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L26",
+      "id": "scripts_create_play_store_assets_draw_centeredimage",
+      "community": 75,
+      "norm_label": "draw-centeredimage()"
+    },
+    {
+      "label": "Draw-Text()",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L35",
+      "id": "scripts_create_play_store_assets_draw_text",
+      "community": 75,
+      "norm_label": "draw-text()"
+    },
+    {
+      "label": "Assert-Image()",
+      "file_type": "code",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L45",
+      "id": "scripts_create_play_store_assets_assert_image",
+      "community": 75,
+      "norm_label": "assert-image()"
+    },
+    {
+      "label": "create-upload-keystore.ps1",
+      "file_type": "code",
+      "source_file": "scripts/create-upload-keystore.ps1",
+      "source_location": "L1",
+      "id": "scripts_create_upload_keystore",
+      "community": 77,
+      "norm_label": "create-upload-keystore.ps1"
+    },
+    {
       "label": "settings.gradle",
       "file_type": "code",
       "source_file": "settings.gradle",
@@ -7715,6 +7868,60 @@
       "id": "claude_graphify",
       "community": 50,
       "norm_label": "graphify"
+    },
+    {
+      "label": "PRIVACY_POLICY.md",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L1",
+      "id": "privacy_policy",
+      "community": 64,
+      "norm_label": "privacy_policy.md"
+    },
+    {
+      "label": "NoScroll Privacy Policy",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L1",
+      "id": "privacy_policy_noscroll_privacy_policy",
+      "community": 64,
+      "norm_label": "noscroll privacy policy"
+    },
+    {
+      "label": "Data NoScroll Handles",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L7",
+      "id": "privacy_policy_data_noscroll_handles",
+      "community": 64,
+      "norm_label": "data noscroll handles"
+    },
+    {
+      "label": "Data Sharing",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L16",
+      "id": "privacy_policy_data_sharing",
+      "community": 64,
+      "norm_label": "data sharing"
+    },
+    {
+      "label": "Permissions",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L20",
+      "id": "privacy_policy_permissions",
+      "community": 64,
+      "norm_label": "permissions"
+    },
+    {
+      "label": "User Control",
+      "file_type": "document",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L27",
+      "id": "privacy_policy_user_control",
+      "community": 64,
+      "norm_label": "user control"
     },
     {
       "label": "PRODUCT.md",
@@ -7897,10 +8104,19 @@
       "norm_label": "build"
     },
     {
-      "label": "First-run setup",
+      "label": "Play release",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L45",
+      "id": "readme_play_release",
+      "community": 46,
+      "norm_label": "play release"
+    },
+    {
+      "label": "First-run setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L69",
       "id": "readme_first_run_setup",
       "community": 46,
       "norm_label": "first-run setup"
@@ -7909,7 +8125,7 @@
       "label": "Using the reader",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L52",
+      "source_location": "L76",
       "id": "readme_using_the_reader",
       "community": 46,
       "norm_label": "using the reader"
@@ -7918,7 +8134,7 @@
       "label": "Blocker behavior",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L61",
+      "source_location": "L85",
       "id": "readme_blocker_behavior",
       "community": 46,
       "norm_label": "blocker behavior"
@@ -7927,10 +8143,37 @@
       "label": "Troubleshooting",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L69",
+      "source_location": "L93",
       "id": "readme_troubleshooting",
       "community": 46,
       "norm_label": "troubleshooting"
+    },
+    {
+      "label": "manifest.md",
+      "file_type": "document",
+      "source_file": "artifacts/play-store/main-listing/manifest.md",
+      "source_location": "L1",
+      "id": "main_listing_manifest",
+      "community": 82,
+      "norm_label": "manifest.md"
+    },
+    {
+      "label": "Files",
+      "file_type": "document",
+      "source_file": "artifacts/play-store/main-listing/manifest.md",
+      "source_location": "L6",
+      "id": "main_listing_manifest_files",
+      "community": 82,
+      "norm_label": "files"
+    },
+    {
+      "label": "Notes",
+      "file_type": "document",
+      "source_file": "artifacts/play-store/main-listing/manifest.md",
+      "source_location": "L17",
+      "id": "main_listing_manifest_notes",
+      "community": 82,
+      "norm_label": "notes"
     },
     {
       "label": "first-post-copy.md",
@@ -8021,6 +8264,411 @@
       "id": "social_first_post_copy_first_comment",
       "community": 16,
       "norm_label": "first comment"
+    },
+    {
+      "label": "data-safety.md",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L1",
+      "id": "docs_data_safety",
+      "community": 79,
+      "norm_label": "data-safety.md"
+    },
+    {
+      "label": "NoScroll Data Safety Draft",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L1",
+      "id": "docs_data_safety_noscroll_data_safety_draft",
+      "community": 79,
+      "norm_label": "noscroll data safety draft"
+    },
+    {
+      "label": "Data Collection Summary",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L7",
+      "id": "docs_data_safety_data_collection_summary",
+      "community": 79,
+      "norm_label": "data collection summary"
+    },
+    {
+      "label": "Play Console Answers",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L26",
+      "id": "docs_data_safety_play_console_answers",
+      "community": 79,
+      "norm_label": "play console answers"
+    },
+    {
+      "label": "Does the app collect or share any required user data types?",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L28",
+      "id": "docs_data_safety_does_the_app_collect_or_share_any_required_user_data_types",
+      "community": 79,
+      "norm_label": "does the app collect or share any required user data types?"
+    },
+    {
+      "label": "Is all collected data encrypted in transit?",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L34",
+      "id": "docs_data_safety_is_all_collected_data_encrypted_in_transit",
+      "community": 79,
+      "norm_label": "is all collected data encrypted in transit?"
+    },
+    {
+      "label": "Can users request data deletion?",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L38",
+      "id": "docs_data_safety_can_users_request_data_deletion",
+      "community": 79,
+      "norm_label": "can users request data deletion?"
+    },
+    {
+      "label": "Is data shared with third parties?",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L42",
+      "id": "docs_data_safety_is_data_shared_with_third_parties",
+      "community": 79,
+      "norm_label": "is data shared with third parties?"
+    },
+    {
+      "label": "Permissions And Data Mapping",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L49",
+      "id": "docs_data_safety_permissions_and_data_mapping",
+      "community": 79,
+      "norm_label": "permissions and data mapping"
+    },
+    {
+      "label": "Privacy Policy Claims To Keep Consistent",
+      "file_type": "document",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L60",
+      "id": "docs_data_safety_privacy_policy_claims_to_keep_consistent",
+      "community": 79,
+      "norm_label": "privacy policy claims to keep consistent"
+    },
+    {
+      "label": "play-store-listing.md",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L1",
+      "id": "docs_play_store_listing",
+      "community": 78,
+      "norm_label": "play-store-listing.md"
+    },
+    {
+      "label": "NoScroll Play Store Listing Draft",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L1",
+      "id": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "community": 78,
+      "norm_label": "noscroll play store listing draft"
+    },
+    {
+      "label": "App Name",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L5",
+      "id": "docs_play_store_listing_app_name",
+      "community": 78,
+      "norm_label": "app name"
+    },
+    {
+      "label": "Short Description",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L9",
+      "id": "docs_play_store_listing_short_description",
+      "community": 78,
+      "norm_label": "short description"
+    },
+    {
+      "label": "Full Description",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L13",
+      "id": "docs_play_store_listing_full_description",
+      "community": 78,
+      "norm_label": "full description"
+    },
+    {
+      "label": "Feature Graphic / Screenshot Storyboard",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L35",
+      "id": "docs_play_store_listing_feature_graphic_screenshot_storyboard",
+      "community": 78,
+      "norm_label": "feature graphic / screenshot storyboard"
+    },
+    {
+      "label": "Category",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L70",
+      "id": "docs_play_store_listing_category",
+      "community": 78,
+      "norm_label": "category"
+    },
+    {
+      "label": "Tags",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L74",
+      "id": "docs_play_store_listing_tags",
+      "community": 78,
+      "norm_label": "tags"
+    },
+    {
+      "label": "App Access / Review Notes",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L78",
+      "id": "docs_play_store_listing_app_access_review_notes",
+      "community": 78,
+      "norm_label": "app access / review notes"
+    },
+    {
+      "label": "Content Rating Notes",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L93",
+      "id": "docs_play_store_listing_content_rating_notes",
+      "community": 78,
+      "norm_label": "content rating notes"
+    },
+    {
+      "label": "Policy Notes",
+      "file_type": "document",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L97",
+      "id": "docs_play_store_listing_policy_notes",
+      "community": 78,
+      "norm_label": "policy notes"
+    },
+    {
+      "label": "play-store-release.md",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L1",
+      "id": "docs_play_store_release",
+      "community": 70,
+      "norm_label": "play-store-release.md"
+    },
+    {
+      "label": "NoScroll Play Store Release Checklist",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L1",
+      "id": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "community": 70,
+      "norm_label": "noscroll play store release checklist"
+    },
+    {
+      "label": "Build Gate",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L5",
+      "id": "docs_play_store_release_build_gate",
+      "community": 70,
+      "norm_label": "build gate"
+    },
+    {
+      "label": "Upload Signing",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L22",
+      "id": "docs_play_store_release_upload_signing",
+      "community": 70,
+      "norm_label": "upload signing"
+    },
+    {
+      "label": "Sensitive Permission Declarations",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L51",
+      "id": "docs_play_store_release_sensitive_permission_declarations",
+      "community": 70,
+      "norm_label": "sensitive permission declarations"
+    },
+    {
+      "label": "Accessibility Service",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L53",
+      "id": "docs_play_store_release_accessibility_service",
+      "community": 70,
+      "norm_label": "accessibility service"
+    },
+    {
+      "label": "Display Over Other Apps",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L70",
+      "id": "docs_play_store_release_display_over_other_apps",
+      "community": 70,
+      "norm_label": "display over other apps"
+    },
+    {
+      "label": "Foreground Service: `specialUse`",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L81",
+      "id": "docs_play_store_release_foreground_service_specialuse",
+      "community": 70,
+      "norm_label": "foreground service: `specialuse`"
+    },
+    {
+      "label": "Notifications",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L92",
+      "id": "docs_play_store_release_notifications",
+      "community": 70,
+      "norm_label": "notifications"
+    },
+    {
+      "label": "Internet",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L97",
+      "id": "docs_play_store_release_internet",
+      "community": 70,
+      "norm_label": "internet"
+    },
+    {
+      "label": "Data Safety Summary",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L105",
+      "id": "docs_play_store_release_data_safety_summary",
+      "community": 70,
+      "norm_label": "data safety summary"
+    },
+    {
+      "label": "Policy Sources",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L114",
+      "id": "docs_play_store_release_policy_sources",
+      "community": 70,
+      "norm_label": "policy sources"
+    },
+    {
+      "label": "Current Policy Risk",
+      "file_type": "document",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L120",
+      "id": "docs_play_store_release_current_policy_risk",
+      "community": 70,
+      "norm_label": "current policy risk"
+    },
+    {
+      "label": "release-verification.md",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L1",
+      "id": "docs_release_verification",
+      "community": 80,
+      "norm_label": "release-verification.md"
+    },
+    {
+      "label": "NoScroll Release Verification",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L1",
+      "id": "docs_release_verification_noscroll_release_verification",
+      "community": 80,
+      "norm_label": "noscroll release verification"
+    },
+    {
+      "label": "Verified Locally",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L5",
+      "id": "docs_release_verification_verified_locally",
+      "community": 80,
+      "norm_label": "verified locally"
+    },
+    {
+      "label": "Device QA",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L35",
+      "id": "docs_release_verification_device_qa",
+      "community": 80,
+      "norm_label": "device qa"
+    },
+    {
+      "label": "External Play Console Tasks",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L64",
+      "id": "docs_release_verification_external_play_console_tasks",
+      "community": 80,
+      "norm_label": "external play console tasks"
+    },
+    {
+      "label": "versioning.md",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L1",
+      "id": "docs_versioning",
+      "community": 24,
+      "norm_label": "versioning.md"
+    },
+    {
+      "label": "NoScroll Android Versioning",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L1",
+      "id": "docs_versioning_noscroll_android_versioning",
+      "community": 24,
+      "norm_label": "noscroll android versioning"
+    },
+    {
+      "label": "Current Release",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L9",
+      "id": "docs_versioning_current_release",
+      "community": 24,
+      "norm_label": "current release"
+    },
+    {
+      "label": "Release Rules",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L17",
+      "id": "docs_versioning_release_rules",
+      "community": 24,
+      "norm_label": "release rules"
+    },
+    {
+      "label": "Local Overrides",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L25",
+      "id": "docs_versioning_local_overrides",
+      "community": 24,
+      "norm_label": "local overrides"
+    },
+    {
+      "label": "Pre-upload Check",
+      "file_type": "document",
+      "source_file": "docs/versioning.md",
+      "source_location": "L36",
+      "id": "docs_versioning_pre_upload_check",
+      "community": 24,
+      "norm_label": "pre-upload check"
     },
     {
       "label": "reasoning.md",
@@ -8253,7 +8901,7 @@
       "source_file": "reasoning.md",
       "source_location": "L215",
       "id": "reasoning_2026_06_12_17_59_session_dm_shared_media_state_retest_and_partial_implementation",
-      "community": 43,
+      "community": 76,
       "norm_label": "[2026-06-12 17:59] session: dm shared-media state retest and partial implementation"
     },
     {
@@ -8262,7 +8910,7 @@
       "source_file": "reasoning.md",
       "source_location": "L230",
       "id": "reasoning_dm_shared_media_test",
-      "community": 43,
+      "community": 76,
       "norm_label": "dm shared-media test"
     },
     {
@@ -8878,13 +9526,148 @@
       "norm_label": "[2026-06-19 13:33] product docs repositioned around blocker, reader, and quote sharing"
     },
     {
+      "label": "[2026-06-19 13:47] Logo placements fitted across app surfaces",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L999",
+      "id": "reasoning_2026_06_19_13_47_logo_placements_fitted_across_app_surfaces",
+      "community": 43,
+      "norm_label": "[2026-06-19 13:47] logo placements fitted across app surfaces"
+    },
+    {
+      "label": "[2026-06-19 14:14] Paper UI logo variant and main-page QA pass",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1004",
+      "id": "reasoning_2026_06_19_14_14_paper_ui_logo_variant_and_main_page_qa_pass",
+      "community": 43,
+      "norm_label": "[2026-06-19 14:14] paper ui logo variant and main-page qa pass"
+    },
+    {
+      "label": "[2026-06-19 14:18] Launcher icon rebuilt for adaptive masks",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1009",
+      "id": "reasoning_2026_06_19_14_18_launcher_icon_rebuilt_for_adaptive_masks",
+      "community": 43,
+      "norm_label": "[2026-06-19 14:18] launcher icon rebuilt for adaptive masks"
+    },
+    {
+      "label": "[2026-06-19 14:22] Instagram Reels blocker appearance verified",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1014",
+      "id": "reasoning_2026_06_19_14_22_instagram_reels_blocker_appearance_verified",
+      "community": 43,
+      "norm_label": "[2026-06-19 14:22] instagram reels blocker appearance verified"
+    },
+    {
       "label": "[2026-06-19 13:45] Black transparent logo variants added",
       "file_type": "document",
       "source_file": "reasoning.md",
-      "source_location": "L998",
+      "source_location": "L1018",
       "id": "reasoning_2026_06_19_13_45_black_transparent_logo_variants_added",
       "community": 43,
       "norm_label": "[2026-06-19 13:45] black transparent logo variants added"
+    },
+    {
+      "label": "[2026-06-19 13:56] Debug app redeployed to connected phone",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1022",
+      "id": "reasoning_2026_06_19_13_56_debug_app_redeployed_to_connected_phone",
+      "community": 43,
+      "norm_label": "[2026-06-19 13:56] debug app redeployed to connected phone"
+    },
+    {
+      "label": "[2026-06-19 15:21] Play release readiness hardening",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1026",
+      "id": "reasoning_2026_06_19_15_21_play_release_readiness_hardening",
+      "community": 43,
+      "norm_label": "[2026-06-19 15:21] play release readiness hardening"
+    },
+    {
+      "label": "[2026-06-19 15:32] Signed Play upload bundle created",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1030",
+      "id": "reasoning_2026_06_19_15_32_signed_play_upload_bundle_created",
+      "community": 43,
+      "norm_label": "[2026-06-19 15:32] signed play upload bundle created"
+    },
+    {
+      "label": "[2026-06-19 15:35] Play Console submission docs completed",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1034",
+      "id": "reasoning_2026_06_19_15_35_play_console_submission_docs_completed",
+      "community": 43,
+      "norm_label": "[2026-06-19 15:35] play console submission docs completed"
+    },
+    {
+      "label": "[2026-06-23 12:15] Launcher icon restored to black background with white mark",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1039",
+      "id": "reasoning_2026_06_23_12_15_launcher_icon_restored_to_black_background_with_white_mark",
+      "community": 43,
+      "norm_label": "[2026-06-23 12:15] launcher icon restored to black background with white mark"
+    },
+    {
+      "label": "[2026-06-23 12:24] Launcher icon build installed on device",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1044",
+      "id": "reasoning_2026_06_23_12_24_launcher_icon_build_installed_on_device",
+      "community": 43,
+      "norm_label": "[2026-06-23 12:24] launcher icon build installed on device"
+    },
+    {
+      "label": "[2026-06-23 12:28] Launcher icon mark padded",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1049",
+      "id": "reasoning_2026_06_23_12_28_launcher_icon_mark_padded",
+      "community": 43,
+      "norm_label": "[2026-06-23 12:28] launcher icon mark padded"
+    },
+    {
+      "label": "[2026-06-23 12:25] Play release versioning and device smoke update",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1054",
+      "id": "reasoning_2026_06_23_12_25_play_release_versioning_and_device_smoke_update",
+      "community": 43,
+      "norm_label": "[2026-06-23 12:25] play release versioning and device smoke update"
+    },
+    {
+      "label": "[2026-06-23 12:28] Added 16 KB native-library Play gate",
+      "file_type": "document",
+      "source_file": "reasoning.md",
+      "source_location": "L1060",
+      "id": "reasoning_2026_06_23_12_28_added_16_kb_native_library_play_gate",
+      "community": 43,
+      "norm_label": "[2026-06-23 12:28] added 16 kb native-library play gate"
+    },
+    {
+      "label": "Device QA Still Required",
+      "file_type": "document",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L28",
+      "community": 80,
+      "norm_label": "device qa still required",
+      "id": "docs_release_verification_device_qa_still_required"
+    },
+    {
+      "label": ".applyIconTint()",
+      "file_type": "code",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L112",
+      "community": 8,
+      "norm_label": ".applyicontint()",
+      "id": "noscroll_overlayservice_overlayservice_applyicontint"
     },
     {
       "label": "Core Mechanism: Instagram Interception",
@@ -9062,7 +9845,7 @@
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L352",
-      "community": 1,
+      "community": 23,
       "norm_label": "compactchip()",
       "id": "ui_libraryscreen_compactchip"
     },
@@ -9071,7 +9854,7 @@
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L352",
-      "community": 1,
+      "community": 23,
       "norm_label": "string",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_string"
     },
@@ -9080,7 +9863,7 @@
       "file_type": "code",
       "source_file": "app/src/main/java/com/noscroll/ui/LibraryScreen.kt",
       "source_location": "L352",
-      "community": 1,
+      "community": 23,
       "norm_label": "boolean",
       "id": "app_src_main_java_com_noscroll_ui_libraryscreen_kt_boolean"
     },
@@ -13338,6 +14121,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L112",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice",
+      "target": "noscroll_overlayservice_overlayservice_applylogovariant"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
       "source_location": "L232",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13458,6 +14251,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice",
+      "target": "noscroll_overlayservice_overlayservice_startforegroundcompat"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
       "source_location": "L111",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -13508,6 +14311,17 @@
       "target": "app_src_main_java_com_noscroll_overlayservice_kt_view"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L112",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_applylogovariant",
+      "target": "app_src_main_java_com_noscroll_overlayservice_kt_view"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -13539,6 +14353,39 @@
       "confidence_score": 1.0,
       "source": "noscroll_overlayservice_overlayservice_oncreate",
       "target": "noscroll_overlayservice_overlayservice_createnotificationchannel"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L55",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_oncreate",
+      "target": "noscroll_overlayservice_overlayservice_startforegroundcompat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_startforegroundcompat",
+      "target": "notification"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L279",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_buildnotification",
+      "target": "notification"
     },
     {
       "relation": "references",
@@ -13665,6 +14512,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L112",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_applylogovariant",
+      "target": "app_src_main_java_com_noscroll_overlayservice_kt_int"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
       "source_location": "L232",
       "weight": 1.0,
       "context": "return_type",
@@ -13704,6 +14562,17 @@
       "confidence_score": 1.0,
       "source": "noscroll_overlayservice_overlayservice_updateoverlay",
       "target": "app_src_main_java_com_noscroll_overlayservice_kt_int"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
+      "source_location": "L138",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_overlayservice_overlayservice_updateoverlay",
+      "target": "noscroll_overlayservice_overlayservice_applylogovariant"
     },
     {
       "relation": "calls",
@@ -13869,17 +14738,6 @@
       "confidence_score": 1.0,
       "source": "noscroll_overlayservice_overlayservice_onbind",
       "target": "ibinder"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/src/main/java/com/noscroll/OverlayService.kt",
-      "source_location": "L279",
-      "weight": 1.0,
-      "context": "return_type",
-      "confidence_score": 1.0,
-      "source": "noscroll_overlayservice_overlayservice_buildnotification",
-      "target": "notification"
     },
     {
       "relation": "contains",
@@ -19371,6 +20229,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity",
+      "target": "noscroll_setupactivity_permissiondisclosure"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L299",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity",
+      "target": "noscroll_setupactivity_permissiondisclosuredialog"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L212",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -19442,6 +20320,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L249",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity",
+      "target": "noscroll_setupactivity_setupactivity_accept"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L198",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -19462,6 +20350,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity",
+      "target": "noscroll_setupactivity_setupactivity_hasaccepted"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L56",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -19477,6 +20375,26 @@
       "confidence_score": 1.0,
       "source": "noscroll_setupactivity_setupactivity",
       "target": "noscroll_setupactivity_setupactivity_onresume"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L242",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity",
+      "target": "noscroll_setupactivity_setupactivity_openaccessibilitysettings"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L233",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity",
+      "target": "noscroll_setupactivity_setupactivity_openoverlaysettings"
     },
     {
       "relation": "method",
@@ -19536,11 +20454,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_oncreate",
+      "target": "noscroll_setupactivity_permissiondisclosuredialog"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
       "source_location": "L79",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "noscroll_setupactivity_setupactivity_oncreate",
       "target": "noscroll_setupactivity_permissionrow"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L194",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_oncreate",
+      "target": "noscroll_setupactivity_setupactivity_accept"
     },
     {
       "relation": "calls",
@@ -19563,6 +20503,39 @@
       "confidence_score": 1.0,
       "source": "noscroll_setupactivity_setupactivity_oncreate",
       "target": "noscroll_setupactivity_setupactivity_applypapersystembars"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L107",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_oncreate",
+      "target": "noscroll_setupactivity_setupactivity_hasaccepted"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L123",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_oncreate",
+      "target": "noscroll_setupactivity_setupactivity_openaccessibilitysettings"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_oncreate",
+      "target": "noscroll_setupactivity_setupactivity_openoverlaysettings"
     },
     {
       "relation": "calls",
@@ -19686,6 +20659,72 @@
       "target": "noscroll_setupactivity_setupactivity_updateui"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L235",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_openoverlaysettings",
+      "target": "app_src_main_java_com_noscroll_setupactivity_kt_intent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L243",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_openaccessibilitysettings",
+      "target": "noscroll_setupactivity_setupactivity_accessibilityserviceintent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "weight": 1.0,
+      "context": "return_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_hasaccepted",
+      "target": "app_src_main_java_com_noscroll_setupactivity_kt_boolean"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L246",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_hasaccepted",
+      "target": "permissiondisclosure"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L249",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_setupactivity_accept",
+      "target": "permissiondisclosure"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L212",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "noscroll_setupactivity_permissionrow",
+      "target": "app_src_main_java_com_noscroll_setupactivity_kt_boolean"
+    },
+    {
       "relation": "references",
       "context": "return_type",
       "confidence": "EXTRACTED",
@@ -19722,12 +20761,23 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
-      "source_location": "L212",
+      "source_location": "L299",
       "weight": 1.0,
       "context": "parameter_type",
       "confidence_score": 1.0,
-      "source": "noscroll_setupactivity_permissionrow",
-      "target": "app_src_main_java_com_noscroll_setupactivity_kt_boolean"
+      "source": "noscroll_setupactivity_permissiondisclosuredialog",
+      "target": "noscroll_setupactivity_permissiondisclosure"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/src/main/java/com/noscroll/SetupActivity.kt",
+      "source_location": "L309",
+      "weight": 1.0,
+      "source": "noscroll_setupactivity_permissiondisclosuredialog",
+      "target": "text"
     },
     {
       "relation": "calls",
@@ -22070,6 +23120,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
+      "source_location": "L252",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_bookmetadatarepository_bookmetadatarepository",
+      "target": "metadata_bookmetadatarepository_bookmetadatarepository_debuglog"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
       "source_location": "L99",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -22241,6 +23301,17 @@
       "confidence_score": 1.0,
       "source": "metadata_bookmetadatarepository_bookmetadatarepository_resolve",
       "target": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_uri"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "metadata_bookmetadatarepository_bookmetadatarepository_resolve",
+      "target": "metadata_bookmetadatarepository_bookmetadatarepository_debuglog"
     },
     {
       "relation": "calls",
@@ -22471,6 +23542,17 @@
       "context": "return_type",
       "confidence_score": 1.0,
       "source": "metadata_bookmetadatarepository_bookmetadatarepository_cleantitle",
+      "target": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/src/main/java/com/noscroll/metadata/BookMetadataRepository.kt",
+      "source_location": "L252",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "confidence_score": 1.0,
+      "source": "metadata_bookmetadatarepository_bookmetadatarepository_debuglog",
       "target": "app_src_main_java_com_noscroll_metadata_bookmetadatarepository_kt_string"
     },
     {
@@ -28283,9 +29365,9 @@
       "source_file": "app/src/main/java/com/noscroll/ui/BrandMark.kt",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_brandmark",
-      "target": "ui_brandmark_brandmark",
-      "confidence_score": 1.0
+      "target": "ui_brandmark_brandmark"
     },
     {
       "relation": "references",
@@ -28294,9 +29376,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "ui_brandmark_brandmark",
-      "target": "app_src_main_java_com_noscroll_ui_brandmark_kt_modifier",
-      "confidence_score": 1.0
+      "target": "app_src_main_java_com_noscroll_ui_brandmark_kt_modifier"
     },
     {
       "relation": "references",
@@ -28305,9 +29387,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "ui_brandmark_brandmark",
-      "target": "dp",
-      "confidence_score": 1.0
+      "target": "dp"
     },
     {
       "relation": "calls",
@@ -30070,6 +31152,56 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "scripts_create_play_store_assets",
+      "target": "scripts_create_play_store_assets_assert_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scripts_create_play_store_assets",
+      "target": "scripts_create_play_store_assets_draw_centeredimage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_create_play_store_assets",
+      "target": "scripts_create_play_store_assets_draw_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scripts_create_play_store_assets",
+      "target": "scripts_create_play_store_assets_new_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/create-play-store-assets.ps1",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "scripts_create_play_store_assets",
+      "target": "scripts_create_play_store_assets_save_jpeg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -30096,6 +31228,56 @@
       "confidence_score": 1.0,
       "source": "claude",
       "target": "claude_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "privacy_policy",
+      "target": "privacy_policy_noscroll_privacy_policy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "privacy_policy_noscroll_privacy_policy",
+      "target": "privacy_policy_data_noscroll_handles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "privacy_policy_noscroll_privacy_policy",
+      "target": "privacy_policy_data_sharing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "privacy_policy_noscroll_privacy_policy",
+      "target": "privacy_policy_permissions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PRIVACY_POLICY.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "privacy_policy_noscroll_privacy_policy",
+      "target": "privacy_policy_user_control"
     },
     {
       "relation": "contains",
@@ -30341,6 +31523,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_noscroll",
+      "target": "readme_play_release"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -30386,6 +31578,26 @@
       "confidence_score": 1.0,
       "source": "readme_noscroll",
       "target": "readme_what_is_implemented"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/play-store/main-listing/manifest.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "main_listing_manifest",
+      "target": "main_listing_manifest_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "artifacts/play-store/main-listing/manifest.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "main_listing_manifest",
+      "target": "main_listing_manifest_notes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -30476,6 +31688,416 @@
       "confidence_score": 1.0,
       "source": "social_first_post_copy_noscroll_first_social_post",
       "target": "social_first_post_copy_title"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety",
+      "target": "docs_data_safety_noscroll_data_safety_draft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_noscroll_data_safety_draft",
+      "target": "docs_data_safety_data_collection_summary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_noscroll_data_safety_draft",
+      "target": "docs_data_safety_permissions_and_data_mapping"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_noscroll_data_safety_draft",
+      "target": "docs_data_safety_play_console_answers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_noscroll_data_safety_draft",
+      "target": "docs_data_safety_privacy_policy_claims_to_keep_consistent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_play_console_answers",
+      "target": "docs_data_safety_can_users_request_data_deletion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_play_console_answers",
+      "target": "docs_data_safety_does_the_app_collect_or_share_any_required_user_data_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_play_console_answers",
+      "target": "docs_data_safety_is_all_collected_data_encrypted_in_transit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/data-safety.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_data_safety_play_console_answers",
+      "target": "docs_data_safety_is_data_shared_with_third_parties"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing",
+      "target": "docs_play_store_listing_noscroll_play_store_listing_draft"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_app_access_review_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_app_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_category"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_content_rating_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_feature_graphic_screenshot_storyboard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_full_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_policy_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_short_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-listing.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_listing_noscroll_play_store_listing_draft",
+      "target": "docs_play_store_listing_tags"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release",
+      "target": "docs_play_store_release_noscroll_play_store_release_checklist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_build_gate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_current_policy_risk"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_data_safety_summary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_policy_sources"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_sensitive_permission_declarations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_noscroll_play_store_release_checklist",
+      "target": "docs_play_store_release_upload_signing"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L44",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_sensitive_permission_declarations",
+      "target": "docs_play_store_release_accessibility_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_sensitive_permission_declarations",
+      "target": "docs_play_store_release_display_over_other_apps"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_sensitive_permission_declarations",
+      "target": "docs_play_store_release_foreground_service_specialuse"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_sensitive_permission_declarations",
+      "target": "docs_play_store_release_internet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/play-store-release.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_play_store_release_sensitive_permission_declarations",
+      "target": "docs_play_store_release_notifications"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_release_verification",
+      "target": "docs_release_verification_noscroll_release_verification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_release_verification_noscroll_release_verification",
+      "target": "docs_release_verification_device_qa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_release_verification_noscroll_release_verification",
+      "target": "docs_release_verification_device_qa_still_required"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_release_verification_noscroll_release_verification",
+      "target": "docs_release_verification_external_play_console_tasks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/release-verification.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_release_verification_noscroll_release_verification",
+      "target": "docs_release_verification_verified_locally"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/versioning.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_versioning",
+      "target": "docs_versioning_noscroll_android_versioning"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/versioning.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_versioning_noscroll_android_versioning",
+      "target": "docs_versioning_current_release"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/versioning.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_versioning_noscroll_android_versioning",
+      "target": "docs_versioning_local_overrides"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/versioning.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_versioning_noscroll_android_versioning",
+      "target": "docs_versioning_pre_upload_check"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/versioning.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_versioning_noscroll_android_versioning",
+      "target": "docs_versioning_release_rules"
     },
     {
       "relation": "contains",
@@ -30803,9 +32425,139 @@
       "source_file": "reasoning.md",
       "source_location": "L998",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "reasoning_reasoning_md_no_scroll",
-      "target": "reasoning_2026_06_19_13_45_black_transparent_logo_variants_added",
+      "target": "reasoning_2026_06_19_13_45_black_transparent_logo_variants_added"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L999",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_13_47_logo_placements_fitted_across_app_surfaces"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1007",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_13_56_debug_app_redeployed_to_connected_phone"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1004",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_14_14_paper_ui_logo_variant_and_main_page_qa_pass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1009",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_14_18_launcher_icon_rebuilt_for_adaptive_masks"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1014",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_14_22_instagram_reels_blocker_appearance_verified"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1026",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_15_21_play_release_readiness_hardening"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1030",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_15_32_signed_play_upload_bundle_created"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1034",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_19_15_35_play_console_submission_docs_completed"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1039",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_23_12_15_launcher_icon_restored_to_black_background_with_white_mark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1044",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_23_12_24_launcher_icon_build_installed_on_device"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1049",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_23_12_25_play_release_versioning_and_device_smoke_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1060",
+      "weight": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_23_12_28_added_16_kb_native_library_play_gate",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reasoning.md",
+      "source_location": "L1049",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "reasoning_reasoning_md_no_scroll",
+      "target": "reasoning_2026_06_23_12_28_launcher_icon_mark_padded"
     },
     {
       "relation": "contains",
@@ -31614,5 +33366,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ff269c64d6f1f7215a64aafeab00fca32c85f1d3"
+  "built_at_commit": "d7cb86b8b2f199d1457e9121eb805d9b075f8c15"
 }
