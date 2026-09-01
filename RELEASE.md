@@ -9,25 +9,24 @@ Repository configuration:
 - Package/application ID: `com.noscroll`
 - `minSdk`: 28 (Android 9)
 - `compileSdk`: 36
-- `targetSdk`: 35
+- `targetSdk`: 36 (Android 16)
 - `versionCode`: 1
 - `versionName`: 1.0
 - No release `signingConfig` is committed to the repository.
 
 ### Play beta status
 
-**The repository is not currently ready for a new Google Play beta upload.** Google Play requires new apps and app updates submitted from August 31, 2026 onward to target Android 16 / API 36 or higher. NoScroll currently targets API 35.
+The repository-level target-API discrepancy has been resolved: NoScroll now targets Android 16 / API 36, which meets Google's requirement for new apps and app updates submitted from August 31, 2026 onward.
 
-Before the first Play upload:
+This does **not** mean the app is ready to upload to Google Play yet. Before the first Play upload:
 
-1. Raise `targetSdk` to 36 and run the full build/test/manual regression suite.
-2. Confirm the app is compatible with Android 16 behavior changes relevant to accessibility, overlays, foreground services, notifications, file access, sharing, PDF rendering, and intents.
-3. Confirm whether `com.noscroll` has already been created/registered in the team's Play Console. The repository cannot prove Play Console registration state.
-4. If it has not been created, create the app in Play Console using the final package ID `com.noscroll`.
-5. Configure Play App Signing and create a secure upload key/keystore.
-6. Configure release signing locally or in CI. Do not commit the keystore, passwords, service-account credentials, or other signing secrets.
-7. Build and upload a signed Android App Bundle (`.aab`) to an Internal testing track first.
-8. Complete Play Console requirements that apply to the account/app, including store listing, app content/declarations, privacy/data-safety information, tester access, and any required review steps.
+1. Run the full build/test suite and validate Android 16 behavior changes on device, especially edge-to-edge/predictive-back behavior plus NoScroll's accessibility, overlay, foreground-service, notification, file, sharing, PDF, and intent flows.
+2. Confirm whether `com.noscroll` has already been created/registered in the team's Play Console. The repository cannot prove Play Console registration state.
+3. If it has not been created, create the app in Play Console using the final package ID `com.noscroll`.
+4. Configure Play App Signing and create a secure upload key/keystore.
+5. Configure release signing locally or in CI. Do not commit the keystore, passwords, service-account credentials, or other signing secrets.
+6. Build and upload a signed Android App Bundle (`.aab`) to an Internal testing track first.
+7. Complete Play Console requirements that apply to the account/app, including store listing, app content/declarations, privacy/data-safety information, tester access, and any required review steps.
 
 ## Do we need Google Play before we can update the app?
 
@@ -121,21 +120,28 @@ A successful build is not enough. Manually regression-test the beta candidate on
 - OCR fallback on a scanned page.
 - Quote-card creation and each supported share path.
 - App restart, device reboot, and service recovery.
+- Predictive-back behavior on Android 16.
+- Edge-to-edge/inset handling on Android 16.
 - Upgrade from the immediately previous beta through the same distribution channel.
 
 For a Play candidate, also test the actual Play-installed artifact through Internal testing rather than relying only on a locally installed APK.
 
 ## Release checklist
 
+Current repository-level SDK gate:
+
+- [x] `targetSdk` is API 36, meeting the current Google Play submission requirement as of 2026-09-01.
+
 A candidate is ready to promote only when all of the following are true:
 
-- [ ] `targetSdk` meets the current Google Play submission requirement.
+- [ ] Re-check that `targetSdk` still meets the current Google Play submission requirement at release time.
 - [ ] Package ID is still `com.noscroll`.
 - [ ] `versionCode` is unique and greater than every prior Play upload.
 - [ ] Release signing is configured outside source control.
 - [ ] `bundleRelease` succeeds.
 - [ ] Unit/check tasks pass.
 - [ ] Core blocker and reader regression tests pass on physical hardware.
+- [ ] Android 16 predictive-back and edge-to-edge behavior is verified.
 - [ ] The Play Internal build installs and launches successfully.
 - [ ] Upgrade testing from the previous beta passes where an in-place upgrade is expected.
 - [ ] Accessibility/overlay permission behavior is rechecked on the target Android versions.
@@ -156,5 +162,6 @@ Keep release credentials in an approved local secret store or CI secret manager.
 ## External references
 
 - Google Play target API requirement: https://developer.android.com/google/play/requirements/target-sdk
+- Android 16 target-specific behavior changes: https://developer.android.com/about/versions/16/behavior-changes-16
 - Android app signing / Play App Signing: https://developer.android.com/studio/publish/app-signing
 - Preparing an Android app for release: https://developer.android.com/studio/publish/preparing
