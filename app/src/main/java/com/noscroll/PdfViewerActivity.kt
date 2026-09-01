@@ -13,7 +13,6 @@ import android.os.ParcelFileDescriptor
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
-import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -26,6 +25,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.pdf.PdfDocument
 import androidx.pdf.PdfRect
@@ -558,12 +560,13 @@ class PdfViewerActivity : AppCompatActivity(), NoScrollPdfViewerFragment.Host {
     // ── System bars ────────────────────────────────────────────────────────────
 
     private fun setSystemBarsHidden(hidden: Boolean) {
+        val controller = WindowCompat.getInsetsController(window, window.decorView)
         if (hidden) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
-            window.insetsController?.systemBarsBehavior =
-                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         } else {
-            window.insetsController?.show(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            controller.show(WindowInsetsCompat.Type.systemBars())
             applyReaderSystemBarContrast()
         }
     }

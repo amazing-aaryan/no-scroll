@@ -51,7 +51,16 @@ class OverlayService : Service() {
         super.onCreate()
         createNotificationChannel()
         try {
-            startForeground(NOTIF_ID, buildNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            val notification = buildNotification()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(
+                    NOTIF_ID,
+                    notification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE
+                )
+            } else {
+                startForeground(NOTIF_ID, notification)
+            }
         } catch (e: Exception) {
             // ForegroundServiceStartNotAllowedException on Android 12+ when system restarts the
             // service from the background without the accessibility service context.

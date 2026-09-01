@@ -1,5 +1,6 @@
 package com.noscroll
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.RectF
@@ -49,10 +50,17 @@ object PdfHighlightExporter {
                     }
                 }
             }
-            renderer.write(outputPfd, false)
+            writeRenderer(renderer, outputPfd)
         }
 
         return FileProvider.getUriForFile(context, AUTHORITY, output)
+    }
+
+    @SuppressLint("NewApi")
+    private fun writeRenderer(renderer: PdfRenderer, outputPfd: ParcelFileDescriptor) {
+        // exportAnnotatedPdf() guards this call with either platform API 36+ or the
+        // Android S PDF SDK extension version that exposes PdfRenderer.write().
+        renderer.write(outputPfd, false)
     }
 
     fun exportHighlightsText(context: Context, metadataTitle: String, highlights: List<HighlightEntity>): Uri {
