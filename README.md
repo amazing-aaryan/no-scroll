@@ -52,23 +52,26 @@ See [`RELEASE.md`](RELEASE.md) for the complete first-beta setup, signing, versi
 - Android phone, API 28 / Android 9+
 - USB debugging enabled for local install
 - Instagram installed on the phone if testing blocker behavior
+- Gradle 8.11.1 for command-line builds
+
+The repository currently contains `gradle/wrapper/gradle-wrapper.properties` but does not contain the `gradlew`, `gradlew.bat`, or `gradle-wrapper.jar` wrapper files. Until the complete wrapper is restored, use an installed Gradle 8.11.1 for command-line builds. CI pins the same version.
 
 ## Build
 
-Open this folder in Android Studio and run the `app` configuration, or build from PowerShell:
+Open this folder in Android Studio and run the `app` configuration, or build from a shell with Gradle 8.11.1:
 
 ```powershell
-.\gradlew.bat assembleDebug
+gradle assembleDebug
 adb install -r app\build\outputs\apk\debug\app-debug.apk
 ```
 
 For a fuller pre-beta verification pass:
 
 ```powershell
-.\gradlew.bat clean
-.\gradlew.bat assembleDebug
-.\gradlew.bat test
-.\gradlew.bat check
+gradle clean
+gradle testDebugUnitTest
+gradle lintDebug
+gradle assembleDebug
 ```
 
 ## First-run setup
@@ -105,4 +108,5 @@ For a fuller pre-beta verification pass:
 | No text selection appears | The PDF may be scanned; use OCR page |
 | Quote card share fails | Use generic Android share sheet as fallback |
 | `adb install -r` reports a signature mismatch | The installed build was signed with a different key; uninstall/reinstall or use the same signing identity |
+| `gradlew` / `gradlew.bat` is missing | Use installed Gradle 8.11.1 until the complete Gradle wrapper is restored |
 | Play Console rejects target API level | Verify `targetSdk` still meets Google's current Play requirement and bump it before uploading if the requirement has advanced |
