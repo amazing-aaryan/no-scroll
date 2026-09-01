@@ -1,0 +1,160 @@
+# NoScroll Beta and Release Guide
+
+This document is the source of truth for distributing NoScroll outside local development and for shipping updates after the first release.
+
+## Current release state — 2026-09-01
+
+Repository configuration:
+
+- Package/application ID: `com.noscroll`
+- `minSdk`: 28 (Android 9)
+- `compileSdk`: 36
+- `targetSdk`: 35
+- `versionCode`: 1
+- `versionName`: 1.0
+- No release `signingConfig` is committed to the repository.
+
+### Play beta status
+
+**The repository is not currently ready for a new Google Play beta upload.** Google Play requires new apps and app updates submitted from August 31, 2026 onward to target Android 16 / API 36 or higher. NoScroll currently targets API 35.
+
+Before the first Play upload:
+
+1. Raise `targetSdk` to 36 and run the full build/test/manual regression suite.
+2. Confirm the app is compatible with Android 16 behavior changes relevant to accessibility, overlays, foreground services, notifications, file access, sharing, PDF rendering, and intents.
+3. Confirm whether `com.noscroll` has already been created/registered in the team's Play Console. The repository cannot prove Play Console registration state.
+4. If it has not been created, create the app in Play Console using the final package ID `com.noscroll`.
+5. Configure Play App Signing and create a secure upload key/keystore.
+6. Configure release signing locally or in CI. Do not commit the keystore, passwords, service-account credentials, or other signing secrets.
+7. Build and upload a signed Android App Bundle (`.aab`) to an Internal testing track first.
+8. Complete Play Console requirements that apply to the account/app, including store listing, app content/declarations, privacy/data-safety information, tester access, and any required review steps.
+
+## Do we need Google Play before we can update the app?
+
+No. There are two separate update paths.
+
+### Local / sideloaded updates
+
+A sideloaded build can update an already installed build only when Android considers it the same app. At minimum, the package ID and signing identity must be compatible and the new build must have an acceptable version.
+
+For development, a debug APK can normally replace an existing debug APK signed by the same debug key:
+
+```powershell
+.\gradlew.bat assembleDebug
+adb install -r app\build\outputs\apk\debug\app-debug.apk
+```
+
+A debug APK generated on another computer may use a different debug signing key. In that case Android may reject the in-place update and require uninstall/reinstall.
+
+### Google Play updates
+
+Google Play registration/setup is required before **Google Play** can distribute the first beta or any later Play update. After that one-time setup, normal updates do not require registering a new app.
+
+For every subsequent Play release:
+
+1. Keep `applicationId "com.noscroll"` unchanged.
+2. Keep the app's Play signing identity unchanged.
+3. Increment `versionCode` above every previously uploaded build.
+4. Update `versionName` when appropriate for humans.
+5. Build a signed release AAB with the registered upload key.
+6. Upload it to the desired testing/production track.
+7. Review release notes and roll out the release.
+
+## Debug-to-Play transition
+
+Do not assume a locally installed debug build will update in place to the Play build. Debug and Play distributions normally use different signing identities. Testers moving from a debug build to the first Play-distributed build may need to:
+
+1. Uninstall the debug build.
+2. Install NoScroll from the Play testing link.
+3. Re-enable the Accessibility Service.
+4. Re-grant Display Over Other Apps and any other runtime/special permissions.
+5. Re-import local-only content if uninstalling removed app-private data.
+
+Plan the first external beta with this migration cost in mind.
+
+## Versioning rules
+
+- Never reuse a `versionCode` that has been uploaded to Play.
+- Bump `versionCode` for every distributed Play build, even if `versionName` stays the same.
+- Do not change the package ID after establishing the Play app unless intentionally creating a separate app.
+- Do not rotate or replace the app signing identity casually. Follow Play App Signing procedures for supported key upgrades or upload-key resets.
+
+Suggested early beta sequence:
+
+| Channel | Example versionCode | Purpose |
+|---|---:|---|
+| Local debug | development-only | Fast device testing |
+| Play Internal | 2 | First signed Play beta |
+| Play Internal/Closed | 3+ | Regression fixes and broader testers |
+| Production | later | Only after beta gates pass |
+
+The exact next `versionCode` must be checked against Play Console before upload. The table assumes `1` has not already been uploaded externally.
+
+## Build and verification gates
+
+Before distributing any beta candidate, run at least:
+
+```powershell
+.\gradlew.bat clean
+.\gradlew.bat assembleDebug
+.\gradlew.bat test
+.\gradlew.bat check
+```
+
+After release signing is configured locally/CI, also build the release bundle:
+
+```powershell
+.\gradlew.bat bundleRelease
+```
+
+A successful build is not enough. Manually regression-test the beta candidate on a physical device, including:
+
+- First-run permission/setup flow.
+- Accessibility service enabled, disabled, and re-enabled.
+- Overlay permission enabled, denied, and restored.
+- Instagram Home/Reels blocking and allowed surfaces.
+- Story-viewer overlay suppression.
+- Opening NoScroll directly and from the Instagram blocker/entry point.
+- PDF import from file picker and share sheet.
+- PDF open/read/page progress and relaunch restoration.
+- Text selection, highlight, note, and delete/edit flows.
+- OCR fallback on a scanned page.
+- Quote-card creation and each supported share path.
+- App restart, device reboot, and service recovery.
+- Upgrade from the immediately previous beta through the same distribution channel.
+
+For a Play candidate, also test the actual Play-installed artifact through Internal testing rather than relying only on a locally installed APK.
+
+## Release checklist
+
+A candidate is ready to promote only when all of the following are true:
+
+- [ ] `targetSdk` meets the current Google Play submission requirement.
+- [ ] Package ID is still `com.noscroll`.
+- [ ] `versionCode` is unique and greater than every prior Play upload.
+- [ ] Release signing is configured outside source control.
+- [ ] `bundleRelease` succeeds.
+- [ ] Unit/check tasks pass.
+- [ ] Core blocker and reader regression tests pass on physical hardware.
+- [ ] The Play Internal build installs and launches successfully.
+- [ ] Upgrade testing from the previous beta passes where an in-place upgrade is expected.
+- [ ] Accessibility/overlay permission behavior is rechecked on the target Android versions.
+- [ ] Store listing, policy declarations, privacy/data-safety details, and tester configuration are complete.
+
+## Security rules
+
+Never commit:
+
+- `.jks` / `.keystore` files
+- keystore passwords
+- key aliases/passwords in plaintext
+- Play service-account credentials
+- API secrets
+
+Keep release credentials in an approved local secret store or CI secret manager. Only non-secret signing metadata or setup instructions belong in Git.
+
+## External references
+
+- Google Play target API requirement: https://developer.android.com/google/play/requirements/target-sdk
+- Android app signing / Play App Signing: https://developer.android.com/studio/publish/app-signing
+- Preparing an Android app for release: https://developer.android.com/studio/publish/preparing
