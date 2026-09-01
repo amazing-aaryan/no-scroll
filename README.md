@@ -52,27 +52,29 @@ See [`RELEASE.md`](RELEASE.md) for the complete first-beta setup, signing, versi
 - Android phone, API 28 / Android 9+
 - USB debugging enabled for local install
 - Instagram installed on the phone if testing blocker behavior
-- Gradle 8.11.1 for command-line builds
+- Gradle 8.11.1 when building from Linux/macOS or CI without a Unix wrapper launcher
 
-The repository currently contains `gradle/wrapper/gradle-wrapper.properties` but does not contain the `gradlew`, `gradlew.bat`, or `gradle-wrapper.jar` wrapper files. Until the complete wrapper is restored, use an installed Gradle 8.11.1 for command-line builds. CI pins the same version.
+The repository contains `gradlew.bat`, `gradle/wrapper/gradle-wrapper.jar`, and `gradle/wrapper/gradle-wrapper.properties`, so Windows command-line builds can use the Gradle wrapper normally. The Unix `gradlew` launcher is currently missing; CI therefore provisions Gradle 8.11.1 explicitly, matching the wrapper configuration.
 
 ## Build
 
-Open this folder in Android Studio and run the `app` configuration, or build from a shell with Gradle 8.11.1:
+Open this folder in Android Studio and run the `app` configuration, or build from PowerShell on Windows:
 
 ```powershell
-gradle assembleDebug
+.\gradlew.bat assembleDebug
 adb install -r app\build\outputs\apk\debug\app-debug.apk
 ```
 
-For a fuller pre-beta verification pass:
+For a fuller pre-beta verification pass on Windows:
 
 ```powershell
-gradle clean
-gradle testDebugUnitTest
-gradle lintDebug
-gradle assembleDebug
+.\gradlew.bat clean
+.\gradlew.bat testDebugUnitTest
+.\gradlew.bat lintDebug
+.\gradlew.bat assembleDebug
 ```
+
+On Linux/macOS until the `gradlew` launcher is restored, use an installed Gradle 8.11.1 and the equivalent `gradle` commands. CI pins the same version.
 
 ## First-run setup
 
@@ -108,5 +110,5 @@ gradle assembleDebug
 | No text selection appears | The PDF may be scanned; use OCR page |
 | Quote card share fails | Use generic Android share sheet as fallback |
 | `adb install -r` reports a signature mismatch | The installed build was signed with a different key; uninstall/reinstall or use the same signing identity |
-| `gradlew` / `gradlew.bat` is missing | Use installed Gradle 8.11.1 until the complete Gradle wrapper is restored |
+| `./gradlew` is missing on Linux/macOS | Use installed Gradle 8.11.1 until the Unix wrapper launcher is restored; Windows can use `gradlew.bat` |
 | Play Console rejects target API level | Verify `targetSdk` still meets Google's current Play requirement and bump it before uploading if the requirement has advanced |
