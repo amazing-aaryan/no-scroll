@@ -33,14 +33,16 @@ Current Android configuration is defined in `app/build.gradle`:
 - Package/application ID: `com.noscroll`
 - Minimum SDK: API 28 / Android 9
 - Compile SDK: API 36
-- Target SDK: API 35
+- Target SDK: API 36 / Android 16
 - Version: `1.0` (`versionCode` 1)
 
 ## Release / beta status
 
 Local debug installation and sideloaded testing do **not** require Google Play registration. Google Play registration/setup is only required when the team wants Google Play to distribute the beta or production app.
 
-As of September 1, 2026, the repository is **not yet ready for a new Google Play beta upload** because Google Play requires new apps and updates submitted after August 31, 2026 to target API 36, while NoScroll currently targets API 35. Release signing also still needs to be configured outside source control before a signed Play bundle can be uploaded.
+As of September 1, 2026, NoScroll targets API 36, resolving the repository's Google Play target-API discrepancy. Google Play requires new apps and updates submitted from August 31, 2026 onward to target Android 16 / API 36 or higher.
+
+Targeting API 36 does not by itself make a Play beta upload-ready. Before the first Play-distributed beta, the team still needs to validate the Android 16 behavior changes on device, configure release/upload signing outside source control, confirm or create the `com.noscroll` Play Console app, and pass the release checklist.
 
 See [`RELEASE.md`](RELEASE.md) for the complete first-beta setup, signing, versioning, update, debug-to-Play migration, and release-gate checklist.
 
@@ -103,4 +105,4 @@ For a fuller pre-beta verification pass:
 | No text selection appears | The PDF may be scanned; use OCR page |
 | Quote card share fails | Use generic Android share sheet as fallback |
 | `adb install -r` reports a signature mismatch | The installed build was signed with a different key; uninstall/reinstall or use the same signing identity |
-| Play Console rejects target API level | Raise `targetSdk` to the current Play requirement before uploading |
+| Play Console rejects target API level | Verify `targetSdk` still meets Google's current Play requirement and bump it before uploading if the requirement has advanced |
