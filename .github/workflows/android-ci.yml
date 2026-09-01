@@ -38,5 +38,16 @@ jobs:
       - name: Verify target API
         run: grep -Eq 'targetSdk[[:space:]]+36' app/build.gradle
 
-      - name: Run unit tests, lint, and debug build
-        run: gradle --no-daemon testDebugUnitTest lintDebug assembleDebug
+      - name: Run unit tests and debug build
+        run: gradle --no-daemon testDebugUnitTest assembleDebug
+
+      - name: Run Android lint
+        run: gradle --no-daemon lintDebug
+
+      - name: Print lint errors
+        if: failure()
+        run: |
+          REPORT="app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt"
+          if [ -f "$REPORT" ]; then
+            cat "$REPORT"
+          fi
