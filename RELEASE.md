@@ -12,7 +12,9 @@ Repository configuration:
 - `targetSdk`: 36 (Android 16)
 - `versionCode`: 1
 - `versionName`: 1.0
+- Declared Gradle distribution: 8.11.1
 - No release `signingConfig` is committed to the repository.
+- The repository has `gradle/wrapper/gradle-wrapper.properties`, but the wrapper scripts/JAR are not currently checked in.
 
 ### Play beta status
 
@@ -36,10 +38,10 @@ No. There are two separate update paths.
 
 A sideloaded build can update an already installed build only when Android considers it the same app. At minimum, the package ID and signing identity must be compatible and the new build must have an acceptable version.
 
-For development, a debug APK can normally replace an existing debug APK signed by the same debug key:
+For development, a debug APK can normally replace an existing debug APK signed by the same debug key. The complete Gradle wrapper is not currently committed, so command-line builds should use installed Gradle 8.11.1:
 
 ```powershell
-.\gradlew.bat assembleDebug
+gradle assembleDebug
 adb install -r app\build\outputs\apk\debug\app-debug.apk
 ```
 
@@ -91,19 +93,21 @@ The exact next `versionCode` must be checked against Play Console before upload.
 
 ## Build and verification gates
 
+CI and command-line verification pin Gradle 8.11.1, matching `gradle/wrapper/gradle-wrapper.properties`. Until the missing wrapper scripts/JAR are restored, use an installed Gradle 8.11.1 rather than `gradlew`/`gradlew.bat`.
+
 Before distributing any beta candidate, run at least:
 
 ```powershell
-.\gradlew.bat clean
-.\gradlew.bat assembleDebug
-.\gradlew.bat test
-.\gradlew.bat check
+gradle clean
+gradle testDebugUnitTest
+gradle lintDebug
+gradle assembleDebug
 ```
 
 After release signing is configured locally/CI, also build the release bundle:
 
 ```powershell
-.\gradlew.bat bundleRelease
+gradle bundleRelease
 ```
 
 A successful build is not enough. Manually regression-test the beta candidate on a physical device, including:
@@ -139,7 +143,7 @@ A candidate is ready to promote only when all of the following are true:
 - [ ] `versionCode` is unique and greater than every prior Play upload.
 - [ ] Release signing is configured outside source control.
 - [ ] `bundleRelease` succeeds.
-- [ ] Unit/check tasks pass.
+- [ ] Unit tests, lint, and debug build pass.
 - [ ] Core blocker and reader regression tests pass on physical hardware.
 - [ ] Android 16 predictive-back and edge-to-edge behavior is verified.
 - [ ] The Play Internal build installs and launches successfully.
