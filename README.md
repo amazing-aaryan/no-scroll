@@ -26,10 +26,28 @@ NoScroll is an Android reading app with an Instagram blocker, a PDF library/read
 5. The reader opens your library or the last active PDF and restores reading progress.
 6. Selected passages can be highlighted, annotated, exported, or turned into quote-card images.
 
+## Platform and package
+
+Current Android configuration is defined in `app/build.gradle`:
+
+- Package/application ID: `com.noscroll`
+- Minimum SDK: API 28 / Android 9
+- Compile SDK: API 36
+- Target SDK: API 35
+- Version: `1.0` (`versionCode` 1)
+
+## Release / beta status
+
+Local debug installation and sideloaded testing do **not** require Google Play registration. Google Play registration/setup is only required when the team wants Google Play to distribute the beta or production app.
+
+As of September 1, 2026, the repository is **not yet ready for a new Google Play beta upload** because Google Play requires new apps and updates submitted after August 31, 2026 to target API 36, while NoScroll currently targets API 35. Release signing also still needs to be configured outside source control before a signed Play bundle can be uploaded.
+
+See [`RELEASE.md`](RELEASE.md) for the complete first-beta setup, signing, versioning, update, debug-to-Play migration, and release-gate checklist.
+
 ## Prerequisites
 
 - Android Studio, including JDK 17: https://developer.android.com/studio
-- Android phone, API 26 / Android 8.0+
+- Android phone, API 28 / Android 9+
 - USB debugging enabled for local install
 - Instagram installed on the phone if testing blocker behavior
 
@@ -40,6 +58,15 @@ Open this folder in Android Studio and run the `app` configuration, or build fro
 ```powershell
 .\gradlew.bat assembleDebug
 adb install -r app\build\outputs\apk\debug\app-debug.apk
+```
+
+For a fuller pre-beta verification pass:
+
+```powershell
+.\gradlew.bat clean
+.\gradlew.bat assembleDebug
+.\gradlew.bat test
+.\gradlew.bat check
 ```
 
 ## First-run setup
@@ -75,3 +102,5 @@ adb install -r app\build\outputs\apk\debug\app-debug.apk
 | PDF fails to open | Re-import the file so NoScroll has a fresh persisted URI |
 | No text selection appears | The PDF may be scanned; use OCR page |
 | Quote card share fails | Use generic Android share sheet as fallback |
+| `adb install -r` reports a signature mismatch | The installed build was signed with a different key; uninstall/reinstall or use the same signing identity |
+| Play Console rejects target API level | Raise `targetSdk` to the current Play requirement before uploading |
