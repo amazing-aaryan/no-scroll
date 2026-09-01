@@ -97,7 +97,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@android:drawable/presence_online"
-                        android:tint="@color/colorAccent"
+                        app:tint="@color/colorAccent"
                         android:visibility="gone"
                         android:contentDescription="Granted" />
 
@@ -180,7 +180,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@android:drawable/presence_online"
-                        android:tint="@color/colorAccent"
+                        app:tint="@color/colorAccent"
                         android:visibility="gone"
                         android:contentDescription="Enabled" />
 
