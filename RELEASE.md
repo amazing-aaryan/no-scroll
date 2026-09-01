@@ -14,7 +14,7 @@ Repository configuration:
 - `versionName`: 1.0
 - Declared Gradle distribution: 8.11.1
 - No release `signingConfig` is committed to the repository.
-- The repository has `gradle/wrapper/gradle-wrapper.properties`, but the wrapper scripts/JAR are not currently checked in.
+- Windows Gradle wrapper launcher (`gradlew.bat`), wrapper JAR, and wrapper properties are present; the Unix `gradlew` launcher is currently missing.
 
 ### Play beta status
 
@@ -38,12 +38,14 @@ No. There are two separate update paths.
 
 A sideloaded build can update an already installed build only when Android considers it the same app. At minimum, the package ID and signing identity must be compatible and the new build must have an acceptable version.
 
-For development, a debug APK can normally replace an existing debug APK signed by the same debug key. The complete Gradle wrapper is not currently committed, so command-line builds should use installed Gradle 8.11.1:
+For development on Windows, a debug APK can normally replace an existing debug APK signed by the same debug key:
 
 ```powershell
-gradle assembleDebug
+.\gradlew.bat assembleDebug
 adb install -r app\build\outputs\apk\debug\app-debug.apk
 ```
+
+On Linux/macOS, the Unix `gradlew` launcher is currently missing. Until it is restored, use an installed Gradle 8.11.1, which matches the wrapper configuration and CI.
 
 A debug APK generated on another computer may use a different debug signing key. In that case Android may reject the in-place update and require uninstall/reinstall.
 
@@ -93,22 +95,24 @@ The exact next `versionCode` must be checked against Play Console before upload.
 
 ## Build and verification gates
 
-CI and command-line verification pin Gradle 8.11.1, matching `gradle/wrapper/gradle-wrapper.properties`. Until the missing wrapper scripts/JAR are restored, use an installed Gradle 8.11.1 rather than `gradlew`/`gradlew.bat`.
+The Windows wrapper and wrapper JAR are present and declare Gradle 8.11.1. CI provisions Gradle 8.11.1 explicitly because the Unix `gradlew` launcher is missing.
 
-Before distributing any beta candidate, run at least:
+Before distributing any beta candidate on Windows, run at least:
 
 ```powershell
-gradle clean
-gradle testDebugUnitTest
-gradle lintDebug
-gradle assembleDebug
+.\gradlew.bat clean
+.\gradlew.bat testDebugUnitTest
+.\gradlew.bat lintDebug
+.\gradlew.bat assembleDebug
 ```
 
 After release signing is configured locally/CI, also build the release bundle:
 
 ```powershell
-gradle bundleRelease
+.\gradlew.bat bundleRelease
 ```
+
+On Linux/macOS use the equivalent `gradle` commands with Gradle 8.11.1 until the Unix wrapper launcher is restored.
 
 A successful build is not enough. Manually regression-test the beta candidate on a physical device, including:
 
