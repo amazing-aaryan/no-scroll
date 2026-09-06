@@ -1,5 +1,9 @@
 """Static packaging contracts; these do not replace an Xcode build."""
 import json
+import os
+import shutil
+import subprocess
+import tempfile
 import pathlib
 import plistlib
 import unittest
@@ -48,6 +52,47 @@ class ProjectTests(unittest.TestCase):
             self.assertNotIn('UIBackgroundModes', info)
             self.assertNotIn('NSCameraUsageDescription', info)
             self.assertNotIn('NSMicrophoneUsageDescription', info)
+
+    def test_mac_verification_resolves_local_package_from_ios_directory(self):
+        # Execute the real orchestration script from an unrelated caller directory,
+        # with only the external Apple tools replaced by harmless recording shims.
+        with tempfile.TemporaryDirectory() as temporary:
+            base = pathlib.Path(temporary)
+            tools = base / 'bin'
+            tools.mkdir()
+            log = base / 'calls.jsonl'
+            python = shutil.which('python3')
+            self.assertIsNotNone(python)
+            shim = """#!PYTHON
+import json, os, pathlib, sys
+name = pathlib.Path(sys.argv[0]).name
+args = sys.argv[1:]
+with open(os.environ['NOSCROLL_TEST_LOG'], 'a') as stream:
+    stream.write(json.dumps({'tool': name, 'args': args, 'cwd': os.getcwd()}) + '\\n')
+if name == 'xcrun':
+    print(json.dumps({'devices': {'com.apple.CoreSimulator.SimRuntime.iOS-26-2': [
+        {'isAvailable': True, 'name': 'iPhone test', 'udid': 'TEST-DEVICE'}]}}))
+elif name == 'python3' and args and args[0] == '-c':
+    os.execv('PYTHON', ['PYTHON'] + args)
+""".replace('PYTHON', python)
+            for name in ['xcodebuild', 'xcodegen', 'swift', 'xcrun', 'python3']:
+                executable = tools / name
+                executable.write_text(shim)
+                executable.chmod(0o755)
+            environment = dict(os.environ, PATH=str(tools) + os.pathsep + os.environ['PATH'],
+                               NOSCROLL_TEST_LOG=str(log))
+            result = subprocess.run(['bash', str(ROOT / 'scripts/verify-macos.sh')],
+                                    cwd=base, env=environment, text=True, capture_output=True, timeout=15)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            calls = [json.loads(line) for line in log.read_text().splitlines()]
+            actual = [call for call in calls if
+                      (call['tool'] == 'xcodegen' and 'generate' in call['args']) or
+                      (call['tool'] == 'xcodebuild' and 'test' in call['args'])]
+            self.assertEqual(len(actual), 2)
+            for call in actual:
+                self.assertEqual(pathlib.Path(call['cwd']).resolve(), ROOT, call)
+                package = ROOT / self.project['packages']['NoScrollCore']['path'] / 'Package.swift'
+                self.assertTrue(package.is_file())
 
     def test_native_tests_are_required(self):
         tests = self.project['schemes']['NoScrollIOS']['test']['targets']

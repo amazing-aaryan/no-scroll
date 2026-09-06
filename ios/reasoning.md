@@ -14,3 +14,8 @@
 **Decision:** Keep recovery explicitly unprotected until an allowed map matches; provide emergency clear and honest unreadable/stale-status messages. Rollback clears a shield only after an effect was actually changed, not after failed preconditions.
 **Why:** Avoid silent protection claims, immediate re-block loops, stale-frame races and accidental removal of an existing restriction on validation failure.
 **Impact:** Local verification passed 34 core tests, four packaging contracts and native Swift syntax parsing. Apple-SDK compilation, actual Vision runtime tests, entitlement behavior and physical Instagram testing require their own evidence. No independent reviewer or graphify executable was available in this runtime; neither review nor graph refresh is claimed.
+
+## [2026-09-05 21:50 America/Chicago] Native CI package-path regression
+**Decision:** Change the verification script into the iOS directory before project generation and `xcodebuild`, and add an orchestration regression test that launches it from an unrelated directory. Update the manual generation instructions accordingly.
+**Why:** macOS CI passed all 34 core tests and four initial packaging checks, then package resolution searched the repository root for `Package.swift` rather than `ios/`. The new orchestration test failed against the prior script and now checks both generator and build working directories.
+**Impact:** The original native CI run failed before Apple-framework compilation. A new run is required; neither native compilation nor Vision runtime success follows from these local checks.

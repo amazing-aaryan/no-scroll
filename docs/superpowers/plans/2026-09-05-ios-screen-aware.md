@@ -44,4 +44,5 @@ Files: `ios/README.md`, `ios/DEVICE_VALIDATION.md`, `ios/reasoning.md`, root iOS
 - [x] Document setup, native-only UX, calibration, capture privacy, stopped-state behavior, optional notification handoff and explicitly unprotected recovery.
 - [x] Review for stale-frame races, write failures, consent bypasses, memory retention and claims exceeding evidence.
 - [x] Run fresh local verification.
-- [ ] Publish a feature branch/PR without merging; check native CI and report exact results and remaining Apple/device gates.
+- [x] Publish draft PR #4 on `feature/ios-screen-aware-prototype` without merging.
+- [ ] Confirm native CI after fixing the package-path regression; report exact results and remaining Apple/device gates.

@@ -2,6 +2,8 @@
 # Builds all embedded extensions and executes actual Vision adapter tests.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# Xcode local-package paths must resolve from the iOS project, not the caller.
+cd "$ROOT"
 command -v xcodebuild >/dev/null || { echo 'A Mac with Xcode is required.' >&2; exit 1; }
 command -v xcodegen >/dev/null || { echo 'Install XcodeGen, then rerun this script.' >&2; exit 1; }
 xcodebuild -version
