@@ -10,7 +10,7 @@ xcodebuild -version
 swift --version
 xcodegen --version
 python3 "$ROOT/scripts/test_project.py"
-swift test --package-path "$ROOT"
+swift test --package-path "$ROOT/Core"
 xcodegen generate --spec "$ROOT/project.json" --project "$ROOT"
 DESTINATION_ID="$(xcrun simctl list devices available -j | python3 -c '
 import json, sys

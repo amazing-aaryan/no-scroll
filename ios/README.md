@@ -21,7 +21,7 @@ brew install xcodegen
 bash ios/scripts/verify-macos.sh
 ```
 
-That script runs the pure Swift tests and five packaging contracts, generates `ios/NoScroll.xcodeproj`, then builds the app and all embedded extensions and runs the three native Vision tests in an iPhone simulator with signing disabled. Native tests use generated patterns, not real Instagram screenshots; they check adapter plumbing only. The GitHub `iOS prototype` workflow runs the same command for relevant PR changes. Inspect the actual run result rather than assuming that adding a workflow means it passed.
+That script runs the pure Swift tests and six packaging contracts, generates `ios/NoScroll.xcodeproj`, then builds the app and all embedded extensions and runs the three native Vision tests in an iPhone simulator with signing disabled. Native tests use generated patterns, not real Instagram screenshots; they check adapter plumbing only. The GitHub `iOS prototype` workflow runs the same command for relevant PR changes. Inspect the actual run result rather than assuming that adding a workflow means it passed.
 
 To generate the project without testing:
 
@@ -33,7 +33,7 @@ open NoScroll.xcodeproj
 
 Run project generation and Xcode build commands from `ios/` so the local package resolves consistently. The verification script changes to this directory automatically, even when called from the repository root.
 
-The generated project is intentionally ignored; `project.json` is the source of truth. No third-party runtime SDK or cloud account is required. The pure core also runs on Linux with `swift test --package-path ios`.
+The core package is isolated in `ios/Core/`; the Xcode project references that directory rather than its own root. The generated project is intentionally ignored; `project.json` is the source of truth. No third-party runtime SDK or cloud account is required. The pure core also runs on Linux with `swift test --package-path ios/Core`.
 
 ## Install on a physical iPhone
 
@@ -65,7 +65,7 @@ Only compact session state, opaque selection tokens and fixed diagnostic codes a
 
 ## Verification and release gates
 
-See [DEVICE_VALIDATION.md](DEVICE_VALIDATION.md) before claiming iPhone support is validated. Local development verified 34 pure Swift tests, five packaging checks and Swift syntax parsing. That is not an Apple-SDK typecheck, physical-device test or Instagram accuracy measurement. Check CI for the native build/test result.
+See [DEVICE_VALIDATION.md](DEVICE_VALIDATION.md) before claiming iPhone support is validated. Local development verified 34 pure Swift tests, six packaging checks and Swift syntax parsing. That is not an Apple-SDK typecheck, physical-device test or Instagram accuracy measurement. Check CI for the native build/test result.
 
 Not included: full Android reader feature parity (highlights, notes, OCR and quote cards), trained layout models, guaranteed messaging preservation, production artwork, App Store assets, distribution approval or an installable signed IPA.
 

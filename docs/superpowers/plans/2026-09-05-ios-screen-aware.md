@@ -16,10 +16,10 @@
 - Navigation recovery is explicitly unprotected until an allowed screen is stably recognized.
 
 ### Task 1: Pure policy, mapping, and storage
-Files: `ios/Package.swift`, `ios/Sources/NoScrollCore/*.swift`, `ios/Tests/NoScrollCoreTests/*.swift`.
+Files: `ios/Core/Package.swift`, `ios/Core/Sources/NoScrollCore/*.swift`, `ios/Core/Tests/NoScrollCoreTests/*.swift`.
 Interfaces: `ScreenProfile`, `ProfileDistances`, `LandmarkClassifier.classify`, `ProtectionEngine.observe`, `ControlState`, `LockedStateStore.withState`.
 - [x] Write failing XCTest cases for safe-profile veto, partial landmark matches, geometry, temporal evidence, late results, recovery and filesystem concurrency.
-- [x] Run `swift test --package-path ios`; record expected missing-feature failures.
+- [x] Run `swift test --package-path ios/Core`; record expected missing-feature failures.
 - [x] Implement those interfaces with no Apple-framework dependency, then run the complete suite.
 - [x] Commit verified core and tests.
 

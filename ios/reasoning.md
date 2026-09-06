@@ -19,3 +19,8 @@
 **Decision:** Change the verification script into the iOS directory before project generation and `xcodebuild`, and add an orchestration regression test that launches it from an unrelated directory. Update the manual generation instructions accordingly.
 **Why:** macOS CI passed all 34 core tests and four initial packaging checks, then package resolution searched the repository root for `Package.swift` rather than `ios/`. The new orchestration test failed against the prior script and now checks both generator and build working directories.
 **Impact:** The original native CI run failed before Apple-framework compilation. A new run is required; neither native compilation nor Vision runtime success follows from these local checks.
+
+## [2026-09-05 22:00 America/Chicago] Separate the Swift package from the Xcode project
+**Decision:** Move the core manifest, sources and tests into `ios/Core/`, point the XcodeGen local package at `Core`, and update build commands and structural regression checks.
+**Why:** The second macOS CI run passed 34 core tests and five orchestration checks but still resolved the `.` local package to the repository parent. Changing the caller's working directory was insufficient; the native compiler has not run yet. A dedicated package directory removes this ambiguous layout.
+**Impact:** Six local packaging checks now cover the dedicated core path. The third native CI run must independently establish Apple-framework compilation and test success; these local checks alone do not do so.

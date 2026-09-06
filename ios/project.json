@@ -21,7 +21,7 @@
   },
   "packages": {
     "NoScrollCore": {
-      "path": "."
+      "path": "Core"
     }
   },
   "targets": {

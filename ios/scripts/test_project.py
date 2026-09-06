@@ -94,6 +94,14 @@ elif name == 'python3' and args and args[0] == '-c':
                 package = ROOT / self.project['packages']['NoScrollCore']['path'] / 'Package.swift'
                 self.assertTrue(package.is_file())
 
+    def test_core_package_has_a_dedicated_project_relative_directory(self):
+        package_path = self.project['packages']['NoScrollCore']['path']
+        self.assertEqual(package_path, 'Core')
+        self.assertTrue((ROOT / package_path / 'Package.swift').is_file())
+        self.assertFalse((ROOT / 'Package.swift').exists())
+        script = (ROOT / 'scripts/verify-macos.sh').read_text()
+        self.assertIn('swift test --package-path "$ROOT/Core"', script)
+
     def test_native_tests_are_required(self):
         tests = self.project['schemes']['NoScrollIOS']['test']['targets']
         self.assertIn('NoScrollNativeTests', tests)
