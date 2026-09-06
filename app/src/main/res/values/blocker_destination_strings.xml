@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blocker_reader_name">NoScroll reader</string>
+    <string name="blocker_reader_description">Continue your book or open your PDF library</string>
+    <string name="blocker_choose_title">Choose your blocker app</string>
+    <string name="blocker_choose_description">Choose what opens when you tap a NoScroll blocker. Read a book or switch to any other launchable app on this device. No book import is required to choose another app.</string>
+    <string name="blocker_opens_label">Blocker opens</string>
+    <string name="blocker_change_app">Change app</string>
+    <string name="blocker_search_apps">Search installed apps</string>
+    <string name="blocker_back">Back</string>
+    <string name="blocker_refresh">Refresh</string>
+    <string name="blocker_no_apps">No matching apps. Try a different search, install or enable an app, then refresh.</string>
+    <string name="blocker_apps_privacy">Your app list and choice stay on this device. Only apps with a launcher entry in this profile are shown. Choosing an app does not disable Instagram blocking.</string>
+    <string name="blocker_destination_unavailable">The selected destination could not be opened. It may have been removed, disabled, or restricted. Choose another app or the NoScroll reader.</string>
+    <string name="blocker_apps_load_failed">Unable to load installed apps. You can still choose the reader or try Refresh.</string>
+    <string name="blocker_open_destination">Open %1$s</string>
+    <string name="blocker_tap_destination">Tap to open %1$s</string>
+    <string name="blocker_destination_hint">Tap to open %1$s. Hold to change app.</string>
+    <string name="blocker_launch_failed">Unable to open your destination. Open NoScroll to change your blocker app.</string>
+</resources>

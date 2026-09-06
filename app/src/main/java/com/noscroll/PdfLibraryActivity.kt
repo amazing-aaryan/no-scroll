@@ -19,6 +19,12 @@ import com.noscroll.data.BookMetadataEntity
 import com.noscroll.metadata.BookMetadataRepository
 import com.noscroll.repository.BookRepository
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import com.noscroll.redirect.AndroidBlockerDestination
+import com.noscroll.redirect.BlockerDestinationActivity
+import com.noscroll.redirect.BlockerDestinationSettingsHost
 import com.noscroll.tutorial.LibraryTutorialSteps
 import com.noscroll.tutorial.TutorialController
 import com.noscroll.tutorial.TutorialPrefs
@@ -30,6 +36,7 @@ class PdfLibraryActivity : AppCompatActivity() {
 
     private val tutorialController = TutorialController()
     private lateinit var tutorialPrefs: TutorialPrefs
+    private var blockerDestinationName by mutableStateOf("")
 
     private val pickPdf = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri ?: return@registerForActivityResult
@@ -56,6 +63,7 @@ class PdfLibraryActivity : AppCompatActivity() {
             identifyWeakLibraryMetadata()
         }
         tutorialPrefs = TutorialPrefs(this)
+        blockerDestinationName = AndroidBlockerDestination(this).displayName()
         setContent {
             NoScrollTheme {
                 LaunchedEffect(Unit) {
@@ -76,65 +84,75 @@ class PdfLibraryActivity : AppCompatActivity() {
                     .observeAll()
                     .collectAsStateWithLifecycle(emptyList())
                     .value
-                LibraryScreen(
-                    books = books,
-                    metadata = metadata,
-                    highlights = highlights,
-                    onImport = { launchPicker() },
-                    onOpen = { book ->
-                        lifecycleScope.launch {
-                            BookRepository.openBook(this@PdfLibraryActivity, book.bookUri)
-                            startActivity(
-                                Intent(this@PdfLibraryActivity, PdfViewerActivity::class.java)
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                            )
-                            finish()
-                        }
-                    },
-                    onFavorite = { book ->
-                        lifecycleScope.launch {
-                            BookRepository.setFavorite(this@PdfLibraryActivity, book.bookUri, !book.isFavorite)
-                        }
-                    },
-                    onIdentify = { book ->
-                        lifecycleScope.launch {
-                            Toast.makeText(this@PdfLibraryActivity, "Identifying book...", Toast.LENGTH_SHORT).show()
-                            try {
-                                val metadata = BookMetadataRepository.resolve(
-                                    context = this@PdfLibraryActivity,
-                                    uri = Uri.parse(book.bookUri),
-                                    document = null,
-                                    allowOnlineOnce = true
+                BlockerDestinationSettingsHost(
+                    destinationName = blockerDestinationName,
+                    onChange = { startActivity(Intent(this@PdfLibraryActivity, BlockerDestinationActivity::class.java)) }
+                ) {
+                    LibraryScreen(
+                        books = books,
+                        metadata = metadata,
+                        highlights = highlights,
+                        onImport = { launchPicker() },
+                        onOpen = { book ->
+                            lifecycleScope.launch {
+                                BookRepository.openBook(this@PdfLibraryActivity, book.bookUri)
+                                startActivity(
+                                    Intent(this@PdfLibraryActivity, PdfViewerActivity::class.java)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                                 )
-                                Toast.makeText(
-                                    this@PdfLibraryActivity,
-                                    "${metadata.title} - ${metadata.author}",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            } catch (e: Exception) {
-                                Toast.makeText(
-                                    this@PdfLibraryActivity,
-                                    "Could not identify this PDF",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                finish()
                             }
+                        },
+                        onFavorite = { book ->
+                            lifecycleScope.launch {
+                                BookRepository.setFavorite(this@PdfLibraryActivity, book.bookUri, !book.isFavorite)
+                            }
+                        },
+                        onIdentify = { book ->
+                            lifecycleScope.launch {
+                                Toast.makeText(this@PdfLibraryActivity, "Identifying book...", Toast.LENGTH_SHORT).show()
+                                try {
+                                    val metadata = BookMetadataRepository.resolve(
+                                        context = this@PdfLibraryActivity,
+                                        uri = Uri.parse(book.bookUri),
+                                        document = null,
+                                        allowOnlineOnce = true
+                                    )
+                                    Toast.makeText(
+                                        this@PdfLibraryActivity,
+                                        "${metadata.title} - ${metadata.author}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                } catch (e: Exception) {
+                                    Toast.makeText(
+                                        this@PdfLibraryActivity,
+                                        "Could not identify this PDF",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        },
+                        onDelete = { book ->
+                            lifecycleScope.launch { BookRepository.delete(this@PdfLibraryActivity, book.bookUri) }
+                        },
+                        onNotebook = {
+                            startActivity(Intent(this@PdfLibraryActivity, NotebookActivity::class.java))
+                        },
+                        tutorialController = tutorialController,
+                        onHelp = {
+                            tutorialPrefs.restartFrom()
+                            tutorialController.start(LibraryTutorialSteps)
+                            tutorialController.onDone = { tutorialPrefs.markLibraryDone() }
                         }
-                    },
-                    onDelete = { book ->
-                        lifecycleScope.launch { BookRepository.delete(this@PdfLibraryActivity, book.bookUri) }
-                    },
-                    onNotebook = {
-                        startActivity(Intent(this@PdfLibraryActivity, NotebookActivity::class.java))
-                    },
-                    tutorialController = tutorialController,
-                    onHelp = {
-                        tutorialPrefs.restartFrom()
-                        tutorialController.start(LibraryTutorialSteps)
-                        tutorialController.onDone = { tutorialPrefs.markLibraryDone() }
-                    }
-                )
+                    )
+                }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        blockerDestinationName = AndroidBlockerDestination(this).displayName()
     }
 
     private fun applyPaperSystemBars() {
