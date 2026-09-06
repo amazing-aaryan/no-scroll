@@ -1,11 +1,12 @@
 # NoScroll
 
-NoScroll is an Android reading app with an Instagram blocker, a PDF library/reader, highlights, and shareable quote cards. It is no longer just a Reels-button replacement: it can block distracting Instagram surfaces and turn the habit into reading, while also working as a standalone reader for any PDF you import.
+NoScroll is an Android Instagram blocker with a configurable destination: tap a blocker to open the built-in PDF reader or another installed app of your choice. Its standalone PDF library, reading progress, highlights, and shareable quote cards remain available, but reading is optional.
 
 ## What is implemented
 
 - Instagram blocking for high-scroll surfaces such as Home and Reels.
-- A system overlay that can either show a book entry point or cover/block distracting content.
+- A system overlay that can show a destination entry point or cover/block distracting content.
+- A searchable installed-app picker with a saved blocker destination; the NoScroll reader remains the default.
 - A local PDF library backed by app-private storage.
 - Import from Android file picker or share sheet.
 - Full-screen PDF reader using AndroidX PDF.
@@ -21,8 +22,8 @@ NoScroll is an Android reading app with an Instagram blocker, a PDF library/read
 
 1. The Accessibility Service watches supported Instagram screens while Instagram is foregrounded.
 2. When a blocked surface is detected, NoScroll computes the content region and asks the overlay service to block it.
-3. Tapping the visible blocker opens the reader.
-4. When a smaller book entry point is used, tapping it also opens the reader.
+3. Tapping the visible blocker opens the saved destination (the reader by default).
+4. The smaller entry point uses the same saved destination and shows its app icon when available.
 5. The reader opens your library or the last active PDF and restores reading progress.
 6. Selected passages can be highlighted, annotated, exported, or turned into quote-card images.
 
@@ -85,12 +86,24 @@ On Linux/macOS until the `gradlew` launcher is restored, use an installed Gradle
 
 ## Using the reader
 
-1. Open NoScroll directly, or tap the blocker while using Instagram.
+1. Open NoScroll directly, or tap the blocker while the NoScroll reader is selected.
 2. Add any PDF from the library.
 3. Open a PDF and read with saved page progress.
 4. Select text to highlight, annotate, or make a quote card.
 5. On scanned pages, use OCR page to extract text for quote/highlight creation.
 6. Share quote cards to friends through Instagram, Messages, or the Android share sheet.
+
+## Choose what opens from the blocker
+
+Open NoScroll and use **Blocker opens → Change app** at the bottom of the library, even when the library is empty. Choose **NoScroll reader** or search for another installed, launchable app. The choice is saved on this device and takes effect the next time either clickable blocker is tapped. No PDF import is required for an external app.
+
+The full blocker also has **Change app**, and holding the small entry point opens the same picker. Canceling the picker leaves the saved choice unchanged. Opening NoScroll from its launcher still opens the library, so you can always change the setting or use the reader.
+
+If the selected app is removed, disabled, or cannot be launched, NoScroll opens the picker with an explanation instead of silently forcing reading. Choosing Instagram itself does not disable its blocking rules. Apps without launcher entries and apps in other or locked profiles are not offered.
+
+Only launcher-intent package visibility is declared; no `QUERY_ALL_PACKAGES` permission is added. The installed-app list and package choice are not uploaded.
+
+See [blocker destination implementation and regression checks](docs/blocker-destination.md).
 
 ## Blocker behavior
 

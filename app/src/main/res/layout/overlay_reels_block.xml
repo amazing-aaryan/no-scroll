@@ -7,41 +7,46 @@
     android:gravity="center"
     android:clickable="true"
     android:focusable="true"
-    android:padding="48dp">
+    android:padding="32dp">
 
     <ImageView
+        android:id="@+id/blocker_destination_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/noscroll_logo_transparent_128"
-        android:contentDescription="Open your book"
+        android:contentDescription="@null"
         android:scaleType="fitCenter"
         android:layout_marginBottom="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NoScroll"
+        android:text="@string/app_name"
         android:textColor="#FBF8F0"
         android:textSize="32sp"
         android:fontFamily="serif"
         android:layout_marginBottom="10dp" />
 
     <TextView
+        android:id="@+id/blocker_destination_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="your book is waiting."
-        android:textColor="#8A8378"
-        android:textSize="14sp"
+        android:text="@string/blocker_reader_name"
+        android:textColor="#C9C2B8"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:fontFamily="sans-serif-light"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="24dp" />
 
-    <TextView
+    <Button
+        android:id="@+id/blocker_change_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tap to open"
-        android:textColor="#4A4540"
-        android:textSize="11sp"
-        android:fontFamily="sans-serif"
-        android:letterSpacing="0.12" />
+        android:minHeight="48dp"
+        android:text="@string/blocker_change_app"
+        android:textColor="#FBF8F0"
+        android:backgroundTint="#36322D" />
 
 </LinearLayout>

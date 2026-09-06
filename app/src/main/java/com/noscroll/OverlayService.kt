@@ -20,6 +20,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
+import android.widget.Toast
+import com.noscroll.redirect.AndroidBlockerDestination
+import com.noscroll.redirect.DestinationLaunchResult
 import androidx.core.app.NotificationCompat
 import com.noscroll.tutorial.TutorialPrefs
 
@@ -118,11 +121,29 @@ class OverlayService : Service() {
         return START_STICKY
     }
 
-    private fun applyIconTint(view: View?) {
-        // Logo drawable is natively white; tint black so it stays visible on the inverted
-        // (light) background. Icon color is fixed; background inversion handles the contrast.
-        val imageView = view?.findViewById<android.widget.ImageView>(R.id.book_icon) ?: return
-        imageView.setColorFilter(Color.BLACK)
+    private fun applyDestinationAppearance(view: View?) {
+        view ?: return
+        val launcher = AndroidBlockerDestination(this)
+        val destination = launcher.preferences.read()
+        // The service receives frequent geometry updates. Resolve labels/icons only when
+        // the selection changes or a new overlay is created, not on every scan.
+        val key = destination.storedPackage.orEmpty()
+        if (view.tag == key) return
+        view.tag = key
+        val label = launcher.displayName(destination)
+        val smallIcon = view.findViewById<android.widget.ImageView>(R.id.book_icon)
+        val image = smallIcon ?: view.findViewById<android.widget.ImageView>(R.id.blocker_destination_icon)
+        val appIcon = launcher.appIcon(destination)
+        image?.apply {
+            clearColorFilter()
+            if (appIcon != null) setImageDrawable(appIcon)
+            else setImageResource(R.drawable.noscroll_logo_transparent_128)
+            if (smallIcon != null && appIcon == null) setColorFilter(Color.BLACK)
+            contentDescription = getString(R.string.blocker_open_destination, label)
+        }
+        view.contentDescription = getString(R.string.blocker_destination_hint, label)
+        view.findViewById<TextView>(R.id.blocker_destination_label)?.text =
+            getString(R.string.blocker_tap_destination, label)
     }
 
     private fun updateOverlay(x: Int, y: Int, w: Int, h: Int, bgColor: Int = Color.BLACK) {
@@ -139,14 +160,14 @@ class OverlayService : Service() {
         if (existing != null && existing.x == x && existing.y == y &&
             existing.width == w && existing.height == h) {
             overlayView?.setBackgroundColor(invertedBg)
-            applyIconTint(overlayView)
+            applyDestinationAppearance(overlayView)
             return
         }
         removeOverlayView()
 
         val view = LayoutInflater.from(this).inflate(R.layout.overlay_book, null)
         view.setBackgroundColor(invertedBg)
-        applyIconTint(view)
+        applyDestinationAppearance(view)
         val params = WindowManager.LayoutParams(
             w, h,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
@@ -159,12 +180,8 @@ class OverlayService : Service() {
             this.y = y
         }
 
-        view.setOnClickListener {
-            startActivity(
-                Intent(this, PdfViewerActivity::class.java)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            )
-        }
+        view.setOnClickListener { launchDestination() }
+        view.setOnLongClickListener { chooseDestination(); true }
 
         try {
             windowManager?.addView(view, params)
@@ -191,7 +208,7 @@ class OverlayService : Service() {
         val dp16 = (16 * dm.density).toInt()
 
         val tooltip = TextView(this).apply {
-            text = "Tap to open your book"
+            text = getString(R.string.blocker_destination_hint, AndroidBlockerDestination(this@OverlayService).displayName())
             setTextColor(Color.parseColor("#171615"))
             textSize = 13f
             setPadding(dp16, dp12, dp16, dp12)
@@ -250,6 +267,7 @@ class OverlayService : Service() {
         val overlayFlags = blockRegionFlags()
         val existing = overlayView?.layoutParams as? WindowManager.LayoutParams
         if (existing != null) {
+            if (visible) applyDestinationAppearance(overlayView)
             var changed = false
             if (existing.x != x || existing.y != y || existing.width != w || existing.height != h) {
                 existing.x = x
@@ -273,7 +291,10 @@ class OverlayService : Service() {
                 alpha = 1f
                 isClickable = true
                 isFocusable = false
-                setOnClickListener { launchReader() }
+                applyDestinationAppearance(this)
+                setOnClickListener { launchDestination() }
+                setOnLongClickListener { chooseDestination(); true }
+                findViewById<View>(R.id.blocker_change_app).setOnClickListener { chooseDestination() }
             }
         } else {
             View(this).apply {
@@ -311,12 +332,18 @@ class OverlayService : Service() {
         }
     }
 
-    private fun launchReader() {
-        removeOverlayView()
-        startActivity(
-            Intent(this, PdfViewerActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        )
+    private fun launchDestination() {
+        val result = AndroidBlockerDestination(this).openSelected()
+        if (result != DestinationLaunchResult.FAILED) {
+            removeOverlayView()
+        } else {
+            Toast.makeText(this, R.string.blocker_launch_failed, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun chooseDestination() {
+        if (AndroidBlockerDestination(this).showChooser()) removeOverlayView()
+        else Toast.makeText(this, R.string.blocker_launch_failed, Toast.LENGTH_LONG).show()
     }
 
     private fun removeOverlayView() {
