@@ -2,13 +2,14 @@
 
 ## What It Is
 
-NoScroll is an Android reading app that combines three things:
+NoScroll is an Android app that lets users replace distracting Instagram scrolling with an activity of their choice. It combines:
 
 - A blocker for distracting Instagram scroll surfaces.
+- A configurable blocker destination: the built-in reader or another installed, launchable app.
 - A full PDF library and reader for any imported PDF.
 - A quote-sharing workflow that turns passages into polished image cards for friends.
 
-The product is more than a blocker. The blocker creates the reading moment, the reader makes PDFs usable, and quote cards make good passages easy to share.
+Reading is optional. The blocker creates a pause and opens the user's chosen destination; the reader and quote cards remain available as standalone features.
 
 ---
 
@@ -17,8 +18,9 @@ The product is more than a blocker. The blocker creates the reading moment, the 
 NoScroll no longer depends on intercepting only the Reels button. Current behavior is broader:
 
 - It can block whole distracting Instagram content regions.
-- It can still show a book entry point where appropriate.
-- It opens a real reader/library, not a single hardcoded PDF.
+- It can still show a smaller destination entry point where appropriate.
+- Both clickable overlays open the saved destination: the NoScroll reader by default, or another launchable app chosen by the user.
+- No PDF import is required to choose an external app.
 - It supports reading any PDF the user imports.
 - It supports highlights, notes, OCR fallback, and quote sharing.
 
@@ -29,7 +31,7 @@ NoScroll no longer depends on intercepting only the Reels button. Current behavi
 NoScroll uses two Android capabilities:
 
 1. **Accessibility Service** - watches Instagram UI state while Instagram is foregrounded.
-2. **Display Over Other Apps** - draws the NoScroll blocker or reader entry point over Instagram.
+2. **Display Over Other Apps** - draws the NoScroll blocker or destination entry point over Instagram.
 
 Implemented blocker behavior:
 
@@ -42,7 +44,17 @@ Implemented blocker behavior:
 - Rolls back blocked scroll attempts where supported by the accessibility tree.
 - Uses a foreground overlay service with permission checks to avoid restart loops when overlay permission is missing.
 
-The blocker is a habit boundary: when the user hits a scroll surface, NoScroll puts reading in the way.
+The blocker is a habit boundary: when the user hits a scroll surface, NoScroll offers their chosen alternative without requiring reading.
+
+### Choosing the destination
+
+The library includes **Blocker opens / Change app**, even with an empty library. The full blocker has a **Change app** button, and holding either clickable overlay opens the same searchable picker. Selection saves locally and applies to the next blocker tap; canceling leaves the current choice unchanged.
+
+Users may choose the NoScroll reader or any other enabled, launchable app visible in the current Android profile. The picker is not restricted to reading or productivity categories. NoScroll itself is represented by the reader option. Selecting Instagram does not disable its blocking rules.
+
+The blocker displays the destination name and app icon where available. If an external destination cannot be opened, the picker explains the problem and lets the user choose again rather than silently forcing reading. Directly opening NoScroll still opens its library, so settings and books remain accessible.
+
+App discovery uses a scoped launcher-intent package query, not `QUERY_ALL_PACKAGES`. App lists and the selected package are not uploaded. See [implementation and device regression checklist](docs/blocker-destination.md).
 
 ---
 
@@ -166,7 +178,7 @@ Implemented sources include:
 ## UI / Design System
 
 - Kotlin Android app.
-- Jetpack Compose for major app surfaces such as library/notebook/quote preview.
+- Jetpack Compose for major app surfaces such as library/notebook/quote preview and the blocker app picker.
 - XML/View interop for reader host and overlay layouts.
 - Material 3 where required by AndroidX PDF viewer components.
 - Paper-inspired reading UI with warm surfaces and restrained controls.
@@ -184,6 +196,7 @@ Implemented sources include:
 | Local storage | Room + app-private file storage |
 | Metadata/network | OkHttp + book metadata APIs |
 | Blocker | AccessibilityService + foreground OverlayService |
+| Blocker destination | SharedPreferences + launcher-intent package discovery + shared launch router |
 | Sharing | Canvas bitmap + FileProvider URI + Android intents |
 
 ---
@@ -193,13 +206,15 @@ Implemented sources include:
 | Permission | Why |
 |------------|-----|
 | Accessibility Service | Detect supported Instagram surfaces and blocker state |
-| SYSTEM_ALERT_WINDOW | Draw blocker or reader entry point over Instagram |
+| SYSTEM_ALERT_WINDOW | Draw blocker or destination entry point over Instagram |
 | Foreground service | Keep overlay service alive while Instagram is active |
 | Storage/file access via picker | Import user-selected PDFs |
 | INTERNET | Optional book metadata lookup and online book search |
+
+The blocker app picker adds scoped package visibility, not a new runtime permission.
 
 ---
 
 ## Value Proposition
 
-NoScroll turns scroll reflex into a reading path. It blocks the worst scroll surfaces, lets users read any PDF, saves useful passages, and makes sharing a quote as easy as sharing social content.
+NoScroll turns the scroll reflex into a deliberate choice. Users can switch to an app they choose or read with the built-in PDF reader. Reading remains fully supported, including saved progress, useful passages, and shareable quotes, without being mandatory.
